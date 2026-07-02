@@ -1,0 +1,87 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "type": "carousel",
+      "date": "07/02/2026",
+      "time": "9:00 AM",
+      "caption": "",
+      "assetPath": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/carousel-routine/output/2026-07-01/carousel-branded/startup-strategy-carousel.pdf",
+      "title": "The day an AI vanished in 90 minutes"
+    },
+    {
+      "id": 2,
+      "type": "infographic",
+      "date": "07/02/2026",
+      "time": "12:00 PM",
+      "caption": "",
+      "assetPath": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/linkedin-infographic-20260701.png"
+    },
+    {
+      "id": 3,
+      "type": "regular",
+      "date": "07/02/2026",
+      "time": "3:00 PM",
+      "caption": ""
+    },
+    {
+      "id": 4,
+      "type": "poll",
+      "date": "07/02/2026",
+      "time": "6:00 PM",
+      "caption": "",
+      "title": "What would you do?",
+      "pollOptionsStr": ""
+    },
+    {
+      "id": 5,
+      "type": "regular",
+      "date": "07/03/2026",
+      "time": "9:00 AM",
+      "caption": ""
+    },
+    {
+      "id": 6,
+      "type": "regular",
+      "date": "07/03/2026",
+      "time": "12:00 PM",
+      "caption": ""
+    },
+    {
+      "id": 7,
+      "type": "regular",
+      "date": "07/03/2026",
+      "time": "3:00 PM",
+      "caption": ""
+    },
+    {
+      "id": 8,
+      "type": "regular",
+      "date": "07/03/2026",
+      "time": "6:00 PM",
+      "caption": ""
+    },
+    {
+      "id": 9,
+      "type": "regular",
+      "date": "07/04/2026",
+      "time": "9:00 AM",
+      "caption": ""
+    },
+    {
+      "id": 10,
+      "type": "regular",
+      "date": "07/04/2026",
+      "time": "12:00 PM",
+      "caption": ""
+    },
+    {
+      "id": 11,
+      "type": "regular",
+      "date": "07/04/2026",
+      "time": "3:00 PM",
+      "caption": ""
+    }
+  ],
+  "generated": "2026-07-01"
+}

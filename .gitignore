@@ -1,0 +1,22 @@
+# Secrets
+.env
+.env.*
+
+# Dependencies
+node_modules/
+carousel-routine/node_modules/
+
+# Runtime / generated outputs
+slack_downloads/
+*.log
+error_screenshot.png
+schedule_run.log
+
+# OS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/

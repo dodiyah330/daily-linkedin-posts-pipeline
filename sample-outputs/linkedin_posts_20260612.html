@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Daily Founder — 2026-06-12</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Instrument+Serif:ital,wght@0,400;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+        background-color: #FAF9F5;
+        color: #141413;
+        font-family: 'Inter', sans-serif;
+        line-height: 1.6;
+        padding: 40px 20px;
+    }
+    .container {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+    
+    /* Newspaper Header */
+    .paper-header {
+        border-bottom: 2px solid #141413;
+        padding-bottom: 20px;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    .header-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        padding-bottom: 15px;
+        margin-bottom: 10px;
+    }
+    .issue-no {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-weight: 800;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    .logo {
+        font-family: 'Instrument Serif', serif;
+        font-size: 64px;
+        font-weight: 400;
+        font-style: italic;
+        line-height: 1;
+        color: #d97757;
+    }
+    .source-tag {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-weight: 800;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    .header-meta {
+        display: flex;
+        justify-content: space-between;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #666;
+        letter-spacing: 1px;
+    }
+    
+    /* Layout Grid */
+    .paper-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 40px;
+    }
+    
+    .main-column {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+    .side-column {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        border-left: 1px solid rgba(0, 0, 0, 0.08);
+        padding-left: 40px;
+    }
+    
+    /* Section Titles */
+    .section-title {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 18px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border-bottom: 2px solid #141413;
+        padding-bottom: 8px;
+        margin-bottom: 25px;
+        color: #d97757;
+    }
+    
+    /* Article Card */
+    .article {
+        background: #FFF;
+        border: 1px solid #E5E4DE;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.01);
+        position: relative;
+    }
+    .article-header {
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    .article-badge {
+        background-color: rgba(217, 119, 87, 0.1);
+        color: #d97757;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    .article-title {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 26px;
+        font-weight: 800;
+        line-height: 1.25;
+        letter-spacing: -0.5px;
+        color: #141413;
+        margin-top: 8px;
+    }
+    .article-body {
+        font-family: 'Inter', sans-serif;
+        font-size: 16px;
+        line-height: 1.65;
+        color: #2a2a2a;
+        white-space: pre-wrap;
+        margin-bottom: 25px;
+    }
+    .article-body p {
+        margin-bottom: 16px;
+    }
+    .article-meta {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 12px;
+        color: #888;
+        border-top: 1px dashed rgba(0,0,0,0.08);
+        padding-top: 15px;
+        white-space: pre-wrap;
+    }
+    
+    /* Action Buttons */
+    .btn-copy {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background-color: #141413;
+        color: #FAF9F5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 13px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    .btn-copy:hover {
+        background-color: #d97757;
+    }
+    .btn-copy.copied {
+        background-color: #489953;
+    }
+    
+    /* Infographic Preview */
+    .infographic-preview img {
+        width: 100%;
+        border-radius: 12px;
+        border: 1px solid #E5E4DE;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        margin-top: 15px;
+    }
+    
+    /* Slides Container */
+    .slides-preview {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 20px;
+    }
+    .slide-card {
+        position: relative;
+    }
+    .slide-label {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background-color: rgba(20,20,20,0.8);
+        color: #FFF;
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        z-index: 10;
+    }
+    .slide-card img {
+        width: 100%;
+        border-radius: 12px;
+        border: 1px solid #E5E4DE;
+    }
+    
+    /* Responsive Grid */
+    @media (max-width: 1100px) {
+        .paper-grid {
+            grid-template-columns: 1fr;
+        }
+        .side-column {
+            border-left: none;
+            padding-left: 0;
+        }
+    }
+    
+    /* Print Styles for PDF Generation */
+    @media print {
+        body {
+            background-color: #FAF9F5 !important;
+            padding: 0 !important;
+            color: #141413 !important;
+        }
+        .container {
+            max-width: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        .btn-copy {
+            display: none !important;
+        }
+        .paper-grid {
+            display: block !important;
+        }
+        .main-column, .side-column {
+            width: 100% !important;
+            border-left: none !important;
+            padding-left: 0 !important;
+            gap: 20px !important;
+        }
+        .article {
+            page-break-inside: avoid !important;
+            break-inside: avoid !important;
+            border: 1px solid #E5E4DE !important;
+            background: #FFF !important;
+            box-shadow: none !important;
+            margin-bottom: 15px !important;
+            padding: 20px !important;
+        }
+        .slides-preview, .infographic-preview {
+            page-break-inside: avoid !important;
+            break-inside: avoid !important;
+        }
+        h1, h2, h3, .section-title {
+            page-break-after: avoid !important;
+            break-after: avoid !important;
+        }
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <header class="paper-header">
+        <div class="header-top">
+            <span class="issue-no">ISSUE NO. 20260612</span>
+            <h1 class="logo">The Daily Founder</h1>
+            <span class="source-tag">FOUNDERS WING</span>
+        </div>
+        <div class="header-meta">
+            <span>DATE: 2026-06-12</span>
+            <span>EDITION: LINKEDIN DAILY SHEET</span>
+            <span>STATUS: GENERATED SUCCESSFULLY</span>
+        </div>
+    </header>
+
+    <div class="paper-grid">
+        <!-- Main Column: Posts -->
+        <main class="main-column">
+            <div class="section-title">Core Discussion & Poll</div>
+            
+            <!-- Collaborative Article -->
+            <article class="article">
+                <div class="article-header">
+                    <div>
+                        <span class="article-badge">01. Collaborative Article</span>
+                        <h2 class="article-title">Collaborative Discussion</h2>
+                    </div>
+                    <button class="btn-copy" onclick="copyToClipboard('text-collab', this)">Copy Post</button>
+                </div>
+                <div class="article-body" id="text-collab">A silent crisis is happening across the startup community that nobody discusses on social media feeds. The founders who are actually struggling the most stay completely silent.
+
+They carry the weight of failing metrics, cash runway issues, and operational bottlenecks alone. They cannot share their fears online because their team, their investors, and their competitors are all watching. They perform success publicly while handling the real pressure privately.
+
+Building a closed circle of three peer founders who share no overlap in markets provides a safe release. Having weekly checkout calls to share raw numbers and worries removes the isolation of the founder role.
+
+Moving from isolation to shared reality lowers the mental load and prevents burnout. Founders get practical advice from peers who face the same pressure, leading to better decisions.
+
+How do solo founders build a safe support network that does not compromise their business reputation?
+
+Follow @founderswing for more insights.</div>
+            </article>
+            
+            <!-- Poll -->
+            <article class="article">
+                <div class="article-header">
+                    <div>
+                        <span class="article-badge">02. Engagement Poll</span>
+                        <h2 class="article-title">Engagement Poll</h2>
+                    </div>
+                    <button class="btn-copy" onclick="copyToClipboard('text-poll', this)">Copy Post</button>
+                </div>
+                <div class="article-body" id="text-poll">Most businesses copy what everyone else is doing, and very few are willing to step into uncharted territory. Innovation suffers when founders focus entirely on immediate cash pressure. They ignore building a unique connection.
+
+When teams operate from a stress mindset, they replicate existing models. They spend their energy trying to win a price war. They do not make their clients feel amazing.
+
+Shifting from a transaction focus to an emotional design focus reveals gaps that competitors ignore.
+
+Creating an experience that customers love builds natural loyalty. The business stands out in a crowded market, making competition irrelevant.
+
+What is the biggest barrier to innovation in early stage startups?
+
+☐ Pure money panic mindset
+☐ Slow execution by teams
+☐ Fear of competitor copycats
+☐ Lack of customer feedback
+
+Share a story of how your team breaks out of copycat cycles in the comments.</div>
+            </article>
+
+            <div class="section-title">Plain-Text AI News Curation</div>
+            
+            <!-- AI News Posts -->
+            
+            <article class="article" style="margin-bottom: 20px;">
+                <div class="article-header">
+                    <div>
+                        <span class="article-badge">Tool Spotlight</span>
+                    </div>
+                    <button class="btn-copy" onclick="copyToClipboard('text-post-1', this)">Copy Post</button>
+                </div>
+                <div class="article-body" id="text-post-1">A new video generation tool is targeting regional markets by lowering production costs to a fraction of a cent. Distilled video models are making high quality content accessible for local businesses.
+
+Small business owners struggle to afford expensive commercial video generation. Standard tools cost too much for businesses operating at regional scale.
+
+Using specialized, distilled models reduces the cost of video creation to half a cent per second. Businesses can generate localized marketing assets without high software costs.
+
+Local brands can launch video campaigns on social platforms, reaching new customers without a large marketing budget.
+
+Will ultra cheap video tools help small local shops compete with national brands?
+
+Follow @founderswing for more tools.</div>
+                <div class="article-meta">Tool featured: Avataar Video AI
+Source: TechCrunch AI
+Archetype: Tool Spotlight | Emotion: WOW
+Why this works: It highlights a highly cost-effective tool built for regional scale.
+Word count: 114 words</div>
+            </article>
+            
+            <article class="article" style="margin-bottom: 20px;">
+                <div class="article-header">
+                    <div>
+                        <span class="article-badge">Weekly Roundup</span>
+                    </div>
+                    <button class="btn-copy" onclick="copyToClipboard('text-post-2', this)">Copy Post</button>
+                </div>
+                <div class="article-body" id="text-post-2">Major funding rounds are reshaping the technology sector this week. Physical AI, space systems, and model developers are securing billions from public and private investors.
+
+Following every individual funding announcement takes hours of reading. The rapid pace of deals makes it hard to see where the capital is actually flowing.
+
+Focus on the largest movements. Mistral is raising three billion euros. Jeff Bezos is backing physical AI with a twelve billion dollar round. SpaceX officially priced its shares for its public market entry.
+
+Understanding where the billions are going helps founders spot emerging hardware and infrastructure opportunities early.
+
+Which of these massive funding rounds will have the biggest long term impact?
+
+Save this post to track today's funding trends.</div>
+                <div class="article-meta">Tools/stories featured: Mistral, Jeff Bezos's Prometheus, SpaceX, Theker, OpenAI
+Source: TechCrunch AI
+Archetype: Weekly Roundup | Emotion: OHHH
+Why this works: Condenses massive financial deals into a single clear summary.
+Word count: 124 words</div>
+            </article>
+            
+            <article class="article" style="margin-bottom: 20px;">
+                <div class="article-header">
+                    <div>
+                        <span class="article-badge">Plain English Breakdown</span>
+                    </div>
+                    <button class="btn-copy" onclick="copyToClipboard('text-post-3', this)">Copy Post</button>
+                </div>
+                <div class="article-body" id="text-post-3">A physical AI company just raised twelve billion dollars to automate heavy engineering tasks. The goal is to build a system that acts as a general engineer for the physical world and medicine design.
+
+Software AI cannot interact with real factories or labs. Replicating human physical coordination requires massive compute and hardware integration.
+
+The company is training systems on physical world physics and chemical properties. This allows the AI to predict how molecules and materials behave in real situations.
+
+Heavy industries and drug developers can automate designs in weeks instead of years, lowering the cost of physical innovation.
+
+The main limitation is that real world testing still requires physical validation, meaning software speed will always hit a hardware bottleneck.
+
+How soon will physical AI systems run manufacturing plants without human supervision?
+
+Follow @founderswing for more breakdowns.</div>
+                <div class="article-meta">Tools/stories featured: Prometheus (Jeff Bezos)
+Source: TechCrunch AI
+Archetype: Plain English Breakdown | Emotion: OHHH
+Why this works: Explains a complex physical AI announcement and notes a realistic hardware limitation.
+Word count: 138 words</div>
+            </article>
+            
+            <article class="article" style="margin-bottom: 20px;">
+                <div class="article-header">
+                    <div>
+                        <span class="article-badge">Unfair Advantage</span>
+                    </div>
+                    <button class="btn-copy" onclick="copyToClipboard('text-post-4', this)">Copy Post</button>
+                </div>
+                <div class="article-body" id="text-post-4">Generating video content at half a cent per second is a massive advantage for bootstrapped startups. Distilled video models are removing the financial barrier to visual marketing.
+
+Most visual tools charge high monthly subscription fees before a startup has any paying users. This burns through early capital.
+
+Startups can use pay-as-you-go distilled models to generate ads. Platforms like FounderWing help connect founders with these cost-effective infrastructure tools.
+
+Solo founders can run video ad campaigns, test different messages, and find product market fit without software debt.
+
+What is your preferred budget-friendly tool for creating startup marketing videos?
+
+Follow @founderswing for more advantages.</div>
+                <div class="article-meta">Tools/stories featured: Avataar Video AI, FounderWing
+Source: TechCrunch AI
+Archetype: Unfair Advantage | Emotion: WOW
+Why this works: Connects a cheap video generation tool with startup launch workflows and naturally mentions FounderWing.
+Word count: 118 words</div>
+            </article>
+            
+            <article class="article" style="margin-bottom: 20px;">
+                <div class="article-header">
+                    <div>
+                        <span class="article-badge">Career/Income</span>
+                    </div>
+                    <button class="btn-copy" onclick="copyToClipboard('text-post-5', this)">Copy Post</button>
+                </div>
+                <div class="article-body" id="text-post-5">The rise of factory robots that do not specialize in single tasks is shifting manufacturing roles. Reconfigurable machines are changing how physical production is managed.
+
+Traditional assembly lines require expensive reprogramming for every new product. This keeps manufacturing out of reach for small hardware startups.
+
+Workers are moving from manual assembly to robot fleet management. Learning how to configure and monitor general purpose robots creates a high paying career path.
+
+Hardware startups can launch products from local micro-factories, lowering shipping costs and scaling production dynamically.
+
+Will general purpose robots bring manufacturing back to local communities?
+
+Save this post to reference hardware trends.</div>
+                <div class="article-meta">Tools/stories featured: Theker Robots
+Source: TechCrunch AI
+Archetype: Career/Income | Emotion: AHA
+Why this works: Explains a career shift from physical labor to robot fleet configuration.
+Word count: 114 words</div>
+            </article>
+            
+            <article class="article" style="margin-bottom: 20px;">
+                <div class="article-header">
+                    <div>
+                        <span class="article-badge">Hot Take</span>
+                    </div>
+                    <button class="btn-copy" onclick="copyToClipboard('text-post-6', this)">Copy Post</button>
+                </div>
+                <div class="article-body" id="text-post-6">The upcoming public market listings for massive space and AI firms is a stress test for private valuations. The era of high private markups without public scrutiny is ending.
+
+Private investors have marked up company valuations for years. When these firms list publicly, the market often corrects these numbers down.
+
+Watch how public markets value AI companies. Platforms like FounderWing track how these listings affect early stage startup valuations and VC funding access.
+
+More realistic valuations bring stability to the startup market, making it easier for founders to raise rounds based on actual revenue.
+
+Will public market listings lower the inflated valuations of private AI firms?
+
+Follow @founderswing for more takes.</div>
+                <div class="article-meta">Tools/stories featured: SpaceX, OpenAI, Anthropic, FounderWing
+Source: TechCrunch AI
+Archetype: Hot Take | Emotion: THINK
+Why this works: Offers a contrarian take on public listings and naturally mentions FounderWing.
+Word count: 119 words</div>
+            </article>
+            
+            <article class="article" style="margin-bottom: 20px;">
+                <div class="article-header">
+                    <div>
+                        <span class="article-badge">Steal This</span>
+                    </div>
+                    <button class="btn-copy" onclick="copyToClipboard('text-post-7', this)">Copy Post</button>
+                </div>
+                <div class="article-body" id="text-post-7">Use this three-step prompt workflow to validate your startup ideas using search autocomplete data. Stop building products before you know if anyone is searching for them.
+
+Founders spend months building software that nobody wants. They rely on vibes instead of search data.
+
+Run this analysis before writing code:
+
+"Act as a market researcher. Analyze this startup idea: [Insert Idea].
+1. Identify 5 autocomplete search terms related to this idea.
+2. List 3 niche variations that target a specific audience.
+3. Outline the search interest trend for these variations."
+
+You find a specific, uncrowded niche with active search volume, turning a guess into a product strategy.
+
+What niche variation will you test using this validation prompt today?
+
+Save this prompt to use on your next idea.</div>
+                <div class="article-meta">What's being shared: Autocomplete Validation Prompt
+Source: Reddit /r/entrepreneur
+Archetype: Steal This | Emotion: WOW
+Why this works: Provides a clear, copy-pasteable validation prompt under 120 words.
+Word count: 119 words</div>
+            </article>
+            
+        </main>
+        
+        <!-- Side Column: Previews -->
+        <aside class="side-column">
+            <!-- Infographic Section -->
+            <div>
+                <div class="section-title">Infographic</div>
+                <article class="article">
+                    <div class="article-header">
+                        <div>
+                            <span class="article-badge">04. Infographic Caption</span>
+                        </div>
+                        <button class="btn-copy" onclick="copyToClipboard('text-info-caption', this)">Copy Caption</button>
+                    </div>
+                    <div class="article-body" id="text-info-caption" style="font-size: 14px;">Mistral is rumored to be raising a new funding round at a twenty billion dollar valuation. This is nearly double its series C valuation from last year. The rapid rise of European AI model developers highlights how fast capital is shifting to compete with US firms. Shifting from seed stage to a multi billion dollar player in under three years is a massive growth timeline.
+
+What is the biggest hurdle for new AI firms raising capital at high valuations?
+
+Follow @founderswing for more data.</div>
+                    <div class="article-meta" style="font-size: 11px;">.</div>
+                    <div class="infographic-preview">
+                        <img src="file:///Users/prithal/3d website/linkedin-automation-routine/linkedin-infographic-20260612.png" alt="Infographic Preview">
+                    </div>
+                </article>
+            </div>
+            
+            <!-- Carousel Section -->
+            <div>
+                <div class="section-title">Carousel Slides</div>
+                <article class="article">
+                    <div class="article-header">
+                        <div>
+                            <span class="article-badge">03. Carousel Caption</span>
+                        </div>
+                        <button class="btn-copy" onclick="copyToClipboard('text-carousel-caption', this)">Copy Caption</button>
+                    </div>
+                    <div class="article-body" id="text-carousel-caption" style="font-size: 14px;">Spending weeks building an idea without validation leads to wasted time. Successful founders check demand, supply, and saturation before writing code. Autocomplete searches and shopping trends offer free, reliable indicators of buying intent.
+
+How do you validate a new product idea before building?
+
+Follow @founderswing for more.</div>
+                    <div class="article-meta" style="margin-bottom: 20px;">
+                        <a href="file:///Users/prithal/3d website/linkedin-automation-routine/carousel-routine/output/2026-06-12/carousel-branded/startup-strategy-carousel.pdf" target="_blank" style="color: #d97757; font-weight: 700; text-decoration: none;">Download Carousel PDF ↗</a>
+                    </div>
+                    <div class="slides-preview">
+                        
+        <div class="slide-card">
+            <span class="slide-label">Slide 1</span>
+            <img src="file:///Users/prithal/3d website/linkedin-automation-routine/carousel-routine/output/2026-06-12/carousel-branded/slide-01.png" alt="Slide 1" onerror="this.style.display='none';">
+        </div>
+        
+        <div class="slide-card">
+            <span class="slide-label">Slide 2</span>
+            <img src="file:///Users/prithal/3d website/linkedin-automation-routine/carousel-routine/output/2026-06-12/carousel-branded/slide-02.png" alt="Slide 2" onerror="this.style.display='none';">
+        </div>
+        
+        <div class="slide-card">
+            <span class="slide-label">Slide 3</span>
+            <img src="file:///Users/prithal/3d website/linkedin-automation-routine/carousel-routine/output/2026-06-12/carousel-branded/slide-03.png" alt="Slide 3" onerror="this.style.display='none';">
+        </div>
+        
+        <div class="slide-card">
+            <span class="slide-label">Slide 4</span>
+            <img src="file:///Users/prithal/3d website/linkedin-automation-routine/carousel-routine/output/2026-06-12/carousel-branded/slide-04.png" alt="Slide 4" onerror="this.style.display='none';">
+        </div>
+        
+        <div class="slide-card">
+            <span class="slide-label">Slide 5</span>
+            <img src="file:///Users/prithal/3d website/linkedin-automation-routine/carousel-routine/output/2026-06-12/carousel-branded/slide-05.png" alt="Slide 5" onerror="this.style.display='none';">
+        </div>
+        
+        <div class="slide-card">
+            <span class="slide-label">Slide 6</span>
+            <img src="file:///Users/prithal/3d website/linkedin-automation-routine/carousel-routine/output/2026-06-12/carousel-branded/slide-06.png" alt="Slide 6" onerror="this.style.display='none';">
+        </div>
+        
+        <div class="slide-card">
+            <span class="slide-label">Slide 7</span>
+            <img src="file:///Users/prithal/3d website/linkedin-automation-routine/carousel-routine/output/2026-06-12/carousel-branded/slide-07.png" alt="Slide 7" onerror="this.style.display='none';">
+        </div>
+        
+                    </div>
+                </article>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<script>
+function copyToClipboard(textId, buttonEl) {
+    const el = document.getElementById(textId);
+    // Extract innerText or innerHTML depending on formatting
+    let text = el.innerText || el.textContent;
+    
+    // Fallback split for headers
+    if (textId === 'text-collab' || textId === 'text-poll') {
+        // strip header line
+        const lines = text.split('\n');
+        if (lines[0].startsWith('Headline:')) {
+            text = lines.slice(1).join('\n').trim();
+        }
+    }
+    
+    navigator.clipboard.writeText(text.trim()).then(() => {
+        const originalText = buttonEl.innerHTML;
+        buttonEl.innerHTML = "✓ Copied!";
+        buttonEl.classList.add("copied");
+        buttonEl.style.backgroundColor = "#489953";
+        setTimeout(() => {
+            buttonEl.innerHTML = originalText;
+            buttonEl.classList.remove("copied");
+            buttonEl.style.backgroundColor = "#141413";
+        }, 1500);
+    }).catch(err => {
+        console.error('Could not copy text: ', err);
+    });
+}
+</script>
+</body>
+</html>

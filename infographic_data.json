@@ -1,0 +1,32 @@
+{
+  "title_main": "AI-heavy companies",
+  "title_span": "grew headcount",
+  "subtitle": "Heavy AI adopters expanded teams while most assumed AI would shrink them",
+  "badge": "\ud83d\udcca Future of work",
+  "date_label": "July 2026 Report",
+  "takeaway_num": "10.2%",
+  "takeaway_text": "Headcount rose at the heaviest AI adopters; entry-level roles grew 12%",
+  "source": "Source: workplace AI adoption reports | @founderswing",
+  "bars": [
+    {
+      "label": "Headcount growth (heavy AI adopters)",
+      "value": "10.2%",
+      "color": "#5E6AD2"
+    },
+    {
+      "label": "Entry-level role growth",
+      "value": "12%",
+      "color": "#D9785B"
+    },
+    {
+      "label": "Workers using AI at work",
+      "value": "80%",
+      "color": "#E8A33D"
+    },
+    {
+      "label": "Using AI on real revenue work",
+      "value": "15%",
+      "color": "#111111"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "carousel-routine",
+  "version": "1.0.0",
+  "description": "Founders Wing daily LinkedIn carousel renderer",
+  "main": "render.js",
+  "scripts": {
+    "render": "node render.js",
+    "render-pdf": "node render-pdf.js"
+  },
+  "dependencies": {
+    "puppeteer": "^24.43.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

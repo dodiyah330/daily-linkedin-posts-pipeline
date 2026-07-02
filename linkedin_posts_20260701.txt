@@ -1,0 +1,305 @@
+==================================================
+1. COLLABORATIVE ARTICLE
+==================================================
+Google keeps losing its best AI researchers, and everyone is reading it wrong.
+
+The names leaving are the kind you build a decade of headlines around. The person who shaped the core architecture. A Nobel winner. Two more senior people out the same door inside a week. Every time one of them walks, the story writes itself: Google is bleeding, the lab is in trouble, the lead is slipping.
+
+That framing misses the actual lesson, and it is one that reaches far past Google.
+
+If the people who trained the model can leave and instantly matter somewhere else, then the model was never the real asset. The weights sit in a file. Anyone with enough money can rent the hardware. What cannot be copied is the judgment inside those researchers' heads. Knowing what to test. Knowing where a system quietly breaks. Knowing which version is actually better when two look identical on paper. That travels with the person, not the checkpoint.
+
+The same split is showing up in normal jobs right now. AI can hand almost anyone the polished output. It cannot hand them the taste to know if the output is any good, or the nerve to decide what to do with it. The work that felt safe because it required knowing a lot of facts is the work getting commoditized first. The work that felt fuzzy, judgment, direction, calling the shot when the data is mixed, is quietly becoming the whole job.
+
+The people who stay valuable over the next few years are not going to be the ones who memorized the most. They will be the ones who built the judgment to tell a good answer from a confident wrong one.
+
+What is one part of your work that is pure judgment, the part no tool can hand to someone else?
+
+Follow for more on where AI is taking work.
+
+==================================================
+2. POLL
+==================================================
+A story went around this week that should make anyone building on AI a little uneasy. One of the biggest companies on earth was quietly running much of its operation on a rival's AI, then got cut off for using too much of it. Overnight, staff were told to watch their usage on a tool they had built their week around.
+
+If it can happen to a company that size, it can happen to anyone leaning on a single provider.
+
+How much of your work should ride on one AI company you do not control?
+
+☐ Go all in, the best tool is worth the risk
+☐ Use one main tool but keep a backup ready
+☐ Split work across two or three providers on purpose
+☐ Keep the important stuff off any single AI entirely
+
+Drop the setup you actually run and whether it has ever burned you.
+
+==================================================
+3. CAROUSEL
+==================================================
+CAROUSEL HOOK SELECTION:
+  Banned styles: None (first run)
+  Chosen style: Curiosity Gap
+  Hook text: "The day an AI vanished in 90 minutes"
+
+Slide 1 (Hook):
+The day an AI vanished in 90 minutes
+
+Slide 2:
+A leading lab shipped its most powerful public model on a Tuesday. Three days later a single government directive ordered it cut off from every foreign user. The model went dark worldwide in under 90 minutes.
+
+Slide 3:
+The trigger was not a scandal. Engineers had found one narrow way to slip past its safety checks. That was enough for the tool to be pulled from millions of people who had built nothing wrong.
+
+Slide 4:
+For almost two weeks, anyone outside the approved list was locked out. Not priced out. Locked out. The line was no longer what you could pay, it was which passport you held.
+
+Slide 5:
+The restrictions were later softened after political pressure. But the point had already landed. The best AI can now be switched off for whole countries with one memo, faster than you can react.
+
+Slide 6:
+The lesson is not to fear AI. It is to notice that access is becoming a political decision. If your work depends on one hosted model, part of your business now lives outside your control.
+
+Slide 7:
+Follow for more on how AI is reshaping work and access.
+
+CAROUSEL CAPTION:
+An AI model went from launch to switched-off in 90 minutes this month, for entire countries at once.
+This breaks down what happened and why access, not ability, is becoming the real question for anyone building on AI.
+Would a sudden lockout like this stall your work tomorrow?
+Save this and follow for more.
+
+==================================================
+4. INFOGRAPHIC
+==================================================
+INFOGRAPHIC FORMAT: HERO_NUMBER
+INFOGRAPHIC TOPIC: AI adoption and hiring (headcount growth at heavy AI adopters)
+
+INFOGRAPHIC CAPTION:
+The scariest story about AI and jobs just got complicated in a good way.
+A new report found the companies using AI most heavily did not shrink their teams. Their headcount rose 10.2 percent, and entry level roles grew 12 percent, the exact jobs everyone assumed would vanish first. The pattern that keeps repeating: AI is not quietly deleting the teams that lean into it, it is helping them do more and hire more to keep up.
+It does not mean every job is safe. It means the people learning to point AI at real work are ending up on the growing side, not the shrinking one.
+Which side of that line does your role sit on right now?
+Follow for more data on the AI shift.
+
+==================================================
+5. POST 1
+==================================================
+A new tool just quietly handed non-technical people the thing they always envied about engineers.
+
+For years the deal was simple. If you could not code, an AI assistant could chat with you, but it could not actually go into your files and do the work. You still had to copy, paste, rename, and fix everything by hand.
+
+That wall just came down. A new desktop agent from a major AI lab can now open the files on your own computer, read them, edit them, and finish a real task while you watch. No terminal, no code, no engineer in the loop.
+
+Point it at a messy folder of research and ask for a clean summary doc. Hand it a spreadsheet and a rough ask, and let it do the sorting. The work that used to mean an hour of quiet clicking starts happening in front of you in minutes.
+
+The catch worth naming: it can touch your actual files, so the habit to build early is checking its work before you trust it with anything that matters.
+
+For anyone who never learned to code, what is the first real task you would hand to an agent like this?
+
+Follow for more tools worth knowing.
+
+Tool featured: Anthropic Cowork
+Source: VentureBeat
+Archetype: Tool Spotlight | Emotion: WOW
+
+==================================================
+6. POST 2
+==================================================
+The AI money moved fast this week, and the pattern under it matters more than any single headline.
+
+Five updates worth two minutes:
+
+1. A privacy-first AI company hit unicorn status, already profitable, with over 70 million dollars in annual revenue. People will pay for AI that does not harvest them.
+
+2. A chip startup taking on the biggest name in AI hardware crossed a 5 billion dollar valuation with a billion already booked. The picks-and-shovels layer is its own gold rush.
+
+3. One of the largest tech companies launched a billion dollar team whose whole job is embedding its people inside other companies to get AI actually deployed.
+
+4. A cheaper, faster AI image generator dropped, pushing the cost of making visual content closer to zero.
+
+5. A major platform opened a direct connection so AI tools can plug into it cleanly, a quiet sign that "works with agents" is becoming table stakes.
+
+The thread tying it together: the money is flowing into making AI cheaper, faster, and easier to deploy, not just smarter. That is where the next wave of jobs and opportunity follows.
+
+Which of these five feels most likely to touch your work this year?
+
+Save this so you can come back to it.
+
+Tools/stories featured: Venice AI, Etched, Amazon FDE org, Nano Banana 2 Lite, X MCP server
+Source: TechCrunch AI
+Archetype: Weekly Roundup | Emotion: OHHH
+
+==================================================
+7. POST 3
+==================================================
+A company just rebuilt the little assistant inside a chat app millions of people already open all day, and it says a lot about where office work is heading.
+
+Here is the plain version. The old version of that assistant sent you notifications and reminders. The new one is an agent. It can pull up a customer record, answer a question about a deal, and take small actions for you without you leaving the conversation or opening five other tabs.
+
+Why it matters for normal jobs. A big chunk of office work has quietly been about being the person who knows where things live and can fetch them fast. That specific value is the part getting handed to software. The fetching shrinks. The deciding stays with you.
+
+One honest caveat. These agents are confident even when they are wrong, and inside a busy chat it is easy to accept an answer without checking. The teams that win with this will be the ones who treat it like a fast junior, useful, quick, and always double-checked.
+
+For anyone whose day runs inside a chat tool, which task would you hand off first if you trusted it?
+
+Follow for more plain-English breakdowns.
+
+Tools/stories featured: Salesforce Slackbot agent
+Source: VentureBeat
+Archetype: Plain English Breakdown | Emotion: OHHH
+
+==================================================
+8. POST 4
+==================================================
+Most people paying 200 dollars a month for an AI coding tool do not know a free one does much of the same job.
+
+The expensive tools get the marketing budgets and the headlines, so they feel like the only option. The quiet free alternative runs on your own machine, takes a plain instruction, and actually writes and edits the work instead of just suggesting snippets in a chat box.
+
+Why this matters even if you never plan to code. It is the clearest example of a pattern showing up everywhere in AI. The premium tool and the good-enough free tool are landing in the same place, fast. The edge is no longer having access to the best tool. Almost everyone has access now. The edge is knowing which cheaper option quietly does the expensive one's job.
+
+That gap, between what people pay for and what actually works, is exactly what FounderWing tracks.
+
+Who in your network is overpaying for a tool a free one could replace?
+
+Follow for more.
+
+Tools/stories featured: Goose (free) vs Claude Code
+Source: VentureBeat
+Archetype: Unfair Advantage | Emotion: WOW
+
+==================================================
+9. POST 5
+==================================================
+Three researchers who once built an AI to play poker are now quietly making money for hedge funds, and their story is a map for where the good jobs are going.
+
+They did not get rich by building the biggest model. They took a specific skill, teaching machines to make sharp decisions under uncertainty, and pointed it at an industry that pays hard for exactly that. Their lab is now valued at over half a billion dollars.
+
+Here is the part worth copying. The scarce, well-paid people in AI are rarely the ones inventing the tools. They are the ones who take an AI skill and aim it at a real problem someone will pay to solve. Applied beats theoretical almost every time.
+
+The move this week is not to go learn everything about AI. It is to find the overlap between what AI is now good at and an industry you already understand, and go deep in that narrow slot.
+
+What is one problem in your field that AI could crack if someone pointed it there properly?
+
+Follow for more on the AI career shift.
+
+Tools/stories featured: EquiLibre Technologies (ex-DeepMind poker AI team)
+Source: TechCrunch AI
+Archetype: Career/Income | Emotion: AHA
+
+==================================================
+10. POST 6
+==================================================
+Everyone is chasing the smartest AI model. The real money quietly went somewhere else.
+
+A giant tech company is now building plans to rent out its spare AI computing power to everyone else. Not a smarter chatbot. The raw ability to run AI at all. It joins a growing line of companies that figured out the same thing.
+
+Here is the take most people miss. In a gold rush, the steady fortune is rarely made by the people digging. It is made by the ones selling shovels, water, and land. AI is following that script exactly. The flashy race is about who has the cleverest model. The durable business is about who owns the compute, the chips, and the plumbing everyone else has to rent.
+
+For anyone deciding where to point a career or a company, the lesson is worth sitting with. The attention goes to the model. The margin sits underneath it. Spotting that gap early is the whole game, and it is the kind of shift FounderWing exists to flag.
+
+Am I wrong, or is the boring infrastructure layer the smarter bet than the model race?
+
+Follow for more takes.
+
+Tools/stories featured: Meta selling excess AI compute
+Source: TechCrunch AI
+Archetype: Hot Take | Emotion: THINK
+
+==================================================
+11. POST 7
+==================================================
+Steal this: a quick check so AI search does not quietly make your work invisible.
+
+A major search engine just redesigned its box for the first time in 25 years. It now answers your question directly instead of handing you ten links. That changes how people find everything, including you and what you do.
+
+Run this three-part check this week:
+
+1. Search your own name and your work the way a stranger would. See what the AI answer says about you, not just what your website says.
+
+2. Fix the gap. The AI pulls from where you are mentioned and reviewed, not just your own page. Get named in the places it trusts.
+
+3. Answer real questions in public. The clearer and more useful you are out loud, the more likely the AI quotes you as the answer.
+
+Getting cited by the AI is becoming the new getting found.
+
+Which of the three are you weakest on right now?
+
+Save this.
+
+What's being shared: A 3-step AI-search visibility check
+Source: VentureBeat
+Archetype: Steal This | Emotion: WOW
+
+==================================================
+12. PERF 1 (CONTRARIAN)
+==================================================
+Most people learning AI right now are quietly falling behind.
+
+They are buying the courses. Saving the threads. Watching another long video on a tool they will never actually open. It feels productive. It feels responsible. It is the most comfortable way to stay exactly where you are.
+
+Here is the uncomfortable part. Almost nobody is getting ahead by studying AI. They are getting ahead by pointing it at one real thing they already do, and refusing to do that thing the slow way again.
+
+The person who ran their actual work through it every day is now weeks ahead of the one who finished the certificate. Not smarter. They just started. While most people collect tutorials, a smaller group is collecting reps.
+
+The gap forming this year is not between people who understand AI and people who do not. It is between people who used it on real work this morning and people who are still getting ready to begin.
+
+You do not need another course. You need to take the one task you dread most this week and do it with AI sitting next to you.
+
+What is the one task you would hand to AI tomorrow if you stopped waiting to feel ready?
+
+Follow for more.
+
+==================================================
+13. PERF 2 (LOADED POLL)
+==================================================
+AI at work sounds thrilling in the keynote and a little scary at 2am. Most people carry some version of the same quiet worry and never say it out loud.
+
+So say it. No judgment, nearly everyone feels at least one of these.
+
+What scares you most about AI at work?
+
+☐ That it quietly makes my role unnecessary
+☐ That I am already behind and cannot catch up
+☐ That I will have to relearn everything every year
+☐ Honestly nothing, I am more excited than scared
+
+Drop the one that is most true for you right now.
+
+==================================================
+14. PERF 3 (AI NEWS + IMPLICATIONS)
+==================================================
+A powerful AI agent just landed on regular phones, and it is a bigger deal than it sounds.
+
+A free, open agent that can actually carry out tasks, not just chat, is now available on Android and iPhone. The thing that used to need a laptop and some setup now sits in your pocket.
+
+Why this matters. For most of the last two years, the people getting real value from AI were the ones at a desk who took the time to set it up. Putting a capable agent on the phone erases that gap. The single parent between shifts, the student on a commute, the shop owner between customers, all of them get the same assistant the desk workers had.
+
+The quiet implication. When the tool is this available, the excuse of not having access disappears. The only thing left separating people is whether they actually use it on something that matters.
+
+If a capable AI agent lived on your phone today, what is the first thing you would ask it to do?
+
+Follow for more on working in the AI age.
+
+==================================================
+15. PERF 4 (STORY CAROUSEL — caption)
+==================================================
+PERFORMANCE CAROUSEL CAPTION:
+One person quietly did the work of a small team this year, and barely anyone noticed until the results showed up.
+No new headcount. No big announcement. Just one operator who wired AI into the boring, repetitive parts of the job and freed themselves to do the work that actually moves things.
+The story most people are bracing for is AI replacing them. The story quietly playing out is a few people using it to become impossible to replace.
+Which part of your week could you hand off and never do manually again?
+Save this and follow for more.
+
+(Note: the performance story-carousel visual was deferred this run to conserve render capacity; the caption ships as text per the pipeline's render-cost rule.)
+
+==================================================
+16. PERF 5 (DATA VISUAL — caption)
+==================================================
+PERFORMANCE DATA VISUAL CAPTION:
+Almost everyone at work now uses AI. Very few use it well, and that gap is the whole opportunity.
+Adoption is no longer the story. Using it on the busywork, tidying an email, cleaning a note, is where most people stop. The small group pulling ahead points it at the work that actually moves money and decisions.
+Touching AI stopped being an edge the moment everyone started doing it. Building your real work around it is the edge now.
+Are you using AI to do real work, or just to do small work a little faster?
+Follow for more on the AI shift.
+
+(Note: the performance data-visual was deferred this run to conserve render capacity; the caption ships as text per the pipeline's render-cost rule.)

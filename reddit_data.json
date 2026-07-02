@@ -1,0 +1,74 @@
+[
+  {
+    "subreddit": "r/artificial",
+    "title": "So now scraping data without permission is bad for AI training all of sudden?",
+    "selftext": "Oh .... the irony!   &#32; submitted by &#32;  /u/base64-encode   [link] &#32; [comments]",
+    "ups": 0,
+    "num_comments": 0,
+    "url": "https://www.reddit.com/r/artificial/comments/1ugwccs/so_now_scraping_data_without_permission_is_bad/",
+    "image_url": null
+  },
+  {
+    "subreddit": "r/artificial",
+    "title": "Meta was secretly running on Google's Gemini the whole time and then got cut off for using too much",
+    "selftext": "Saw this article today and it genuinely surprised me Meta has been using Gemini for customer service, ad tools, content moderation, all of it. and apparently chose it because it worked better than their own Llama models and then Google cut them off because Meta was consuming too much capacity. Now employees are being told to watch their token usage. This is the same company that was pushing staff to use more AI just a few months ago. Idk man, of all the companies to run out of AI capacity  &#32; submitted by &#32;  /u/Neil_at_HackerEarth   [link] &#32; [comments]",
+    "ups": 0,
+    "num_comments": 0,
+    "url": "https://www.reddit.com/r/artificial/comments/1uj45np/meta_was_secretly_running_on_googles_gemini_the/",
+    "image_url": null
+  },
+  {
+    "subreddit": "r/artificial",
+    "title": "I have created a Chrome extension that fact checks YouTube videos as you watch",
+    "selftext": "Hi,  I have been working on this for many months now and I&#39;d really be happy for people to try it out. It is a Chrome extension called &quot;PopUpFactCheck&quot;.  It is an AI powered video fact checker. With it, you fact check any YouTube video that has captions. And you can use it, for free!  You turn captions on, and sit back and watch the video as bubbles appear on the right-hand side of the video with fact checks, information, background, and other context. Great for watching politicians, news, history, and just about any content on YouTube.  Claude Code was a major tool in my development, and the AI that is used is GPT 5.5. In addition, there is an extensive waterfall of sources including the TheNewsAPI, various government and public health and other APIs, social, and web search powered by DDGS and Serper.  It&#39;s free, and you don&#39;t have to bring your own API keys or anything. You simply install and use.  I will be looking forward to your feedback.  PopUpFact Check - Chrome Web Store PopUpFactCheck - Homepage  &#32; submitted by &#32;  /u/userpostingcontent   [link] &#32; [comments]",
+    "ups": 0,
+    "num_comments": 0,
+    "url": "https://www.reddit.com/r/artificial/comments/1uk7t49/i_have_created_a_chrome_extension_that_fact/",
+    "image_url": null
+  },
+  {
+    "subreddit": "r/artificial",
+    "title": "Claude Fable 5 may return today after 13-day government-forced suspension",
+    "selftext": "Here\u2019s the full timeline: -June 9: Anthropic releases Claude Fable 5, their most powerful public model ever (Mythos-class with safeguards) -June 12: US government issues an export control directive at 5:21 PM, ordering Anthropic to cut off access to ALL foreign nationals. Model goes offline worldwide within 90 minutes  -The reason? Amazon engineers reportedly found a narrow jailbreak that could bypass Fable\u2019s cybersecurity classifiers -Anthropic complied but publicly pushed back, calling the action unfair -Trump met Dario Amodei at the G7 and softened his stance, but the directive was never officially lifted -June 26 (today): Congressional deadline for Commerce Secretary Lutnick to respond in writing about the export controls Prediction markets are pricing ~57% odds of restoration before July 1. Developers have been stuck on Opus 4.8 this whole time. This whole situation raises a serious question: if a government can pull your AI model offline in 90 minutes, what does that mean for anyone building on closed, hosted models?  &#32; submitted by &#32;  /u/Direct-Attention8597   [link] &#32; [comments]",
+    "ups": 0,
+    "num_comments": 0,
+    "url": "https://www.reddit.com/r/artificial/comments/1uf5pzu/claude_fable_5_may_return_today_after_13day/",
+    "image_url": null
+  },
+  {
+    "subreddit": "r/artificial",
+    "title": "Are Redditors influencing AI the most?",
+    "selftext": "&#32; submitted by &#32;  /u/xJouissance   [link] &#32; [comments]",
+    "ups": 0,
+    "num_comments": 0,
+    "url": "https://www.reddit.com/r/artificial/comments/1ujuckz/are_redditors_influencing_ai_the_most/",
+    "image_url": null
+  },
+  {
+    "subreddit": "r/artificial",
+    "title": "Asian AI startups launch Mythos-like models as Anthropic's export ban drags on",
+    "selftext": "&#32; submitted by &#32;  /u/KingMedia33   [link] &#32; [comments]",
+    "ups": 0,
+    "num_comments": 0,
+    "url": "https://www.reddit.com/r/artificial/comments/1ui1wci/asian_ai_startups_launch_mythoslike_models_as/",
+    "image_url": null
+  },
+  {
+    "subreddit": "r/artificial",
+    "title": "Google keeps losing top ai researchers, the moat was never the weights",
+    "selftext": "Shazeer to openai, then John Jumper (the alphaFold nobel guy) to anthropic, plus Adler and Pritzler out the same door within a week. Every time one of these drops the framing is google is bleeding. I think people are reading it backwards. If the people who actually trained the thing can leave and instantly matter at a competitor, the weights were never the asset. The judgment about how to steer a model, what to eval it on, where it breaks, that stuff lives in heads not in checkpoints. Hardware you can buy. That you cannot. What it means for the rest of us is simpler than the talent drama. If capability is going to keep walking between labs every few months, betting your whole stack on one provider&#39;s model is a bet on that lab keeping its people, which is the one thing you cannot control. I stopped caring which lab is quote winning this quarter. The move is keeping the model layer swappable so a shakeup at one place does not strand the work. Mine runs through verdent with byok but honestly any setup that lets you reroute works, the point is not the tool, it is not being married to one model.  &#32; submitted by &#32;  /u/Adventurous_Rush1474   [link] &#32; [comments]",
+    "ups": 0,
+    "num_comments": 0,
+    "url": "https://www.reddit.com/r/artificial/comments/1ugbwol/google_keeps_losing_top_ai_researchers_the_moat/",
+    "image_url": null
+  },
+  {
+    "subreddit": "r/artificial",
+    "title": "I have it on good authority that Google are going to be hit with export controls soon.",
+    "selftext": "&#32; submitted by &#32;  /u/ThoseOldScientists   [link] &#32; [comments]",
+    "ups": 0,
+    "num_comments": 0,
+    "url": "https://www.reddit.com/r/artificial/comments/1uh2fc5/i_have_it_on_good_authority_that_google_are_going/",
+    "image_url": null
+  }
+]
