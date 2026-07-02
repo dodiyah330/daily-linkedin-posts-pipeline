@@ -1,0 +1,44 @@
+---
+name: automation-leads-engine
+description: Generates 5 LinkedIn lead-gen posts per week for a full-stack AI automation developer — news hooks tied to SaaS automation opportunities, case studies, qualifying polls, steal-this workflows, and direct audit CTAs. Uses fresh AI news from ai_news_data.json.
+---
+
+# Automation Leads Engine
+
+Generates **5 posts/week** designed to attract **AI automation clients** (SaaS founders, ops teams, agencies).
+
+## Ideal client (ICP)
+
+- SaaS founders who need AI features or internal automations built
+- Ops/sales/support teams drowning in manual handoffs between tools
+- Agencies white-labeling automations for clients
+- Teams that outgrew Zapier/Make and need custom API + SaaS integrations
+
+## Post mix (one per weekday)
+
+| # | Archetype | Purpose |
+|---|-----------|---------|
+| 1 | **News → Automation** | Hook with latest AI news → business pain → automation you'd build → CTA |
+| 2 | **Case Study** | Problem → stack → what you built → outcome (first-person builder voice) |
+| 3 | **Qualifying Poll** | 4 options that self-identify prospects |
+| 4 | **Steal This Workflow** | Trigger → AI step → SaaS action (<150 words) |
+| 5 | **Direct Offer** | 2 client slots / free automation audit → DM or comment AUTO |
+
+## Voice
+
+- **First person** allowed and encouraged for proof lines ("I've built…", "I wire agents into…")
+- News hook stays accessible — no jargon (no RAG, tokens, fine-tuning)
+- Every post ends with a **lead CTA**: Comment **AUTO**, DM your stack, or book an audit
+- Do NOT use @handles or third-party brand promotion
+
+## Run
+
+```bash
+python3 fetch_ai_news_rss.py
+python3 generate_automation_leads.py
+python3 send_automation_leads_to_slack.py
+python3 prepare_automation_schedule.py
+SCHEDULE_FILE=schedule_automation_leads.json node schedule_all_posts.cjs
+```
+
+Or: `./run_automation_leads.sh`

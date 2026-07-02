@@ -227,11 +227,13 @@ async function fillTimeComboboxShadow(page, selector, value) {
 // ==========================================
 
 (async () => {
-  const scheduleFile = path.join(__dirname, 'schedule_today.json');
+  const scheduleFile = process.env.SCHEDULE_FILE
+    ? path.resolve(__dirname, process.env.SCHEDULE_FILE)
+    : path.join(__dirname, 'schedule_today.json');
   let posts;
   if (fs.existsSync(scheduleFile)) {
     posts = JSON.parse(fs.readFileSync(scheduleFile, 'utf8')).posts;
-    console.log(`Loaded ${posts.length} posts from schedule_today.json`);
+    console.log(`Loaded ${posts.length} posts from ${path.basename(scheduleFile)}`);
   } else {
   posts = [
     // ===== DAY 1 — June 13, 2026 =====

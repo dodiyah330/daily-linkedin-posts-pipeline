@@ -1,6 +1,69 @@
 [
   {
     "source": "TechCrunch AI",
+    "title": "Meta quietly launches vibe-coded gaming app Pocket",
+    "description": "Meta has quietly launched Pocket, an experimental AI app that lets users generate and share interactive mini games using text prompts.",
+    "pubDate": "Thu, 02 Jul 2026 18:44:02 +0000",
+    "url": "https://techcrunch.com/2026/07/02/meta-quietly-launches-vibe-coded-gaming-app-pocket/"
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "Anthropic is discussing a new custom chip with Samsung",
+    "description": "The news comes about a week after OpenAI announced its own custom AI chip in a partnership with Broadcom.",
+    "pubDate": "Thu, 02 Jul 2026 18:31:09 +0000",
+    "url": "https://techcrunch.com/2026/07/02/anthropic-is-discussing-a-new-custom-chip-with-samsung/"
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "OpenAI proposed donating 5% of its equity to a US sovereign wealth fund",
+    "description": "OpenAI CEO Sam Altman has reportedly proposed giving 5% of the company\u2019s equity to a U.S. sovereign wealth fund, reviving discussions about letting the public share in the financial gains from the AI boom.",
+    "pubDate": "Thu, 02 Jul 2026 15:20:51 +0000",
+    "url": "https://techcrunch.com/2026/07/02/openai-proposed-donating-5-of-its-equity-to-a-us-sovereign-wealth-fund/"
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "Microsoft launches its own AI deployment company with $2.5 billion commitment",
+    "description": "Microsoft follows Amazon, OpenAI, and Anthropic with its new AI deployment group.",
+    "pubDate": "Thu, 02 Jul 2026 13:53:00 +0000",
+    "url": "https://techcrunch.com/2026/07/02/microsoft-launches-its-own-ai-deployment-company-with-2-5-billion-commitment/"
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "Yep, we\u2019re using OpenClaw to date now",
+    "description": "Ben Guez has \"a bunch of potential international wives in [his] DMs,\" thanks to an automated script he set up using OpenClaw, Claude code, and Instagram trials.",
+    "pubDate": "Thu, 02 Jul 2026 12:00:00 +0000",
+    "url": "https://techcrunch.com/2026/07/02/yep-were-using-openclaw-to-date-now/"
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "Indian tech tycoon bets $30M of his own money to build AI alternative to Microsoft Office",
+    "description": "Neo is Bhavin Turakhia\u2019s fifth venture and his latest involving enterprise software. This time he's taking on Microsoft Office and Google Apps with AI.",
+    "pubDate": "Thu, 02 Jul 2026 05:30:00 +0000",
+    "url": "https://techcrunch.com/2026/07/01/indian-tech-tycoon-bets-30m-to-build-an-ai-alternative-to-microsoft-office/"
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "SpaceX has an AI device prototype, and it sure sounds phone-ish",
+    "description": "SpaceX reportedly showed investors a \"handset-like\" AI device before going public. It could be another signal SpaceX wants to expand into wireless.",
+    "pubDate": "Wed, 01 Jul 2026 18:54:18 +0000",
+    "url": "https://techcrunch.com/2026/07/01/spacex-has-an-ai-device-prototype-and-it-sure-sounds-phone-ish/"
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "Ashton Kutcher leaving Sound Ventures to launch new VC firm with Morgan Beller",
+    "description": "Sound built its reputation on concentrated, high-conviction bets in category-leading AI labs, while Kutcher's new fund appears to be chasing the layer underneath those companies \u2014 the infrastructure and energy that power them.",
+    "pubDate": "Wed, 01 Jul 2026 18:47:22 +0000",
+    "url": "https://techcrunch.com/2026/07/01/ashton-kutcher-leaving-sound-ventures-to-launch-new-vc-firm-with-morgan-beller/"
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "Cloudflare\u2019s new policy pushes AI companies to pay for publishers\u2019 content",
+    "description": "Cloudflare is giving AI companies until September 15 to separate web crawlers used for search from those used for AI training and agents, or risk being blocked by default on many publisher sites.",
+    "pubDate": "Wed, 01 Jul 2026 17:48:37 +0000",
+    "url": "https://techcrunch.com/2026/07/01/cloudflares-new-policy-pushes-ai-companies-to-pay-for-publishers-content/"
+  },
+  {
+    "source": "TechCrunch AI",
     "title": "Venice AI becomes a unicorn with $65M Series A as its privacy-first AI platform takes off",
     "description": "Venice AI is already profitable, with annualized run-rate revenues of over $70 million, CEO Erik Voorhees said.",
     "pubDate": "Wed, 01 Jul 2026 14:25:23 +0000",
@@ -75,69 +138,6 @@
     "description": "Nvidia AI chip competitor Etched says it has already booked $1 billion under contract for the inference systems powered by its chip.",
     "pubDate": "Tue, 30 Jun 2026 18:13:02 +0000",
     "url": "https://techcrunch.com/2026/06/30/nvidia-competitor-etched-hits-5b-valuation-1b-in-sales-for-ai-chip/"
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "Anthropic launches Claude Sonnet 5 as a cheaper way to run agents",
-    "description": "Anthropic\u2019s Claude Sonnet 5 brings stronger agentic capabilities, lower pricing, and improved safety, positioning the model as a cheaper alternative to Opus, GPT-5.5, and Gemini Pro.",
-    "pubDate": "Tue, 30 Jun 2026 18:00:00 +0000",
-    "url": "https://techcrunch.com/2026/06/30/anthropic-launches-claude-sonnet-5-as-a-cheaper-way-to-run-agents/"
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "Acti puts AI agents directly into your smartphone keyboard",
-    "description": "Acti is betting the smartphone keyboard is the next home for AI assistants. The startup's new keyboard for iOS and Android works across apps and lets users create custom AI-powered shortcuts using natural language.",
-    "pubDate": "Tue, 30 Jun 2026 17:52:46 +0000",
-    "url": "https://techcrunch.com/2026/06/30/acti-puts-ai-agents-directly-into-your-smartphone-keyboard/"
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "Anthropic\u2019s Claude Science bets on workflow, not a new model, to win over scientists",
-    "description": "Anthropic's Claude Science is a workbench that gives scientists one environment to do computational research, saving them from the need to bounce between databases, pipelines, and tools.",
-    "pubDate": "Tue, 30 Jun 2026 17:00:00 +0000",
-    "url": "https://techcrunch.com/2026/06/30/anthropics-claude-science-bets-on-workflow-not-a-new-model-to-win-over-scientists/"
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "X now offers an MCP server to make its platform easier for AI tools to use",
-    "description": "X has launched a hosted MCP server, making it easier for developers to connect AI applications with the company\u2019s API.",
-    "pubDate": "Tue, 30 Jun 2026 15:08:42 +0000",
-    "url": "https://techcrunch.com/2026/06/30/x-now-offers-an-mcp-server-to-make-its-platform-easier-for-ai-tools-to-use/"
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "Podcasting platform Riverside enters the newsletter publishing game",
-    "description": "Users will be able use AI to create newsletters based on their recordings.",
-    "pubDate": "Tue, 30 Jun 2026 15:00:00 +0000",
-    "url": "https://techcrunch.com/2026/06/30/podcasting-platform-riverside-enters-the-newsletter-publishing-game/"
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "Amazon launches new $1 billion FDE org, following OpenAI and Anthropic",
-    "description": "Engineers on the new team will embed within companies to deploy purpose-built agents, focusing on fast deployments and customer self-sufficiency.",
-    "pubDate": "Tue, 30 Jun 2026 15:00:00 +0000",
-    "url": "https://techcrunch.com/2026/06/30/amazon-launches-new-1-billion-fde-org-following-openai-and-anthropic/"
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "Lumo, Proton\u2019s privacy-focused AI chatbot, gets an upgrade",
-    "description": "Proton's Lumo 2.0 is dropping this week, giving users a broader variety of capabilities.",
-    "pubDate": "Tue, 30 Jun 2026 14:00:00 +0000",
-    "url": "https://techcrunch.com/2026/06/30/lumo-protons-privacy-focused-ai-chatbot-gets-an-upgrade/"
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "Crypto exchange OKX wants AI agents to hire and pay each other",
-    "description": "OKX is bringing together payments, identity, and reputation into a marketplace for AI agents.",
-    "pubDate": "Tue, 30 Jun 2026 09:00:00 +0000",
-    "url": "https://techcrunch.com/2026/06/30/crypto-exchange-okx-wants-ai-agents-to-hire-and-pay-each-other/"
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "The AI jobs debate just got messier",
-    "description": "A new report finds \"high-intensity AI adopters\u201d saw headcount increase 10.2%. Among those companies, entry-level headcount rose by 12%, countering the rhetoric that AI kills junior jobs.",
-    "pubDate": "Tue, 30 Jun 2026 04:01:00 +0000",
-    "url": "https://techcrunch.com/2026/06/29/the-ai-jobs-debate-just-got-messier/"
   },
   {
     "source": "VentureBeat AI",
