@@ -149,25 +149,38 @@ async function fillCaptionShadow(page, caption) {
     return false;
   }
   await editorEl.click();
-  await editorEl.focus();
-  await page.evaluate((el) => {
-    el.focus();
-    document.execCommand('selectAll', false, null);
-    document.execCommand('delete', false, null);
-  }, editorEl);
+  await new Promise(r => setTimeout(r, 400));
 
-  let len = await editorEl.evaluate((el, text) => {
-    el.focus();
-    const ok = document.execCommand('insertText', false, text);
-    el.dispatchEvent(new InputEvent('input', { bubbles: true }));
-    return ok ? (el.innerText || '').trim().length : 0;
-  }, caption);
+  // Strategy 1: CDP insertText (works with Quill/contenteditable)
+  try {
+    const client = await page.createCDPSession();
+    await client.send('Input.insertText', { text: caption });
+    await client.detach();
+  } catch (e) {
+    console.log("fillCaption: CDP insertText failed:", e.message);
+  }
 
+  let len = await editorEl.evaluate((el) => (el.innerText || '').trim().length);
+
+  // Strategy 2: direct DOM on the located editor node
   if (len <= 5) {
-    for (const line of caption.split('\n')) {
-      if (line) await page.keyboard.type(line, { delay: 5 });
-      await page.keyboard.press('Enter');
-    }
+    len = await editorEl.evaluate((el, text) => {
+      el.focus();
+      el.innerHTML = '';
+      text.split('\n').forEach((line) => {
+        const p = document.createElement('p');
+        p.textContent = line || ' ';
+        el.appendChild(p);
+      });
+      el.dispatchEvent(new InputEvent('input', { bubbles: true, data: text }));
+      return (el.innerText || '').trim().length;
+    }, caption);
+  }
+
+  // Strategy 3: slow keyboard typing after re-focus
+  if (len <= 5) {
+    await editorEl.click();
+    await page.keyboard.type(caption.replace(/\n/g, '\n'), { delay: 8 });
     len = await editorEl.evaluate((el) => (el.innerText || '').trim().length);
   }
 
@@ -443,11 +456,17 @@ Save this prompt to use on your next idea.`
     await page.bringToFront();
     await page.setViewport({ width: 1280, height: 1200 });
 
+    const startFrom = parseInt(process.env.START_POST_ID || '1', 10);
+    const queue = posts.filter(p => p.id >= startFrom);
+    if (startFrom > 1) {
+      console.log(`Resuming from post ${startFrom} (${queue.length} remaining)`);
+    }
+
     console.log(`\n${'='.repeat(60)}`);
-    console.log(`SCHEDULING ALL ${posts.length} POSTS (4 per day, 3 days)`);
+    console.log(`SCHEDULING ${queue.length} POSTS (4 per day, 3 days)`);
     console.log(`${'='.repeat(60)}\n`);
 
-    for (const post of posts) {
+    for (const post of queue) {
       console.log(`\n${'='.repeat(50)}`);
       console.log(`Scheduling Post ${post.id}/${posts.length} (${post.type}): Date=${post.date}, Time=${post.time}`);
       console.log(`${'='.repeat(50)}`);
@@ -548,7 +567,7 @@ Save this prompt to use on your next idea.`
         await questionEl.dispose();
         console.log("Filled poll question.");
 
-        const options = post.pollOptionsStr.split('|').map(o => o.trim());
+        const options = post.pollOptionsStr.split('|').map(o => o.trim().slice(0, 30));
         
         const getInputs = async () => {
           const inputsHandle = await page.evaluateHandle(() => {

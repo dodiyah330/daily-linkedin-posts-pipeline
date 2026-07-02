@@ -161,7 +161,9 @@ def main():
     write_carousel(slides)
     write_infographic_json()
     os.system(f"cd {BASE} && python3 generate_infographic_today.py")
-    print("Asset build complete.")
+    os.system(f"cd {BASE} && node cap_infographic_today.cjs")
+    os.system(f"cd {BASE} && python3 build_performance_assets.py")
+    print("Asset build complete (branded + performance).")
 
 
 if __name__ == "__main__":
