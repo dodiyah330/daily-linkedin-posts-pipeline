@@ -61,7 +61,7 @@ def build(s):
     inner += f'<div class="headline" style="font-size:{s.get("hsize",60)}px">{s["headline"]}</div>'
     if s.get("cta"): inner += '<div class="line"></div>'
     if s.get("body"): inner += f'<div class="body">{s["body"]}</div>'
-    bottom = ('<div class="pill">follow me for more on <em>work.</em></div>' if s.get("cta")
+    bottom = ('<div class="pill">Follow me</div>' if s.get("cta")
               else '<div></div><div class="swipe">SWIPE &rarr;</div>')
     return PAGE.format(accent=ACCENT, kick=KICK, num=s["num"], top=s["top"], hsize=s.get("hsize",60), inner=inner, bottom=bottom)
 

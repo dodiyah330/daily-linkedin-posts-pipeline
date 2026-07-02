@@ -137,7 +137,7 @@ Apply every rule from PHASE 0B. Each archetype's formula is lifted directly from
 
 [QUESTION — A pointed debate prompt. Not "what do you think?" — something they can answer in one line.]
 
-[CTA — "Follow @founderswing for more" OR "Repost to help a founder who needs to hear this."]
+[CTA — "Follow me." OR "Repost to help a founder who needs to hear this."]
 ```
 
 **Voice note:** Blunt, declarative, professional but not corporate. One uncomfortable truth per post. No hedging. This is the format that earns comments — make the reader want to argue or confess.
@@ -193,7 +193,7 @@ Apply every rule from PHASE 0B. Each archetype's formula is lifted directly from
 
 [DEBATE QUESTION — invites a real position, not agreement.]
 
-[CTA — "Follow @founderswing for more" or save-prompt.]
+[CTA — "Follow me." or save-prompt.]
 ```
 
 **Anti-pattern guard (mandatory):** Before finalizing, check this post against ANTI_PATTERNS. If it reads as "Company X announced Y" with no founder consequence, it is a plain relay — rewrite it or pick a different story. Every fact must carry a "so what for *you*."

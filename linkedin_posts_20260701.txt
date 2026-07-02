@@ -15,7 +15,7 @@ The people who stay valuable over the next few years are not going to be the one
 
 What is one part of your work that is pure judgment, the part no tool can hand to someone else?
 
-Follow for more on where AI is taking work.
+Follow me.
 
 ==================================================
 2. POLL
@@ -60,13 +60,13 @@ Slide 6:
 The lesson is not to fear AI. It is to notice that access is becoming a political decision. If your work depends on one hosted model, part of your business now lives outside your control.
 
 Slide 7:
-Follow for more on how AI is reshaping work and access.
+Where AI is reshaping work and access. Save this for the next time a tool you depend on goes dark overnight.
 
 CAROUSEL CAPTION:
 An AI model went from launch to switched-off in 90 minutes this month, for entire countries at once.
 This breaks down what happened and why access, not ability, is becoming the real question for anyone building on AI.
 Would a sudden lockout like this stall your work tomorrow?
-Save this and follow for more.
+Save this. Follow me.
 
 ==================================================
 4. INFOGRAPHIC
@@ -79,7 +79,7 @@ The scariest story about AI and jobs just got complicated in a good way.
 A new report found the companies using AI most heavily did not shrink their teams. Their headcount rose 10.2 percent, and entry level roles grew 12 percent, the exact jobs everyone assumed would vanish first. The pattern that keeps repeating: AI is not quietly deleting the teams that lean into it, it is helping them do more and hire more to keep up.
 It does not mean every job is safe. It means the people learning to point AI at real work are ending up on the growing side, not the shrinking one.
 Which side of that line does your role sit on right now?
-Follow for more data on the AI shift.
+Follow me.
 
 ==================================================
 5. POST 1
@@ -96,7 +96,7 @@ The catch worth naming: it can touch your actual files, so the habit to build ea
 
 For anyone who never learned to code, what is the first real task you would hand to an agent like this?
 
-Follow for more tools worth knowing.
+Follow me.
 
 Tool featured: Anthropic Cowork
 Source: VentureBeat
@@ -142,7 +142,7 @@ One honest caveat. These agents are confident even when they are wrong, and insi
 
 For anyone whose day runs inside a chat tool, which task would you hand off first if you trusted it?
 
-Follow for more plain-English breakdowns.
+Follow me.
 
 Tools/stories featured: Salesforce Slackbot agent
 Source: VentureBeat
@@ -157,11 +157,11 @@ The expensive tools get the marketing budgets and the headlines, so they feel li
 
 Why this matters even if you never plan to code. It is the clearest example of a pattern showing up everywhere in AI. The premium tool and the good-enough free tool are landing in the same place, fast. The edge is no longer having access to the best tool. Almost everyone has access now. The edge is knowing which cheaper option quietly does the expensive one's job.
 
-That gap, between what people pay for and what actually works, is exactly what FounderWing tracks.
+That gap, between what people pay for and what actually works, is worth watching closely.
 
 Who in your network is overpaying for a tool a free one could replace?
 
-Follow for more.
+Follow me.
 
 Tools/stories featured: Goose (free) vs Claude Code
 Source: VentureBeat
@@ -180,7 +180,7 @@ The move this week is not to go learn everything about AI. It is to find the ove
 
 What is one problem in your field that AI could crack if someone pointed it there properly?
 
-Follow for more on the AI career shift.
+Follow me.
 
 Tools/stories featured: EquiLibre Technologies (ex-DeepMind poker AI team)
 Source: TechCrunch AI
@@ -195,11 +195,11 @@ A giant tech company is now building plans to rent out its spare AI computing po
 
 Here is the take most people miss. In a gold rush, the steady fortune is rarely made by the people digging. It is made by the ones selling shovels, water, and land. AI is following that script exactly. The flashy race is about who has the cleverest model. The durable business is about who owns the compute, the chips, and the plumbing everyone else has to rent.
 
-For anyone deciding where to point a career or a company, the lesson is worth sitting with. The attention goes to the model. The margin sits underneath it. Spotting that gap early is the whole game, and it is the kind of shift FounderWing exists to flag.
+For anyone deciding where to point a career or a company, the lesson is worth sitting with. The attention goes to the model. The margin sits underneath it. Spotting that gap early is the whole game.
 
 Am I wrong, or is the boring infrastructure layer the smarter bet than the model race?
 
-Follow for more takes.
+Follow me.
 
 Tools/stories featured: Meta selling excess AI compute
 Source: TechCrunch AI
@@ -247,7 +247,7 @@ You do not need another course. You need to take the one task you dread most thi
 
 What is the one task you would hand to AI tomorrow if you stopped waiting to feel ready?
 
-Follow for more.
+Follow me.
 
 ==================================================
 13. PERF 2 (LOADED POLL)
@@ -278,7 +278,7 @@ The quiet implication. When the tool is this available, the excuse of not having
 
 If a capable AI agent lived on your phone today, what is the first thing you would ask it to do?
 
-Follow for more on working in the AI age.
+Follow me.
 
 ==================================================
 15. PERF 4 (STORY CAROUSEL — caption)
@@ -288,7 +288,7 @@ One person quietly did the work of a small team this year, and barely anyone not
 No new headcount. No big announcement. Just one operator who wired AI into the boring, repetitive parts of the job and freed themselves to do the work that actually moves things.
 The story most people are bracing for is AI replacing them. The story quietly playing out is a few people using it to become impossible to replace.
 Which part of your week could you hand off and never do manually again?
-Save this and follow for more.
+Save this. Follow me.
 
 (Note: the performance story-carousel visual was deferred this run to conserve render capacity; the caption ships as text per the pipeline's render-cost rule.)
 
@@ -300,6 +300,6 @@ Almost everyone at work now uses AI. Very few use it well, and that gap is the w
 Adoption is no longer the story. Using it on the busywork, tidying an email, cleaning a note, is where most people stop. The small group pulling ahead points it at the work that actually moves money and decisions.
 Touching AI stopped being an edge the moment everyone started doing it. Building your real work around it is the edge now.
 Are you using AI to do real work, or just to do small work a little faster?
-Follow for more on the AI shift.
+Follow me.
 
 (Note: the performance data-visual was deferred this run to conserve render capacity; the caption ships as text per the pipeline's render-cost rule.)

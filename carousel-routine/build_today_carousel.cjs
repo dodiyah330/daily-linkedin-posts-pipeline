@@ -33,7 +33,7 @@ const slides = [
     body: 'The takeaway is not to fear AI. It is to notice that if your work depends on one hosted model, part of your business now lives outside your control.' },
   { type: 'cta',
     head: ['Where AI is', 'reshaping work', 'and access'], em: 'work',
-    sub: 'Follow @founderswing for more.' },
+    sub: 'Follow me.' },
 ];
 
 function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
@@ -59,7 +59,7 @@ function slideHTML(s, idx, total) {
   } else if (s.type === 'cta') {
     inner = `
       <div class="ctaWrap">
-        <div class="ctaKicker">Follow for more</div>
+        <div class="ctaKicker">Follow me</div>
         <h1 class="hook">${headHTML(s.head, s.em)}</h1>
         <p class="sub">${esc(s.sub)}</p>
       </div>`;
@@ -90,7 +90,7 @@ function slideHTML(s, idx, total) {
     .footer .brand{color:${CORAL};font-weight:700;}
   </style></head><body>
     ${inner}
-    <div class="footer"><span class="brand">@founderswing</span><span>${idx} / ${total}</span></div>
+    <div class="footer"><span class="brand">Follow me</span><span>${idx} / ${total}</span></div>
   </body></html>`;
 }
 

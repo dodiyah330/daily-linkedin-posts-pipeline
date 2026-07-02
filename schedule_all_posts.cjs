@@ -244,7 +244,7 @@ async function fillTimeComboboxShadow(page, selector, value) {
 
 How do you validate a new product idea before building?
 
-Follow @founderswing for more.`,
+Follow me.`,
       assetPath: '/Users/prithal/3d website/linkedin-automation-routine/slack_downloads/linkedin-carousel-2026-06-12.pdf',
       title: 'The validation mistake that kills startups'
     },
@@ -257,7 +257,7 @@ Follow @founderswing for more.`,
 
 What is the biggest hurdle for new AI firms raising capital at high valuations?
 
-Follow @founderswing for more data.`,
+Follow me.`,
       assetPath: '/Users/prithal/3d website/linkedin-automation-routine/slack_downloads/linkedin-infographic.png'
     },
     {
@@ -275,7 +275,7 @@ Moving from isolation to shared reality lowers the mental load and prevents burn
 
 How do solo founders build a safe support network that does not compromise their business reputation?
 
-Follow @founderswing for more insights.`
+Follow me.`
     },
     {
       id: 4,
@@ -311,7 +311,7 @@ Local brands can launch video campaigns on social platforms, reaching new custom
 
 Will ultra cheap video tools help small local shops compete with national brands?
 
-Follow @founderswing for more tools.`
+Follow me.`
     },
     {
       id: 6,
@@ -347,7 +347,7 @@ The main limitation is that real world testing still requires physical validatio
 
 How soon will physical AI systems run manufacturing plants without human supervision?
 
-Follow @founderswing for more breakdowns.`
+Follow me.`
     },
     {
       id: 8,
@@ -358,13 +358,13 @@ Follow @founderswing for more breakdowns.`
 
 Most visual tools charge high monthly subscription fees before a startup has any paying users. This burns through early capital.
 
-Startups can use pay-as-you-go distilled models to generate ads. Platforms like FounderWing help connect founders with these cost-effective infrastructure tools.
+Startups can use pay-as-you-go distilled models to generate ads without locking into expensive monthly contracts.
 
 Solo founders can run video ad campaigns, test different messages, and find product market fit without software debt.
 
 What is your preferred budget-friendly tool for creating startup marketing videos?
 
-Follow @founderswing for more advantages.`
+Follow me.`
     },
 
     // ===== DAY 3 — June 15, 2026 =====
@@ -394,13 +394,13 @@ Save this post to reference hardware trends.`
 
 Private investors have marked up company valuations for years. When these firms list publicly, the market often corrects these numbers down.
 
-Watch how public markets value AI companies. Platforms like FounderWing track how these listings affect early stage startup valuations and VC funding access.
+Watch how public markets value AI companies and how those listings affect early stage startup valuations and VC funding access.
 
 More realistic valuations bring stability to the startup market, making it easier for founders to raise rounds based on actual revenue.
 
 Will public market listings lower the inflated valuations of private AI firms?
 
-Follow @founderswing for more takes.`
+Follow me.`
     },
     {
       id: 11,

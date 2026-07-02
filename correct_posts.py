@@ -30,11 +30,9 @@ with open("./linkedin_posts_today.txt", "r") as f:
 correction_prompt = """
 You are a professional LinkedIn editor. Edit the following draft of 11 LinkedIn posts to make the following corrections:
 
-1. In Post 4 (Unfair Advantage):
-   - You MUST insert exactly one natural mention of "FounderWing". For example: "At FounderWing, we look for tools that give early teams an unfair advantage. S&P Global's new tool is one of them."
+1. Remove any mention of FounderWing, Founders Wing, or @founderswing from all posts.
 
-2. In Post 6 (Hot Take):
-   - You MUST insert exactly one natural mention of "FounderWing". For example: "At FounderWing, we see this as a warning for founders. If model creators are rushing to go public for survival capital, relying on their low prices is risky."
+2. End every post CTA with exactly "Follow me." (not "Follow for more" or "@founderswing").
 
 3. Banned Word Cleanups:
    - In Post 2 (Poll), change "key developer" (since "key" as an adjective is banned) to "senior developer" or just "developer".

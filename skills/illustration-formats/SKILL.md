@@ -64,7 +64,7 @@ All five formats share the visual language so they read as one brand:
 - Title: 64-72px, sentence case, italic serif accent word in coral
 - Subtitle: 18-22px, soft muted text
 - Footer: 1px divider, source attribution left, handle right
-- Always include `@founderswing` in the bottom-right footer
+- Always include "Follow me" in the bottom-right footer (no @handle, no brand name)
 - 1080 x 1080 canvas
 
 **Writing rules:**

@@ -32,8 +32,8 @@ body{{width:1080px;height:1080px;overflow:hidden;background:#F8F7F3;color:#111;f
 .pill{{background:#111;color:#fff;padding:20px 38px;border-radius:50px;font-size:21px;font-weight:800}}
 .pill em{{font-family:'Instrument Serif',serif;font-style:italic;color:{accent};font-weight:400;margin-left:6px}}
 </style></head><body>
-<div class="header"><div class="hleft"><span class="dot"></span>{kicker}</div>
-<div class="hright"><div class="fw">founders wing / 2026</div><div class="badge">{num}</div></div></div>
+<div class="header"><div class="hleft"><span class="dot"></span></div>
+<div class="hright"><div class="badge">{num}</div></div></div>
 <div class="content">{inner}</div>
 <div class="bottom">{bottom}</div>
 </body></html>"""
@@ -52,7 +52,7 @@ def build(slide, accent, kicker):
     if slide.get("body"):
         inner += f'<div class="body">{slide["body"]}</div>'
     if slide.get("cta"):
-        bottom = '<div class="pill">follow @founderswing for daily <em>frameworks.</em></div>'
+        bottom = '<div class="pill">Follow me</div>'
     else:
         bottom = '<div></div><div class="swipe">SWIPE &rarr;</div>'
     return PAGE.format(
@@ -113,6 +113,6 @@ PERF = [
      "body": "Save this for the next time a shiny idea calls."},
 ]
 
-write_set("carousel-branded", "#D9785B", "Founders Wing / build in public", BRANDED)
-write_set("carousel-performance", "#E16259", "Founders Wing / founder story", PERF)
+write_set("carousel-branded", "#D9785B", "", BRANDED)
+write_set("carousel-performance", "#E16259", "", PERF)
 print("done")

@@ -150,7 +150,7 @@ Topic: College dorm to stage panel (the long unsexy journey of credibility).
 Chosen Hook Style: Before-After (6-8 words max, curiosity gap).
 Slide 1 Hook: "From ignored student to panel speaker"
 Slides 2-6: Step-by-step process of a student building a company in their dorm room, losing pitch competitions, being ignored by professors, doing 6 years of unsexy private work, and finally being invited back to speak on an innovation panel alongside VCs. Emphasize that credibility doesn't come first; the work does. Maximum 2 sentences per slide.
-Slide 7 CTA: "Follow for more posts on startup loops."
+Slide 7 CTA: "Follow me."
 Caption: Slide 1 hook, what the carousel covers, engagement question, CTA to save/repost. Max 4 lines.
 Format clearly labeled with Slide 1, Slide 2, etc. and CAROUSEL CAPTION:
 """
@@ -197,7 +197,7 @@ Start directly with the hook. No titles.
         "prompt": f"""Write POST 4 (Unfair Advantage).
 Tool: Theker's generalist factory robot.
 Description: Theker raised 85 million dollars to build robots that don't specialize in a single task, allowing small factories to deploy them for arbitrary manual operations that traditionally required custom, expensive automation programming.
-MUST naturally mention "FounderWing" in the body text or call to action.
+End with "Follow me." as the CTA. Do not mention FounderWing, Founders Wing, or @founderswing.
 Archetype: Unfair Advantage | Emotion: WOW.
 Start directly with the hook. No titles.
 """
@@ -216,7 +216,7 @@ Start directly with the hook. No titles.
         "prompt": f"""Write POST 6 (Hot Take).
 Topic: Meta's new AI unit being called a "soul-crushing gulag" by its engineers.
 Hot Take: The race for AGI has created a toxic work culture where engineers are treated as disposable inputs. True startup moats are built on sustainable engineering cultures and distribution, not by burning out talent in a compute race.
-MUST naturally mention "FounderWing" in the body text.
+End with "Follow me." as the CTA. Do not mention FounderWing, Founders Wing, or @founderswing.
 Archetype: Hot Take | Emotion: THINK.
 Start directly with the hook. No titles.
 """
@@ -332,7 +332,7 @@ Your JSON must strictly follow this structure:
     "HEADLINE_PART_1": "Build the future",
     "HEADLINE_PART_2": "and protect your stack",
     "HEADLINE_EMPHASIS": "BUILD",
-    "SUBHEAD": "Follow @founderswing for more breakdowns on startup loops and strategy."
+    "SUBHEAD": "Follow me."
   }}
 }}
 Generate slide JSON configs reflecting today's Carousel content. Make sure all values are filled in.
@@ -377,7 +377,7 @@ Your JSON must strictly follow this structure:
   "date_label": "2025 Microsoft Report",
   "takeaway_num": "2 Mins",
   "takeaway_text": "is the average time between interruptions for a typical employee, leading to severe focus fragmentation.",
-  "source": "Source: Microsoft Work Trend Index | @founderswing",
+  "source": "Source: Microsoft Work Trend Index",
   "bars": [
     {{ "label": "Daily Interruptions (Meetings/Chats) - 275", "value": "91%", "color": "#E63946" }},
     {{ "label": "Lack of Time/Energy to Finish Work", "value": "80%", "color": "#D9785B" }},
