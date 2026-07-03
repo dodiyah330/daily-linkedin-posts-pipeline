@@ -1,12 +1,15 @@
 const puppeteer = require('puppeteer-core');
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
 
 (async () => {
   try {
     console.log("Locating active devtools port...");
-    const tmpDir = '/var/folders/c7/crm35d6s6t18fsxlt7ylmf580000gn/T';
-    const dirs = fs.readdirSync(tmpDir).filter(name => name.startsWith('agent-browser-chrome-'));
+    const tmpDir = os.tmpdir();
+    const dirs = fs.readdirSync(tmpDir).filter(name =>
+      name.startsWith('agent-browser-chrome-') || name.startsWith('agent-browser-profile-')
+    );
     if (dirs.length === 0) {
       throw new Error('No agent-browser-chrome directories found in tmp');
     }
@@ -28,7 +31,13 @@ const path = require('path');
     await page.bringToFront();
     
     // Check if scheduled posts modal is already open
-    const isModalOpen = await page.evaluate(() => {
+    await page.reload({ waitUntil: 'domcontentloaded', timeout: 20000 });
+  await new Promise(r => setTimeout(r, 4000));
+  await page.evaluate(() => {
+    document.querySelectorAll('.msg-overlay-container, [class*="msg-overlay"], #msg-overlay').forEach(el => el.remove());
+  });
+
+  const isModalOpen = await page.evaluate(() => {
       function findInShadow(root, sel) {
         if (!root) return null;
         const el = root.querySelector(sel);
@@ -163,10 +172,10 @@ const path = require('path');
       }
       const scrollable = findScrollable(document.body);
       if (scrollable) {
-        for (let i = 0; i < 5; i++) {
-          scrollable.scrollTop = scrollable.scrollHeight;
-          await new Promise(r => setTimeout(r, 1000));
-        }
+        for (let i = 0; i < 15; i++) {
+      scrollable.scrollTop = scrollable.scrollHeight;
+      await new Promise(r => setTimeout(r, 1000));
+    }
       } else {
         window.scrollTo(0, document.body.scrollHeight);
         await new Promise(r => setTimeout(r, 2000));
@@ -174,7 +183,7 @@ const path = require('path');
     });
 
     console.log("Saving screenshot of scrolled modal...");
-    await page.screenshot({ path: '/Users/prithal/3d website/linkedin-automation-routine/slack_downloads/scheduled_modal_scrolled.png' });
+    await page.screenshot({ path: path.join(__dirname, 'slack_downloads/scheduled_modal_scrolled.png') });
 
     // Click 'Show more Scheduled posts' if present
     const clickedShowMore = await page.evaluate(() => {
@@ -206,7 +215,33 @@ const path = require('path');
       console.log("Clicked 'Show more Scheduled posts' button, waiting 3s for loading...");
       await new Promise(r => setTimeout(r, 3000));
       console.log("Saving screenshot after clicking show more...");
-      await page.screenshot({ path: '/Users/prithal/3d website/linkedin-automation-routine/slack_downloads/scheduled_modal_scrolled_more.png' });
+      await page.screenshot({ path: path.join(__dirname, 'slack_downloads/scheduled_modal_scrolled_more.png') });
+      // Keep loading until no more "Show more" buttons
+      for (let round = 0; round < 10; round++) {
+        const again = await page.evaluate(() => {
+          function findShowMore(root) {
+            if (!root) return null;
+            const el = Array.from(root.querySelectorAll('button, span, a')).find(
+              e => e.innerText && e.innerText.trim() === 'Show more Scheduled posts'
+            );
+            if (el) return el;
+            const walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT, null, false);
+            let node;
+            while (node = walker.nextNode()) {
+              if (node.shadowRoot) {
+                const found = findShowMore(node.shadowRoot);
+                if (found) return found;
+              }
+            }
+            return null;
+          }
+          const btn = findShowMore(document.body);
+          if (btn) { btn.click(); return true; }
+          return false;
+        });
+        if (!again) break;
+        await new Promise(r => setTimeout(r, 2500));
+      }
     }
 
     // Now extract scheduled posts details

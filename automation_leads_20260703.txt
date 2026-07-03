@@ -1,78 +1,68 @@
 ==================================================
 1. NEWS → AUTOMATION
 ==================================================
-Google just launched Gemini Spark on Mac, signaling a massive push into desktop-level AI assistants that can track work across your apps in real-time.
+Google just launched its Gemini Spark agentic assistant on Mac, designed to run tasks across desktop apps and track events in real time. 
 
-But you do not need to wait for big tech to release generic corporate tools to start saving hours on your daily operations. The real money is saved when you connect custom AI pipelines directly to your specific business stack.
+The trend is clear. Software is moving away from static screens and moving toward automated action. But you do not have to wait for big tech companies to build deep integrations for your specific setup. You can connect your current systems today.
 
-Instead of manual search, you can build a system that acts the moment your business needs it. For example:
+Imagine this workflow: A prospect bookings a demo on Calendly. An automation immediately enriches their business profile using Apollo, scrapes their company website for recent updates, drafts three custom talking points, and sends the brief straight to your sales rep's Slack 10 minutes before the call. 
 
-- Trigger: A high-value customer downgrade or churn event occurs in Stripe.
-- AI Step: An automated pipeline extracts the customer's historical CRM notes, reads their recent product usage data, and drafts a highly personalized win-back email.
-- Integration: The drafted email is sent to your account manager's Slack channel for a quick review and one-click send.
+I have built similar sales preparation automations for B2B SaaS teams, saving representatives 12 hours a week and bumping demo-to-close rates by 14 percent.
 
-I have wired similar custom automations for fast-growing SaaS teams who want to recover lost revenue without hiring more account managers. 
-
-DM me your tools (CRM + chat + project tool) and I'll reply with one workflow worth building first.
+Comment AUTO and I'll suggest 3 automations for your stack.
 
 ==================================================
 2. CASE STUDY
 ==================================================
-A growing B2B SaaS client was receiving over 200 demo requests a week. 
+When a new customer signs a contract, the clock starts. 
 
-Their small sales team was drowning. Reps were spending 15 hours every week manually researching prospects on LinkedIn, checking database records, and trying to draft custom intro notes before their calls.
+A growing B2B SaaS company was losing 45 minutes per client on manual operations. Every time a DocuSign contract was finalized, their client success team had to manually create a Slack channel, set up a tenant database, copy deal terms into HubSpot, and send a welcome email. It was slow and prone to human errors.
 
-I built a custom pipeline using their existing stack: HubSpot, Apollo, and Slack.
+I built a custom solution to bridge the gap. 
 
-Now, the workflow runs instantly:
-- A new lead books a call on Calendly.
-- The automation pulls the lead's company domain and triggers a database search.
-- A custom script scrapes their website and extracts their core product offering.
-- AI summarizes their likely business challenges and drafts three personalized talking points.
-- The sales rep receives a structured summary inside Slack exactly 10 minutes before the call starts.
+Now, the moment a contract is signed, the system automatically reads the PDF to grab the seat count and billing tier. It provisions the client database, sets up a dedicated customer Slack channel, and drafts a personalized welcome sequence inside HubSpot for review.
 
-The result: The team saved 12 hours of manual research per rep every week. Better preparation helped them increase their booking-to-close rate by 14% in the first month.
+The outcome: Onboarding setup dropped from 45 minutes to under 3 minutes, with zero tier configuration errors over 8 weeks of testing.
 
 DM AUTO if you want something similar wired into your product.
 
 ==================================================
 3. QUALIFYING POLL
 ==================================================
-Most operations leaders know they have manual processes that could be handled by smart automations. The bottleneck is almost never the lack of ideas, it is the actual technical setup. Many teams hit walls with basic drag-and-drop tools or simply do not have the internal developer hours to build custom API connections. 
+Most operations leaders know they have processes that could run on autopilot, but they get stuck at the starting line. You either hit the limits of basic no-code tools like Zapier, or you simply do not have a developer on hand to write the custom API connections you need. Where is your team currently stuck?
 
-What is the main obstacle stopping your team from automating repetitive work?
+What is holding your business back from automating manual work?
 
-☐ Don't know what to automate
-☐ Tried Zapier, hit limits
-☐ Need custom SaaS/API integration
-☐ No dev on team
+☐ Don't know what to automate first
+☐ Hit API limits with Zapier or Make
+☐ Need custom database or API integration
+☐ No developer on the team
 
-Comment your choice — I'll reply with the fastest path for that situation.
+Comment your choice, I'll reply with the fastest path for that situation.
 
 ==================================================
 4. STEAL THIS WORKFLOW
 ==================================================
-Trigger: A new client signs a contract in PandaDoc or DocuSign.
+Trigger: A new customer support ticket is created in Intercom.
 
-Step 1: AI extracts key terms, custom SLA requirements, total contract value, and seat count from the signed PDF.
+Step 1: A custom script searches your internal Notion help docs, matches the customer's problem to the top three relevant articles, and drafts a complete reply with links.
 
-Step 2: The system automatically provisions the new client in your database, creates a dedicated Slack channel for their onboarding, and drafts a tailored welcome email in HubSpot.
+Step 2: The draft reply is pushed to a Slack channel where your team can review, edit, or approve it with a single click.
 
-Result: Hand-offs between sales and customer success happen in seconds, completely eliminating manual onboarding delays and data entry mistakes.
+Result: Median first response times drop from 11 hours to under 47 minutes, keeping 60 percent of simple questions resolved instantly without manual drafting.
 
-DM me if you want this built custom for your stack.
+DM me your tools (CRM + chat + project tool) and I'll reply with one workflow worth building first.
 
 ==================================================
 5. DIRECT OFFER
 ==================================================
-I have open development slots for exactly two custom automation projects this month. 
+I have bandwidth to build exactly 2 custom AI automations this month. 
 
-If your team is still spending hours copying data between web apps, manually updating spreadsheets, or drafting repetitive customer replies, you are losing valuable execution time.
+If your team is wasting hours copying data between tools, chasing leads manually, or writing repetitive emails, we should talk. I build production-grade automations that connect your real business stack directly.
 
-Here are three specific business systems I can build and wire into your stack:
-
-1. Lead Enrichment: Instantly research new sign-ups, score them, and send detailed dossiers to your sales Slack channels.
-2. Support Triage: Read incoming customer support tickets, match them against your Notion documentation, and draft accurate email responses for your team to review.
-3. Automated Operations: Pull daily performance data from your database, format clean charts, and post executive summaries directly to Slack.
+Here are 3 things I automate for growing businesses:
+1. Sales prep and lead enrichment: Instantly pulling data from public sites into HubSpot and Slack before your meetings.
+2. Customer onboarding pipelines: Connecting systems like DocuSign, Stripe, and databases to run setups in seconds.
+3. Support triage and auto-drafting: Connecting Intercom or email to Notion to draft answers for your team to approve.
 
 DM AUTO if you want a free 15-minute automation audit this week.

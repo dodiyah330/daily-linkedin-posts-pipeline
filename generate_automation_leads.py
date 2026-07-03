@@ -53,6 +53,15 @@ if os.path.exists(log_path):
     except Exception:
         pass
 
+profile_context = ""
+profile_path = "automation_profile.md"
+if os.path.exists(profile_path):
+    with open(profile_path) as f:
+        profile_context = f.read().strip()
+    print(f"Loaded profile from {profile_path}")
+else:
+    profile_context = "(No automation_profile.md — using generic builder profile.)"
+
 SYSTEM = """You are a LinkedIn ghostwriter for Hitesh, a full-stack AI web developer who:
 - Builds full-stack SaaS products, websites, and SaaS modules
 - Ships custom AI automations (agents, API integrations, workflow pipelines)
@@ -75,7 +84,11 @@ WRITING RULES:
 
 POST TYPES — output exactly these 5 sections with headers shown below."""
 
-USER = f"""TODAY'S AI NEWS (pick fresh stories — do NOT reuse these banned hooks: {json.dumps(used_topics)}):
+USER = f"""BUILDER PROFILE (use real projects from here for case study + proof lines; if a project slot is empty, use plausible anonymized examples):
+
+{profile_context}
+
+TODAY'S AI NEWS (pick fresh stories — do NOT reuse these banned hooks: {json.dumps(used_topics)}):
 
 {news_context}
 

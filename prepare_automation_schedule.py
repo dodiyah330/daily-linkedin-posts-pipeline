@@ -55,10 +55,10 @@ def extract_poll_options(body):
 
 def extract_poll_question(body):
     lines = [ln.strip() for ln in body.split("\n") if ln.strip() and not ln.startswith("☐")]
-    for ln in lines:
-        if "?" in ln:
-            return ln
-    return lines[0] if lines else "What's blocking your AI automation?"
+    questions = [ln for ln in lines if "?" in ln]
+    if questions:
+        return min(questions, key=len)
+    return "What's blocking your AI automation?"
 
 
 with open(POSTS_FILE) as f:

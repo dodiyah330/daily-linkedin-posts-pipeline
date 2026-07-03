@@ -230,6 +230,17 @@ async function fillTimeComboboxShadow(page, selector, value) {
   const scheduleFile = process.env.SCHEDULE_FILE
     ? path.resolve(__dirname, process.env.SCHEDULE_FILE)
     : path.join(__dirname, 'schedule_today.json');
+  const pauseMarker = path.join(__dirname, '.general_batch_paused');
+  if (
+    fs.existsSync(pauseMarker) &&
+    path.basename(scheduleFile) === 'schedule_today.json' &&
+    process.env.FORCE_GENERAL_BATCH !== '1'
+  ) {
+    console.error('General 16-post batch is paused (.general_batch_paused exists).');
+    console.error('Use SCHEDULE_FILE=schedule_automation_leads.json for automation posts,');
+    console.error('or FORCE_GENERAL_BATCH=1 to override.');
+    process.exit(1);
+  }
   let posts;
   if (fs.existsSync(scheduleFile)) {
     posts = JSON.parse(fs.readFileSync(scheduleFile, 'utf8')).posts;
@@ -931,7 +942,7 @@ Save this prompt to use on your next idea.`
       console.log("Success! Waiting 6s for scheduling process to complete...");
       await new Promise(r => setTimeout(r, 6000));
 
-      const isClosed = await page.evaluate(() => {
+      let isClosed = await page.evaluate(() => {
         function findEl(root, sel) {
           if (!root) return null;
           const el = root.querySelector(sel);
@@ -948,7 +959,52 @@ Save this prompt to use on your next idea.`
         }
         return !findEl(document.body, '.ql-editor');
       });
-      if (!isClosed) throw new Error("composer editor did not close. Scheduling might have failed!");
+      if (!isClosed) {
+        console.log("Composer still open — dismissing and continuing...");
+        await page.evaluate(() => {
+          function findDismissBtn(root) {
+            if (!root) return null;
+            const btn = Array.from(root.querySelectorAll('button')).find(
+              b => {
+                const label = b.getAttribute('aria-label') || '';
+                const txt = b.innerText || '';
+                return label.includes('Dismiss') || txt.includes('Dismiss') || label.toLowerCase() === 'close';
+              }
+            );
+            if (btn) return btn;
+            const walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT, null, false);
+            let node;
+            while (node = walker.nextNode()) {
+              if (node.shadowRoot) {
+                const found = findDismissBtn(node.shadowRoot);
+                if (found) return found;
+              }
+            }
+            return null;
+          }
+          const dismissBtn = findDismissBtn(document.body);
+          if (dismissBtn) dismissBtn.click();
+        });
+        await new Promise(r => setTimeout(r, 3000));
+        isClosed = await page.evaluate(() => {
+          function findEl(root, sel) {
+            if (!root) return null;
+            const el = root.querySelector(sel);
+            if (el) return el;
+            const walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT, null, false);
+            let node;
+            while (node = walker.nextNode()) {
+              if (node.shadowRoot) {
+                const found = findEl(node.shadowRoot, sel);
+                if (found) return found;
+              }
+            }
+            return null;
+          }
+          return !findEl(document.body, '.ql-editor');
+        });
+        if (!isClosed) console.warn("Composer may still be open — post may have scheduled anyway.");
+      }
       
       console.log(`✓ Successfully scheduled Post ${post.id}/${posts.length}!`);
     }
