@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Parse automation_leads_*.txt into schedule_automation_leads.json (5 posts, Mon–Fri)."""
+"""Parse automation_leads_*.txt into schedule_automation_leads.json (5 image posts, Mon–Fri)."""
 import datetime
 import glob
 import json
@@ -13,6 +13,9 @@ if not files:
     raise SystemExit("No automation_leads_*.txt — run generate_automation_leads.py first")
 
 POSTS_FILE = files[-1]
+date_m = re.search(r"automation_leads_(\d{8})\.txt", POSTS_FILE)
+DATE_COMPACT = date_m.group(1) if date_m else datetime.date.today().isoformat().replace("-", "")
+
 START = datetime.date.today() + datetime.timedelta(days=1)
 
 # Mon–Fri slots (skip weekend)
@@ -31,7 +34,6 @@ LABELS = [
     "4. STEAL THIS WORKFLOW",
     "5. DIRECT OFFER",
 ]
-TYPES = ["regular", "regular", "poll", "regular", "regular"]
 
 
 def split_sections(text):
@@ -48,40 +50,51 @@ def split_sections(text):
     return sections
 
 
-def extract_poll_options(body):
-    opts = re.findall(r"☐ (.+)", body)
-    return "|".join(o[:30] for o in opts[:4])
-
-
-def extract_poll_question(body):
-    lines = [ln.strip() for ln in body.split("\n") if ln.strip() and not ln.startswith("☐")]
-    questions = [ln for ln in lines if "?" in ln]
-    if questions:
-        return min(questions, key=len)
-    return "What's blocking your AI automation?"
+def find_image_path(post_id):
+    png = os.path.join(BASE, "automation-images", DATE_COMPACT, f"automation-img-{post_id:02d}.png")
+    if os.path.exists(png):
+        return png
+    # fallback: latest batch folder
+    batches = sorted(
+        d for d in os.listdir(os.path.join(BASE, "automation-images"))
+        if os.path.isdir(os.path.join(BASE, "automation-images", d))
+    ) if os.path.isdir(os.path.join(BASE, "automation-images")) else []
+    if batches:
+        png = os.path.join(BASE, "automation-images", batches[-1], f"automation-img-{post_id:02d}.png")
+        if os.path.exists(png):
+            return png
+    return None
 
 
 with open(POSTS_FILE) as f:
     sections = split_sections(f.read())
 
 posts = []
-for i, (label, day, time, ptype) in enumerate(zip(LABELS, days, TIMES, TYPES), 1):
+missing_images = []
+for i, (label, day, time) in enumerate(zip(LABELS, days, TIMES), 1):
     body = sections.get(label, "").strip()
+    asset = find_image_path(i)
+    if not asset:
+        missing_images.append(i)
     post = {
         "id": i,
-        "type": ptype,
+        "type": "infographic",
         "date": day.strftime("%m/%d/%Y"),
         "time": time,
         "caption": body,
     }
-    if ptype == "poll":
-        post["title"] = extract_poll_question(body)
-        post["pollOptionsStr"] = extract_poll_options(body)
+    if asset:
+        post["assetPath"] = asset
     posts.append(post)
+
+if missing_images:
+    raise SystemExit(
+        f"Missing image PNGs for posts {missing_images}. Run: python3 build_automation_images.py"
+    )
 
 out = os.path.join(BASE, "schedule_automation_leads.json")
 with open(out, "w") as f:
     json.dump({"posts": posts, "generated": datetime.date.today().isoformat(), "stream": "automation-leads"}, f, indent=2)
 
-print(f"Wrote {out} with {len(posts)} posts")
+print(f"Wrote {out} with {len(posts)} image posts")
 print(f"Schedule: {days[0].strftime('%m/%d/%Y')} – {days[-1].strftime('%m/%d/%Y')}")

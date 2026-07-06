@@ -1,0 +1,40 @@
+{
+  "date": "20260706",
+  "images": [
+    {
+      "id": 1,
+      "label": "1. NEWS \u2192 AUTOMATION",
+      "html": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260706/automation-img-01.html",
+      "png": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260706/automation-img-01.png",
+      "json": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260706/automation-img-01.json"
+    },
+    {
+      "id": 2,
+      "label": "2. CASE STUDY",
+      "html": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260706/automation-img-02.html",
+      "png": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260706/automation-img-02.png",
+      "json": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260706/automation-img-02.json"
+    },
+    {
+      "id": 3,
+      "label": "3. QUALIFYING POLL",
+      "html": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260706/automation-img-03.html",
+      "png": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260706/automation-img-03.png",
+      "json": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260706/automation-img-03.json"
+    },
+    {
+      "id": 4,
+      "label": "4. STEAL THIS WORKFLOW",
+      "html": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260706/automation-img-04.html",
+      "png": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260706/automation-img-04.png",
+      "json": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260706/automation-img-04.json"
+    },
+    {
+      "id": 5,
+      "label": "5. DIRECT OFFER",
+      "html": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260706/automation-img-05.html",
+      "png": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260706/automation-img-05.png",
+      "json": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260706/automation-img-05.json"
+    }
+  ]
+}

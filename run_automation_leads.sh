@@ -9,11 +9,14 @@ python3 fetch_ai_news_rss.py
 echo "== Generate 5 automation lead posts =="
 python3 generate_automation_leads.py
 
-echo "== Send to Slack =="
-python3 send_automation_leads_to_slack.py
+echo "== Build 5 daily infographic images =="
+python3 build_automation_images.py
 
 echo "== Build schedule JSON =="
 python3 prepare_automation_schedule.py
+
+echo "== Send to Slack =="
+python3 send_automation_leads_to_slack.py
 
 echo ""
 echo "Done. To schedule on LinkedIn:"

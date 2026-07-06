@@ -2,42 +2,98 @@
   "posts": [
     {
       "id": 1,
+      "stream": "text",
       "type": "regular",
-      "date": "07/06/2026",
+      "date": "07/07/2026",
       "time": "9:00 AM",
-      "caption": "Google just launched its Gemini Spark agentic assistant on Mac, designed to run tasks across desktop apps and track events in real time. \n\nThe trend is clear. Software is moving away from static screens and moving toward automated action. But you do not have to wait for big tech companies to build deep integrations for your specific setup. You can connect your current systems today.\n\nImagine this workflow: A prospect bookings a demo on Calendly. An automation immediately enriches their business profile using Apollo, scrapes their company website for recent updates, drafts three custom talking points, and sends the brief straight to your sales rep's Slack 10 minutes before the call. \n\nI have built similar sales preparation automations for B2B SaaS teams, saving representatives 12 hours a week and bumping demo-to-close rates by 14 percent.\n\nComment AUTO and I'll suggest 3 automations for your stack."
+      "caption": "Amazon is shutting down Mechanical Turk to new customers. The era of hiring armies of micro-task workers to categorize data, tag leads, and clean spreadsheets is officially ending.\n\nIf your operations team is still manually sorting support tickets, routing leads, or cleaning CSVs, you do not need to hire more people. You need structured, custom API pipelines.\n\nInstead of paying manual workers to process data, you can build an automated verification engine. \n\nHere is how it works:\n- Trigger: A new row is added to a Google Sheet, or a webhook fires from your lead capture form.\n- AI Step: Run the raw data through the Gemini API with strict validation rules to categorize, tag, and clean the data.\n- Integration: Automatically push the verified, structured data directly into your HubSpot CRM or Slack.\n\nI've built similar automated pipelines for B2B SaaS companies, helping their operations teams move entirely off manual data entry.\n\nComment AUTO and I'll suggest 3 automations for your stack."
     },
     {
       "id": 2,
+      "stream": "text",
       "type": "regular",
-      "date": "07/07/2026",
+      "date": "07/08/2026",
       "time": "12:00 PM",
-      "caption": "When a new customer signs a contract, the clock starts. \n\nA growing B2B SaaS company was losing 45 minutes per client on manual operations. Every time a DocuSign contract was finalized, their client success team had to manually create a Slack channel, set up a tenant database, copy deal terms into HubSpot, and send a welcome email. It was slow and prone to human errors.\n\nI built a custom solution to bridge the gap. \n\nNow, the moment a contract is signed, the system automatically reads the PDF to grab the seat count and billing tier. It provisions the client database, sets up a dedicated customer Slack channel, and drafts a personalized welcome sequence inside HubSpot for review.\n\nThe outcome: Onboarding setup dropped from 45 minutes to under 3 minutes, with zero tier configuration errors over 8 weeks of testing.\n\nDM AUTO if you want something similar wired into your product."
+      "caption": "A growing B2B SaaS company with 40 employees was losing valuable sales time. Their sales reps spent 15 hours every week researching prospects before demo calls. Their prep notes were scattered across CRM tabs, LinkedIn, and company websites, leading to weak discovery and missed close opportunities.\n\nI built a custom sales preparation pipeline to solve this.\n\nThe Stack:\nNode.js, HubSpot API, Calendly webhooks, Apollo enrichment API, and Slack.\n\nThe Workflow:\n1. Calendly webhook fires when a prospect books a demo.\n2. The system automatically enriches the domain via Apollo and scrapes the prospect's public website.\n3. AI analyzes the data, drafting 3 custom talking points and listing likely pain points.\n4. A clean, structured brief is sent directly to the sales rep's Slack channel 10 minutes before the call.\n\nThe Outcome:\nWe saved each sales rep 12 hours per week. Within the first 30 days of launching this prep flow, their demo-to-close rate increased by 14 percent.\n\nDM AUTO if you want something similar wired into your product."
     },
     {
       "id": 3,
+      "stream": "text",
       "type": "poll",
-      "date": "07/08/2026",
+      "date": "07/09/2026",
       "time": "9:00 AM",
-      "caption": "Most operations leaders know they have processes that could run on autopilot, but they get stuck at the starting line. You either hit the limits of basic no-code tools like Zapier, or you simply do not have a developer on hand to write the custom API connections you need. Where is your team currently stuck?\n\nWhat is holding your business back from automating manual work?\n\n\u2610 Don't know what to automate first\n\u2610 Hit API limits with Zapier or Make\n\u2610 Need custom database or API integration\n\u2610 No developer on the team\n\nComment your choice, I'll reply with the fastest path for that situation.",
-      "title": "What is holding your business back from automating manual work?",
-      "pollOptionsStr": "Don't know what to automate fi|Hit API limits with Zapier or |Need custom database or API in|No developer on the team"
+      "caption": "Most SaaS teams know they have manual bottlenecks, but they struggle to get custom automations off the ground. No-code tools like Zapier eventually hit API rate limits, and your core developers are too busy building the product to write internal integration glue.\n\nWhat is holding you back from automating your team's manual workflows?\n\n\u2610 Don't know what to automate\n\u2610 Tried Zapier, hit limits\n\u2610 Need custom SaaS/API integration\n\u2610 No developer on the team\n\nComment your choice, I'll reply with the fastest path for that situation.",
+      "title": "What is holding you back from automating your team's manual workflows?",
+      "pollOptionsStr": "Don't know what to automate|Tried Zapier, hit limits|Need custom SaaS/API integrati|No developer on the team"
     },
     {
       "id": 4,
+      "stream": "text",
       "type": "regular",
-      "date": "07/09/2026",
+      "date": "07/10/2026",
       "time": "12:00 PM",
-      "caption": "Trigger: A new customer support ticket is created in Intercom.\n\nStep 1: A custom script searches your internal Notion help docs, matches the customer's problem to the top three relevant articles, and drafts a complete reply with links.\n\nStep 2: The draft reply is pushed to a Slack channel where your team can review, edit, or approve it with a single click.\n\nResult: Median first response times drop from 11 hours to under 47 minutes, keeping 60 percent of simple questions resolved instantly without manual drafting.\n\nDM me your tools (CRM + chat + project tool) and I'll reply with one workflow worth building first."
+      "caption": "Trigger: A new support ticket arrives in Intercom.\n\nStep 1: AI instantly queries your internal Notion knowledge base and drafts a precise, personalized response containing the exact troubleshooting links.\n\nStep 2: The draft is sent to a private Slack channel for your customer success team to review.\n\nResult: With a single click to approve and send, the median response time drops from 11 hours to 47 minutes, resolving 60 percent of common tickets instantly.\n\nDM me your tools (CRM + chat + project tool) and I'll reply with one workflow worth building first."
     },
     {
       "id": 5,
+      "stream": "text",
       "type": "regular",
-      "date": "07/10/2026",
+      "date": "07/13/2026",
       "time": "9:00 AM",
-      "caption": "I have bandwidth to build exactly 2 custom AI automations this month. \n\nIf your team is wasting hours copying data between tools, chasing leads manually, or writing repetitive emails, we should talk. I build production-grade automations that connect your real business stack directly.\n\nHere are 3 things I automate for growing businesses:\n1. Sales prep and lead enrichment: Instantly pulling data from public sites into HubSpot and Slack before your meetings.\n2. Customer onboarding pipelines: Connecting systems like DocuSign, Stripe, and databases to run setups in seconds.\n3. Support triage and auto-drafting: Connecting Intercom or email to Notion to draft answers for your team to approve.\n\nDM AUTO if you want a free 15-minute automation audit this week."
+      "caption": "I have bandwidth to take on 2 custom AI automation projects this month. \n\nIf your team is wasting hours copying data between systems, writing manual reports, or researching leads, I can build custom code to run these tasks on autopilot.\n\nHere are 3 workflows I can build and wire into your stack:\n\n1. Automated onboarding: Extract customer tiers from signed DocuSign contracts and auto-provision accounts in your database.\n2. Sales preparation: Scrape prospect websites, enrich them with database records, and drop a Slack briefing to your rep before a demo.\n3. Support assistant: Match incoming support tickets against your help documents and draft answers for your team to approve with one click.\n\nNo generic chatbots. Just clean, custom code that connects your systems and works.\n\nDM AUTO if you want a free 15-minute automation audit this week."
+    },
+    {
+      "id": 6,
+      "stream": "image",
+      "type": "infographic",
+      "date": "07/07/2026",
+      "time": "6:00 PM",
+      "caption": "Manual Data Sorting Ends \u2014 Build Custom API Pipelines\n\n100% Automated data verification using the Gemini API, Google Sheets, and HubSpot CRM.\n\nComment AUTO and I'll suggest 3 automations for your stack.",
+      "assetPath": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260706/automation-img-01.png",
+      "pairedTextPost": 1
+    },
+    {
+      "id": 7,
+      "stream": "image",
+      "type": "infographic",
+      "date": "07/08/2026",
+      "time": "6:00 PM",
+      "caption": "Automate Your Sales Prep \u2014 Increase Close Rates\n\n14% Increase in demo-to-close rate within the first thirty days of launch.\n\nDM AUTO if you want something similar wired into your product.",
+      "assetPath": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260706/automation-img-02.png",
+      "pairedTextPost": 2
+    },
+    {
+      "id": 8,
+      "stream": "image",
+      "type": "infographic",
+      "date": "07/09/2026",
+      "time": "6:00 PM",
+      "caption": "What Stops Your Automation? \u2014 Identify the Bottlenecks\n\n4 Paths Get the exact integration strategy for your team's specific bottleneck.\n\nComment your blocker below \u2014 I'll reply with the fastest fix.",
+      "assetPath": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260706/automation-img-03.png",
+      "pairedTextPost": 3
+    },
+    {
+      "id": 9,
+      "stream": "image",
+      "type": "infographic",
+      "date": "07/10/2026",
+      "time": "6:00 PM",
+      "caption": "Accelerate Support Response Times \u2014 From Hours to Minutes\n\n47min New response time down from 11 hours, resolving 60 percent of common tickets.\n\nDM me your stack and I'll reply with one workflow worth building first.",
+      "assetPath": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260706/automation-img-04.png",
+      "pairedTextPost": 4
+    },
+    {
+      "id": 10,
+      "stream": "image",
+      "type": "infographic",
+      "date": "07/13/2026",
+      "time": "6:00 PM",
+      "caption": "Build Your Custom Automations \u2014 Clean Production Code\n\n2 Slots Available this month for custom AI automation projects.\n\nDM AUTO for a free 15-minute automation audit this week.",
+      "assetPath": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260706/automation-img-05.png",
+      "pairedTextPost": 5
     }
   ],
-  "generated": "2026-07-03",
-  "stream": "automation-leads"
+  "generated": "2026-07-06",
+  "stream": "automation-leads",
+  "layout": "5 text posts + 5 separate image posts at 6:00 PM"
 }

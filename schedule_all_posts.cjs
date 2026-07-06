@@ -557,19 +557,70 @@ Save this prompt to use on your next idea.`
       // ========== HANDLE ATTACHMENTS ==========
       if (post.type === 'poll') {
         console.log("Handling Poll attachment...");
-        await clickNativelyShadow(page, (root) => {
-          return Array.from(root.querySelectorAll('button')).find(
-            b => (b.ariaLabel && b.ariaLabel.includes('More')) || (b.innerText && b.innerText.includes('More'))
-          );
-        });
-        await new Promise(r => setTimeout(r, 1500));
 
-        const clickedPoll = await clickNativelyShadow(page, (root) => {
-          return Array.from(root.querySelectorAll('button')).find(
-            b => (b.ariaLabel && b.ariaLabel.includes('Create a poll')) || (b.innerText && b.innerText.includes('Create a poll'))
-          );
+        // Strategy 1: direct poll icon in composer toolbar
+        let openedPoll = await clickNativelyShadow(page, (root) => {
+          const modal = root.querySelector('.share-box, .artdeco-modal, [role="dialog"]');
+          const container = modal || root;
+          return Array.from(container.querySelectorAll('button, [role="menuitem"], li, span, div')).find(el => {
+            const label = (el.getAttribute('aria-label') || '').toLowerCase();
+            const txt = (el.innerText || '').trim().toLowerCase();
+            return label.includes('poll') || txt === 'poll' || txt.includes('create a poll');
+          });
         });
-        if (!clickedPoll) throw new Error("Could not find 'Create a poll' button");
+
+        // Strategy 2: More → Create a poll
+        if (!openedPoll) {
+          await clickNativelyShadow(page, (root) => {
+            const modal = root.querySelector('.share-box, .artdeco-modal, [role="dialog"]');
+            const container = modal || root;
+            return Array.from(container.querySelectorAll('button')).find(el => {
+              const label = (el.getAttribute('aria-label') || '').toLowerCase();
+              const txt = (el.innerText || '').trim().toLowerCase();
+              return label === 'more' || txt === 'more' ||
+                (el.className.includes('share-promoted-detour-button') && txt.includes('more'));
+            });
+          });
+          await new Promise(r => setTimeout(r, 2000));
+          openedPoll = await clickNativelyShadow(page, (root) => {
+            const modal = root.querySelector('.share-box, .artdeco-modal, [role="dialog"]');
+            const container = modal || root;
+            return Array.from(container.querySelectorAll('button, [role="menuitem"], li, span, div')).find(el => {
+              const label = (el.getAttribute('aria-label') || '').toLowerCase();
+              const txt = (el.innerText || '').trim().toLowerCase();
+              return label.includes('create a poll') || txt.includes('create a poll') || txt === 'poll';
+            });
+          });
+        }
+
+        // Strategy 3: legacy detour buttons (poll is often the 2nd icon)
+        if (!openedPoll) {
+          const detourIdx = await page.evaluate(() => {
+            function findDetours(root, out) {
+              if (!root) return out;
+              root.querySelectorAll('button.share-promoted-detour-button').forEach(b => out.push(b));
+              const w = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT);
+              let n;
+              while (n = w.nextNode()) {
+                if (n.shadowRoot) findDetours(n.shadowRoot, out);
+              }
+              return out;
+            }
+            const btns = findDetours(document.body, []);
+            const modal = document.querySelector('.share-box, .artdeco-modal, [role="dialog"]');
+            const inModal = modal ? btns.filter(b => modal.contains(b)) : btns;
+            return inModal.length >= 2 ? 1 : -1;
+          });
+          if (detourIdx >= 0) {
+            openedPoll = await clickNativelyShadow(page, (root) => {
+              const modal = root.querySelector('.share-box, .artdeco-modal, [role="dialog"]');
+              const btns = Array.from((modal || root).querySelectorAll('button.share-promoted-detour-button'));
+              return btns[detourIdx] || null;
+            });
+          }
+        }
+
+        if (!openedPoll) throw new Error("Could not find 'Create a poll' button");
         await new Promise(r => setTimeout(r, 2000));
 
         // Fill question
@@ -791,10 +842,10 @@ Save this prompt to use on your next idea.`
         console.log("Handling Infographic image upload...");
         const clickedMedia = await clickNativelyShadow(page, (root) => {
           const btns = Array.from(root.querySelectorAll('button'));
-          return btns.find(b => b.ariaLabel && b.ariaLabel.includes('Add media')) ||
+          return btns.find(b => (b.getAttribute('aria-label') || '').includes('Add media')) ||
                  btns.find(b => b.innerText && b.innerText.includes('Add media')) ||
                  btns.find(b => b.innerText && b.innerText.includes('Photo')) ||
-                 btns.find(b => b.ariaLabel && b.ariaLabel.includes('Photo'));
+                 btns.find(b => (b.getAttribute('aria-label') || '').includes('Photo'));
         });
         if (!clickedMedia) throw new Error("Could not find image upload button");
         await new Promise(r => setTimeout(r, 2000));

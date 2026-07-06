@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Send automation lead-gen posts to Slack."""
+"""Send automation lead-gen posts + daily images to Slack."""
 import datetime
 import glob
 import json
@@ -41,6 +41,33 @@ def send(text):
             print("OK")
 
 
+def upload_file(filepath, comment):
+    size = os.path.getsize(filepath)
+    g = urllib.request.urlopen(urllib.request.Request(
+        "https://slack.com/api/files.getUploadURLExternal",
+        data=f"filename={os.path.basename(filepath)}&length={size}".encode(),
+        headers={"Authorization": f"Bearer {slack_token}", "Content-Type": "application/x-www-form-urlencoded"},
+        method="POST",
+    ))
+    g_resp = json.loads(g.read().decode())
+    if not g_resp.get("ok"):
+        print(f"Upload URL error: {g_resp.get('error')}")
+        return
+    with open(filepath, "rb") as f:
+        urllib.request.urlopen(urllib.request.Request(g_resp["upload_url"], data=f.read(), method="POST"))
+    urllib.request.urlopen(urllib.request.Request(
+        "https://slack.com/api/files.completeUploadExternal",
+        data=json.dumps({
+            "files": [{"id": g_resp["file_id"], "title": os.path.basename(filepath)}],
+            "channel_id": channel,
+            "initial_comment": comment,
+        }).encode(),
+        headers={"Authorization": f"Bearer {slack_token}", "Content-Type": "application/json; charset=utf-8"},
+        method="POST",
+    ))
+    print(f"Uploaded {os.path.basename(filepath)}")
+
+
 def split_sections(text):
     text = re.sub(r"^={50}\n", "", text.strip())
     chunks = [c.strip() for c in re.split(r"\n={50}\n", text) if c.strip()]
@@ -66,6 +93,7 @@ date_str = (
     f"{date_m.group(1)[:4]}-{date_m.group(1)[4:6]}-{date_m.group(1)[6:8]}"
     if date_m else datetime.date.today().isoformat()
 )
+date_compact = date_str.replace("-", "")
 
 with open(posts_file) as f:
     sections = split_sections(f.read())
@@ -80,7 +108,7 @@ labels = [
 
 send(
     f"🎯 *Automation Lead Posts — {date_str}*\n"
-    "5 posts to attract AI automation clients. Schedule with:\n"
+    "5 image + caption posts (Mon–Fri). Schedule with:\n"
     "`SCHEDULE_FILE=schedule_automation_leads.json node schedule_all_posts.cjs`"
 )
 
@@ -89,28 +117,23 @@ for label in labels:
     if body:
         send(body)
 
-# Upload source file
-size = os.path.getsize(posts_file)
-g = urllib.request.urlopen(urllib.request.Request(
-    "https://slack.com/api/files.getUploadURLExternal",
-    data=f"filename={os.path.basename(posts_file)}&length={size}".encode(),
-    headers={"Authorization": f"Bearer {slack_token}", "Content-Type": "application/x-www-form-urlencoded"},
-    method="POST",
-))
-g_resp = json.loads(g.read().decode())
-if g_resp.get("ok"):
-    with open(posts_file, "rb") as f:
-        urllib.request.urlopen(urllib.request.Request(g_resp["upload_url"], data=f.read(), method="POST"))
-    urllib.request.urlopen(urllib.request.Request(
-        "https://slack.com/api/files.completeUploadExternal",
-        data=json.dumps({
-            "files": [{"id": g_resp["file_id"], "title": os.path.basename(posts_file)}],
-            "channel_id": channel,
-            "initial_comment": f"Raw automation leads batch — {date_str}",
-        }).encode(),
-        headers={"Authorization": f"Bearer {slack_token}", "Content-Type": "application/json; charset=utf-8"},
-        method="POST",
-    ))
-    print(f"Uploaded {posts_file}")
+img_dir = os.path.join(BASE, "automation-images", date_compact)
+if not os.path.isdir(img_dir):
+    batches = sorted(
+        d for d in os.listdir(os.path.join(BASE, "automation-images"))
+        if os.path.isdir(os.path.join(BASE, "automation-images", d))
+    ) if os.path.isdir(os.path.join(BASE, "automation-images")) else []
+    if batches:
+        img_dir = os.path.join(BASE, "automation-images", batches[-1])
 
+if os.path.isdir(img_dir):
+    send("📸 *Daily image posts* — 5 infographics attached below")
+    for i in range(1, 6):
+        png = os.path.join(img_dir, f"automation-img-{i:02d}.png")
+        if os.path.exists(png):
+            upload_file(png, f"Automation image post {i}/5 — {date_str}")
+else:
+    print("No automation-images folder — run build_automation_images.py")
+
+upload_file(posts_file, f"Raw automation leads batch — {date_str}")
 print("Automation leads Slack delivery complete.")

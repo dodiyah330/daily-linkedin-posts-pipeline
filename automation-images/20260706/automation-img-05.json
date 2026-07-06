@@ -1,0 +1,36 @@
+{
+  "badge": "\ud83d\udcbc Direct Offer",
+  "date_label": "March 2025",
+  "title_main": "Build Your Custom Automations",
+  "title_span": "Clean Production Code",
+  "subtitle": "Get custom integrations built directly into your stack. Save hours of manual copy-pasting.",
+  "takeaway_num": "2 Slots",
+  "takeaway_text": "Available this month for custom AI automation projects.",
+  "source": "Based on: Automation Services \u00b7 Hitesh Dodiya",
+  "bars": [
+    {
+      "label": "Automated Customer Onboarding",
+      "value": "DocuSign Flow",
+      "width_pct": "85%",
+      "color": "#2563EB"
+    },
+    {
+      "label": "Automated Sales Preparation",
+      "value": "Slack Briefing",
+      "width_pct": "85%",
+      "color": "#059669"
+    },
+    {
+      "label": "AI Support Assistant",
+      "value": "Draft Answers",
+      "width_pct": "85%",
+      "color": "#D9785B"
+    },
+    {
+      "label": "Bandwidth: Custom Projects",
+      "value": "2 Slots Left",
+      "width_pct": "100%",
+      "color": "#111111"
+    }
+  ]
+}

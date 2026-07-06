@@ -1,0 +1,36 @@
+{
+  "badge": "\ud83d\uddf3\ufe0f Community Poll",
+  "date_label": "March 2025",
+  "title_main": "What Stops Your Automation?",
+  "title_span": "Identify the Bottlenecks",
+  "subtitle": "No-code tools hit limits, and product developers are too busy. What is holding your workflow back?",
+  "takeaway_num": "4 Paths",
+  "takeaway_text": "Get the exact integration strategy for your team's specific bottleneck.",
+  "source": "Based on: SaaS Automation Obstacles \u00b7 Hitesh Dodiya",
+  "bars": [
+    {
+      "label": "Don't know what to automate",
+      "value": "Vote A",
+      "width_pct": "90%",
+      "color": "#5E6AD2"
+    },
+    {
+      "label": "Tried Zapier, hit limits",
+      "value": "Vote B",
+      "width_pct": "70%",
+      "color": "#2563EB"
+    },
+    {
+      "label": "Need custom SaaS/API integration",
+      "value": "Vote C",
+      "width_pct": "55%",
+      "color": "#059669"
+    },
+    {
+      "label": "No developer on the team",
+      "value": "Vote D",
+      "width_pct": "40%",
+      "color": "#D9785B"
+    }
+  ]
+}

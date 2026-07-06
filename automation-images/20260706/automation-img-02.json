@@ -1,0 +1,30 @@
+{
+  "badge": "\ud83d\udcc8 Case Study",
+  "date_label": "March 2025",
+  "title_main": "Automate Your Sales Prep",
+  "title_span": "Increase Close Rates",
+  "subtitle": "How a B2B SaaS company saved 12 hours weekly per rep and grew conversions using automated client research.",
+  "takeaway_num": "14%",
+  "takeaway_text": "Increase in demo-to-close rate within the first thirty days of launch.",
+  "source": "Based on: Sales Prep Flow \u00b7 Hitesh Dodiya",
+  "bars": [
+    {
+      "label": "Manual Research Time",
+      "value": "15 hours",
+      "width_pct": "90%",
+      "color": "#111111"
+    },
+    {
+      "label": "Automated Research Time",
+      "value": "3 hours",
+      "width_pct": "20%",
+      "color": "#059669"
+    },
+    {
+      "label": "Hours Saved Per Rep",
+      "value": "12 hours",
+      "width_pct": "80%",
+      "color": "#D9785B"
+    }
+  ]
+}

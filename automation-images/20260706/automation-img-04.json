@@ -1,0 +1,36 @@
+{
+  "badge": "\u2699\ufe0f Free Workflow",
+  "date_label": "March 2025",
+  "title_main": "Accelerate Support Response Times",
+  "title_span": "From Hours to Minutes",
+  "subtitle": "Draft support answers instantly using Notion and Intercom with single-click Slack approvals.",
+  "takeaway_num": "47min",
+  "takeaway_text": "New response time down from 11 hours, resolving 60 percent of common tickets.",
+  "source": "Based on: Support Automation \u00b7 Hitesh Dodiya",
+  "bars": [
+    {
+      "label": "Trigger: Ticket in Intercom",
+      "value": "Detect",
+      "width_pct": "30%",
+      "color": "#111111"
+    },
+    {
+      "label": "Step 1: Notion Search & AI Draft",
+      "value": "Query",
+      "width_pct": "60%",
+      "color": "#5E6AD2"
+    },
+    {
+      "label": "Step 2: Send to Slack Channel",
+      "value": "Review",
+      "width_pct": "80%",
+      "color": "#2563EB"
+    },
+    {
+      "label": "Result: One-Click Approval",
+      "value": "Resolve",
+      "width_pct": "100%",
+      "color": "#059669"
+    }
+  ]
+}

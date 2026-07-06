@@ -1,0 +1,30 @@
+{
+  "badge": "\u26a1 Automation News",
+  "date_label": "March 2025",
+  "title_main": "Manual Data Sorting Ends",
+  "title_span": "Build Custom API Pipelines",
+  "subtitle": "Amazon is closing Mechanical Turk. Build automated validation flows instead of hiring manual data cleaners.",
+  "takeaway_num": "100%",
+  "takeaway_text": "Automated data verification using the Gemini API, Google Sheets, and HubSpot CRM.",
+  "source": "Based on: AI Data Pipelines \u00b7 Hitesh Dodiya",
+  "bars": [
+    {
+      "label": "Manual Data Entry",
+      "value": "Slow / Costly",
+      "width_pct": "35%",
+      "color": "#D9785B"
+    },
+    {
+      "label": "Gemini API Automation",
+      "value": "Instant Speed",
+      "width_pct": "95%",
+      "color": "#5E6AD2"
+    },
+    {
+      "label": "HubSpot CRM Sync",
+      "value": "Auto Routed",
+      "width_pct": "85%",
+      "color": "#2563EB"
+    }
+  ]
+}

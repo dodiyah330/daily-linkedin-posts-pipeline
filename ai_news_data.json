@@ -1,6 +1,90 @@
 [
   {
     "source": "TechCrunch AI",
+    "title": "If you use Google, you\u2019re training its AI. Here\u2019s how to opt out.",
+    "description": "PSA: A change to Google's privacy settings let it train its AI on more of your data. Here's how to opt out.",
+    "pubDate": "Mon, 06 Jul 2026 17:04:58 +0000",
+    "url": "https://techcrunch.com/2026/07/06/if-you-use-google-youre-training-its-ai-heres-how-to-opt-out/"
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "Microsoft lays off nearly 5,000 employees across Xbox, commercial sales",
+    "description": "Microsoft cut around 4,800 roles, or 2.1% of its global workforce, on Monday \u2014 the latest in a series of layoffs that\u2019s stoking fears of AI replacing jobs. The layoffs will hit Xbox and commercial sales the hardest.",
+    "pubDate": "Mon, 06 Jul 2026 15:32:43 +0000",
+    "url": "https://techcrunch.com/2026/07/06/microsoft-lays-off-nearly-5000-employees-across-xbox-commercial-sales/"
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "Station F ramps up as a launchpad for Europe\u2019s hottest AI startups",
+    "description": "Station F, a Paris-based startup hub founded by French billionaire Xavier Niel, is gearing up for a new edition of its F/ai accelerator program in a bid to strengthen its positioning as a stepping stone for promising AI startups.",
+    "pubDate": "Mon, 06 Jul 2026 13:00:00 +0000",
+    "url": "https://techcrunch.com/2026/07/06/station-f-ramps-up-as-a-launchpad-for-europes-hottest-ai-startups/"
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "Amazon will stop accepting new customers for Mechanical Turk",
+    "description": "These may be the last days of Amazon\u2019s Mechanical Turk.",
+    "pubDate": "Sun, 05 Jul 2026 17:43:36 +0000",
+    "url": "https://techcrunch.com/2026/07/05/amazon-will-stop-accepting-new-customers-for-mechanical-turk/"
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "New Google commercial imagines a Declaration of Independence written with help from AI",
+    "description": "Two hundred and fifty years after the signing of the Declaration of Independence, a new commercial asks: What if the Founding Fathers had access to Google Workspace?",
+    "pubDate": "Sat, 04 Jul 2026 20:55:25 +0000",
+    "url": "https://techcrunch.com/2026/07/04/new-google-commercial-imagines-a-declaration-of-independence-written-with-help-from-ai/"
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "Midjourney wants Hollywood studios to reveal the details of their AI usage",
+    "description": "As part of an ongoing legal dispute with three Hollywood studios, Midjourney is seeking to compel those studios to reveal how they use AI themselves.",
+    "pubDate": "Sat, 04 Jul 2026 18:00:05 +0000",
+    "url": "https://techcrunch.com/2026/07/04/midjourney-wants-hollywood-studios-to-reveal-the-details-of-their-ai-usage/"
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "Alibaba reportedly bans employees from using Claude Code",
+    "description": "Alibaba has reportedly classified Claude Code as high-risk software.",
+    "pubDate": "Sat, 04 Jul 2026 16:32:08 +0000",
+    "url": "https://techcrunch.com/2026/07/04/alibaba-reportedly-bans-employees-from-using-claude-code/"
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "What is Mistral AI? Everything to know about the OpenAI competitor",
+    "description": "Mistral AI, which offers some open source AI models, has raised significant funding since its creation in 2023, with the ambition to \u201cput frontier AI in the hands of everyone.\u201d",
+    "pubDate": "Sat, 04 Jul 2026 15:51:32 +0000",
+    "url": "https://techcrunch.com/2026/07/04/what-is-mistral-ai-everything-to-know-about-the-openai-competitor/"
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "The only AI glossary you\u2019ll need this year",
+    "description": "The rise of AI has brought an avalanche of new terms and slang. Here is a glossary with definitions of some of the most important words and phrases you might encounter.",
+    "pubDate": "Fri, 03 Jul 2026 21:20:00 +0000",
+    "url": "https://techcrunch.com/2026/07/03/artificial-intelligence-definition-glossary-hallucinations-guide-to-common-ai-terms/"
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "The browser wars aren\u2019t about search anymore \u2014 here are the best alternatives to Chrome and Safari",
+    "description": "We\u2019ve compiled an overview of some of the top alternative browsers available today aiming to challenge Chrome and Safari.",
+    "pubDate": "Fri, 03 Jul 2026 18:43:00 +0000",
+    "url": "https://techcrunch.com/2026/07/03/as-the-browser-wars-heat-up-here-are-the-hottest-alternatives-to-chrome-and-safari-in-2026/"
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "Mark Zuckerberg tells staff that AI agents haven\u2019t progressed as quickly as he\u2019d hoped",
+    "description": "At an internal meeting, the Meta CEO reportedly said that AI development efforts were not moving as quickly as anticipated.",
+    "pubDate": "Thu, 02 Jul 2026 23:38:10 +0000",
+    "url": "https://techcrunch.com/2026/07/02/mark-zuckerberg-tells-staff-that-ai-agents-havent-progressed-as-quickly-as-hed-hoped/"
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "Jersey Mike\u2019s IPO illustrates how bad the AI hype has become",
+    "description": "Just for kicks, I took a look at Jersey Mike's IPO documents. Surely a sandwich shop would have no need to mention AI. But lo and behold.",
+    "pubDate": "Thu, 02 Jul 2026 20:11:59 +0000",
+    "url": "https://techcrunch.com/2026/07/02/jersey-mikes-ipo-illustrates-how-bad-the-ai-hype-has-become/"
+  },
+  {
+    "source": "TechCrunch AI",
     "title": "Meta quietly launches vibe-coded gaming app Pocket",
     "description": "Meta has quietly launched Pocket, an experimental AI app that lets users generate and share interactive mini games using text prompts.",
     "pubDate": "Thu, 02 Jul 2026 18:44:02 +0000",
@@ -54,90 +138,6 @@
     "description": "Sound built its reputation on concentrated, high-conviction bets in category-leading AI labs, while Kutcher's new fund appears to be chasing the layer underneath those companies \u2014 the infrastructure and energy that power them.",
     "pubDate": "Wed, 01 Jul 2026 18:47:22 +0000",
     "url": "https://techcrunch.com/2026/07/01/ashton-kutcher-leaving-sound-ventures-to-launch-new-vc-firm-with-morgan-beller/"
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "Cloudflare\u2019s new policy pushes AI companies to pay for publishers\u2019 content",
-    "description": "Cloudflare is giving AI companies until September 15 to separate web crawlers used for search from those used for AI training and agents, or risk being blocked by default on many publisher sites.",
-    "pubDate": "Wed, 01 Jul 2026 17:48:37 +0000",
-    "url": "https://techcrunch.com/2026/07/01/cloudflares-new-policy-pushes-ai-companies-to-pay-for-publishers-content/"
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "Venice AI becomes a unicorn with $65M Series A as its privacy-first AI platform takes off",
-    "description": "Venice AI is already profitable, with annualized run-rate revenues of over $70 million, CEO Erik Voorhees said.",
-    "pubDate": "Wed, 01 Jul 2026 14:25:23 +0000",
-    "url": "https://techcrunch.com/2026/07/01/venice-ai-becomes-a-unicorn-with-65m-series-a-as-its-privacy-first-ai-platform-takes-off/"
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "Gemini Spark, Google\u2019s agentic assistant, is now available on Mac",
-    "description": "Google's 24/7 agentic assistant, Gemini Spark, comes to Mac alongside other improvements, like real-time tracking and support for more apps.",
-    "pubDate": "Wed, 01 Jul 2026 14:20:19 +0000",
-    "url": "https://techcrunch.com/2026/07/01/gemini-spark-googles-agentic-assistant-is-now-available-on-mac/"
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "Builders Stage agenda revealed: Practical strategies for scaling startups at TechCrunch Disrupt 2026",
-    "description": "The Builders Stage is returning to TechCrunch Disrupt 2026, bringing together 10,000+ founders, startup operators, and investors for practical conversations. and Q&A on what it takes to build and scale successful companies. Register now to save up to $330.",
-    "pubDate": "Wed, 01 Jul 2026 14:00:00 +0000",
-    "url": "https://techcrunch.com/2026/07/01/builders-stage-agenda-revealed-practical-strategies-for-scaling-startups-at-techcrunch-disrupt-2026/"
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "Meta, like SpaceX, looks to turn excess AI compute into cash",
-    "description": "Meta is developing plans for a cloud infrastructure business, selling access to AI compute power and models. The move would pit it against the big cloud providers like Amazon Web Services, Google Cloud, and Microsoft Azure.",
-    "pubDate": "Wed, 01 Jul 2026 13:43:07 +0000",
-    "url": "https://techcrunch.com/2026/07/01/meta-like-spacex-looks-to-turn-excess-ai-compute-into-cash/"
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "The \u2018Father of the Internet\u2019 is finally retiring",
-    "description": "Vinton Cerf, one of the creators of the protocols underlying the internet, will step down as Google's chief internet evangelist next week.",
-    "pubDate": "Wed, 01 Jul 2026 03:15:37 +0000",
-    "url": "https://techcrunch.com/2026/06/30/the-father-of-the-internet-is-finally-retiring/"
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "Trump drops restrictions on Anthropic\u2019s Mythos and Fable models",
-    "description": "The Trump administration's erratic approach to AI policymaking has left companies across the industry with little clarity about what will govern future model releases.",
-    "pubDate": "Wed, 01 Jul 2026 02:16:06 +0000",
-    "url": "https://techcrunch.com/2026/06/30/trump-drops-restrictions-on-anthropics-mythos-and-fable-models/"
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "Wayve launches $85M employee tender offer at $8.5B valuation",
-    "description": "Wayve\u2019s offering is part of a growing trend of AI startups using employee tenders as a strategic tool to attract and retain talent.",
-    "pubDate": "Wed, 01 Jul 2026 02:04:40 +0000",
-    "url": "https://techcrunch.com/2026/06/30/wayve-launches-85m-employee-tender-offer-at-8-5b-valuation/"
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "OpenClaw is finally available on Android and iOS",
-    "description": "The free open source agentic program is finally invading your phone.",
-    "pubDate": "Tue, 30 Jun 2026 21:53:28 +0000",
-    "url": "https://techcrunch.com/2026/06/30/openclaw-is-finally-available-on-android-and-ios/"
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "The DeepMind trio who built a poker AI are now making money for quant hedge funds",
-    "description": "EquiLibre Technologies, a Prague-based AI lab founded by three ex-DeepMind researchers, is now valued at more than $500 million.",
-    "pubDate": "Tue, 30 Jun 2026 20:33:48 +0000",
-    "url": "https://techcrunch.com/2026/06/30/the-deepmind-trio-who-built-a-poker-ai-are-now-making-money-for-quant-hedge-funds/"
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "Google introduces a faster, cheaper image generator with Nano Banana 2 Lite",
-    "description": "Google is updating its image generator to make it faster and cheaper, making it a more useful tool for creators looking to make AI content.",
-    "pubDate": "Tue, 30 Jun 2026 19:02:38 +0000",
-    "url": "https://techcrunch.com/2026/06/30/google-introduces-a-faster-cheaper-image-generator-with-nano-banana-2-lite/"
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "Nvidia competitor Etched hits $5B valuation, $1B in sales for AI chip",
-    "description": "Nvidia AI chip competitor Etched says it has already booked $1 billion under contract for the inference systems powered by its chip.",
-    "pubDate": "Tue, 30 Jun 2026 18:13:02 +0000",
-    "url": "https://techcrunch.com/2026/06/30/nvidia-competitor-etched-hits-5b-valuation-1b-in-sales-for-ai-chip/"
   },
   {
     "source": "VentureBeat AI",

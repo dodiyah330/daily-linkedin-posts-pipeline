@@ -1,0 +1,57 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "type": "infographic",
+      "date": "07/07/2026",
+      "time": "6:00 PM",
+      "caption": "Mark Zuckerberg just told Meta staff that generic AI agents aren't progressing as fast as he hoped. \n\nDon't wait for big tech to release a magic button for your US SaaS team. Generic agents fail because they don't know your specific HubSpot data or Slack workflows. \n\nInstead, build targeted, API-driven workflows. Like automatically scraping a lead's site and drafting custom sales prep notes directly into Slack before your 9 AM standup. Custom always wins.\n\nWant to automate your manual sales prep? Comment AUTO and I will send you the blueprint.",
+      "assetPath": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/us-images/20260706/us-img-01.png",
+      "stream": "us-image",
+      "usPeakET": "8:30 AM Eastern"
+    },
+    {
+      "id": 2,
+      "type": "infographic",
+      "date": "07/08/2026",
+      "time": "6:00 PM",
+      "caption": "A 40-person US B2B SaaS team was losing 15 hours a week per SDR on pre-demo research. \n\nReps were constantly jumping between LinkedIn, HubSpot, and Google before every Calendly booking. \n\nI connected Calendly webhooks to Apollo and the Gemini API, then funneled the data straight to Slack. \n\nNow, 10 minutes before a call, the rep gets a clean Slack brief with 3 tailored talking points. Demo-to-close rate jumped 14% in the first month. \n\nWant to clean up your sales prep workflow? DM AUTO and let's talk.",
+      "assetPath": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/us-images/20260706/us-img-02.png",
+      "stream": "us-image",
+      "usPeakET": "8:30 AM Eastern"
+    },
+    {
+      "id": 3,
+      "type": "infographic",
+      "date": "07/09/2026",
+      "time": "6:00 PM",
+      "caption": "Most US SaaS teams waste hours manually moving data from DocuSign to HubSpot and Slack after closing a deal. \n\nHere is a workflow you can steal today. Use a DocuSign webhook to trigger a script when a contract is signed. Have it extract the seat count from the PDF, auto-create a private Slack channel for the customer, and draft the welcome email in HubSpot. \n\nIt keeps your CS team fast and guarantees zero onboarding errors. No manual copy-pasting required.\n\nWant this set up for your team? Comment AUTO to see how we build it.",
+      "assetPath": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/us-images/20260706/us-img-03.png",
+      "stream": "us-image",
+      "usPeakET": "8:30 AM Eastern"
+    },
+    {
+      "id": 4,
+      "type": "infographic",
+      "date": "07/10/2026",
+      "time": "6:00 PM",
+      "caption": "Trigger: New Calendly booking from a qualified lead.\n\nStep 1: System automatically scrapes the lead's website and grabs their LinkedIn profile via API.\n\nStep 2: AI drafts key talking points and drops a structured brief directly into your Slack team channel 10 minutes before the call.\n\nResult: SDRs save 12 hours a week and go into meetings fully prepared.\n\nDM me your stack to see what we can automate.",
+      "assetPath": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/us-images/20260706/us-img-04.png",
+      "stream": "us-image",
+      "usPeakET": "8:30 AM Eastern"
+    },
+    {
+      "id": 5,
+      "type": "infographic",
+      "date": "07/13/2026",
+      "time": "6:00 PM",
+      "caption": "US SaaS founders: is manual data entry slowing down your ops team? \n\nI am opening up 2 custom automation build slots for US companies this month. \n\nWe will audit your current workflow, identify the biggest bottlenecks in your Salesforce, Slack, or HubSpot setup, and build a custom solution to fix it. \n\nStop wasting hours on tasks that should run in the background. Let's get your team focused on growth.\n\nDM AUTO to secure your free workflow audit.",
+      "assetPath": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/us-images/20260706/us-img-05.png",
+      "stream": "us-image",
+      "usPeakET": "8:30 AM Eastern"
+    }
+  ],
+  "generated": "2026-07-06",
+  "stream": "us-image-posts",
+  "scheduleNote": "US peak target: 8:30 AM Eastern. Scheduler time: 6:00 PM (LinkedIn account timezone)."
+}

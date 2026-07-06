@@ -1,0 +1,82 @@
+==================================================
+1. NEWS → AUTOMATION
+==================================================
+Amazon is shutting down Mechanical Turk to new customers. The era of hiring armies of micro-task workers to categorize data, tag leads, and clean spreadsheets is officially ending.
+
+If your operations team is still manually sorting support tickets, routing leads, or cleaning CSVs, you do not need to hire more people. You need structured, custom API pipelines.
+
+Instead of paying manual workers to process data, you can build an automated verification engine. 
+
+Here is how it works:
+- Trigger: A new row is added to a Google Sheet, or a webhook fires from your lead capture form.
+- AI Step: Run the raw data through the Gemini API with strict validation rules to categorize, tag, and clean the data.
+- Integration: Automatically push the verified, structured data directly into your HubSpot CRM or Slack.
+
+I've built similar automated pipelines for B2B SaaS companies, helping their operations teams move entirely off manual data entry.
+
+Comment AUTO and I'll suggest 3 automations for your stack.
+
+==================================================
+2. CASE STUDY
+==================================================
+A growing B2B SaaS company with 40 employees was losing valuable sales time. Their sales reps spent 15 hours every week researching prospects before demo calls. Their prep notes were scattered across CRM tabs, LinkedIn, and company websites, leading to weak discovery and missed close opportunities.
+
+I built a custom sales preparation pipeline to solve this.
+
+The Stack:
+Node.js, HubSpot API, Calendly webhooks, Apollo enrichment API, and Slack.
+
+The Workflow:
+1. Calendly webhook fires when a prospect books a demo.
+2. The system automatically enriches the domain via Apollo and scrapes the prospect's public website.
+3. AI analyzes the data, drafting 3 custom talking points and listing likely pain points.
+4. A clean, structured brief is sent directly to the sales rep's Slack channel 10 minutes before the call.
+
+The Outcome:
+We saved each sales rep 12 hours per week. Within the first 30 days of launching this prep flow, their demo-to-close rate increased by 14 percent.
+
+DM AUTO if you want something similar wired into your product.
+
+==================================================
+3. QUALIFYING POLL
+==================================================
+Most SaaS teams know they have manual bottlenecks, but they struggle to get custom automations off the ground. No-code tools like Zapier eventually hit API rate limits, and your core developers are too busy building the product to write internal integration glue.
+
+What is holding you back from automating your team's manual workflows?
+
+☐ Don't know what to automate
+☐ Tried Zapier, hit limits
+☐ Need custom SaaS/API integration
+☐ No developer on the team
+
+Comment your choice, I'll reply with the fastest path for that situation.
+
+==================================================
+4. STEAL THIS WORKFLOW
+==================================================
+Trigger: A new support ticket arrives in Intercom.
+
+Step 1: AI instantly queries your internal Notion knowledge base and drafts a precise, personalized response containing the exact troubleshooting links.
+
+Step 2: The draft is sent to a private Slack channel for your customer success team to review.
+
+Result: With a single click to approve and send, the median response time drops from 11 hours to 47 minutes, resolving 60 percent of common tickets instantly.
+
+DM me your tools (CRM + chat + project tool) and I'll reply with one workflow worth building first.
+
+==================================================
+5. DIRECT OFFER
+==================================================
+I have bandwidth to take on 2 custom AI automation projects this month. 
+
+If your team is wasting hours copying data between systems, writing manual reports, or researching leads, I can build custom code to run these tasks on autopilot.
+
+Here are 3 workflows I can build and wire into your stack:
+
+1. Automated onboarding: Extract customer tiers from signed DocuSign contracts and auto-provision accounts in your database.
+2. Sales preparation: Scrape prospect websites, enrich them with database records, and drop a Slack briefing to your rep before a demo.
+3. Support assistant: Match incoming support tickets against your help documents and draft answers for your team to approve with one click.
+
+No generic chatbots. Just clean, custom code that connects your systems and works.
+
+DM AUTO if you want a free 15-minute automation audit this week.
