@@ -56,3 +56,15 @@ SCHEDULE_FILE=schedule_us_image_posts.json node schedule_all_posts.cjs
 ```
 
 If your LinkedIn account timezone is US Eastern: `US_IMAGE_POST_TIME='8:30 AM' python3 prepare_us_image_schedule.py`
+
+## US connection requests (outreach)
+
+Auto-searches LinkedIn for US ICP prospects and sends invites **without notes**:
+
+```bash
+agent-browser --session linkedin_bot open https://www.linkedin.com/feed/
+./run_us_connections.sh
+DRY_RUN=1 ./run_us_connections.sh   # preview only
+```
+
+See `skills/us-connections/SKILL.md` for full docs.

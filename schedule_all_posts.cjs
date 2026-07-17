@@ -485,10 +485,27 @@ Save this prompt to use on your next idea.`
       console.log(`${'='.repeat(50)}`);
       const prefix = `${screenshotDir}/post_${post.id}_${post.type}`;
 
-      // Navigate to feed for clean state
-      console.log("Navigating to feed home page...");
+      // Navigate to feed (or company admin page for OpenXcode / company streams)
+      const scheduleMeta = (() => {
+        try {
+          return JSON.parse(fs.readFileSync(scheduleFile, 'utf8'));
+        } catch (_) {
+          return {};
+        }
+      })();
+      const companyStart =
+        process.env.LINKEDIN_START_URL ||
+        scheduleMeta.startUrl ||
+        (scheduleMeta.stream && String(scheduleMeta.stream).includes('openxcode')
+          ? 'https://www.linkedin.com/company/open-xcode/admin/'
+          : null) ||
+        (scheduleMeta.companyPage
+          ? String(scheduleMeta.companyPage).replace(/\/?$/, '/') + 'admin/'
+          : null);
+      const startUrl = companyStart || 'https://www.linkedin.com/feed/';
+      console.log(`Navigating to ${startUrl}...`);
       try {
-        await page.goto('https://www.linkedin.com/feed/', { waitUntil: 'domcontentloaded', timeout: 15000 });
+        await page.goto(startUrl, { waitUntil: 'domcontentloaded', timeout: 20000 });
       } catch (err) {
         console.log("Navigation timeout/error, continuing:", err.message);
       }
@@ -542,17 +559,74 @@ Save this prompt to use on your next idea.`
       await new Promise(r => setTimeout(r, 2000));
 
       console.log("Clicking 'Start a post'...");
-      const clickStartPost = await clickNativelyShadow(page, (root) => {
+      // Company admin: open Create menu first if present
+      await clickNativelyShadow(page, (root) => {
+        return Array.from(root.querySelectorAll('a, button, [role="button"]')).find(el => {
+          const t = (el.innerText || '').trim().toLowerCase();
+          const label = (el.getAttribute('aria-label') || '').toLowerCase();
+          return t === 'create' || label === 'create';
+        });
+      });
+      await new Promise(r => setTimeout(r, 1500));
+
+      let clickStartPost = await clickNativelyShadow(page, (root) => {
         return Array.from(root.querySelectorAll('*')).find(
-          el => (el.tagName === 'BUTTON' || el.getAttribute('role') === 'button' || el.getAttribute('aria-label') === 'Start a post') &&
-                el.innerText && el.innerText.trim().includes('Start a post')
+          el => (el.tagName === 'BUTTON' || el.getAttribute('role') === 'button' || el.tagName === 'A' || el.getAttribute('aria-label') === 'Start a post') &&
+                el.innerText && el.innerText.trim().toLowerCase().includes('start a post')
         );
       });
+      // Company admin fallbacks
+      if (!clickStartPost) {
+        clickStartPost = await clickNativelyShadow(page, (root) => {
+          return Array.from(root.querySelectorAll('button, a, [role="button"]')).find(el => {
+            const t = ((el.innerText || '') + ' ' + (el.getAttribute('aria-label') || '')).toLowerCase();
+            return t.includes('start a post') || t.includes('create a post') || t.includes('share content');
+          });
+        });
+      }
       if (!clickStartPost) throw new Error("Could not find 'Start a post' button");
 
       const editorSelector = '.ql-editor';
       await waitForSelectorShadow(page, editorSelector, 15000);
       await new Promise(r => setTimeout(r, 1000));
+
+      // Switch author to OpenXcode company page when requested
+      // Skip if composer already shows OpenXCode as author (company admin Create flow).
+      const postAs = (process.env.POST_AS || scheduleMeta.postAs || '').toLowerCase();
+      const alreadyCompany = await page.evaluate(() => {
+        const t = document.body.innerText || '';
+        return /OpenXCode[\s\S]{0,40}Post to Anyone/i.test(t) ||
+          !!document.querySelector('button[aria-label*="OpenXCode"], button[aria-label*="OpenXcode"]');
+      });
+      if (!alreadyCompany && (postAs.includes('openxcode') || postAs.includes('open xcode') || (scheduleMeta.stream && String(scheduleMeta.stream).includes('openxcode')))) {
+        console.log("Switching post author to OpenXcode...");
+        const openedActor = await clickNativelyShadow(page, (root) => {
+          const modal = root.querySelector('.share-box, .artdeco-modal, [role="dialog"]') || root;
+          return Array.from(modal.querySelectorAll('button, [role="button"]')).find(el => {
+            const label = (el.getAttribute('aria-label') || '').toLowerCase();
+            const txt = (el.innerText || '').toLowerCase();
+            // Avoid the "Post to Anyone" audience settings button
+            if (txt.includes('post to anyone') || label.includes('post to anyone')) return false;
+            return label.includes('post as') || label.includes('actor') ||
+              (txt.includes('post as') && !txt.includes('anyone'));
+          });
+        });
+        if (openedActor) {
+          await new Promise(r => setTimeout(r, 1500));
+          await clickNativelyShadow(page, (root) => {
+            return Array.from(root.querySelectorAll('button, [role="menuitem"], li, div, span')).find(el => {
+              const t = ((el.innerText || '') + ' ' + (el.getAttribute('aria-label') || '')).toLowerCase();
+              return (t.includes('openxcode') || t.includes('open xcode') || t.includes('open-xcode')) &&
+                !t.includes('post to anyone');
+            });
+          });
+          await new Promise(r => setTimeout(r, 1500));
+        } else {
+          console.log("Author switcher not found — assuming company admin composer already posts as OpenXcode.");
+        }
+      } else if (alreadyCompany) {
+        console.log("Composer already posting as OpenXCode — skipping author switch.");
+      }
 
       // ========== HANDLE ATTACHMENTS ==========
       if (post.type === 'poll') {
@@ -948,6 +1022,14 @@ Save this prompt to use on your next idea.`
         const modal = root.querySelector('.share-box, .artdeco-modal, [role="dialog"]');
         const container = modal || root;
         const buttons = Array.from(container.querySelectorAll('button'));
+        // Company page composer uses an explicit "Schedule post" button
+        const byText = buttons.find(b => {
+          const t = (b.innerText || '').trim().toLowerCase();
+          const label = (b.getAttribute('aria-label') || '').toLowerCase();
+          return t === 'schedule post' || label === 'schedule post' ||
+            label.includes('schedule post') || (label.includes('schedule') && !label.includes('scheduled'));
+        });
+        if (byText) return byText;
         const postBtn = buttons.find(b => b.innerText && b.innerText.trim() === 'Post');
         if (postBtn && postBtn.previousElementSibling) {
           return postBtn.previousElementSibling;

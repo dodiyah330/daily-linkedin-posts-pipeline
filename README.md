@@ -77,6 +77,8 @@ cd carousel-routine && npm install
 | `skills/branded-carousel/SKILL.md` | Carousel design system, slide layouts, brand research |
 | `skills/branded-carousel/FORMATS.md` | 6 carousel format templates (Brand Story, Listicle, etc.) |
 | `skills/illustration-formats/SKILL.md` | 5 infographic formats (Ranked Bars, Donut, Timeline, etc.) |
+| `skills/openxcode-linkedin/SKILL.md` | OpenXcode company page — **1 post/day**, rotating archetypes |
+| `openxcode_profile.md` | OpenXcode company brief (services, ICP, voice, CTAs) |
 | `voice-profile.md` | Prithal's writing voice, tone, banned words |
 
 ### 📡 Data Fetching Scripts
@@ -95,6 +97,10 @@ cd carousel-routine && npm install
 | `generate_posts_via_anthropic.py` | Alternative: Generate posts via Anthropic API directly |
 | `generate_ai_news.py` | Generate 7 AI news posts |
 | `generate_ai_news_part2.py` | Continuation script for AI news generation |
+| `generate_openxcode_posts.py` | Generate 1 OpenXcode company-page post (weekday archetype) |
+| `prepare_openxcode_schedule.py` | Build `schedule_openxcode.json` (tomorrow, 1 text post) |
+| `send_openxcode_to_slack.py` | Send OpenXcode post to Slack for review |
+| `run_openxcode_posts.sh` | Full OpenXcode daily pipeline |
 | `write_today_data.py` | Master script: combines all posts into daily output file |
 | `correct_posts.py` | Post-processing: fix formatting, remove banned words |
 

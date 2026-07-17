@@ -1,0 +1,24 @@
+{
+  "audience": "US SaaS automation ICP",
+  "criteria": {
+    "location": "United States",
+    "titles": [
+      "Founder",
+      "CEO",
+      "Co-Founder",
+      "VP Operations",
+      "Head of Operations",
+      "Head of RevOps",
+      "COO",
+      "Director of Operations"
+    ],
+    "industries": ["SaaS", "Software", "B2B Software"],
+    "company_size": "11-200 employees",
+    "signals": [
+      "Uses HubSpot, Salesforce, Slack, Stripe, or Calendly",
+      "Manual handoffs between sales, support, and ops tools",
+      "Outgrew Zapier or Make"
+    ]
+  },
+  "prospects": []
+}

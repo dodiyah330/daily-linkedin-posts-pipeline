@@ -1,0 +1,45 @@
+{
+  "audience": "US SaaS automation ICP",
+  "criteria": {
+    "location": "United States",
+    "titles": [
+      "Founder",
+      "CEO",
+      "Co-Founder",
+      "VP Operations",
+      "Head of Operations",
+      "Head of RevOps",
+      "COO",
+      "Director of Operations"
+    ],
+    "industries": ["SaaS", "Software", "B2B Software"],
+    "company_size": "11-200 employees",
+    "signals": [
+      "Uses HubSpot, Salesforce, Slack, Stripe, or Calendly",
+      "Manual handoffs between sales, support, and ops tools",
+      "Outgrew Zapier or Make"
+    ]
+  },
+  "prospects": [
+    {
+      "id": "example-001",
+      "name": "Alex Rivera",
+      "title": "Founder & CEO",
+      "company": "PipelineOps",
+      "location": "Austin, Texas, United States",
+      "linkedin_url": "https://www.linkedin.com/in/example-profile/",
+      "stack_hint": "HubSpot, Slack, Calendly",
+      "pain_hint": "SDRs spend too long on pre-demo research"
+    },
+    {
+      "id": "example-002",
+      "name": "Jordan Lee",
+      "title": "VP Operations",
+      "company": "StackFlow",
+      "location": "New York, New York, United States",
+      "linkedin_url": "https://www.linkedin.com/in/example-profile-2/",
+      "stack_hint": "Salesforce, Intercom, Notion",
+      "pain_hint": "support and sales data live in different systems"
+    }
+  ]
+}

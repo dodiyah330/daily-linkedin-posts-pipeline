@@ -7,6 +7,9 @@ node_modules/
 carousel-routine/node_modules/
 
 # Runtime / generated outputs
+connection_notes.json
+connections_queue.json
+searched-prospects-cache.json
 slack_downloads/
 *.log
 error_screenshot.png
@@ -19,4 +22,8 @@ schedule_run.log
 __pycache__/
 *.pyc
 .venv/
+.venv-leads/
 venv/
+
+# Lead scrape outputs
+prospects/barbershops/
