@@ -1,0 +1,57 @@
+[
+  {
+    "date": "2026-07-13",
+    "file": "openxcode_posts_20260713.txt",
+    "archetype": "NEWS_TO_BUILD",
+    "label": "1. NEWS \u2192 BUILD",
+    "topic": "google privacy AI data transparency"
+  },
+  {
+    "date": "2026-07-13",
+    "file": "openxcode_posts_week_20260713.txt",
+    "mode": "week",
+    "archetypes": [
+      "NEWS_TO_BUILD",
+      "CASE_STUDY",
+      "MYTH_BUST",
+      "BUILD_TIP",
+      "SERVICE_SPOTLIGHT",
+      "PAIN_TO_PRODUCT",
+      "DIRECT_OFFER"
+    ],
+    "topics": []
+  },
+  {
+    "date": "2026-07-13",
+    "mode": "week-peak",
+    "file": "openxcode_posts_week_20260713.txt",
+    "topics": [
+      "2. CASE STUDY",
+      "custom software budgeting",
+      "mvp scoping tip",
+      "5. SERVICE SPOTLIGHT"
+    ],
+    "slots": [
+      {
+        "date": "07/14/2026",
+        "time": "11:00 AM",
+        "archetype": "CASE_STUDY"
+      },
+      {
+        "date": "07/15/2026",
+        "time": "12:00 PM",
+        "archetype": "MYTH_BUST"
+      },
+      {
+        "date": "07/16/2026",
+        "time": "11:00 AM",
+        "archetype": "BUILD_TIP"
+      },
+      {
+        "date": "07/17/2026",
+        "time": "1:00 PM",
+        "archetype": "SERVICE_SPOTLIGHT"
+      }
+    ]
+  }
+]

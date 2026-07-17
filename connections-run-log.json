@@ -1,0 +1,132 @@
+[
+  {
+    "prospect_id": "mansa-dan-403b01255",
+    "name": "Mansa Dan • 2nd",
+    "title": "--Founder & CEO, Mantron Technology Inc. | Full-Stack Engineer | AI, Blockchain & Enterprise SaaS Architect",
+    "linkedin_url": "https://www.linkedin.com/in/mansa-dan-403b01255/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-07",
+    "status": "failed",
+    "error": "Could not confirm send without note"
+  },
+  {
+    "prospect_id": "damiandabrowski",
+    "name": "Damian Dąbrowski, Carsten Ganser and 1 other mutual connection",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/damiandabrowski/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-07",
+    "status": "failed",
+    "error": "Could not confirm send without note"
+  },
+  {
+    "prospect_id": "carsten-ganser",
+    "name": "Damian Dąbrowski, Carsten Ganser and 1 other mutual connection",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/carsten-ganser/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-07",
+    "status": "failed",
+    "error": "Could not confirm send without note"
+  },
+  {
+    "prospect_id": "bertram-thorslund-3645b175",
+    "name": "Bertram Thorslund",
+    "title": "• 2nd",
+    "linkedin_url": "https://www.linkedin.com/in/bertram-thorslund-3645b175/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-07",
+    "status": "failed",
+    "error": "Could not confirm send without note"
+  },
+  {
+    "prospect_id": "susiesandberg",
+    "name": "Susie Sandberg, Maria Krysfeldt Rasmussen, PhD and 8 other mutual connections",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/susiesandberg/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-07",
+    "status": "failed",
+    "error": "Could not confirm send without note"
+  },
+  {
+    "prospect_id": "maria-krysfeldt-rasmussen",
+    "name": "Susie Sandberg, Maria Krysfeldt Rasmussen, PhD and 8 other mutual connections",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/maria-krysfeldt-rasmussen/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-07",
+    "status": "failed",
+    "error": "Could not confirm send without note"
+  },
+  {
+    "prospect_id": "oluwalopeyeio",
+    "name": "Oluwalopeye (Lopsii) Olagoke",
+    "title": "• 2nd",
+    "linkedin_url": "https://www.linkedin.com/in/oluwalopeyeio/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-07",
+    "status": "sent",
+    "error": null
+  },
+  {
+    "prospect_id": "mansa-dan-403b01255",
+    "name": "Mansa Dan • 2nd",
+    "title": "--Founder & CEO, Mantron Technology Inc. | Full-Stack Engineer | AI, Blockchain & Enterprise SaaS Architect",
+    "linkedin_url": "https://www.linkedin.com/in/mansa-dan-403b01255/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-07",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "damiandabrowski",
+    "name": "Damian Dąbrowski",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/damiandabrowski/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-07",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "bertram-thorslund-3645b175",
+    "name": "Bertram Thorslund ",
+    "title": "Bertram Thorslund",
+    "linkedin_url": "https://www.linkedin.com/in/bertram-thorslund-3645b175/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-07",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "susiesandberg",
+    "name": "Susie Sandberg",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/susiesandberg/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-07",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "sssaini",
+    "name": "Sukhpal Saini",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/sssaini/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-07",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "mabu",
+    "name": "Marcellus Buchheit ",
+    "title": "Marcellus Buchheit",
+    "linkedin_url": "https://www.linkedin.com/in/mabu/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-07",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  }
+]
