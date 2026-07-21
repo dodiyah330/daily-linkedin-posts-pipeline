@@ -1,0 +1,54 @@
+{
+  "date": "20260717",
+  "images": [
+    {
+      "id": 1,
+      "label": "1. MON IMAGE \u2014 NEWS \u2192 AUTOMATION",
+      "html": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260717/automation-img-01.html",
+      "png": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260717/automation-img-01.png",
+      "json": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260717/automation-img-01.json"
+    },
+    {
+      "id": 2,
+      "label": "3. TUE IMAGE \u2014 CASE STUDY",
+      "html": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260717/automation-img-02.html",
+      "png": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260717/automation-img-02.png",
+      "json": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260717/automation-img-02.json"
+    },
+    {
+      "id": 3,
+      "label": "5. WED IMAGE \u2014 QUALIFYING POLL",
+      "html": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260717/automation-img-03.html",
+      "png": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260717/automation-img-03.png",
+      "json": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260717/automation-img-03.json"
+    },
+    {
+      "id": 4,
+      "label": "7. THU IMAGE \u2014 WORKFLOW CARD",
+      "html": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260717/automation-img-04.html",
+      "png": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260717/automation-img-04.png",
+      "json": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260717/automation-img-04.json"
+    },
+    {
+      "id": 5,
+      "label": "9. FRI IMAGE \u2014 DIRECT OFFER",
+      "html": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260717/automation-img-05.html",
+      "png": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260717/automation-img-05.png",
+      "json": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260717/automation-img-05.json"
+    },
+    {
+      "id": 6,
+      "label": "11. SAT IMAGE \u2014 PAIN \u2192 AUTOMATION",
+      "html": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260717/automation-img-06.html",
+      "png": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260717/automation-img-06.png",
+      "json": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260717/automation-img-06.json"
+    },
+    {
+      "id": 7,
+      "label": "13. SUN IMAGE \u2014 MINI WIN",
+      "html": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260717/automation-img-07.html",
+      "png": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260717/automation-img-07.png",
+      "json": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/automation-images/20260717/automation-img-07.json"
+    }
+  ]
+}

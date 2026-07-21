@@ -1,0 +1,24 @@
+{
+  "badge": "\u26a1 Automation",
+  "date_label": "November 2024",
+  "title_main": "Automate Your Sales Outreach",
+  "title_span": "Using Public Data",
+  "subtitle": "Leverage AI to turn Calendly, Apollo, and LinkedIn data into instant, tailored pitch assets.",
+  "takeaway_num": "12+ hrs",
+  "takeaway_text": "Saved weekly per sales rep by replacing manual outreach prep with automated workflows.",
+  "source": "Based on: Sales Automation Workflows \u00b7 Hitesh Dodiya",
+  "bars": [
+    {
+      "label": "Manual Outreach Prep",
+      "value": "12 hours",
+      "width_pct": "100%",
+      "color": "#E57373"
+    },
+    {
+      "label": "AI-Automated Prep",
+      "value": "Under 1 min",
+      "width_pct": "10%",
+      "color": "#5E6AD2"
+    }
+  ]
+}

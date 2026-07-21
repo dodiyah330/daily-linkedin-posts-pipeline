@@ -1,0 +1,30 @@
+{
+  "badge": "\u26a1 Custom AI",
+  "date_label": "May 2024",
+  "title_main": "Eliminate High Friction",
+  "title_span": "Manual SaaS Workflows",
+  "subtitle": "Replace slow bottlenecks with custom AI agents for sales, onboarding, and support triage.",
+  "takeaway_num": "2 Slots",
+  "takeaway_text": "Open for custom automation builds. DM 'AUTO' for a free 15-minute process audit.",
+  "source": "Based on: SaaS Bottlenecks \u00b7 Hitesh Dodiya",
+  "bars": [
+    {
+      "label": "Lead Enrichment",
+      "value": "95% Faster",
+      "width_pct": "95%",
+      "color": "#6366F1"
+    },
+    {
+      "label": "Onboarding Setup",
+      "value": "90% Faster",
+      "width_pct": "90%",
+      "color": "#10B981"
+    },
+    {
+      "label": "Support Triage",
+      "value": "80% Faster",
+      "width_pct": "80%",
+      "color": "#F59E0B"
+    }
+  ]
+}

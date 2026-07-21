@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Send automation lead-gen posts + daily images to Slack."""
+"""Send 14 automation lead posts (7 image + 7 text) to Slack."""
 import datetime
 import glob
 import json
@@ -35,10 +35,7 @@ def send(text):
     )
     with urllib.request.urlopen(req) as res:
         resp = json.loads(res.read().decode())
-        if not resp.get("ok"):
-            print(f"Error: {resp.get('error')}")
-        else:
-            print("OK")
+        print("OK" if resp.get("ok") else f"Error: {resp.get('error')}")
 
 
 def upload_file(filepath, comment):
@@ -84,8 +81,7 @@ def split_sections(text):
 
 files = sorted(glob.glob("automation_leads_*.txt"))
 if not files:
-    print("No automation_leads_*.txt found — run generate_automation_leads.py first")
-    exit(1)
+    exit("No automation_leads_*.txt")
 
 posts_file = files[-1]
 date_m = re.search(r"automation_leads_(\d{8})\.txt", posts_file)
@@ -98,24 +94,28 @@ date_compact = date_str.replace("-", "")
 with open(posts_file) as f:
     sections = split_sections(f.read())
 
-labels = [
-    "1. NEWS → AUTOMATION",
-    "2. CASE STUDY",
-    "3. QUALIFYING POLL",
-    "4. STEAL THIS WORKFLOW",
-    "5. DIRECT OFFER",
-]
+note = "2 posts/day Mon–Sun (1 image + 1 text)"
+if os.path.exists("schedule_automation_leads.json"):
+    with open("schedule_automation_leads.json") as f:
+        note = json.load(f).get("scheduleNote", note)
 
 send(
-    f"🎯 *Automation Lead Posts — {date_str}*\n"
-    "5 image + caption posts (Mon–Fri). Schedule with:\n"
+    f"🎯 *Automation Lead Week — {date_str}*\n"
+    f"14 posts: **2/day Mon–Sun**, one image + one text each day.\n"
+    f"{note}\n"
     "`SCHEDULE_FILE=schedule_automation_leads.json node schedule_all_posts.cjs`"
 )
 
-for label in labels:
-    body = sections.get(label, "").strip()
-    if body:
-        send(body)
+# Prefer schedule order if available
+if os.path.exists("schedule_automation_leads.json"):
+    with open("schedule_automation_leads.json") as f:
+        sched = json.load(f)
+    for p in sched.get("posts", []):
+        kind = "🖼 IMAGE" if p.get("type") == "infographic" else "📝 TEXT"
+        send(f"*{kind} — {p.get('date')} {p.get('time')}*\n{p.get('label','')}\n\n{p.get('caption','')}")
+else:
+    for label, body in sections.items():
+        send(f"*{label}*\n\n{body}")
 
 img_dir = os.path.join(BASE, "automation-images", date_compact)
 if not os.path.isdir(img_dir):
@@ -127,13 +127,11 @@ if not os.path.isdir(img_dir):
         img_dir = os.path.join(BASE, "automation-images", batches[-1])
 
 if os.path.isdir(img_dir):
-    send("📸 *Daily image posts* — 5 infographics attached below")
-    for i in range(1, 6):
+    send("📸 *7 daily image posts* attached below")
+    for i in range(1, 8):
         png = os.path.join(img_dir, f"automation-img-{i:02d}.png")
         if os.path.exists(png):
-            upload_file(png, f"Automation image post {i}/5 — {date_str}")
-else:
-    print("No automation-images folder — run build_automation_images.py")
+            upload_file(png, f"Automation image {i}/7 — {date_str}")
 
 upload_file(posts_file, f"Raw automation leads batch — {date_str}")
 print("Automation leads Slack delivery complete.")

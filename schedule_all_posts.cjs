@@ -559,15 +559,18 @@ Save this prompt to use on your next idea.`
       await new Promise(r => setTimeout(r, 2000));
 
       console.log("Clicking 'Start a post'...");
-      // Company admin: open Create menu first if present
-      await clickNativelyShadow(page, (root) => {
-        return Array.from(root.querySelectorAll('a, button, [role="button"]')).find(el => {
-          const t = (el.innerText || '').trim().toLowerCase();
-          const label = (el.getAttribute('aria-label') || '').toLowerCase();
-          return t === 'create' || label === 'create';
+      // Company admin only: open Create menu first if present
+      const onCompanyAdmin = /linkedin\.com\/company\/.+\/admin/i.test(page.url());
+      if (onCompanyAdmin) {
+        await clickNativelyShadow(page, (root) => {
+          return Array.from(root.querySelectorAll('a, button, [role="button"]')).find(el => {
+            const t = (el.innerText || '').trim().toLowerCase();
+            const label = (el.getAttribute('aria-label') || '').toLowerCase();
+            return t === 'create' || label === 'create';
+          });
         });
-      });
-      await new Promise(r => setTimeout(r, 1500));
+        await new Promise(r => setTimeout(r, 1500));
+      }
 
       let clickStartPost = await clickNativelyShadow(page, (root) => {
         return Array.from(root.querySelectorAll('*')).find(
@@ -576,7 +579,7 @@ Save this prompt to use on your next idea.`
         );
       });
       // Company admin fallbacks
-      if (!clickStartPost) {
+      if (!clickStartPost && onCompanyAdmin) {
         clickStartPost = await clickNativelyShadow(page, (root) => {
           return Array.from(root.querySelectorAll('button, a, [role="button"]')).find(el => {
             const t = ((el.innerText || '') + ' ' + (el.getAttribute('aria-label') || '')).toLowerCase();

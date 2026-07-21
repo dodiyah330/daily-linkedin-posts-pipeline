@@ -1,0 +1,36 @@
+{
+  "badge": "\u26a1 Automation",
+  "date_label": "July 2026",
+  "title_main": "If you're a founder",
+  "title_span": "or ops leader,",
+  "subtitle": "\u2610 Prospect research (scraping LinkedIn, company sites)",
+  "takeaway_num": "AUTO",
+  "takeaway_text": "\u2610 Support triage (classifying tickets, drafting replies)",
+  "source": "Based on: poll visual \u00b7 Hitesh Dodiya",
+  "bars": [
+    {
+      "label": "Prospect research (scraping LinkedIn, co",
+      "value": "Opt A",
+      "width_pct": "90%",
+      "color": "#2563EB"
+    },
+    {
+      "label": "Customer onboarding (setting up accounts",
+      "value": "Opt B",
+      "width_pct": "75%",
+      "color": "#2563EB"
+    },
+    {
+      "label": "Internal reporting (pulling data, format",
+      "value": "Opt C",
+      "width_pct": "60%",
+      "color": "#2563EB"
+    },
+    {
+      "label": "Support triage (classifying tickets, dra",
+      "value": "Opt D",
+      "width_pct": "45%",
+      "color": "#2563EB"
+    }
+  ]
+}

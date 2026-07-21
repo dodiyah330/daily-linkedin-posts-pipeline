@@ -1,0 +1,24 @@
+{
+  "badge": "\u26a1 Onboarding Automation",
+  "date_label": "October 2023",
+  "title_main": "Client Onboarding Slashed",
+  "title_span": "to Under 3 Mins",
+  "subtitle": "How automated handoffs eliminated manual work and sped up client activation with zero errors.",
+  "takeaway_num": "93% Faster",
+  "takeaway_text": "Handoff time reduced from 45 minutes of manual work to under 3 minutes with zero errors.",
+  "source": "Based on: Client Handoff Automation \u00b7 Hitesh Dodiya",
+  "bars": [
+    {
+      "label": "Manual Process",
+      "value": "45 mins",
+      "width_pct": "100%",
+      "color": "#DC2626"
+    },
+    {
+      "label": "AI Automation",
+      "value": "3 mins",
+      "width_pct": "7%",
+      "color": "#16A34A"
+    }
+  ]
+}

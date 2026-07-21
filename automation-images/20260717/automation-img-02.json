@@ -1,0 +1,24 @@
+{
+  "badge": "\u26a1 Sales Automation",
+  "date_label": "October 2024",
+  "title_main": "Automating SDR Manual",
+  "title_span": "Prospect Research",
+  "subtitle": "How we integrated HubSpot, Apollo, and AI to replace hours of manual prep with instant Slack briefs before calls.",
+  "takeaway_num": "12+ Hours",
+  "takeaway_text": "Saved weekly per sales representative while increasing the demo-to-close rate by 14% in month one.",
+  "source": "Based on: SaaS SDR AI Automation \u00b7 Hitesh Dodiya",
+  "bars": [
+    {
+      "label": "Manual Research (Before)",
+      "value": "15 hrs to week",
+      "width_pct": "100%",
+      "color": "#D9785B"
+    },
+    {
+      "label": "AI Prep Briefs (After)",
+      "value": "3 hrs to week",
+      "width_pct": "20%",
+      "color": "#598B75"
+    }
+  ]
+}

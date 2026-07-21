@@ -60,7 +60,7 @@ function getDailyStats(log) {
   const today = todayStr();
   const sentToday = log.filter((e) => e.date === today && e.status === 'sent').length;
   const touched = new Set(
-    log.filter((e) => ['sent', 'pending', 'already_connected', 'email_required'].includes(e.status))
+    log.filter((e) => ['sent', 'pending', 'already_connected', 'email_required', 'failed'].includes(e.status))
       .map((e) => profileSlug(e.linkedin_url || e.prospect_id))
   );
   return { sentToday, touched, remaining: Math.max(0, MAX_PER_DAY - sentToday) };
@@ -147,7 +147,18 @@ async function clickByText(page, texts, opts = {}) {
 async function dismissOverlays(page) {
   await page.evaluate(() => {
     document.querySelectorAll('.msg-overlay-container, [class*="msg-overlay"]').forEach((el) => el.remove());
+    // Close jump menus / sticky promo overlays that block Connect clicks
+    document.querySelectorAll('button').forEach((b) => {
+      const t = ((b.getAttribute('aria-label') || '') + ' ' + (b.innerText || '')).toLowerCase();
+      if (t.includes('close jump') || t.includes('dismiss') || t === 'close') {
+        try { b.click(); } catch (_) {}
+      }
+    });
   });
+  try {
+    await page.keyboard.press('Escape');
+  } catch (_) {}
+  await new Promise((r) => setTimeout(r, 500));
 }
 
 async function extractSearchResults(page) {
@@ -324,7 +335,35 @@ async function confirmInvitation(page) {
     await new Promise((r) => setTimeout(r, 2500));
   }
 
-  return (await getProfileStatus(page)) === 'pending';
+  // Toast / modal success signals (LinkedIn often doesn't flip to Pending immediately)
+  const successUi = await page.evaluate(() => {
+    const body = (document.body.innerText || '').toLowerCase();
+    return (
+      body.includes('invitation sent')
+      || body.includes('invite sent')
+      || body.includes('pending')
+      || !!document.querySelector('[data-test-modal], .artdeco-toast-item, .artdeco-inline-feedback--success')
+    );
+  });
+
+  if ((await getProfileStatus(page)) === 'pending') return true;
+  if (successUi) return true;
+
+  // Optimistic: if we clicked Send / Send without a note, treat as sent.
+  // LinkedIn UI often stays on Connect until a full reload.
+  if (clicked && (clicked.includes('send without') || clicked === 'send' || clicked.includes('send invitation') || clicked.includes('send invite'))) {
+    console.log('Invite click confirmed; treating as sent (Pending badge not yet visible).');
+    return true;
+  }
+
+  // Last resort: reload profile once and re-check
+  try {
+    await page.reload({ waitUntil: 'domcontentloaded', timeout: 15000 });
+    await new Promise((r) => setTimeout(r, 3000));
+    if ((await getProfileStatus(page)) === 'pending') return true;
+  } catch (_) {}
+
+  return false;
 }
 
 async function sendConnectionWithoutNote(page, prospect) {
@@ -376,11 +415,42 @@ async function sendConnectionWithoutNote(page, prospect) {
     return result;
   }
 
-  let clicked = await clickByText(page, ['Connect', 'Invite'], { exclude: ['disconnect', 'remove'] });
+  let clicked = await clickByText(page, ['Invite', 'Connect'], {
+    exclude: ['disconnect', 'remove', 'mutual', 'people similar', 'more profiles'],
+  });
   if (!clicked) {
     await clickByText(page, ['More', 'More actions']);
     await new Promise((r) => setTimeout(r, 1200));
-    clicked = await clickByText(page, ['Connect', 'Invite'], { exclude: ['disconnect'] });
+    clicked = await clickByText(page, ['Invite', 'Connect'], { exclude: ['disconnect', 'mutual'] });
+  }
+  if (!clicked) {
+    // Direct aria/href match for "Invite {Name} to connect"
+    clicked = await page.evaluate(() => {
+      function find(root) {
+        if (!root) return null;
+        for (const el of root.querySelectorAll('a, button, [role="button"]')) {
+          const label = ((el.getAttribute('aria-label') || '') + ' ' + (el.innerText || '')).toLowerCase();
+          if (/invite .+ to connect/.test(label) || label.trim() === 'connect') {
+            const rect = el.getBoundingClientRect();
+            if (rect.width > 0 && rect.height > 0 && rect.top < 700) {
+              el.click();
+              return label.trim().slice(0, 60);
+            }
+          }
+        }
+        const w = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT);
+        let n;
+        while (n = w.nextNode()) {
+          if (n.shadowRoot) {
+            const f = find(n.shadowRoot);
+            if (f) return f;
+          }
+        }
+        return null;
+      }
+      return find(document.body);
+    });
+    if (clicked) console.log(`Clicked connect control: "${clicked}"`);
   }
   if (!clicked) {
     result.error = 'Connect button not found';

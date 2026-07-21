@@ -1,0 +1,24 @@
+{
+  "badge": "\u26a1 Automation",
+  "date_label": "July 2026",
+  "title_main": "Daily Reporting Pain",
+  "title_span": "Solved",
+  "subtitle": "Stop wasting hours on manual reports. Automate your daily leadership updates and reclaim your team's time.",
+  "takeaway_num": "10+",
+  "takeaway_text": "Hours/week saved on manual reporting, freeing engineering for higher-value work.",
+  "source": "Based on: Automation Project \u00b7 Hitesh Dodiya",
+  "bars": [
+    {
+      "label": "Manual Reporting",
+      "value": "2 Hours/Day",
+      "width_pct": "90%",
+      "color": "#EC4899"
+    },
+    {
+      "label": "Automated Process",
+      "value": "0.1 Hours/Day",
+      "width_pct": "20%",
+      "color": "#22C55E"
+    }
+  ]
+}

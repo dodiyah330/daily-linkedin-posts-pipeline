@@ -13,5 +13,16 @@
     "date": "2026-07-06",
     "file": "automation_leads_20260706.txt",
     "news_hook": "If you use Google, you\u2019re training its AI. Here\u2019s how to opt out."
+  },
+  {
+    "date": "2026-07-17",
+    "file": "automation_leads_20260717.txt",
+    "news_hook": "Why the first GPU financiers are turning to inference chips in a $400 million deal"
+  },
+  {
+    "date": "2026-07-17",
+    "file": "automation_leads_20260717.txt",
+    "mode": "14-posts-2-per-day",
+    "news_hook": "Why the first GPU financiers are turning to inference chips in a $400 million deal"
   }
 ]

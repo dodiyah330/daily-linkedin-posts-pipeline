@@ -128,5 +128,255 @@
     "date": "2026-07-07",
     "status": "failed",
     "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "mansa-dan-403b01255",
+    "name": "Mansa Dan • 2nd",
+    "title": "--Founder & CEO, Mantron Technology Inc. | Full-Stack Engineer | AI, Blockchain & Enterprise SaaS Architect",
+    "linkedin_url": "https://www.linkedin.com/in/mansa-dan-403b01255/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-17",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "damiandabrowski",
+    "name": "Damian Dąbrowski",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/damiandabrowski/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-17",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "bertram-thorslund-3645b175",
+    "name": "Bertram Thorslund ",
+    "title": "Bertram Thorslund",
+    "linkedin_url": "https://www.linkedin.com/in/bertram-thorslund-3645b175/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-17",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "susiesandberg",
+    "name": "Susie Sandberg",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/susiesandberg/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-17",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "omerkhokhar",
+    "name": "Omer Khokhar ",
+    "title": "Omer Khokhar",
+    "linkedin_url": "https://www.linkedin.com/in/omerkhokhar/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-17",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "davidrbrennan",
+    "name": "David Brennan",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/davidrbrennan/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-17",
+    "status": "pending",
+    "error": null
+  },
+  {
+    "prospect_id": "sssaini",
+    "name": "Sukhpal Saini",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/sssaini/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-17",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "cameronsim",
+    "name": "Cameron Sim ",
+    "title": "Cameron Sim",
+    "linkedin_url": "https://www.linkedin.com/in/cameronsim/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-17",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "nicklucking",
+    "name": "Nick Lucking",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/nicklucking/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-17",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "ivica-simatovic",
+    "name": "Ivica Simatovic • 2nd",
+    "title": "Blockchain & Web3 Applications Consultant",
+    "linkedin_url": "https://www.linkedin.com/in/ivica-simatovic/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-17",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "annie-meyer-422ab",
+    "name": "Annie Meyer",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/annie-meyer-422ab/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-17",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "amitpradhan",
+    "name": "Amit Pradhan ",
+    "title": "Amit Pradhan",
+    "linkedin_url": "https://www.linkedin.com/in/amitpradhan/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-17",
+    "status": "sent",
+    "error": null
+  },
+  {
+    "prospect_id": "snehalshinde",
+    "name": "Snehal Shinde",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/snehalshinde/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-17",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "bruce-johnson-73634b",
+    "name": "Bruce Johnson • 2nd",
+    "title": "CEO at Asia Pacific Group Limited",
+    "linkedin_url": "https://www.linkedin.com/in/bruce-johnson-73634b/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-17",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "ishwari-joshi-514897162",
+    "name": "Ishwari Joshi",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/ishwari-joshi-514897162/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-17",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "mansa-dan-403b01255",
+    "name": "Mansa Dan • 2nd",
+    "title": "--Founder & CEO, Mantron Technology Inc. | Full-Stack Engineer | AI, Blockchain & Enterprise SaaS Architect",
+    "linkedin_url": "https://www.linkedin.com/in/mansa-dan-403b01255/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-17",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "damiandabrowski",
+    "name": "Damian Dąbrowski",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/damiandabrowski/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-17",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "bertram-thorslund-3645b175",
+    "name": "Bertram Thorslund ",
+    "title": "Bertram Thorslund",
+    "linkedin_url": "https://www.linkedin.com/in/bertram-thorslund-3645b175/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-17",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "susiesandberg",
+    "name": "Susie Sandberg",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/susiesandberg/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-17",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "omerkhokhar",
+    "name": "Omer Khokhar ",
+    "title": "Omer Khokhar",
+    "linkedin_url": "https://www.linkedin.com/in/omerkhokhar/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-17",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "sssaini",
+    "name": "Sukhpal Saini",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/sssaini/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-17",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "cameronsim",
+    "name": "Cameron Sim ",
+    "title": "Cameron Sim",
+    "linkedin_url": "https://www.linkedin.com/in/cameronsim/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-17",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "joaoalvaroquintela",
+    "name": "Johnny (João Alvaro) Quintela ",
+    "title": "Johnny (João Alvaro) Quintela",
+    "linkedin_url": "https://www.linkedin.com/in/joaoalvaroquintela/",
+    "search_query": "Head of RevOps B2B",
+    "date": "2026-07-17",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "bozidarbenko",
+    "name": "Bozidar Benko",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/bozidarbenko/",
+    "search_query": "Head of RevOps B2B",
+    "date": "2026-07-17",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "heidi-spitz",
+    "name": "Heidi S. ",
+    "title": "Heidi S.",
+    "linkedin_url": "https://www.linkedin.com/in/heidi-spitz/",
+    "search_query": "Head of RevOps B2B",
+    "date": "2026-07-17",
+    "status": "pending",
+    "error": null
   }
 ]

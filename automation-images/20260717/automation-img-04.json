@@ -1,0 +1,36 @@
+{
+  "badge": "\u26a1 Automation",
+  "date_label": "July 2026",
+  "title_main": "**Trigger:** New support ticket",
+  "title_span": "in Intercom.",
+  "subtitle": "**Step 1: Classify & Retrieve:** AI analyzes ticket intent, then performs a vector search over your Notion help docs to ",
+  "takeaway_num": "1",
+  "takeaway_text": "**Result:** Team member reviews and approves/edits a pre-written draft in Slack, cutting first respo",
+  "source": "Based on: workflow steps \u00b7 Hitesh Dodiya",
+  "bars": [
+    {
+      "label": "Trigger",
+      "value": "Trigger",
+      "width_pct": "90%",
+      "color": "#059669"
+    },
+    {
+      "label": "Step 1",
+      "value": "New",
+      "width_pct": "78%",
+      "color": "#059669"
+    },
+    {
+      "label": "Step 2",
+      "value": "Intercom.",
+      "width_pct": "66%",
+      "color": "#059669"
+    },
+    {
+      "label": "Result",
+      "value": "Step",
+      "width_pct": "54%",
+      "color": "#059669"
+    }
+  ]
+}
