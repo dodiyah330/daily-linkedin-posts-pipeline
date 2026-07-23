@@ -378,5 +378,395 @@
     "date": "2026-07-17",
     "status": "pending",
     "error": null
+  },
+  {
+    "prospect_id": "mansa-dan-403b01255",
+    "name": "Mansa Dan • 2nd",
+    "title": "--Founder & CEO, Mantron Technology Inc. | Full-Stack Engineer | AI, Blockchain & Enterprise SaaS Architect",
+    "linkedin_url": "https://www.linkedin.com/in/mansa-dan-403b01255/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "damiandabrowski",
+    "name": "Damian Dąbrowski",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/damiandabrowski/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "bertram-thorslund-3645b175",
+    "name": "Bertram Thorslund ",
+    "title": "Bertram Thorslund",
+    "linkedin_url": "https://www.linkedin.com/in/bertram-thorslund-3645b175/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "susiesandberg",
+    "name": "Susie Sandberg",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/susiesandberg/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "mabu",
+    "name": "Marcellus Buchheit ",
+    "title": "Marcellus Buchheit",
+    "linkedin_url": "https://www.linkedin.com/in/mabu/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "vasilii-barantsev",
+    "name": "Vasilii Barantsev",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/vasilii-barantsev/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "cameronsim",
+    "name": "Cameron Sim ",
+    "title": "Cameron Sim",
+    "linkedin_url": "https://www.linkedin.com/in/cameronsim/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "nicklucking",
+    "name": "Nick Lucking",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/nicklucking/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "mansa-dan-403b01255",
+    "name": "Mansa Dan • 2nd",
+    "title": "--Founder & CEO, Mantron Technology Inc. | Full-Stack Engineer | AI, Blockchain & Enterprise SaaS Architect",
+    "linkedin_url": "https://www.linkedin.com/in/mansa-dan-403b01255/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "damiandabrowski",
+    "name": "Damian Dąbrowski",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/damiandabrowski/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "bertram-thorslund-3645b175",
+    "name": "Bertram Thorslund ",
+    "title": "Bertram Thorslund",
+    "linkedin_url": "https://www.linkedin.com/in/bertram-thorslund-3645b175/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "susiesandberg",
+    "name": "Susie Sandberg",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/susiesandberg/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "mabu",
+    "name": "Marcellus Buchheit ",
+    "title": "Marcellus Buchheit",
+    "linkedin_url": "https://www.linkedin.com/in/mabu/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "vasilii-barantsev",
+    "name": "Vasilii Barantsev",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/vasilii-barantsev/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "failed",
+    "error": "Could not confirm invitation sent"
+  },
+  {
+    "prospect_id": "mansa-dan-403b01255",
+    "name": "Mansa Dan • 2nd",
+    "title": "--Founder & CEO, Mantron Technology Inc. | Full-Stack Engineer | AI, Blockchain & Enterprise SaaS Architect",
+    "linkedin_url": "https://www.linkedin.com/in/mansa-dan-403b01255/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "sent",
+    "error": null
+  },
+  {
+    "prospect_id": "damiandabrowski",
+    "name": "Damian Dąbrowski",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/damiandabrowski/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "failed",
+    "error": "Connect button not found on search card"
+  },
+  {
+    "prospect_id": "damiandabrowski",
+    "name": "Damian Dąbrowski",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/damiandabrowski/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "failed",
+    "error": "Connect button not found on search card"
+  },
+  {
+    "prospect_id": "bertram-thorslund-3645b175",
+    "name": "Bertram Thorslund ",
+    "title": "Bertram Thorslund",
+    "linkedin_url": "https://www.linkedin.com/in/bertram-thorslund-3645b175/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "failed",
+    "error": "Connect button not found on search card"
+  },
+  {
+    "prospect_id": "susiesandberg",
+    "name": "Susie Sandberg",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/susiesandberg/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "failed",
+    "error": "Connect button not found on search card"
+  },
+  {
+    "prospect_id": "mabu",
+    "name": "Marcellus Buchheit ",
+    "title": "Marcellus Buchheit",
+    "linkedin_url": "https://www.linkedin.com/in/mabu/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "failed",
+    "error": "Connect button not found on search card"
+  },
+  {
+    "prospect_id": "damiandabrowski",
+    "name": "Damian Dąbrowski",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/damiandabrowski/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "already_connected",
+    "error": null
+  },
+  {
+    "prospect_id": "bertram-thorslund-3645b175",
+    "name": "Bertram Thorslund ",
+    "title": "Bertram Thorslund",
+    "linkedin_url": "https://www.linkedin.com/in/bertram-thorslund-3645b175/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "sent",
+    "error": null
+  },
+  {
+    "prospect_id": "susiesandberg",
+    "name": "Susie Sandberg",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/susiesandberg/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "already_connected",
+    "error": null
+  },
+  {
+    "prospect_id": "mabu",
+    "name": "Marcellus Buchheit ",
+    "title": "Marcellus Buchheit",
+    "linkedin_url": "https://www.linkedin.com/in/mabu/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "sent",
+    "error": null
+  },
+  {
+    "prospect_id": "vasilii-barantsev",
+    "name": "Vasilii Barantsev",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/vasilii-barantsev/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "already_connected",
+    "error": null
+  },
+  {
+    "prospect_id": "cameronsim",
+    "name": "Cameron Sim ",
+    "title": "Cameron Sim",
+    "linkedin_url": "https://www.linkedin.com/in/cameronsim/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "already_connected",
+    "error": "No invite button (unknown)"
+  },
+  {
+    "prospect_id": "nicklucking",
+    "name": "Nick Lucking",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/nicklucking/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "already_connected",
+    "error": null
+  },
+  {
+    "prospect_id": "ivica-simatovic",
+    "name": "Ivica Simatovic • 2nd",
+    "title": "Blockchain & Web3 Applications Consultant",
+    "linkedin_url": "https://www.linkedin.com/in/ivica-simatovic/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "pending",
+    "error": null
+  },
+  {
+    "prospect_id": "annie-meyer-422ab",
+    "name": "Annie Meyer",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/annie-meyer-422ab/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "already_connected",
+    "error": null
+  },
+  {
+    "prospect_id": "dev-bardoliya",
+    "name": "Divyesh Bardoliya ",
+    "title": "Divyesh Bardoliya",
+    "linkedin_url": "https://www.linkedin.com/in/dev-bardoliya/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "sent",
+    "error": null
+  },
+  {
+    "prospect_id": "ofer-raz-78879",
+    "name": "Ofer Raz",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/ofer-raz-78879/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "already_connected",
+    "error": null
+  },
+  {
+    "prospect_id": "anveshprajapati",
+    "name": "Anvesh Prajapati ",
+    "title": "Anvesh Prajapati",
+    "linkedin_url": "https://www.linkedin.com/in/anveshprajapati/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "already_connected",
+    "error": "No invite button (unknown)"
+  },
+  {
+    "prospect_id": "swamygk",
+    "name": "Gangaswamy Kempahonnaiah",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/swamygk/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "already_connected",
+    "error": null
+  },
+  {
+    "prospect_id": "punitsoni",
+    "name": "Punit Singh Soni ",
+    "title": "Punit Singh Soni",
+    "linkedin_url": "https://www.linkedin.com/in/punitsoni/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "already_connected",
+    "error": "No invite button (unknown)"
+  },
+  {
+    "prospect_id": "manufontaine",
+    "name": "Manu Fontaine ",
+    "title": "Manu Fontaine",
+    "linkedin_url": "https://www.linkedin.com/in/manufontaine/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "sent",
+    "error": null
+  },
+  {
+    "prospect_id": "jmontenegrodesign",
+    "name": "João Montenegro",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/jmontenegrodesign/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "already_connected",
+    "error": null
+  },
+  {
+    "prospect_id": "kevinffdai",
+    "name": "Kevin Farrell ",
+    "title": "Kevin Farrell",
+    "linkedin_url": "https://www.linkedin.com/in/kevinffdai/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "already_connected",
+    "error": "No invite button (unknown)"
+  },
+  {
+    "prospect_id": "yash-ravipati-259012204",
+    "name": "Yash Ravipati ",
+    "title": "Yash Ravipati",
+    "linkedin_url": "https://www.linkedin.com/in/yash-ravipati-259012204/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "sent",
+    "error": null
+  },
+  {
+    "prospect_id": "mihai-alexandru-nitu-103a34141",
+    "name": "Mihai Alexandru Nitu",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/mihai-alexandru-nitu-103a34141/",
+    "search_query": "SaaS founder CEO",
+    "date": "2026-07-22",
+    "status": "already_connected",
+    "error": null
   }
 ]

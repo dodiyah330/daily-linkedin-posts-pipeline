@@ -1,129 +1,143 @@
 [
   {
     "source": "TechCrunch AI",
-    "title": "Why the first GPU financiers are turning to inference chips in a $400 million deal",
-    "description": "A $400 million chip-backed loan points to the next wave of AI infrastructure deals.",
-    "pubDate": "Fri, 17 Jul 2026 12:00:00 +0000",
-    "url": "https://techcrunch.com/2026/07/17/why-the-first-gpu-financiers-are-turning-to-inference-chips-in-a-400-million-deal/"
+    "title": "Synthesia\u2019s AI training platform is moving beyond videos into live coaching",
+    "description": "Synthesia launched AI Roleplay Sessions, an interactive enterprise training platform where employees practice workplace conversations with AI avatars that provide feedback, scoring, and analytics to help companies measure training effectiveness.",
+    "pubDate": "Wed, 22 Jul 2026 08:00:00 +0000",
+    "url": "https://techcrunch.com/2026/07/22/synthesias-ai-training-platform-is-moving-beyond-videos-into-live-coaching/"
   },
   {
     "source": "TechCrunch AI",
-    "title": "Google Vids now lets you star in your own AI videos",
-    "description": "Google is adding personalized AI avatars to Vids that let users create videos starring a digital version of themselves, alongside Gemini Omni-powered tools for generating and editing videos from prompts and reference images.",
-    "pubDate": "Thu, 16 Jul 2026 18:32:54 +0000",
-    "url": "https://techcrunch.com/2026/07/16/google-vids-now-lets-you-star-in-your-own-ai-videos/"
+    "title": "The Anthropic-Physical Intelligence rumor roiling AI Twitter",
+    "description": "Anthropic and OpenAI's aggressive 2026 acquisition sprees set the stage for a weekend rumor.",
+    "pubDate": "Wed, 22 Jul 2026 03:20:57 +0000",
+    "url": "https://techcrunch.com/2026/07/21/the-anthropic-physical-intelligence-rumor-roiling-ai-twitter/"
   },
   {
     "source": "TechCrunch AI",
-    "title": "Roblox launches an AI-powered game-creation feature in its mobile app",
-    "description": "Roblox's new \"Build\" feature lets users generate basic games using a single text prompt.",
-    "pubDate": "Thu, 16 Jul 2026 18:22:06 +0000",
-    "url": "https://techcrunch.com/2026/07/16/roblox-launches-an-ai-powered-game-creation-feature-in-its-mobile-app/"
+    "title": "Meta is testing an AI bedtime story app for people with no imagination",
+    "description": "At last, a tech company has found a way to outsource humanity's oldest pastime: using our imaginations.",
+    "pubDate": "Tue, 21 Jul 2026 23:55:10 +0000",
+    "url": "https://techcrunch.com/2026/07/21/meta-is-testing-an-ai-bedtime-story-app-for-people-with-no-imagination/"
   },
   {
     "source": "TechCrunch AI",
-    "title": "Google\u2019s AI Mode now lets you link and interact with select apps",
-    "description": "With this new update, Google is expanding AI Mode beyond answering questions and into completing tasks across the apps they use regularly.",
-    "pubDate": "Thu, 16 Jul 2026 16:00:00 +0000",
-    "url": "https://techcrunch.com/2026/07/16/googles-ai-mode-now-lets-you-link-and-interact-with-select-apps/"
+    "title": "OpenAI says Hugging Face was breached by its pre-release models",
+    "description": "OpenAI has come forward to claim responsibility for the Hugging Face breach, saying it was the result of internal testing gone awry.",
+    "pubDate": "Tue, 21 Jul 2026 20:56:55 +0000",
+    "url": "https://techcrunch.com/2026/07/21/openai-says-hugging-face-was-breached-by-its-pre-release-models/"
   },
   {
     "source": "TechCrunch AI",
-    "title": "Yes, you can now order DoorDash from the command line",
-    "description": "DoorDash is opening a limited beta of dd-cli, a command-line tool that lets developers and AI agents search stores, build carts, and place orders from the terminal, marking another step toward software designed for AI agents instead of just humans.",
-    "pubDate": "Thu, 16 Jul 2026 15:38:55 +0000",
-    "url": "https://techcrunch.com/2026/07/16/yes-you-can-now-order-doordash-from-the-command-line/"
+    "title": "Jack Dorsey is taking on Slack with Buzz, a group chat platform for teams and their AI agents",
+    "description": "Buzz is a group chat platform for the workplace that puts humans and their AI agents in the same conversation.",
+    "pubDate": "Tue, 21 Jul 2026 19:43:41 +0000",
+    "url": "https://techcrunch.com/2026/07/21/jack-dorsey-is-taking-on-slack-with-buzz-a-group-chat-platform-for-teams-and-their-ai-agents/"
   },
   {
     "source": "TechCrunch AI",
-    "title": "Why is OpenAI selling a ChatGPT basketball?",
-    "description": "You may have heard that OpenAI released its first piece of hardware this week. You may not have heard about the ChatGPT basketball.",
-    "pubDate": "Thu, 16 Jul 2026 15:31:09 +0000",
-    "url": "https://techcrunch.com/2026/07/16/why-is-openai-selling-a-chatgpt-basketball/"
+    "title": "AI and the rise of the universal entertainment app",
+    "description": "Over the past decade, streaming platforms competed by dominating individual formats like music, video, podcasts, or audiobooks. Now, as AI makes it easier to create, organize, and recommend content, those distinctions are fading, pushing companies like Spotify, Netflix, YouTube, and TikTok to become all-purpose entertainment destinations instead.",
+    "pubDate": "Tue, 21 Jul 2026 19:39:30 +0000",
+    "url": "https://techcrunch.com/2026/07/21/ai-and-the-rise-of-the-universal-entertainment-app/"
   },
   {
     "source": "TechCrunch AI",
-    "title": "How a former DeepMind researcher raised at a $300M pre-seed valuation before launching a product",
-    "description": "Drawing on more than a decade spent helping build some of the world's most influential AI systems, including research that later informed the development of ChatGPT, Andrew Dai explains why he believes visual AI is one of the next major frontiers in artificial intelligence.",
-    "pubDate": "Thu, 16 Jul 2026 15:02:00 +0000",
-    "url": "https://techcrunch.com/2026/07/16/how-a-former-deepmind-researcher-raised-at-a-300m-pre-seed-valuation-before-launching-a-product/"
+    "title": "Data centers expected to use 4x more electricity by 2035",
+    "description": "New data centers built through 2033 could consume as much electricity as India uses today.",
+    "pubDate": "Tue, 21 Jul 2026 18:06:38 +0000",
+    "url": "https://techcrunch.com/2026/07/21/data-centers-expected-to-use-4x-more-electricity-by-2035/"
   },
   {
     "source": "TechCrunch AI",
-    "title": "Why AMI Labs\u2019 Alexandre LeBrun won\u2019t call his AI \u2018AGI\u2019 or \u2018superintelligence\u2019",
-    "description": "While everyone in AI is chasing \"superintelligence,\" Alexandre LeBrun, CEO of Yann LeCun\u2019s world model startup, AMI Labs, dismisses the word.",
-    "pubDate": "Thu, 16 Jul 2026 14:40:00 +0000",
-    "url": "https://techcrunch.com/2026/07/16/why-ami-labs-alexandre-lebrun-wont-call-his-ai-agi-or-superintelligence/"
+    "title": "Google releases three new Gemini models \u2014 but no 3.5 Pro",
+    "description": "Google released Gemini 3.6 Flash, 3.5 Flash-Lite, and Flash Cyber, but the continued absence of Gemini 3.5 Pro raises fresh questions about its AI strategy.",
+    "pubDate": "Tue, 21 Jul 2026 17:11:50 +0000",
+    "url": "https://techcrunch.com/2026/07/21/google-releases-three-new-gemini-models-but-no-3-5-pro/"
   },
   {
     "source": "TechCrunch AI",
-    "title": "Moonshot\u2019s upcoming Kimi 3 is expected to close the gap with Anthropic\u2019s Opus 4.8",
-    "description": "The FT reports Kimi K3 will be the largest open AI model from China, with a parameter count between 2 trillion and 3 trillion.",
-    "pubDate": "Thu, 16 Jul 2026 14:26:29 +0000",
-    "url": "https://techcrunch.com/2026/07/16/moonshots-upcoming-kimi-3-is-expected-to-close-the-gap-with-anthropics-opus-4-8/"
+    "title": "US threatens sanctions against Chinese AI models over IP theft",
+    "description": "Treasury Secretary Scott Bessent said the U.S. could sanction Chinese open AI models over alleged IP theft, expanding the Trump administration's campaign to slow China's AI advances.",
+    "pubDate": "Tue, 21 Jul 2026 15:37:05 +0000",
+    "url": "https://techcrunch.com/2026/07/21/us-threatens-sanctions-against-chinese-ai-models-over-ip-theft/"
   },
   {
     "source": "TechCrunch AI",
-    "title": "Apple Intelligence approved for launch in China with Alibaba and Baidu",
-    "description": "The deal, which was rumored to be in the works last year, marks an important step for Apple's AI ambitions in a key market.",
-    "pubDate": "Thu, 16 Jul 2026 13:17:59 +0000",
-    "url": "https://techcrunch.com/2026/07/16/apple-intelligence-approved-for-launch-in-china-with-alibabas-qwen-ai/"
+    "title": "Music streamer Deezer says more than 50% of daily uploads are AI-generated",
+    "description": "Deezer said more than 90,000 AI-generated tracks were uploaded daily on the platform in June.",
+    "pubDate": "Tue, 21 Jul 2026 13:27:42 +0000",
+    "url": "https://techcrunch.com/2026/07/21/music-streamer-deezer-says-more-than-50-of-daily-uploads-are-ai-generated/"
   },
   {
     "source": "TechCrunch AI",
-    "title": "Applied Computing wants to give oil and gas operators an AI model for the entire plant",
-    "description": "Applied Computing has raised a $20M Series A to build a foundation AI model for the oil, gas and petrochemical industry.",
-    "pubDate": "Thu, 16 Jul 2026 04:00:00 +0000",
-    "url": "https://techcrunch.com/2026/07/15/applied-computing-wants-to-give-oil-and-gas-operators-an-ai-model-for-the-entire-plant/"
+    "title": "Gritt exits stealth with $32 million for robots to build solar plants \u2014 then, everything else",
+    "description": "Gritt is coming out of stealth with $34 million and plans to automate the hardest tasks on construction sites.",
+    "pubDate": "Tue, 21 Jul 2026 10:00:00 +0000",
+    "url": "https://techcrunch.com/2026/07/21/gritt-exits-stealth-with-34-million-for-robots-to-build-solar-plants-then-everything-else/"
   },
   {
     "source": "TechCrunch AI",
-    "title": "Microsoft is reportedly training salespeople to talk down OpenAI and Anthropic",
-    "description": "Microsoft is looking to sell its in-house AI models as more efficient and cost-effective than its competitors' models.",
-    "pubDate": "Wed, 15 Jul 2026 23:59:44 +0000",
-    "url": "https://techcrunch.com/2026/07/15/microsoft-is-reportedly-training-salespeople-to-talk-down-openai-and-anthropic/"
+    "title": "Anthropic\u2019s landmark $1.5B copyright settlement is approved",
+    "description": "The final approval settles one case, but it doesn't resolve the broader issue of using copyrighted works to train AI models.",
+    "pubDate": "Tue, 21 Jul 2026 00:12:24 +0000",
+    "url": "https://techcrunch.com/2026/07/20/anthropics-landmark-1-5b-copyright-settlement-is-approved/"
   },
   {
     "source": "TechCrunch AI",
-    "title": "Amid hardware legal battle, OpenAI releases a $230 keyboard for Codex",
-    "description": "OpenAI, which is in the middle of a legal battle with Apple over hardware trade theft allegations, just released a light-up keyboard designed to be paired with its agentic coding app.",
-    "pubDate": "Wed, 15 Jul 2026 19:41:38 +0000",
-    "url": "https://techcrunch.com/2026/07/15/amid-hardware-legal-battle-openai-releases-a-230-keyboard-for-codex/"
+    "title": "Trump\u2019s latest AI czar has already resigned",
+    "description": "The director role for the Center for AI Standards and Innovation (CAISI) has become a revolving door since David Sacks left his position as czar.",
+    "pubDate": "Mon, 20 Jul 2026 22:21:04 +0000",
+    "url": "https://techcrunch.com/2026/07/20/trumps-latest-ai-czar-has-already-resigned/"
   },
   {
     "source": "TechCrunch AI",
-    "title": "SpaceX falls to $135 IPO price ahead of Starship launch",
-    "description": "The stock has steadily fallen from the euphoric post-IPO high, showing that markets may be sobering up to the promises CEO Elon Musk made before and after SpaceX went public.",
-    "pubDate": "Wed, 15 Jul 2026 18:06:05 +0000",
-    "url": "https://techcrunch.com/2026/07/15/spacex-falls-to-135-ipo-price-ahead-of-starship-launch/"
+    "title": "Google is working on a new AI chip designed to make Gemini more efficient",
+    "description": "Alphabet, Google's parent company, is reportedly working on a new chip designed to make its Gemini models run much more efficiently.",
+    "pubDate": "Mon, 20 Jul 2026 21:21:15 +0000",
+    "url": "https://techcrunch.com/2026/07/20/google-is-working-on-a-new-ai-chip-designed-to-make-gemini-more-efficient/"
   },
   {
     "source": "TechCrunch AI",
-    "title": "Thinking Machines amps up its bet against one-size-fits-all AI with its first open model, Inkling",
-    "description": "It's the company's first public proof point after a year and a half spent building AI infrastructure largely out of public view.",
-    "pubDate": "Wed, 15 Jul 2026 18:04:06 +0000",
-    "url": "https://techcrunch.com/2026/07/15/thinking-machines-amps-up-its-bet-against-one-size-fits-all-ai-with-its-first-open-model-inkling/"
+    "title": "AI\u2019s most important protocol is getting a little bit easier to use",
+    "description": "Under the new system, the protocol will take a looser, \"stateless\" approach to session IDs on the server side, similar to how most ordinary websites already work.",
+    "pubDate": "Mon, 20 Jul 2026 20:50:40 +0000",
+    "url": "https://techcrunch.com/2026/07/20/ais-most-important-protocol-is-getting-a-little-bit-easier-to-use/"
   },
   {
     "source": "TechCrunch AI",
-    "title": "Hack suggests AI music generator Suno scraped YouTube for training data",
-    "description": "The hacker used an employee's credentials to access source code, which revealed how Suno scraped decades of audio.",
-    "pubDate": "Wed, 15 Jul 2026 17:00:34 +0000",
-    "url": "https://techcrunch.com/2026/07/15/hack-suggests-ai-music-generator-suno-scraped-youtube-for-training-data/"
+    "title": "X relaunches a rebuilt Android app after year-long effort",
+    "description": "X says the rebuilt version of its Android app is now available globally.",
+    "pubDate": "Mon, 20 Jul 2026 19:37:39 +0000",
+    "url": "https://techcrunch.com/2026/07/20/x-relaunches-a-rebuilt-android-app-after-year-long-effort/"
   },
   {
     "source": "TechCrunch AI",
-    "title": "Whatnot acquires Shaped to power real-time live shopping recommendations",
-    "description": "Livestream shopping platform Whatnot has acquired AI startup Shaped, a machine learning company focused on real-time recommendations and search. The deal will bolster Whatnot\u2019s personalization and discovery features as it expands into new product categories.",
-    "pubDate": "Wed, 15 Jul 2026 17:00:00 +0000",
-    "url": "https://techcrunch.com/2026/07/15/whatnot-acquires-shaped-to-power-real-time-live-shopping-recommendations/"
+    "title": "OpenAI is scared of open-weight models. Should the US be?",
+    "description": "Talk of banning Chinese-made open-weight LLMs reveals the challenge of turning AI into a business.",
+    "pubDate": "Mon, 20 Jul 2026 19:33:25 +0000",
+    "url": "https://techcrunch.com/2026/07/20/openai-is-scared-of-open-weight-models-should-the-us-be/"
   },
   {
     "source": "TechCrunch AI",
-    "title": "Microsoft patches record number of security vulnerabilities, citing its use of AI",
-    "description": "Microsoft's monthly release of security fixes, dubbed Patch Tuesday, resolved a record 570 security vulnerabilities across the company's product line, thanks to discoveries with AI.",
-    "pubDate": "Wed, 15 Jul 2026 16:20:18 +0000",
-    "url": "https://techcrunch.com/2026/07/15/microsoft-patches-record-number-of-security-vulnerabilities-citing-its-use-of-ai/"
+    "title": "Adobe camera app\u2019s new feature will critique your photos using AI",
+    "description": "Adobe's Project Indigo can now remove all kinds of backgrounds from photos you snap using the app.",
+    "pubDate": "Mon, 20 Jul 2026 15:45:00 +0000",
+    "url": "https://techcrunch.com/2026/07/20/adobe-camera-apps-new-feature-will-critique-your-photos-using-ai/"
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "YouTube clarifies policies around AI slop and upsetting videos",
+    "description": "YouTube has updated its monetization policies to more clearly define the kinds of AI-generated and low-quality videos that can\u2019t earn ad revenue.",
+    "pubDate": "Mon, 20 Jul 2026 15:23:06 +0000",
+    "url": "https://techcrunch.com/2026/07/20/youtube-clarifies-policies-around-ai-slop-and-upsetting-videos/"
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "What to watch for after Jensen Huang\u2019s Japan visit",
+    "description": "Jensen Huang left Tokyo with deals spanning Japan's entire tech ecosystem.",
+    "pubDate": "Sun, 19 Jul 2026 21:16:07 +0000",
+    "url": "https://techcrunch.com/2026/07/19/what-to-watch-for-after-jensen-huangs-japan-visit/"
   },
   {
     "source": "VentureBeat AI",

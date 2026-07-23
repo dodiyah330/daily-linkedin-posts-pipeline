@@ -1,0 +1,1701 @@
+{
+  "profiles": [
+    {
+      "slug": "msajidomer",
+      "name": "Mohammed Omer ",
+      "title": "Mohammed Omer",
+      "location": "San Francisco Bay Area",
+      "linkedin_url": "https://www.linkedin.com/in/msajidomer/",
+      "geo": "United States"
+    },
+    {
+      "slug": "sarika-makwana",
+      "name": "Sarika Makwana",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/sarika-makwana/",
+      "geo": "United States"
+    },
+    {
+      "slug": "sumanta-pal-6668bb209",
+      "name": "Sumanta Pal • 1st",
+      "title": "Senior US IT Recruiter",
+      "location": "United States",
+      "linkedin_url": "https://www.linkedin.com/in/sumanta-pal-6668bb209/",
+      "geo": "United States"
+    },
+    {
+      "slug": "tirmizisamir",
+      "name": "Samir Tirmizi",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/tirmizisamir/",
+      "geo": "United States"
+    },
+    {
+      "slug": "rbgudipudi",
+      "name": "Rob G ",
+      "title": "Rob G",
+      "location": "United States",
+      "linkedin_url": "https://www.linkedin.com/in/rbgudipudi/",
+      "geo": "United States"
+    },
+    {
+      "slug": "isagarpatel",
+      "name": "Sagar Patel",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/isagarpatel/",
+      "geo": "United States"
+    },
+    {
+      "slug": "chris-fernandes-b2506554",
+      "name": "Chris Fernandes • 1st",
+      "title": "Lead Technical Recruiter at Endure Technology Solutions",
+      "location": "United States",
+      "linkedin_url": "https://www.linkedin.com/in/chris-fernandes-b2506554/",
+      "geo": "United States"
+    },
+    {
+      "slug": "bhavy-soliya-007",
+      "name": "Bhavy Soliya",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/bhavy-soliya-007/",
+      "geo": "United States"
+    },
+    {
+      "slug": "ruthwick-pathireddy-7bb20188",
+      "name": "Ruthwick Pathireddy ",
+      "title": "Ruthwick Pathireddy",
+      "location": "New York, New York, United States",
+      "linkedin_url": "https://www.linkedin.com/in/ruthwick-pathireddy-7bb20188/",
+      "geo": "United States"
+    },
+    {
+      "slug": "ashwin-pai-4735302b",
+      "name": "Ashwin Pai",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/ashwin-pai-4735302b/",
+      "geo": "United States"
+    },
+    {
+      "slug": "sai-te-z-88bb481ab",
+      "name": "sai te Z • 1st",
+      "title": "We are hiring",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/sai-te-z-88bb481ab/",
+      "geo": "United States"
+    },
+    {
+      "slug": "tadevosyan-vazgen",
+      "name": "Vazgen Tadevosyan",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/tadevosyan-vazgen/",
+      "geo": "United States"
+    },
+    {
+      "slug": "mohit-verma-3017b29a",
+      "name": "Mohit Verma ",
+      "title": "Mohit Verma",
+      "location": "Dublin, California, United States",
+      "linkedin_url": "https://www.linkedin.com/in/mohit-verma-3017b29a/",
+      "geo": "United States"
+    },
+    {
+      "slug": "alik-ovesyan",
+      "name": "Oleksandr Ovesian",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/alik-ovesyan/",
+      "geo": "United States"
+    },
+    {
+      "slug": "vizanelizhunt",
+      "name": "Vizaneliz Hunt ",
+      "title": "Vizaneliz Hunt",
+      "location": "United States",
+      "linkedin_url": "https://www.linkedin.com/in/vizanelizhunt/",
+      "geo": "United States"
+    },
+    {
+      "slug": "lana-maksic",
+      "name": "Lana Maksic",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/lana-maksic/",
+      "geo": "United States"
+    },
+    {
+      "slug": "jinhuang11",
+      "name": "Jin Huang ",
+      "title": "Jin Huang",
+      "location": "San Francisco Bay Area",
+      "linkedin_url": "https://www.linkedin.com/in/jinhuang11/",
+      "geo": "United States"
+    },
+    {
+      "slug": "ashgeria",
+      "name": "Ash Geria",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/ashgeria/",
+      "geo": "United States"
+    },
+    {
+      "slug": "rj-anderson",
+      "name": "RJ Anderson ",
+      "title": "RJ Anderson",
+      "location": "Nashville Metropolitan Area",
+      "linkedin_url": "https://www.linkedin.com/in/rj-anderson/",
+      "geo": "United States"
+    },
+    {
+      "slug": "jeffrey-s-cameron",
+      "name": "Jeffrey Cameron",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/jeffrey-s-cameron/",
+      "geo": "United States"
+    },
+    {
+      "slug": "ebenezer50",
+      "name": "Ebenezer Ogoe ",
+      "title": "Ebenezer Ogoe",
+      "location": "Newport, Wales, United Kingdom",
+      "linkedin_url": "https://www.linkedin.com/in/ebenezer50/",
+      "geo": "United Kingdom"
+    },
+    {
+      "slug": "patrick-moelk",
+      "name": "Patrick Mölk",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/patrick-moelk/",
+      "geo": "United Kingdom"
+    },
+    {
+      "slug": "david-hoare",
+      "name": "David Hoare ",
+      "title": "David Hoare",
+      "location": "London, England, United Kingdom",
+      "linkedin_url": "https://www.linkedin.com/in/david-hoare/",
+      "geo": "United Kingdom"
+    },
+    {
+      "slug": "carlosarteagabarrueto",
+      "name": "Carlos Arteaga",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/carlosarteagabarrueto/",
+      "geo": "United Kingdom"
+    },
+    {
+      "slug": "piercarloserena",
+      "name": "Piercarlo Serena ",
+      "title": "Piercarlo Serena",
+      "location": "United Kingdom",
+      "linkedin_url": "https://www.linkedin.com/in/piercarloserena/",
+      "geo": "United Kingdom"
+    },
+    {
+      "slug": "dusanbrejka",
+      "name": "Dušan Brejka • 1st",
+      "title": "London, England, United Kingdom",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/dusanbrejka/",
+      "geo": "United Kingdom"
+    },
+    {
+      "slug": "brettlotrietbest",
+      "name": "Brett Lotriet Best",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/brettlotrietbest/",
+      "geo": "United Kingdom"
+    },
+    {
+      "slug": "trkg",
+      "name": "Tarik Gurkan • 1st",
+      "title": "CTO at Ocean Float",
+      "location": "United Kingdom",
+      "linkedin_url": "https://www.linkedin.com/in/trkg/",
+      "geo": "United Kingdom"
+    },
+    {
+      "slug": "nickdevrye",
+      "name": "Nick de Vrye",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/nickdevrye/",
+      "geo": "United Kingdom"
+    },
+    {
+      "slug": "daniellaou",
+      "name": "Daniella O.U • 1st",
+      "title": "Emerging Back-end and Block-chain developer|  Aspiring cloud engineer Node.js | Express.js | MongoDB | JavaScript",
+      "location": "United Kingdom",
+      "linkedin_url": "https://www.linkedin.com/in/daniellaou/",
+      "geo": "United Kingdom"
+    },
+    {
+      "slug": "rabiat-dikko-05892a255",
+      "name": "Rabiat Dikko",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/rabiat-dikko-05892a255/",
+      "geo": "United Kingdom"
+    },
+    {
+      "slug": "dora-chatzinaki-verified-geek-podcast-32160427",
+      "name": "Dora Chatzinaki - Verified Geek Podcast ",
+      "title": "Dora Chatzinaki - Verified Geek Podcast",
+      "location": "United Kingdom",
+      "linkedin_url": "https://www.linkedin.com/in/dora-chatzinaki-verified-geek-podcast-32160427/",
+      "geo": "United Kingdom"
+    },
+    {
+      "slug": "benjaminkavanagh",
+      "name": "Benjamin Kavanagh",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/benjaminkavanagh/",
+      "geo": "United Kingdom"
+    },
+    {
+      "slug": "charlotte-maynard",
+      "name": "Charlotte Maynard ",
+      "title": "Charlotte Maynard",
+      "location": "Milton Keynes, England, United Kingdom",
+      "linkedin_url": "https://www.linkedin.com/in/charlotte-maynard/",
+      "geo": "United Kingdom"
+    },
+    {
+      "slug": "namrata-joshi-6a8a081a2",
+      "name": "Namrata Joshi",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/namrata-joshi-6a8a081a2/",
+      "geo": "United Kingdom"
+    },
+    {
+      "slug": "kelvin-atologun",
+      "name": "Kelvin Atologun ",
+      "title": "Kelvin Atologun",
+      "location": "Pontypridd, Wales, United Kingdom",
+      "linkedin_url": "https://www.linkedin.com/in/kelvin-atologun/",
+      "geo": "United Kingdom"
+    },
+    {
+      "slug": "andrew-asamonye---jobexpert",
+      "name": "Andrew Asamonye",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/andrew-asamonye---jobexpert/",
+      "geo": "United Kingdom"
+    },
+    {
+      "slug": "dimejifalana",
+      "name": "'Dimeji Falana ",
+      "title": "'Dimeji Falana",
+      "location": "United Kingdom",
+      "linkedin_url": "https://www.linkedin.com/in/dimejifalana/",
+      "geo": "United Kingdom"
+    },
+    {
+      "slug": "rasheedridwon",
+      "name": "Ridwan Rasheed",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/rasheedridwon/",
+      "geo": "United Kingdom"
+    },
+    {
+      "slug": "marion-bourgeois",
+      "name": "Dr. Marion Bourgeois",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/marion-bourgeois/",
+      "geo": "Canada"
+    },
+    {
+      "slug": "reena2825",
+      "name": "Reena Pansuriya ",
+      "title": "Reena Pansuriya",
+      "location": "Ontario, Canada",
+      "linkedin_url": "https://www.linkedin.com/in/reena2825/",
+      "geo": "Canada"
+    },
+    {
+      "slug": "mithilchauhan-webtech",
+      "name": "Mithil Chauhan",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/mithilchauhan-webtech/",
+      "geo": "Canada"
+    },
+    {
+      "slug": "majh-aquino-3a9a66165",
+      "name": "Majh Aquino • 1st",
+      "title": "Executive Assistant - Human Resources Executive",
+      "location": "Canada",
+      "linkedin_url": "https://www.linkedin.com/in/majh-aquino-3a9a66165/",
+      "geo": "Canada"
+    },
+    {
+      "slug": "suechua",
+      "name": "Sue Chua",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/suechua/",
+      "geo": "Canada"
+    },
+    {
+      "slug": "vimal-siva-04249759",
+      "name": "Vimal Siva ",
+      "title": "Vimal Siva",
+      "location": "Toronto, Ontario, Canada",
+      "linkedin_url": "https://www.linkedin.com/in/vimal-siva-04249759/",
+      "geo": "Canada"
+    },
+    {
+      "slug": "armen-arutyunyan-mobile-ios-android",
+      "name": "Armen Arutyunyan",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/armen-arutyunyan-mobile-ios-android/",
+      "geo": "Canada"
+    },
+    {
+      "slug": "dina-galli-0022492a5",
+      "name": "Dina Galli ",
+      "title": "Dina Galli",
+      "location": "Canada",
+      "linkedin_url": "https://www.linkedin.com/in/dina-galli-0022492a5/",
+      "geo": "Canada"
+    },
+    {
+      "slug": "jacob-farrow",
+      "name": "Jacob Farrow",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/jacob-farrow/",
+      "geo": "Canada"
+    },
+    {
+      "slug": "shadizebian",
+      "name": "Shadi Zebian ",
+      "title": "Shadi Zebian",
+      "location": "Mississauga, Ontario, Canada",
+      "linkedin_url": "https://www.linkedin.com/in/shadizebian/",
+      "geo": "Canada"
+    },
+    {
+      "slug": "hadinahari",
+      "name": "Hadi Nahari",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/hadinahari/",
+      "geo": "Canada"
+    },
+    {
+      "slug": "amirpeivandi",
+      "name": "Amir Peivandi ",
+      "title": "Amir Peivandi",
+      "location": "Toronto, Ontario, Canada",
+      "linkedin_url": "https://www.linkedin.com/in/amirpeivandi/",
+      "geo": "Canada"
+    },
+    {
+      "slug": "artharrison",
+      "name": "Art Harrison",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/artharrison/",
+      "geo": "Canada"
+    },
+    {
+      "slug": "iamkenil25",
+      "name": "Kenil Gandhi ",
+      "title": "Kenil Gandhi",
+      "location": "Canada",
+      "linkedin_url": "https://www.linkedin.com/in/iamkenil25/",
+      "geo": "Canada"
+    },
+    {
+      "slug": "andremessier74",
+      "name": "André Messier - RPR",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/andremessier74/",
+      "geo": "Canada"
+    },
+    {
+      "slug": "sinduja-govindarajulu-a22237151",
+      "name": "Sinduja Govindarajulu • 1st",
+      "title": "Talent Acquisition | High Volume recruiting | IT Recruiter | Currently hiring for Govt. of ON (All Sectors)",
+      "location": "Toronto, Ontario, Canada",
+      "linkedin_url": "https://www.linkedin.com/in/sinduja-govindarajulu-a22237151/",
+      "geo": "Canada"
+    },
+    {
+      "slug": "jasmine-khimany-chrp-rpr-68086076",
+      "name": "Jasmine Khimany CHRP, RPR",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/jasmine-khimany-chrp-rpr-68086076/",
+      "geo": "Canada"
+    },
+    {
+      "slug": "isaac-gleicher-a6374b17",
+      "name": "Isaac Gleicher ",
+      "title": "Isaac Gleicher",
+      "location": "Toronto, Ontario, Canada",
+      "linkedin_url": "https://www.linkedin.com/in/isaac-gleicher-a6374b17/",
+      "geo": "Canada"
+    },
+    {
+      "slug": "abdeltahir",
+      "name": "Abdel Tahir",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/abdeltahir/",
+      "geo": "Canada"
+    },
+    {
+      "slug": "jack-jones-3b4150328",
+      "name": "Jack Jones ",
+      "title": "Jack Jones",
+      "location": "Devonport, Tasmania, Australia",
+      "linkedin_url": "https://www.linkedin.com/in/jack-jones-3b4150328/",
+      "geo": "Australia"
+    },
+    {
+      "slug": "gohel-brijesh-734ab8135",
+      "name": "Gohel Brijesh",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/gohel-brijesh-734ab8135/",
+      "geo": "Australia"
+    },
+    {
+      "slug": "freehat",
+      "name": "Ben Richards ",
+      "title": "Ben Richards",
+      "location": "Greater Sydney Area",
+      "linkedin_url": "https://www.linkedin.com/in/freehat/",
+      "geo": "Australia"
+    },
+    {
+      "slug": "jalpesh-r-84939010b",
+      "name": "Jalpesh R",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/jalpesh-r-84939010b/",
+      "geo": "Australia"
+    },
+    {
+      "slug": "thien-long-tran",
+      "name": "Long Tran ",
+      "title": "Long Tran",
+      "location": "Sydney, New South Wales, Australia",
+      "linkedin_url": "https://www.linkedin.com/in/thien-long-tran/",
+      "geo": "Australia"
+    },
+    {
+      "slug": "finnlay",
+      "name": "Finnlay Morcombe",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/finnlay/",
+      "geo": "Australia"
+    },
+    {
+      "slug": "trent-scheirs-4200a7180",
+      "name": "Trent Scheirs ",
+      "title": "Trent Scheirs",
+      "location": "Highett, Victoria, Australia",
+      "linkedin_url": "https://www.linkedin.com/in/trent-scheirs-4200a7180/",
+      "geo": "Australia"
+    },
+    {
+      "slug": "salifyanji-j-namwila-185b39164",
+      "name": "Salifyanji J Namwila",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/salifyanji-j-namwila-185b39164/",
+      "geo": "Australia"
+    },
+    {
+      "slug": "yann-bazin-04119a249",
+      "name": "Yann Bazin ",
+      "title": "Yann Bazin",
+      "location": "Australia",
+      "linkedin_url": "https://www.linkedin.com/in/yann-bazin-04119a249/",
+      "geo": "Australia"
+    },
+    {
+      "slug": "ashraf-attallah",
+      "name": "Ashraf Attallah",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/ashraf-attallah/",
+      "geo": "Australia"
+    },
+    {
+      "slug": "dzeneta-ibrovic",
+      "name": "Jenny Ibrovic ",
+      "title": "Jenny Ibrovic",
+      "location": "Brisbane, Queensland, Australia",
+      "linkedin_url": "https://www.linkedin.com/in/dzeneta-ibrovic/",
+      "geo": "Australia"
+    },
+    {
+      "slug": "ljubinka-takasmanov",
+      "name": "Ljubinka Takasmanov, MSc",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/ljubinka-takasmanov/",
+      "geo": "Australia"
+    },
+    {
+      "slug": "markglibres",
+      "name": "Mark Gil Libres ",
+      "title": "Mark Gil Libres",
+      "location": "Greater Sydney Area",
+      "linkedin_url": "https://www.linkedin.com/in/markglibres/",
+      "geo": "Australia"
+    },
+    {
+      "slug": "rohit-sharma-01261846",
+      "name": "Rohit Sharma",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/rohit-sharma-01261846/",
+      "geo": "Australia"
+    },
+    {
+      "slug": "followsonali",
+      "name": "Sonali Srivastava • 1st",
+      "title": "@awarelivingaus, @awarelivingwithsonali,  Co-Founder, Fintech, People Leader, Mum, Mindfulness and Meditation Practitioner",
+      "location": "Greater Sydney Area",
+      "linkedin_url": "https://www.linkedin.com/in/followsonali/",
+      "geo": "Australia"
+    },
+    {
+      "slug": "technical-consultant-sajan",
+      "name": "Sajan Varghese",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/technical-consultant-sajan/",
+      "geo": "Australia"
+    },
+    {
+      "slug": "basarasa",
+      "name": "Rasa Bertulytė ",
+      "title": "Rasa Bertulytė",
+      "location": "Gold Coast, Queensland, Australia",
+      "linkedin_url": "https://www.linkedin.com/in/basarasa/",
+      "geo": "Australia"
+    },
+    {
+      "slug": "hansal13",
+      "name": "Hansal Amrutiya",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/hansal13/",
+      "geo": "Australia"
+    },
+    {
+      "slug": "neil-davidson-55291024",
+      "name": "Neil Davidson ",
+      "title": "Neil Davidson",
+      "location": "Greater Brisbane Area",
+      "linkedin_url": "https://www.linkedin.com/in/neil-davidson-55291024/",
+      "geo": "Australia"
+    },
+    {
+      "slug": "matthew-haynes-tdc",
+      "name": "Matthew Haynes",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/matthew-haynes-tdc/",
+      "geo": "Australia"
+    },
+    {
+      "slug": "xpert-marketers-0960503b0",
+      "name": "Xpert Marketers • 1st",
+      "title": "Owner at Xpert Marketer",
+      "location": "Dubai, Dubai, United Arab Emirates",
+      "linkedin_url": "https://www.linkedin.com/in/xpert-marketers-0960503b0/",
+      "geo": "United Arab Emirates"
+    },
+    {
+      "slug": "ikku47",
+      "name": "MUHAMMED IQBAL • 1st",
+      "title": "Co - Founder & CTO | Senior Frontend Developer | React.js | NextJs | Tailwind | Flutter | Nodejs | Supabase | MySql | MongoDB",
+      "location": "Dubai, United Arab Emirates",
+      "linkedin_url": "https://www.linkedin.com/in/ikku47/",
+      "geo": "United Arab Emirates"
+    },
+    {
+      "slug": "kaushalrola",
+      "name": "Kaushal Rola",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/kaushalrola/",
+      "geo": "United Arab Emirates"
+    },
+    {
+      "slug": "muhammad-saim-aziz-2a8b25151",
+      "name": "Muhammad Saim Aziz ",
+      "title": "Muhammad Saim Aziz",
+      "location": "Dubai, United Arab Emirates",
+      "linkedin_url": "https://www.linkedin.com/in/muhammad-saim-aziz-2a8b25151/",
+      "geo": "United Arab Emirates"
+    },
+    {
+      "slug": "mohammad-talha-b75617108",
+      "name": "Mohammad Talha",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/mohammad-talha-b75617108/",
+      "geo": "United Arab Emirates"
+    },
+    {
+      "slug": "prakash-venkitachalam",
+      "name": "Prakash Venkitachalam ",
+      "title": "Prakash Venkitachalam",
+      "location": "Dubai, United Arab Emirates",
+      "linkedin_url": "https://www.linkedin.com/in/prakash-venkitachalam/",
+      "geo": "United Arab Emirates"
+    },
+    {
+      "slug": "nishanth-r",
+      "name": "Nishanth Ramesh ",
+      "title": "Nishanth Ramesh",
+      "location": "Dubai, United Arab Emirates",
+      "linkedin_url": "https://www.linkedin.com/in/nishanth-r/",
+      "geo": "United Arab Emirates"
+    },
+    {
+      "slug": "mohan-patel-139196108",
+      "name": "Mohan Patel",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/mohan-patel-139196108/",
+      "geo": "United Arab Emirates"
+    },
+    {
+      "slug": "zassel-tenepere-60178215b",
+      "name": "Zassel Tenepere ",
+      "title": "Zassel Tenepere",
+      "location": "Dubai, United Arab Emirates",
+      "linkedin_url": "https://www.linkedin.com/in/zassel-tenepere-60178215b/",
+      "geo": "United Arab Emirates"
+    },
+    {
+      "slug": "thezaybrown",
+      "name": "Zay Brown",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/thezaybrown/",
+      "geo": "United Arab Emirates"
+    },
+    {
+      "slug": "achyutpkl",
+      "name": "Achyut Pokhrel • 1st",
+      "title": "Full-Stack Developer | AI Engineer | Fintech | LLMs, Agentic AI Systems, Python, Node.js, Next.js",
+      "location": "Dubai, United Arab Emirates",
+      "linkedin_url": "https://www.linkedin.com/in/achyutpkl/",
+      "geo": "United Arab Emirates"
+    },
+    {
+      "slug": "jayguney",
+      "name": "Jay Guney",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/jayguney/",
+      "geo": "United Arab Emirates"
+    },
+    {
+      "slug": "hamza-maqsood-a278371a5",
+      "name": "Hamza Maqsood • 1st",
+      "title": "Co-Founder - Pipeline Scientists",
+      "location": "Dubai, United Arab Emirates",
+      "linkedin_url": "https://www.linkedin.com/in/hamza-maqsood-a278371a5/",
+      "geo": "United Arab Emirates"
+    },
+    {
+      "slug": "vaibhav--",
+      "name": "Vaibhav Adesara",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/vaibhav--/",
+      "geo": "United Arab Emirates"
+    },
+    {
+      "slug": "matthew-durack-7327b812a",
+      "name": "Matthew Durack • 1st",
+      "title": "CTO & Co-Founder @ Simpla AI | Bringing Finance into the AI age",
+      "location": "Dubai, United Arab Emirates",
+      "linkedin_url": "https://www.linkedin.com/in/matthew-durack-7327b812a/",
+      "geo": "United Arab Emirates"
+    },
+    {
+      "slug": "anurag610",
+      "name": "Anurag Singh",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/anurag610/",
+      "geo": "United Arab Emirates"
+    },
+    {
+      "slug": "mouaz-molki",
+      "name": "Mohammad Mouaz Al Mulki • 1st",
+      "title": "Software Engineer | Senior Full-stack Developer",
+      "location": "Dubai, United Arab Emirates",
+      "linkedin_url": "https://www.linkedin.com/in/mouaz-molki/",
+      "geo": "United Arab Emirates"
+    },
+    {
+      "slug": "mohamad-musa-dev",
+      "name": "Mohamad Musa",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/mohamad-musa-dev/",
+      "geo": "United Arab Emirates"
+    },
+    {
+      "slug": "caohongyuan",
+      "name": "Hongyuan Cao • 1st",
+      "title": "Founder & CEO",
+      "location": "Singapore",
+      "linkedin_url": "https://www.linkedin.com/in/caohongyuan/",
+      "geo": "Singapore"
+    },
+    {
+      "slug": "florian-schmidt-64b4645a",
+      "name": "Florian Schmidt",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/florian-schmidt-64b4645a/",
+      "geo": "Singapore"
+    },
+    {
+      "slug": "noatakhel",
+      "name": "Noa Takhel ",
+      "title": "Noa Takhel",
+      "location": "Singapore",
+      "linkedin_url": "https://www.linkedin.com/in/noatakhel/",
+      "geo": "Singapore"
+    },
+    {
+      "slug": "nalin-savaliya",
+      "name": "Nalin Savaliya",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/nalin-savaliya/",
+      "geo": "Singapore"
+    },
+    {
+      "slug": "cheng-tai-6653a957",
+      "name": "Cheng Tai ",
+      "title": "Cheng Tai",
+      "location": "Singapore, Singapore",
+      "linkedin_url": "https://www.linkedin.com/in/cheng-tai-6653a957/",
+      "geo": "Singapore"
+    },
+    {
+      "slug": "mark-melton-144b225",
+      "name": "Mark Melton",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/mark-melton-144b225/",
+      "geo": "Singapore"
+    },
+    {
+      "slug": "mayaherneryd",
+      "name": "Maya Herneryd ",
+      "title": "Maya Herneryd",
+      "location": "Singapore",
+      "linkedin_url": "https://www.linkedin.com/in/mayaherneryd/",
+      "geo": "Singapore"
+    },
+    {
+      "slug": "tolulope-olukokun-4349078b",
+      "name": "Tolulope Olukokun",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/tolulope-olukokun-4349078b/",
+      "geo": "Singapore"
+    },
+    {
+      "slug": "richiesrich",
+      "name": "Richard Sharma ",
+      "title": "Richard Sharma",
+      "location": "Singapore, Singapore",
+      "linkedin_url": "https://www.linkedin.com/in/richiesrich/",
+      "geo": "Singapore"
+    },
+    {
+      "slug": "sbandaru",
+      "name": "Sudheer Bandaru",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/sbandaru/",
+      "geo": "Singapore"
+    },
+    {
+      "slug": "stefanocovolan",
+      "name": "Stefano Covolan ",
+      "title": "Stefano Covolan",
+      "location": "Singapore",
+      "linkedin_url": "https://www.linkedin.com/in/stefanocovolan/",
+      "geo": "Singapore"
+    },
+    {
+      "slug": "bergmoe",
+      "name": "Berg Moe",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/bergmoe/",
+      "geo": "Singapore"
+    },
+    {
+      "slug": "primovul",
+      "name": "Ulan Primov • 1st",
+      "title": "Founder of Recardme",
+      "location": "Singapore",
+      "linkedin_url": "https://www.linkedin.com/in/primovul/",
+      "geo": "Singapore"
+    },
+    {
+      "slug": "gribaart",
+      "name": "Artem G.",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/gribaart/",
+      "geo": "Singapore"
+    },
+    {
+      "slug": "jonathanlowhy",
+      "name": "Jonathan Low ",
+      "title": "Jonathan Low",
+      "location": "Singapore",
+      "linkedin_url": "https://www.linkedin.com/in/jonathanlowhy/",
+      "geo": "Singapore"
+    },
+    {
+      "slug": "armaan-sikand",
+      "name": "Armaan Sikand",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/armaan-sikand/",
+      "geo": "Singapore"
+    },
+    {
+      "slug": "chedli-jelassi-266170204",
+      "name": "Chedli Jelassi • 1st",
+      "title": "Marketing consultant",
+      "location": "Singapore",
+      "linkedin_url": "https://www.linkedin.com/in/chedli-jelassi-266170204/en/",
+      "geo": "Singapore"
+    },
+    {
+      "slug": "haqani-rasouli-293aa5268",
+      "name": "Haqani Rasouli • 1st",
+      "title": "💻 Full-Stack Java Developer | Backend & API Specialist | Full Stack Web Developer | Logo & Graphic Designer",
+      "location": "Singapore",
+      "linkedin_url": "https://www.linkedin.com/in/haqani-rasouli-293aa5268/",
+      "geo": "Singapore"
+    },
+    {
+      "slug": "roberta-barbagallo-090450120",
+      "name": "Roberta Barbagallo",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/roberta-barbagallo-090450120/",
+      "geo": "Singapore"
+    },
+    {
+      "slug": "christian-nikola",
+      "name": "Christian Nikola ",
+      "title": "Christian Nikola",
+      "location": "Coblenz, Rhineland-Palatinate, Germany",
+      "linkedin_url": "https://www.linkedin.com/in/christian-nikola/",
+      "geo": "Germany"
+    },
+    {
+      "slug": "mustafababan",
+      "name": "Mustafa Baban",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/mustafababan/",
+      "geo": "Germany"
+    },
+    {
+      "slug": "anthony-pizzuti-6937b9355",
+      "name": "Anthony Pizzuti ",
+      "title": "Anthony Pizzuti",
+      "location": "Frankfurt, Hesse, Germany",
+      "linkedin_url": "https://www.linkedin.com/in/anthony-pizzuti-6937b9355/",
+      "geo": "Germany"
+    },
+    {
+      "slug": "rakiabensassi",
+      "name": "Rakia Ben Sassi",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/rakiabensassi/",
+      "geo": "Germany"
+    },
+    {
+      "slug": "adeel-m-718a27188",
+      "name": "Adeel M ",
+      "title": "Adeel M",
+      "location": "Germany",
+      "linkedin_url": "https://www.linkedin.com/in/adeel-m-718a27188/",
+      "geo": "Germany"
+    },
+    {
+      "slug": "praveentech",
+      "name": "Praveen Kumar Purushothaman",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/praveentech/",
+      "geo": "Germany"
+    },
+    {
+      "slug": "oleg-biktimirov",
+      "name": "Oleg Biktimirov ",
+      "title": "Oleg Biktimirov",
+      "location": "Korbach, Hesse, Germany",
+      "linkedin_url": "https://www.linkedin.com/in/oleg-biktimirov/",
+      "geo": "Germany"
+    },
+    {
+      "slug": "jeslor-ssozi",
+      "name": "Jeslor Ssozi",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/jeslor-ssozi/",
+      "geo": "Germany"
+    },
+    {
+      "slug": "dihek-missaoui-685534218",
+      "name": "Dihek Missaoui ",
+      "title": "Dihek Missaoui",
+      "location": "Frankfurt, Hesse, Germany",
+      "linkedin_url": "https://www.linkedin.com/in/dihek-missaoui-685534218/",
+      "geo": "Germany"
+    },
+    {
+      "slug": "rames-grosskopf",
+      "name": "Rames Großkopf",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/rames-grosskopf/",
+      "geo": "Germany"
+    },
+    {
+      "slug": "marko-krezic1",
+      "name": "Marko Krezic • 1st",
+      "title": "Web Developer | Committed to Delivering Premium Quality Work & Collaborative Teamwork",
+      "location": "Germany",
+      "linkedin_url": "https://www.linkedin.com/in/marko-krezic1/",
+      "geo": "Germany"
+    },
+    {
+      "slug": "romeo-frederic-pikop-pokam-8aa24134",
+      "name": "Romeo Frederic Pikop Pokam",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/romeo-frederic-pikop-pokam-8aa24134/",
+      "geo": "Germany"
+    },
+    {
+      "slug": "patrick-s-720a3a141",
+      "name": "Patrick Swierzy • 1st",
+      "title": "Embedded Entwicklungsingenieur",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/patrick-s-720a3a141/",
+      "geo": "Germany"
+    },
+    {
+      "slug": "bikash-poudel-77175a107",
+      "name": "Bikash Poudel",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/bikash-poudel-77175a107/",
+      "geo": "Germany"
+    },
+    {
+      "slug": "maria-baschkatova",
+      "name": "Maria Bashkatova ",
+      "title": "Maria Bashkatova",
+      "location": "Germany",
+      "linkedin_url": "https://www.linkedin.com/in/maria-baschkatova/en/",
+      "geo": "Germany"
+    },
+    {
+      "slug": "yesimde",
+      "name": "Yesim Demir",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/yesimde/",
+      "geo": "Germany"
+    },
+    {
+      "slug": "denis-yuriev-n1",
+      "name": "Denis Yuryev • 1st",
+      "title": "Senior Software Developer",
+      "location": "Germany",
+      "linkedin_url": "https://www.linkedin.com/in/denis-yuriev-n1/",
+      "geo": "Germany"
+    },
+    {
+      "slug": "armandourquiola",
+      "name": "Armando Urquiola Cabrera",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/armandourquiola/en/",
+      "geo": "Germany"
+    },
+    {
+      "slug": "arjangkhdm",
+      "name": "Arjang Khademi ",
+      "title": "Arjang Khademi",
+      "location": "Germany",
+      "linkedin_url": "https://www.linkedin.com/in/arjangkhdm/",
+      "geo": "Germany"
+    },
+    {
+      "slug": "konstantinos-tzavellas",
+      "name": "Konstantinos Tzavellas",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/konstantinos-tzavellas/",
+      "geo": "Germany"
+    },
+    {
+      "slug": "jonathandsoftware",
+      "name": "Jonathan Daniel ",
+      "title": "Jonathan Daniel",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/jonathandsoftware/",
+      "geo": "Netherlands"
+    },
+    {
+      "slug": "annewillemsfyi",
+      "name": "Anne Willems ",
+      "title": "Anne Willems",
+      "location": "Bergen op Zoom, North Brabant, Netherlands",
+      "linkedin_url": "https://www.linkedin.com/in/annewillemsfyi/",
+      "geo": "Netherlands"
+    },
+    {
+      "slug": "it-innovation-patrick",
+      "name": "Patrick Vrijhoef",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/it-innovation-patrick/",
+      "geo": "Netherlands"
+    },
+    {
+      "slug": "matthias-koekman-32000a260",
+      "name": "Matthias Koekman ",
+      "title": "Matthias Koekman",
+      "location": "The Randstad, Netherlands",
+      "linkedin_url": "https://www.linkedin.com/in/matthias-koekman-32000a260/",
+      "geo": "Netherlands"
+    },
+    {
+      "slug": "lorenzo-de-bruin",
+      "name": "Lorenzo de Bruin",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/lorenzo-de-bruin/",
+      "geo": "Netherlands"
+    },
+    {
+      "slug": "ramazant%c3%bcrkmen",
+      "name": "Ramazan Türkmen • 1st",
+      "title": "AWS & Azure Cloud/DevOps Engineer | 9 x AWS | 9 x Azure | Terraform | CKA",
+      "location": "Franeker, Friesland, Netherlands",
+      "linkedin_url": "https://www.linkedin.com/in/ramazant%C3%BCrkmen/",
+      "geo": "Netherlands"
+    },
+    {
+      "slug": "adohmen",
+      "name": "Alex Dohmen",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/adohmen/",
+      "geo": "Netherlands"
+    },
+    {
+      "slug": "laurent-gorga-538b3071",
+      "name": "Laurent Gorga ",
+      "title": "Laurent Gorga",
+      "location": "Amsterdam, North Holland, Netherlands",
+      "linkedin_url": "https://www.linkedin.com/in/laurent-gorga-538b3071/",
+      "geo": "Netherlands"
+    },
+    {
+      "slug": "david-polfeldt-6a273a",
+      "name": "David Polfeldt",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/david-polfeldt-6a273a/",
+      "geo": "Netherlands"
+    },
+    {
+      "slug": "sherilene-venter-00047875",
+      "name": "Sherilene Venter • 1st",
+      "title": "Recruiting the right talent to assist businesses in reaching it's goals.",
+      "location": "Woerden, Utrecht, Netherlands",
+      "linkedin_url": "https://www.linkedin.com/in/sherilene-venter-00047875/",
+      "geo": "Netherlands"
+    },
+    {
+      "slug": "mrwcjoughin",
+      "name": "Matthew Joughin",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/mrwcjoughin/",
+      "geo": "Netherlands"
+    },
+    {
+      "slug": "ederikvankoldenhoven",
+      "name": "Ederik van Koldenhoven • 1st",
+      "title": "Co-Founder at Cadeo | The perfect gift - effortlessly given 🎁",
+      "location": "Amsterdam, North Holland, Netherlands",
+      "linkedin_url": "https://www.linkedin.com/in/ederikvankoldenhoven/",
+      "geo": "Netherlands"
+    },
+    {
+      "slug": "satishdodia",
+      "name": "Satish Dodia",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/satishdodia/",
+      "geo": "Netherlands"
+    },
+    {
+      "slug": "dary-nazar-61502ab2",
+      "name": "Dary Nazar ",
+      "title": "Dary Nazar",
+      "location": "Netherlands",
+      "linkedin_url": "https://www.linkedin.com/in/dary-nazar-61502ab2/",
+      "geo": "Netherlands"
+    },
+    {
+      "slug": "ketansavaliya",
+      "name": "Ketan Savaliya",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/ketansavaliya/",
+      "geo": "Netherlands"
+    },
+    {
+      "slug": "olgaviktrv",
+      "name": "Olga Viktorova • 1st",
+      "title": "Backend Developer",
+      "location": "Amsterdam, North Holland, Netherlands",
+      "linkedin_url": "https://www.linkedin.com/in/olgaviktrv/",
+      "geo": "Netherlands"
+    },
+    {
+      "slug": "niels-verhage-b033444b",
+      "name": "Niels Verhage",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/niels-verhage-b033444b/",
+      "geo": "Netherlands"
+    },
+    {
+      "slug": "riddhi-d-65a9971a7",
+      "name": "Riddhi Das ",
+      "title": "Riddhi Das",
+      "location": "Netherlands",
+      "linkedin_url": "https://www.linkedin.com/in/riddhi-d-65a9971a7/",
+      "geo": "Netherlands"
+    },
+    {
+      "slug": "william-sharp-3796874",
+      "name": "William Sharp ",
+      "title": "William Sharp",
+      "location": "Riyadh, Saudi Arabia",
+      "linkedin_url": "https://www.linkedin.com/in/william-sharp-3796874/",
+      "geo": "Saudi Arabia"
+    },
+    {
+      "slug": "pramodkurian",
+      "name": "Pramod Kurian",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/pramodkurian/",
+      "geo": "Saudi Arabia"
+    },
+    {
+      "slug": "mazen-al-hilal-b2a925255",
+      "name": "Mazen Al Hilal ",
+      "title": "Mazen Al Hilal",
+      "location": "Riyadh, Saudi Arabia",
+      "linkedin_url": "https://www.linkedin.com/in/mazen-al-hilal-b2a925255/",
+      "geo": "Saudi Arabia"
+    },
+    {
+      "slug": "fun-ping-ts-adj-professor-hon-636b04",
+      "name": "Fun Ping Ts. Adj Professor. Hon",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/fun-ping-ts-adj-professor-hon-636b04/",
+      "geo": "Saudi Arabia"
+    },
+    {
+      "slug": "abdullah-al-jabri-620845268",
+      "name": "Abdullah AL-Jabri ",
+      "title": "Abdullah AL-Jabri",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/abdullah-al-jabri-620845268/",
+      "geo": "Saudi Arabia"
+    },
+    {
+      "slug": "cyberamar",
+      "name": "Amar Basic",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/cyberamar/",
+      "geo": "Saudi Arabia"
+    },
+    {
+      "slug": "shouq-almahmoud-9573a0167",
+      "name": "Shouq Almahmoud ",
+      "title": "Shouq Almahmoud",
+      "location": "Riyadh, Saudi Arabia",
+      "linkedin_url": "https://www.linkedin.com/in/shouq-almahmoud-9573a0167/",
+      "geo": "Saudi Arabia"
+    },
+    {
+      "slug": "abdullah-abu-daqqa-a7412a5b",
+      "name": "Abdullah Abu Daqqa",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/abdullah-abu-daqqa-a7412a5b/",
+      "geo": "Saudi Arabia"
+    },
+    {
+      "slug": "abdulrahman-al-soumali-a049084",
+      "name": "Abdulrahman Al Soumali ",
+      "title": "Abdulrahman Al Soumali",
+      "location": "Saudi Arabia",
+      "linkedin_url": "https://www.linkedin.com/in/abdulrahman-al-soumali-a049084/",
+      "geo": "Saudi Arabia"
+    },
+    {
+      "slug": "mir-wahaj-ul-haq",
+      "name": "Mir Wahaj ul Haq ",
+      "title": "Mir Wahaj ul Haq",
+      "location": "Jeddah, Makkah, Saudi Arabia",
+      "linkedin_url": "https://www.linkedin.com/in/mir-wahaj-ul-haq/",
+      "geo": "Saudi Arabia"
+    },
+    {
+      "slug": "hemali-thumar",
+      "name": "Hemali Thumar",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/hemali-thumar/",
+      "geo": "Saudi Arabia"
+    },
+    {
+      "slug": "abdullah-muhammad-95b99b221",
+      "name": "Abdullah Muhammad ",
+      "title": "Abdullah Muhammad",
+      "location": "Riyadh, Saudi Arabia",
+      "linkedin_url": "https://www.linkedin.com/in/abdullah-muhammad-95b99b221/",
+      "geo": "Saudi Arabia"
+    },
+    {
+      "slug": "mustafa-temel-",
+      "name": "Mustafa Temel",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/mustafa-temel-/",
+      "geo": "Saudi Arabia"
+    },
+    {
+      "slug": "fahad-alsabr-62901b256",
+      "name": "Fahad Alsabr ",
+      "title": "Fahad Alsabr",
+      "location": "Riyadh, Riyadh, Saudi Arabia",
+      "linkedin_url": "https://www.linkedin.com/in/fahad-alsabr-62901b256/",
+      "geo": "Saudi Arabia"
+    },
+    {
+      "slug": "sabah-tofiq-alshuwaish-17266a39",
+      "name": "SABAH TOFIQ ALSHUWAISH • 1st",
+      "title": "Ad Dammām, Eastern, Saudi Arabia",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/sabah-tofiq-alshuwaish-17266a39/",
+      "geo": "Saudi Arabia"
+    },
+    {
+      "slug": "pradipvaishnani",
+      "name": "Pradip Vaishnani",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/pradipvaishnani/",
+      "geo": "Saudi Arabia"
+    },
+    {
+      "slug": "misbah-ohag-193a0b49",
+      "name": "Misbah Ohag • 1st",
+      "title": "Executive Manager  + Assistant Professor",
+      "location": "Dammam, Eastern, Saudi Arabia",
+      "linkedin_url": "https://www.linkedin.com/in/misbah-ohag-193a0b49/",
+      "geo": "Saudi Arabia"
+    },
+    {
+      "slug": "perrine-carlier-375b6714a",
+      "name": "Perrine Carlier ",
+      "title": "Perrine Carlier",
+      "location": "Paris, Île-de-France, France",
+      "linkedin_url": "https://www.linkedin.com/in/perrine-carlier-375b6714a/",
+      "geo": "France"
+    },
+    {
+      "slug": "adel-benzehda",
+      "name": "Adel B.",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/adel-benzehda/",
+      "geo": "France"
+    },
+    {
+      "slug": "nicolasbonte",
+      "name": "Nicolas Bonté ",
+      "title": "Nicolas Bonté",
+      "location": "France",
+      "linkedin_url": "https://www.linkedin.com/in/nicolasbonte/",
+      "geo": "France"
+    },
+    {
+      "slug": "leo-parpeix",
+      "name": "Léo Parpeix",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/leo-parpeix/",
+      "geo": "France"
+    },
+    {
+      "slug": "yan-berdin",
+      "name": "Yan Berdin ",
+      "title": "Yan Berdin",
+      "location": "Dijon, Bourgogne-Franche-Comté, France",
+      "linkedin_url": "https://www.linkedin.com/in/yan-berdin/",
+      "geo": "France"
+    },
+    {
+      "slug": "dennis-schwichtenberg",
+      "name": "Dennis Schwichtenberg",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/dennis-schwichtenberg/en/",
+      "geo": "France"
+    },
+    {
+      "slug": "florent-david-4b3308291",
+      "name": "Florent David ",
+      "title": "Florent David",
+      "location": "Nice, Provence-Alpes-Côte d'Azur, France",
+      "linkedin_url": "https://www.linkedin.com/in/florent-david-4b3308291/",
+      "geo": "France"
+    },
+    {
+      "slug": "marc-chretien-33339568",
+      "name": "Marc CHRETIEN",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/marc-chretien-33339568/",
+      "geo": "France"
+    },
+    {
+      "slug": "rose-gallais-29241818a",
+      "name": "Rose Gallais ",
+      "title": "Rose Gallais",
+      "location": "Toulouse, Occitanie, France",
+      "linkedin_url": "https://www.linkedin.com/in/rose-gallais-29241818a/",
+      "geo": "France"
+    },
+    {
+      "slug": "marwanbenk",
+      "name": "Marwan BEN KHEDER",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/marwanbenk/",
+      "geo": "France"
+    },
+    {
+      "slug": "agarella",
+      "name": "Alex Garella ",
+      "title": "Alex Garella",
+      "location": "France",
+      "linkedin_url": "https://www.linkedin.com/in/agarella/",
+      "geo": "France"
+    },
+    {
+      "slug": "maciejgren",
+      "name": "Maciej Gren",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/maciejgren/",
+      "geo": "France"
+    },
+    {
+      "slug": "shaima-zaime-ba0a94186",
+      "name": "Shaima Zaime • 1st",
+      "title": "Consultante - SKILLS Recrutement | Intérim",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/shaima-zaime-ba0a94186/",
+      "geo": "France"
+    },
+    {
+      "slug": "enzoconty",
+      "name": "🎯 Enzo Conty ",
+      "title": "🎯 Enzo Conty",
+      "location": "Bordeaux, Nouvelle-Aquitaine, France",
+      "linkedin_url": "https://www.linkedin.com/in/enzoconty/",
+      "geo": "France"
+    },
+    {
+      "slug": "antmalofeev",
+      "name": "Anton Malofeev",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/antmalofeev/",
+      "geo": "France"
+    },
+    {
+      "slug": "quentinmadelaine",
+      "name": "Quentin MADELAINE ",
+      "title": "Quentin MADELAINE",
+      "location": "Paris, Île-de-France, France",
+      "linkedin_url": "https://www.linkedin.com/in/quentinmadelaine/",
+      "geo": "France"
+    },
+    {
+      "slug": "wing-hang-mathieu-tse-54253143",
+      "name": "Wing Hang Mathieu TSE",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/wing-hang-mathieu-tse-54253143/",
+      "geo": "France"
+    },
+    {
+      "slug": "rigallaud",
+      "name": "Guillaume Rigallaud",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/rigallaud/",
+      "geo": "France"
+    },
+    {
+      "slug": "debra-nair-woroniuk-704713294",
+      "name": "Debra Nair Woroniuk ",
+      "title": "Debra Nair Woroniuk",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/debra-nair-woroniuk-704713294/",
+      "geo": "Ireland"
+    },
+    {
+      "slug": "siva-kumar-aketi-24845a28",
+      "name": "Siva Kumar Aketi",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/siva-kumar-aketi-24845a28/",
+      "geo": "Ireland"
+    },
+    {
+      "slug": "valentyna-shevchenko-2b484012a",
+      "name": "Valentyna Shevchenko ",
+      "title": "Valentyna Shevchenko",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/valentyna-shevchenko-2b484012a/",
+      "geo": "Ireland"
+    },
+    {
+      "slug": "kamran612aa",
+      "name": "Kamran Mustaphaev",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/kamran612aa/",
+      "geo": "Ireland"
+    },
+    {
+      "slug": "radka-kotulak",
+      "name": "Radka Kotulak ",
+      "title": "Radka Kotulak",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/radka-kotulak/",
+      "geo": "Ireland"
+    },
+    {
+      "slug": "bhavyamaheshwari-ai",
+      "name": "Bhavya Maheshwari ",
+      "title": "Bhavya Maheshwari",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/bhavyamaheshwari-ai/",
+      "geo": "Ireland"
+    },
+    {
+      "slug": "shubh-cybersecurity",
+      "name": "Shubh Arya",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/shubh-cybersecurity/",
+      "geo": "Ireland"
+    },
+    {
+      "slug": "rebeka-kotulakova",
+      "name": "Rebeka Kotulak ",
+      "title": "Rebeka Kotulak",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/rebeka-kotulakova/",
+      "geo": "Ireland"
+    },
+    {
+      "slug": "geanina-curelar-630215290",
+      "name": "Geanina Curelar ",
+      "title": "Geanina Curelar",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/geanina-curelar-630215290/",
+      "geo": "Ireland"
+    },
+    {
+      "slug": "myneogroup",
+      "name": "Dr Mickael Mosse",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/myneogroup/",
+      "geo": "Ireland"
+    },
+    {
+      "slug": "caol%c3%a1n-fanning-1a7229157",
+      "name": "Caolán Fanning ",
+      "title": "Caolán Fanning",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/caol%C3%A1n-fanning-1a7229157/",
+      "geo": "Ireland"
+    },
+    {
+      "slug": "mkandola",
+      "name": "Manny Kandola",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/mkandola/",
+      "geo": "Ireland"
+    },
+    {
+      "slug": "yadavajeet",
+      "name": "Ajeet Yadav ",
+      "title": "Ajeet Yadav",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/yadavajeet/",
+      "geo": "Ireland"
+    },
+    {
+      "slug": "sinera-machado-assoc-cipd-079371208",
+      "name": "Sinera Machado, Assoc CIPD ",
+      "title": "Sinera Machado, Assoc CIPD",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/sinera-machado-assoc-cipd-079371208/",
+      "geo": "Ireland"
+    },
+    {
+      "slug": "shawn-thompson-2153351b0",
+      "name": "Shawn Thompson • 1st",
+      "title": "Bank8 - Platform Director",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/shawn-thompson-2153351b0/",
+      "geo": "Ireland"
+    },
+    {
+      "slug": "yannickbessette",
+      "name": "Yannick Bessette",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/yannickbessette/",
+      "geo": "Ireland"
+    },
+    {
+      "slug": "oliverlelievre",
+      "name": "OLI Le Lievre ",
+      "title": "OLI Le Lievre",
+      "location": "Christchurch Metropolitan Area",
+      "linkedin_url": "https://www.linkedin.com/in/oliverlelievre/",
+      "geo": "New Zealand"
+    },
+    {
+      "slug": "joshuatiernan",
+      "name": "Joshua Tiernan",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/joshuatiernan/",
+      "geo": "New Zealand"
+    },
+    {
+      "slug": "josephchangnz",
+      "name": "Joseph Chang ",
+      "title": "Joseph Chang",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/josephchangnz/",
+      "geo": "New Zealand"
+    },
+    {
+      "slug": "pavanraotk",
+      "name": "Pavan Rao ",
+      "title": "Pavan Rao",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/pavanraotk/",
+      "geo": "New Zealand"
+    },
+    {
+      "slug": "lovedeep-singh-4391a5b0",
+      "name": "Lovedeep Singh",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/lovedeep-singh-4391a5b0/",
+      "geo": "New Zealand"
+    },
+    {
+      "slug": "giselle-anido-899060137",
+      "name": "Giselle Anido • 1st",
+      "title": "Junior Data Analyst | Operations & Systems Support | Power BI, SQL (Learning), Web Development",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/giselle-anido-899060137/",
+      "geo": "New Zealand"
+    },
+    {
+      "slug": "shyamalprajapati",
+      "name": "Shyamal Prajapati • 1st",
+      "title": "Recruitment Manager | Recruitment Consultant | Talent Acquisition Specialist | Technical Recruiter",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/shyamalprajapati/",
+      "geo": "New Zealand"
+    },
+    {
+      "slug": "niraj-mistry",
+      "name": "Niraj Mistry",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/niraj-mistry/",
+      "geo": "New Zealand"
+    }
+  ],
+  "last_search": "2026-07-22"
+}
