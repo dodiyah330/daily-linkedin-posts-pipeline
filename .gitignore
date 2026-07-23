@@ -27,3 +27,7 @@ venv/
 
 # Lead scrape outputs
 prospects/barbershops/
+
+# Freelancer bid bot runtime state
+freelancer-bid-bot/bid_state.json
+freelancer-bid-bot/.venv/

@@ -6,9 +6,14 @@ const os = require('os');
 const LOG_FILE = path.join(__dirname, 'connections-run-log.json');
 const CACHE_FILE = path.join(__dirname, 'searched-prospects-cache.json');
 const DRY_RUN = process.env.DRY_RUN === '1';
-const DELAY_MS = parseInt(process.env.CONNECTION_DELAY_MS || '12000', 10);
-const MAX_PER_RUN = parseInt(process.env.MAX_CONNECTIONS_PER_RUN || '10', 10);
-const MAX_PER_DAY = parseInt(process.env.MAX_CONNECTIONS_PER_DAY || '15', 10);
+const DELAY_MS = parseInt(process.env.CONNECTION_DELAY_MS || '10000', 10);
+const RUN_UNTIL_WEEKLY_LIMIT = process.env.RUN_UNTIL_WEEKLY_LIMIT !== '0';
+const MAX_PER_RUN = parseInt(process.env.MAX_CONNECTIONS_PER_RUN || '999', 10);
+const MAX_PER_DAY = RUN_UNTIL_WEEKLY_LIMIT
+  ? 999
+  : parseInt(process.env.MAX_CONNECTIONS_PER_DAY || '15', 10);
+const SEARCH_BATCH = parseInt(process.env.CONNECTION_SEARCH_BATCH || '30', 10);
+const SEARCH_SCROLLS = parseInt(process.env.CONNECTION_SEARCH_SCROLLS || '8', 10);
 const US_GEO_URN = '103644278';
 
 const SEARCH_QUERIES = (process.env.CONNECTION_SEARCH_QUERIES || [
@@ -56,14 +61,22 @@ function todayStr() {
   return new Date().toISOString().slice(0, 10);
 }
 
+function getTouchedSlugs(log) {
+  return new Set(
+    log
+      .filter((e) => ['sent', 'pending', 'already_connected', 'email_required'].includes(e.status))
+      .map((e) => profileSlug(e.linkedin_url || e.prospect_id))
+  );
+}
+
 function getDailyStats(log) {
   const today = todayStr();
   const sentToday = log.filter((e) => e.date === today && e.status === 'sent').length;
-  const touched = new Set(
-    log.filter((e) => ['sent', 'pending', 'already_connected', 'email_required', 'failed'].includes(e.status))
-      .map((e) => profileSlug(e.linkedin_url || e.prospect_id))
-  );
-  return { sentToday, touched, remaining: Math.max(0, MAX_PER_DAY - sentToday) };
+  const touched = getTouchedSlugs(log);
+  const remaining = RUN_UNTIL_WEEKLY_LIMIT
+    ? SEARCH_BATCH
+    : Math.max(0, MAX_PER_DAY - sentToday);
+  return { sentToday, touched, remaining };
 }
 
 function connectBrowser() {
@@ -180,6 +193,7 @@ async function extractSearchResults(page) {
       const nameEl = link.querySelector('span[aria-hidden="true"]') || link;
       let name = (nameEl.innerText || nameEl.textContent || '').trim().split('\n')[0];
       const lines = (card.innerText || '').split('\n').map((l) => l.trim()).filter(Boolean);
+      if (/·\s*1st\b/.test(card.innerText || '')) return null;
       if (!name || /mutual connection/i.test(name) || name.length > 60) {
         name = lines.find((l) => l.length < 50 && !/mutual|connect|message|• \d/i.test(l)) || slug;
       }
@@ -231,10 +245,17 @@ async function searchProspects(page, needed, touchedSlugs) {
       continue;
     }
     await dismissOverlays(page);
-    await new Promise((r) => setTimeout(r, 3500));
+    await new Promise((r) => setTimeout(r, 4500));
 
-    for (let scroll = 0; scroll < 4 && found.length < needed; scroll++) {
-      const batch = await extractSearchResults(page);
+    for (let scroll = 0; scroll < SEARCH_SCROLLS && found.length < needed; scroll++) {
+      let batch = [];
+      try {
+        batch = await extractSearchResults(page);
+      } catch (err) {
+        console.log(`Search extract error (scroll ${scroll}): ${err.message}`);
+        await new Promise((r) => setTimeout(r, 2500));
+        continue;
+      }
       for (const p of batch) {
         if (found.length >= needed) break;
         if (touchedSlugs.has(p.slug)) continue;
@@ -242,8 +263,10 @@ async function searchProspects(page, needed, touchedSlugs) {
         found.push({ ...p, search_query: query });
       }
       if (found.length >= needed) break;
-      await page.evaluate(() => window.scrollBy(0, window.innerHeight * 0.9));
-      await new Promise((r) => setTimeout(r, 2000));
+      try {
+        await page.evaluate(() => window.scrollBy(0, window.innerHeight * 0.9));
+      } catch (_) {}
+      await new Promise((r) => setTimeout(r, 2500));
     }
   }
 
@@ -257,27 +280,87 @@ async function searchProspects(page, needed, touchedSlugs) {
 
 async function getProfileStatus(page) {
   return page.evaluate(() => {
-    function collect(root, out) {
-      if (!root) return;
-      root.querySelectorAll('button, a, span, [role="button"]').forEach((el) => {
-        const t = (el.innerText || el.textContent || el.getAttribute('aria-label') || '').replace(/\s+/g, ' ').trim();
-        if (t) out.push(t);
-      });
+    const bodyText = document.body.innerText || '';
+    if (/·\s*1st\b/.test(bodyText)) return 'connected';
+
+    function walk(root) {
+      if (!root) return null;
+      for (const el of root.querySelectorAll('a, button, [role="button"]')) {
+        const aria = (el.getAttribute('aria-label') || '').trim();
+        const text = (el.innerText || el.textContent || '').replace(/\s+/g, ' ').trim();
+        const rect = el.getBoundingClientRect();
+        if (rect.width < 1 || rect.height < 1 || rect.top > 200) continue;
+
+        const label = `${text} ${aria}`.toLowerCase();
+        if (text === 'Pending' || aria.toLowerCase().includes('pending')) return 'pending';
+        if (/^invite .+ to connect$/i.test(aria)) return 'can_connect';
+        if (text === 'Connect' && aria.toLowerCase().includes('invite')) return 'can_connect';
+      }
       const walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT, null, false);
       let node;
       while (node = walker.nextNode()) {
-        if (node.shadowRoot) collect(node.shadowRoot, out);
+        if (node.shadowRoot) {
+          const found = walk(node.shadowRoot);
+          if (found) return found;
+        }
       }
+      return null;
     }
-    const labels = [];
-    collect(document.body, labels);
-    const joined = labels.join(' | ').toLowerCase();
-    if (joined.includes('pending')) return 'pending';
-    if (joined.includes('invitation sent')) return 'pending';
-    if (joined.includes('message') && !joined.includes('connect')) return 'connected';
-    if (joined.includes('connect')) return 'can_connect';
-    return 'unknown';
+    return walk(document.body) || 'unknown';
   });
+}
+
+async function clickInviteToConnect(page) {
+  const clicked = await page.evaluate(() => {
+    function walk(root) {
+      if (!root) return null;
+      for (const el of root.querySelectorAll('a, button, [role="button"]')) {
+        const aria = (el.getAttribute('aria-label') || '').trim();
+        const rect = el.getBoundingClientRect();
+        if (rect.width < 1 || rect.height < 1 || rect.top > 200) continue;
+        if (/^invite .+ to connect$/i.test(aria)) {
+          el.click();
+          return aria;
+        }
+      }
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT, null, false);
+      let node;
+      while (node = walker.nextNode()) {
+        if (node.shadowRoot) {
+          const found = walk(node.shadowRoot);
+          if (found) return found;
+        }
+      }
+      return null;
+    }
+    return walk(document.body);
+  });
+  if (clicked) console.log(`Clicked: ${clicked}`);
+  return !!clicked;
+}
+
+async function clickSendWithoutNote(page) {
+  const clicked = await page.evaluate(() => {
+    function walk(root) {
+      if (!root) return false;
+      for (const el of root.querySelectorAll('button, [role="button"]')) {
+        const text = (el.innerText || el.textContent || '').replace(/\s+/g, ' ').trim().toLowerCase();
+        if (text === 'send without a note') {
+          el.click();
+          return true;
+        }
+      }
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT, null, false);
+      let node;
+      while (node = walker.nextNode()) {
+        if (node.shadowRoot && walk(node.shadowRoot)) return true;
+      }
+      return false;
+    }
+    return walk(document.body);
+  });
+  if (clicked) console.log('Clicked: Send without a note');
+  return clicked;
 }
 
 async function checkLimits(page) {
@@ -294,76 +377,196 @@ async function checkLimits(page) {
 }
 
 async function confirmInvitation(page) {
-  await new Promise((r) => setTimeout(r, 2000));
+  await new Promise((r) => setTimeout(r, 2500));
+
+  let limit = await checkLimits(page);
+  if (limit === 'limit_reached') return 'limit_reached';
+
   if ((await getProfileStatus(page)) === 'pending') return true;
 
-  const clicked = await page.evaluate(() => {
-    function tryClick(root) {
-      if (!root) return null;
-      for (const btn of root.querySelectorAll('button, [role="button"]')) {
-        const text = (btn.innerText || btn.textContent || btn.getAttribute('aria-label') || '')
-          .replace(/\s+/g, ' ')
-          .trim()
-          .toLowerCase();
-        if (!text) continue;
-        if (text.includes('add a note') || text.includes('add note') || text.includes('personalize')) continue;
-        if (
-          text.includes('send without')
-          || text.includes('send invitation')
-          || text.includes('send invite')
-          || text === 'send'
-        ) {
-          btn.click();
-          return text;
-        }
-      }
-      const walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT, null, false);
-      let node;
-      while (node = walker.nextNode()) {
-        if (node.shadowRoot) {
-          const found = tryClick(node.shadowRoot);
-          if (found) return found;
-        }
-      }
-      return null;
-    }
-    return tryClick(document.body);
-  });
-
-  if (clicked) {
-    console.log(`Clicked invite button: "${clicked}"`);
+  if (await clickSendWithoutNote(page)) {
     await new Promise((r) => setTimeout(r, 2500));
-  }
-
-  // Toast / modal success signals (LinkedIn often doesn't flip to Pending immediately)
-  const successUi = await page.evaluate(() => {
-    const body = (document.body.innerText || '').toLowerCase();
-    return (
-      body.includes('invitation sent')
-      || body.includes('invite sent')
-      || body.includes('pending')
-      || !!document.querySelector('[data-test-modal], .artdeco-toast-item, .artdeco-inline-feedback--success')
-    );
-  });
-
-  if ((await getProfileStatus(page)) === 'pending') return true;
-  if (successUi) return true;
-
-  // Optimistic: if we clicked Send / Send without a note, treat as sent.
-  // LinkedIn UI often stays on Connect until a full reload.
-  if (clicked && (clicked.includes('send without') || clicked === 'send' || clicked.includes('send invitation') || clicked.includes('send invite'))) {
-    console.log('Invite click confirmed; treating as sent (Pending badge not yet visible).');
+    limit = await checkLimits(page);
+    if (limit === 'limit_reached') return 'limit_reached';
+    if ((await getProfileStatus(page)) === 'pending') return true;
     return true;
   }
 
-  // Last resort: reload profile once and re-check
+  // Instant connect (no note modal)
+  if ((await getProfileStatus(page)) === 'pending') return true;
+
   try {
-    await page.reload({ waitUntil: 'domcontentloaded', timeout: 15000 });
+    await page.reload({ waitUntil: 'domcontentloaded', timeout: 20000 });
+    await dismissOverlays(page);
     await new Promise((r) => setTimeout(r, 3000));
-    if ((await getProfileStatus(page)) === 'pending') return true;
   } catch (_) {}
 
-  return false;
+  limit = await checkLimits(page);
+  if (limit === 'limit_reached') return 'limit_reached';
+
+  return (await getProfileStatus(page)) === 'pending';
+}
+
+async function clickConnectOnSearchCard(page, slug) {
+  return page.evaluate((targetSlug) => {
+    const selectors = 'li.reusable-search__result-container, .entity-result, div[data-view-name="search-entity-result-universal-template"]';
+    for (const card of document.querySelectorAll(selectors)) {
+      const link = card.querySelector('a[href*="/in/"]');
+      if (!link) continue;
+      const m = (link.href || '').match(/\/in\/([^/?#]+)/i);
+      if (!m || m[1].toLowerCase() !== targetSlug.toLowerCase()) continue;
+      card.scrollIntoView({ block: 'center', inline: 'nearest' });
+      for (const el of card.querySelectorAll('a, button, [role="button"]')) {
+        const aria = (el.getAttribute('aria-label') || '').trim();
+        const text = (el.innerText || el.textContent || '').replace(/\s+/g, ' ').trim();
+        if (/^invite .+ to connect$/i.test(aria) || text === 'Connect') {
+          el.click();
+          return true;
+        }
+      }
+    }
+    return false;
+  }, slug);
+}
+
+async function sendFromSearchCard(page, prospect, searchQuery, searchUrl) {
+  const result = {
+    prospect_id: prospect.slug,
+    name: prospect.name,
+    title: prospect.title,
+    linkedin_url: prospect.linkedin_url,
+    search_query: searchQuery,
+    date: todayStr(),
+    status: 'failed',
+    error: null,
+  };
+
+  console.log(`\n${'='.repeat(50)}`);
+  console.log(`Connecting: ${prospect.name}`);
+  if (prospect.title) console.log(`  ${prospect.title}`);
+  console.log(`  ${prospect.linkedin_url}`);
+  console.log(`${'='.repeat(50)}`);
+
+  if (DRY_RUN) {
+    console.log('[DRY RUN] Would send connection (no note)');
+    result.status = 'dry_run';
+    appendLog(result);
+    return result;
+  }
+
+  let clicked = false;
+  try {
+    clicked = await clickConnectOnSearchCard(page, prospect.slug);
+  } catch (err) {
+    console.log(`Search card click error: ${err.message}`);
+  }
+  if (!clicked) {
+    console.log('Search card Connect not found — opening profile...');
+    try {
+      const res = await sendConnectionWithoutNote(page, { ...prospect, search_query: searchQuery });
+      try {
+        await page.goto(searchUrl, { waitUntil: 'domcontentloaded', timeout: 25000 });
+        await dismissOverlays(page);
+        await new Promise((r) => setTimeout(r, 3500));
+      } catch (_) {}
+      return res;
+    } catch (err) {
+      result.error = err.message;
+      appendLog(result);
+      return result;
+    }
+  }
+  console.log('Clicked Connect on search card');
+  await new Promise((r) => setTimeout(r, 2000));
+
+  let limit = await checkLimits(page);
+  if (limit === 'limit_reached') {
+    result.status = 'limit_reached';
+    result.error = 'LinkedIn weekly invitation limit';
+    appendLog(result);
+    return result;
+  }
+  if (limit === 'email_required') {
+    result.status = 'email_required';
+    result.error = 'LinkedIn requires email to connect';
+    appendLog(result);
+    return result;
+  }
+
+  const confirmed = await confirmInvitation(page);
+  if (confirmed === 'limit_reached') {
+    result.status = 'limit_reached';
+    result.error = 'LinkedIn weekly invitation limit';
+    appendLog(result);
+    return result;
+  }
+  if (!confirmed) {
+    result.error = 'Could not confirm invitation sent';
+    appendLog(result);
+    return result;
+  }
+
+  result.status = 'sent';
+  appendLog(result);
+  console.log(`✓ Sent connection request to ${prospect.name}`);
+  try {
+    await page.keyboard.press('Escape');
+  } catch (_) {}
+  await dismissOverlays(page);
+  return result;
+}
+
+async function processSearchQuery(page, query, touched, summary, sentThisRun, sentToday) {
+  console.log(`\nSearching: "${query}" (US)`);
+  console.log(buildSearchUrl(query));
+
+  let prospects = [];
+  try {
+    prospects = await searchProspects(page, SEARCH_BATCH, touched);
+  } catch (err) {
+    console.log(`Search failed: ${err.message}`);
+    return sentThisRun;
+  }
+
+  if (!prospects.length) {
+    console.log('No new prospects for this query.');
+    return sentThisRun;
+  }
+
+  for (const prospect of prospects) {
+    if (summary.limit) break;
+    if (!RUN_UNTIL_WEEKLY_LIMIT && sentThisRun >= MAX_PER_RUN) return sentThisRun;
+    if (!RUN_UNTIL_WEEKLY_LIMIT && sentToday + sentThisRun >= MAX_PER_DAY) return sentThisRun;
+
+    try {
+      const res = await sendConnectionWithoutNote(page, { ...prospect, search_query: query });
+
+      if (res.status === 'sent' || res.status === 'dry_run') {
+        summary.sent++;
+        sentThisRun++;
+      } else if (['already_connected', 'pending', 'email_required'].includes(res.status)) {
+        summary.skipped++;
+      } else {
+        summary.failed++;
+      }
+
+      if (res.status === 'limit_reached') {
+        summary.limit = true;
+        console.log('\nWeekly limit reached — stopping run.');
+        return sentThisRun;
+      }
+
+      if (!summary.limit) {
+        console.log(`Waiting ${DELAY_MS}ms before next request...`);
+        await new Promise((r) => setTimeout(r, DELAY_MS));
+      }
+    } catch (err) {
+      console.log(`Error on ${prospect.name}: ${err.message}`);
+      summary.failed++;
+    }
+  }
+
+  return sentThisRun;
 }
 
 async function sendConnectionWithoutNote(page, prospect) {
@@ -392,14 +595,14 @@ async function sendConnectionWithoutNote(page, prospect) {
   }
 
   try {
-    await page.goto(prospect.linkedin_url, { waitUntil: 'domcontentloaded', timeout: 20000 });
+    await page.goto(prospect.linkedin_url, { waitUntil: 'domcontentloaded', timeout: 25000 });
   } catch (err) {
     result.error = `navigation: ${err.message}`;
     appendLog(result);
     return result;
   }
   await dismissOverlays(page);
-  await new Promise((r) => setTimeout(r, 3500));
+  await new Promise((r) => setTimeout(r, 4000));
 
   const status = await getProfileStatus(page);
   console.log(`Profile status: ${status}`);
@@ -414,44 +617,14 @@ async function sendConnectionWithoutNote(page, prospect) {
     appendLog(result);
     return result;
   }
+  if (status !== 'can_connect') {
+    result.status = 'already_connected';
+    result.error = `No invite button (${status})`;
+    appendLog(result);
+    return result;
+  }
 
-  let clicked = await clickByText(page, ['Invite', 'Connect'], {
-    exclude: ['disconnect', 'remove', 'mutual', 'people similar', 'more profiles'],
-  });
-  if (!clicked) {
-    await clickByText(page, ['More', 'More actions']);
-    await new Promise((r) => setTimeout(r, 1200));
-    clicked = await clickByText(page, ['Invite', 'Connect'], { exclude: ['disconnect', 'mutual'] });
-  }
-  if (!clicked) {
-    // Direct aria/href match for "Invite {Name} to connect"
-    clicked = await page.evaluate(() => {
-      function find(root) {
-        if (!root) return null;
-        for (const el of root.querySelectorAll('a, button, [role="button"]')) {
-          const label = ((el.getAttribute('aria-label') || '') + ' ' + (el.innerText || '')).toLowerCase();
-          if (/invite .+ to connect/.test(label) || label.trim() === 'connect') {
-            const rect = el.getBoundingClientRect();
-            if (rect.width > 0 && rect.height > 0 && rect.top < 700) {
-              el.click();
-              return label.trim().slice(0, 60);
-            }
-          }
-        }
-        const w = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT);
-        let n;
-        while (n = w.nextNode()) {
-          if (n.shadowRoot) {
-            const f = find(n.shadowRoot);
-            if (f) return f;
-          }
-        }
-        return null;
-      }
-      return find(document.body);
-    });
-    if (clicked) console.log(`Clicked connect control: "${clicked}"`);
-  }
+  const clicked = await clickInviteToConnect(page);
   if (!clicked) {
     result.error = 'Connect button not found';
     appendLog(result);
@@ -474,6 +647,12 @@ async function sendConnectionWithoutNote(page, prospect) {
   }
 
   const confirmed = await confirmInvitation(page);
+  if (confirmed === 'limit_reached') {
+    result.status = 'limit_reached';
+    result.error = 'LinkedIn weekly invitation limit';
+    appendLog(result);
+    return result;
+  }
   if (!confirmed) {
     result.error = 'Could not confirm invitation sent';
     appendLog(result);
@@ -488,67 +667,64 @@ async function sendConnectionWithoutNote(page, prospect) {
 
 (async () => {
   const log = loadLog();
-  const { sentToday, touched, remaining } = getDailyStats(log);
+  const { sentToday } = getDailyStats(log);
 
-  if (remaining <= 0) {
-    console.log(`Daily limit reached (${sentToday}/${MAX_PER_DAY} sent today).`);
-    process.exit(0);
-  }
-
-  const batchSize = Math.min(MAX_PER_RUN, remaining);
   console.log(`Target audience: US SaaS founders & ops leaders`);
-  console.log(`Limits: ${batchSize} this run, ${remaining} remaining today (${sentToday}/${MAX_PER_DAY} sent)`);
+  if (RUN_UNTIL_WEEKLY_LIMIT) {
+    console.log('Mode: send until LinkedIn weekly invitation limit');
+  } else {
+    console.log(`Mode: capped run (${MAX_PER_RUN}/run, ${MAX_PER_DAY}/day)`);
+    if (sentToday >= MAX_PER_DAY) {
+      console.log(`Daily limit reached (${sentToday}/${MAX_PER_DAY} sent today).`);
+      process.exit(0);
+    }
+  }
+  console.log(`Already sent today: ${sentToday}`);
   if (DRY_RUN) console.log('DRY_RUN=1 — no invites will be sent');
 
   const browserURL = connectBrowser();
   console.log(`Connecting to browser at ${browserURL}...`);
   const browser = await puppeteer.connect({ browserURL });
-  const pages = await browser.pages();
-  const page = pages.find((p) => p.url().includes('linkedin.com'));
-  if (!page) {
-    console.error('LinkedIn tab not found. Open LinkedIn in agent-browser first.');
-    process.exit(1);
-  }
-  await page.bringToFront();
+  let page = await browser.newPage();
   await page.setViewport({ width: 1280, height: 1200 });
-
-  // Search for more than needed — some will be skipped (connected, email required, etc.)
-  const searchCount = Math.min(batchSize * 3, 30);
-  const prospects = await searchProspects(page, searchCount, touched);
-
-  if (prospects.length === 0) {
-    console.log('No new prospects found from search. Try again later or rotate search queries.');
+  try {
+    await page.goto('https://www.linkedin.com/feed/', { waitUntil: 'domcontentloaded', timeout: 30000 });
+    await new Promise((r) => setTimeout(r, 3000));
+  } catch (err) {
+    console.error('Could not open LinkedIn feed:', err.message);
     process.exit(1);
   }
 
   const summary = { sent: 0, skipped: 0, failed: 0, limit: false };
   let sentThisRun = 0;
+  let queryRound = 0;
+  const maxQueryRounds = 20;
 
-  for (const prospect of prospects) {
-    if (sentThisRun >= batchSize) break;
+  while (!summary.limit && queryRound < maxQueryRounds) {
+    if (!RUN_UNTIL_WEEKLY_LIMIT && sentThisRun >= MAX_PER_RUN) break;
+    if (!RUN_UNTIL_WEEKLY_LIMIT && sentToday + sentThisRun >= MAX_PER_DAY) break;
 
-    const res = await sendConnectionWithoutNote(page, prospect);
+    const touched = getTouchedSlugs(loadLog());
+    const beforeSent = sentThisRun;
 
-    if (res.status === 'sent' || res.status === 'dry_run') {
-      summary.sent++;
-      sentThisRun++;
-    } else if (['already_connected', 'pending', 'email_required'].includes(res.status)) {
-      summary.skipped++;
+    for (const query of SEARCH_QUERIES) {
+      if (summary.limit) break;
+      if (!RUN_UNTIL_WEEKLY_LIMIT && sentThisRun >= MAX_PER_RUN) break;
+      sentThisRun = await processSearchQuery(page, query, touched, summary, sentThisRun, sentToday);
+    }
+
+    if (sentThisRun === beforeSent && !summary.limit) {
+      queryRound++;
+      console.log(`No new sends this round (${queryRound}/${maxQueryRounds}). Retrying searches...`);
+      await new Promise((r) => setTimeout(r, 5000));
     } else {
-      summary.failed++;
-    }
-
-    if (res.status === 'limit_reached') {
-      summary.limit = true;
-      console.log('\nWeekly limit reached — stopping run.');
-      break;
-    }
-
-    if (sentThisRun < batchSize && prospects.indexOf(prospect) < prospects.length - 1) {
-      console.log(`Waiting ${DELAY_MS}ms before next request...`);
-      await new Promise((r) => setTimeout(r, DELAY_MS));
+      queryRound = 0;
     }
   }
+
+  const sentList = loadLog()
+    .filter((e) => e.date === todayStr() && e.status === 'sent')
+    .map((e) => `- ${e.name} (${e.linkedin_url})`);
 
   console.log('\n' + '='.repeat(50));
   console.log('CONNECTION RUN SUMMARY');
@@ -556,10 +732,14 @@ async function sendConnectionWithoutNote(page, prospect) {
   console.log(`  Skipped: ${summary.skipped}`);
   console.log(`  Failed:  ${summary.failed}`);
   if (summary.limit) console.log('  Stopped: weekly limit hit');
+  if (sentList.length) {
+    console.log('\nSent today:');
+    sentList.forEach((line) => console.log(line));
+  }
   console.log('='.repeat(50));
 
   process.exit(summary.failed > 0 && summary.sent === 0 ? 1 : 0);
 })().catch((err) => {
-  console.error(err);
+  console.error('Fatal error:', err.message);
   process.exit(1);
 });

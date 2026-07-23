@@ -53,5 +53,22 @@
         "archetype": "SERVICE_SPOTLIGHT"
       }
     ]
+  },
+  {
+    "date": "2026-07-22",
+    "mode": "10-day-image-carousel",
+    "file": "openxcode_batch_20260722.json",
+    "topics": [
+      "AI workplace agents and real-world software delivery",
+      "Migrating legacy systems and building scalable operational dashboards",
+      "Debunking Custom Mobile App Timelines",
+      "Simplifying UI UX complex dashboards",
+      "Replacing manual spreadsheets with custom web applications",
+      "Offline-first mobile app sync",
+      "Scalable E-Commerce Software Architecture",
+      "AI features for business processes",
+      "AI features and enterprise API scoping",
+      "Integrating AI agents into collaborative software workflows"
+    ]
   }
 ]

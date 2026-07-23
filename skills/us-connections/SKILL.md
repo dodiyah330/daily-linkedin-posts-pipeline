@@ -42,8 +42,9 @@ python3 send_connections_to_slack.py
 
 | Variable | Default | Purpose |
 |----------|---------|---------|
-| `MAX_CONNECTIONS_PER_RUN` | `10` | Invites per run |
-| `MAX_CONNECTIONS_PER_DAY` | `15` | Daily cap |
+| `RUN_UNTIL_WEEKLY_LIMIT` | `1` (in `run_us_connections.sh`) | Keep sending until LinkedIn weekly cap |
+| `MAX_CONNECTIONS_PER_RUN` | `999` when weekly mode | Per-run cap (disabled in weekly mode) |
+| `MAX_CONNECTIONS_PER_DAY` | `999` when weekly mode | Daily cap (disabled in weekly mode) |
 | `CONNECTION_DELAY_MS` | `12000` | Pause between invites |
 | `CONNECTION_SEARCH_QUERIES` | (built-in list) | Pipe-separated queries, e.g. `SaaS founder\|VP Ops` |
 | `DRY_RUN` | `0` | Set `1` to search without sending |

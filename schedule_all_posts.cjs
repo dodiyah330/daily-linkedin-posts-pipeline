@@ -1011,10 +1011,25 @@ Save this prompt to use on your next idea.`
 
       await page.screenshot({ path: `${prefix}_draft_composer.png` });
       } else if (post.type === 'carousel') {
-        const editorText = await getEditorTextShadow(page);
+        let editorText = await getEditorTextShadow(page);
         console.log("Carousel caption length after upload:", editorText ? editorText.length : 0);
         if (!editorText || editorText.length < 5) {
-          throw new Error("Validation Failed: Carousel caption lost after document upload!");
+          console.log("Carousel caption lost after document upload — re-filling...");
+          await waitForSelectorShadow(page, editorSelector, 15000);
+          await new Promise(r => setTimeout(r, 1000));
+          let refilled = false;
+          for (let attempt = 1; attempt <= 5 && !refilled; attempt++) {
+            refilled = await fillCaptionShadow(page, post.caption);
+            if (!refilled) {
+              console.log(`Carousel caption refill attempt ${attempt}/5 failed, retrying...`);
+              await new Promise(r => setTimeout(r, 1500));
+            }
+          }
+          editorText = await getEditorTextShadow(page);
+          console.log("Carousel caption length after refill:", editorText ? editorText.length : 0);
+          if (!editorText || editorText.length < 5) {
+            throw new Error("Validation Failed: Carousel caption lost after document upload and refill failed!");
+          }
         }
         await page.screenshot({ path: `${prefix}_draft_composer.png` });
       }

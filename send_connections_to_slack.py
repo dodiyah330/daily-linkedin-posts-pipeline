@@ -9,7 +9,7 @@ BASE = os.path.dirname(os.path.abspath(__file__))
 os.chdir(BASE)
 
 LOG_FILE = "connections-run-log.json"
-MAX_PER_DAY = int(os.environ.get("MAX_CONNECTIONS_PER_DAY", "15"))
+RUN_UNTIL_WEEKLY = os.environ.get("RUN_UNTIL_WEEKLY_LIMIT", "1") != "0"
 
 slack_token = slack_channel = None
 with open(".env") as f:
@@ -55,11 +55,12 @@ limits = [e for e in today_entries if e.get("status") == "limit_reached"]
 
 audience = "US SaaS founders & ops leaders (auto-searched on LinkedIn)"
 
+mode = "until weekly limit" if RUN_UNTIL_WEEKLY else "daily cap"
 lines = [
     f"🤝 *US Connection Requests — {today}*",
     f"Audience: {audience}",
+    f"Mode: {mode} | No notes",
     f"Sent today: *{len(sent)}* | Skipped: {len(skipped)} | Failed: {len(failed)}",
-    f"Daily cap: {len(sent)}/{MAX_PER_DAY} (no notes)",
 ]
 if limits:
     lines.append("⚠️ LinkedIn weekly invitation limit was hit.")

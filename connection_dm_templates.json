@@ -1,0 +1,9 @@
+{
+  "default_variant": "hook",
+  "variants": {
+    "hook": "Hi {{FirstName}}, quick thought.\n\nMost founders and ops leaders I talk to aren't short on ideas. They're short on time: stuck in follow-ups, reporting, and busywork that shouldn't need them.\n\nI build AI automation systems that take that off your plate: lead handling, internal workflows, chatbots, and custom agents.\n\nCurious: what's one repetitive task you wish just ran itself?",
+    "founder": "Hi {{FirstName}}, quick thought.\n\nMost founders I talk to aren't short on ideas. They're short on time: stuck in follow-ups, reporting, and ops that shouldn't need them.\n\nI build AI automation systems that take that off your plate: lead handling, internal workflows, chatbots, and custom agents.\n\nWhat's one process in your business that still depends on you doing it manually every day?",
+    "ops": "Hi {{FirstName}}, hope you're well.\n\nOps teams usually lose the most time to the same loops: handoffs, status updates, lead routing, reporting, and support triage.\n\nI help companies automate those with AI + n8n / Make / Zapier, so teams spend less time copying data and more time closing work.\n\nWhich workflow eats the most hours on your team right now: leads, reporting, onboarding, or support?",
+    "short": "Hi {{FirstName}}, saw we're connected and thought I'd reach out properly.\n\nI help companies set up AI automation: lead handling, chatbots, and internal workflows, so teams save 10 to 20 hours/week.\n\nWorth a quick look if that's on your radar? Happy to send 2 to 3 examples."
+  }
+}
