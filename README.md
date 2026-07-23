@@ -57,6 +57,8 @@ LINKEDIN_EMAIL=...
 LINKEDIN_PASSWORD=...
 ```
 
+**How to get every key (step by step):** see [`docs/API_KEYS.md`](docs/API_KEYS.md).
+
 Never commit `.env`. Runtime logs, caches, and venvs are gitignored.
 
 ---
