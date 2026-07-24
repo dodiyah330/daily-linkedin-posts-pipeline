@@ -31,3 +31,8 @@ prospects/barbershops/
 # Freelancer bid bot runtime state
 freelancer-bid-bot/bid_state.json
 freelancer-bid-bot/.venv/
+.env-Ramiz
+freelancer-bid-bot/ramiz-config.json
+
+# Local scratch files that may contain secrets
+Untitled

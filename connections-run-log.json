@@ -768,5 +768,515 @@
     "date": "2026-07-22",
     "status": "already_connected",
     "error": null
+  },
+  {
+    "prospect_id": "alexandervranken",
+    "name": "Alexander Vranken 范桑德 ",
+    "title": "Alexander Vranken 范桑德",
+    "linkedin_url": "https://www.linkedin.com/in/alexandervranken/",
+    "search_query": "CEO SaaS",
+    "date": "2026-07-23",
+    "status": "sent",
+    "error": null
+  },
+  {
+    "prospect_id": "serhii-vysochanskyi",
+    "name": "Serhii Vysochanskyi ",
+    "title": "Serhii Vysochanskyi",
+    "linkedin_url": "https://www.linkedin.com/in/serhii-vysochanskyi/",
+    "search_query": "CEO SaaS",
+    "date": "2026-07-23",
+    "status": "sent",
+    "error": null
+  },
+  {
+    "prospect_id": "darren-osborne-6360ab50",
+    "name": "Darren Osborne",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/darren-osborne-6360ab50/",
+    "search_query": "CEO SaaS",
+    "date": "2026-07-23",
+    "status": "already_connected",
+    "error": null
+  },
+  {
+    "prospect_id": "steven-wingfield-dmd-2283264",
+    "name": "Steven Wingfield, DMD",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/steven-wingfield-dmd-2283264/",
+    "search_query": "CEO SaaS",
+    "date": "2026-07-23",
+    "status": "already_connected",
+    "error": null
+  },
+  {
+    "prospect_id": "sergiosolerfernandez",
+    "name": "Sergio Soler Fernández ",
+    "title": "Sergio Soler Fernández",
+    "linkedin_url": "https://www.linkedin.com/in/sergiosolerfernandez/",
+    "search_query": "CEO SaaS",
+    "date": "2026-07-23",
+    "status": "sent",
+    "error": null
+  },
+  {
+    "prospect_id": "sumeet-bhut-6866ba58",
+    "name": "Sumeet Bhut",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/sumeet-bhut-6866ba58/",
+    "search_query": "CEO SaaS",
+    "date": "2026-07-23",
+    "status": "already_connected",
+    "error": null
+  },
+  {
+    "prospect_id": "wseay",
+    "name": "William Seay ",
+    "title": "William Seay",
+    "linkedin_url": "https://www.linkedin.com/in/wseay/",
+    "search_query": "CEO SaaS",
+    "date": "2026-07-23",
+    "status": "sent",
+    "error": null
+  },
+  {
+    "prospect_id": "nick-jooma-b6b9b029",
+    "name": "Nick Jooma",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/nick-jooma-b6b9b029/",
+    "search_query": "CEO SaaS",
+    "date": "2026-07-23",
+    "status": "already_connected",
+    "error": null
+  },
+  {
+    "prospect_id": "bbarrier",
+    "name": "Benoit BARRIER • 2nd",
+    "title": "CEO AtemisCloud | Business Management SaaS | Investor",
+    "linkedin_url": "https://www.linkedin.com/in/bbarrier/",
+    "search_query": "CEO SaaS",
+    "date": "2026-07-23",
+    "status": "sent",
+    "error": null
+  },
+  {
+    "prospect_id": "konstantin-kladko-017249",
+    "name": "Konstantin Kladko",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/konstantin-kladko-017249/",
+    "search_query": "CEO SaaS",
+    "date": "2026-07-23",
+    "status": "already_connected",
+    "error": null
+  },
+  {
+    "prospect_id": "sel%c3%a7uk-davuto%c4%9flu-77161b142",
+    "name": "Selçuk Davutoğlu • 2nd",
+    "title": "Chief Executive Officer (CEO) at ZeroOne_Consulting",
+    "linkedin_url": "https://www.linkedin.com/in/sel%C3%A7uk-davuto%C4%9Flu-77161b142/",
+    "search_query": "CEO SaaS",
+    "date": "2026-07-23",
+    "status": "sent",
+    "error": null
+  },
+  {
+    "prospect_id": "yogesh-python-ai",
+    "name": "Yogesh Chauhan",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/yogesh-python-ai/",
+    "search_query": "CEO SaaS",
+    "date": "2026-07-23",
+    "status": "already_connected",
+    "error": null
+  },
+  {
+    "prospect_id": "matthew-martin-364b71274",
+    "name": "Matthew Martin ",
+    "title": "Matthew Martin",
+    "linkedin_url": "https://www.linkedin.com/in/matthew-martin-364b71274/",
+    "search_query": "CEO SaaS",
+    "date": "2026-07-23",
+    "status": "already_connected",
+    "error": "No invite button (unknown)"
+  },
+  {
+    "prospect_id": "nigeldarwin",
+    "name": "Nigel Darwin",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/nigeldarwin/",
+    "search_query": "CEO SaaS",
+    "date": "2026-07-23",
+    "status": "already_connected",
+    "error": null
+  },
+  {
+    "prospect_id": "tarynnaidu",
+    "name": "Taryn Naidu ",
+    "title": "Taryn Naidu",
+    "linkedin_url": "https://www.linkedin.com/in/tarynnaidu/",
+    "search_query": "CEO SaaS",
+    "date": "2026-07-23",
+    "status": "sent",
+    "error": null
+  },
+  {
+    "prospect_id": "bradenpollock",
+    "name": "Braden Pollock",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/bradenpollock/",
+    "search_query": "CEO SaaS",
+    "date": "2026-07-23",
+    "status": "already_connected",
+    "error": null
+  },
+  {
+    "prospect_id": "davisken",
+    "name": "Ken Davis ",
+    "title": "Ken Davis",
+    "linkedin_url": "https://www.linkedin.com/in/davisken/",
+    "search_query": "CEO SaaS",
+    "date": "2026-07-23",
+    "status": "sent",
+    "error": null
+  },
+  {
+    "prospect_id": "donwilson",
+    "name": "Don Wilson",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/donwilson/",
+    "search_query": "CEO SaaS",
+    "date": "2026-07-23",
+    "status": "already_connected",
+    "error": null
+  },
+  {
+    "prospect_id": "hiren-sanghvi",
+    "name": "Hiren S. ",
+    "title": "Hiren S.",
+    "linkedin_url": "https://www.linkedin.com/in/hiren-sanghvi/",
+    "search_query": "Founder CEO",
+    "date": "2026-07-23",
+    "status": "already_connected",
+    "error": "No invite button (unknown)"
+  },
+  {
+    "prospect_id": "wilschroter",
+    "name": "Wil Schroter",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/wilschroter/",
+    "search_query": "Founder CEO",
+    "date": "2026-07-23",
+    "status": "already_connected",
+    "error": null
+  },
+  {
+    "prospect_id": "zacharylai",
+    "name": "Zachary Lai • 2nd",
+    "title": "Founder and CEO",
+    "linkedin_url": "https://www.linkedin.com/in/zacharylai/",
+    "search_query": "Founder CEO",
+    "date": "2026-07-23",
+    "status": "failed",
+    "error": "navigation: Navigating frame was detached"
+  },
+  {
+    "prospect_id": "bradenpollock",
+    "name": "Braden Pollock",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/bradenpollock/",
+    "search_query": "Founder CEO",
+    "date": "2026-07-23",
+    "status": "failed",
+    "error": "navigation: Attempted to use detached Frame '35986812C4D737350BBB21DE142B3FF3'."
+  },
+  {
+    "prospect_id": "josebamenoyo",
+    "name": "Joseba Menoyo ",
+    "title": "Joseba Menoyo",
+    "linkedin_url": "https://www.linkedin.com/in/josebamenoyo/",
+    "search_query": "Founder CEO",
+    "date": "2026-07-23",
+    "status": "failed",
+    "error": "navigation: Attempted to use detached Frame '35986812C4D737350BBB21DE142B3FF3'."
+  },
+  {
+    "prospect_id": "rafael-canca-repiso-1a1a3928",
+    "name": "Rafael Canca Repiso",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/rafael-canca-repiso-1a1a3928/",
+    "search_query": "Founder CEO",
+    "date": "2026-07-23",
+    "status": "failed",
+    "error": "navigation: Attempted to use detached Frame '35986812C4D737350BBB21DE142B3FF3'."
+  },
+  {
+    "prospect_id": "williamzeqiri",
+    "name": "William Zeqiri ",
+    "title": "William Zeqiri",
+    "linkedin_url": "https://www.linkedin.com/in/williamzeqiri/",
+    "search_query": "Founder CEO",
+    "date": "2026-07-23",
+    "status": "failed",
+    "error": "navigation: Attempted to use detached Frame '35986812C4D737350BBB21DE142B3FF3'."
+  },
+  {
+    "prospect_id": "prakhar14",
+    "name": "Prakhar Sharma • 2nd",
+    "title": "Founder & CEO - Quboid",
+    "linkedin_url": "https://www.linkedin.com/in/prakhar14/",
+    "search_query": "Founder CEO",
+    "date": "2026-07-23",
+    "status": "failed",
+    "error": "navigation: Attempted to use detached Frame '35986812C4D737350BBB21DE142B3FF3'."
+  },
+  {
+    "prospect_id": "cuttini",
+    "name": "Davide Cuttini",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/cuttini/",
+    "search_query": "Founder CEO",
+    "date": "2026-07-23",
+    "status": "failed",
+    "error": "navigation: Attempted to use detached Frame '35986812C4D737350BBB21DE142B3FF3'."
+  },
+  {
+    "prospect_id": "allanstern",
+    "name": "Allan Stern • 2nd",
+    "title": "Founder and CEO at get2it",
+    "linkedin_url": "https://www.linkedin.com/in/allanstern/",
+    "search_query": "Founder CEO",
+    "date": "2026-07-23",
+    "status": "failed",
+    "error": "navigation: Attempted to use detached Frame '35986812C4D737350BBB21DE142B3FF3'."
+  },
+  {
+    "prospect_id": "dhruv-rajdev-67869923a",
+    "name": "Dhruv Rajdev",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/dhruv-rajdev-67869923a/",
+    "search_query": "Founder CEO",
+    "date": "2026-07-23",
+    "status": "failed",
+    "error": "navigation: Attempted to use detached Frame '35986812C4D737350BBB21DE142B3FF3'."
+  },
+  {
+    "prospect_id": "cassio-thiengo",
+    "name": "Cassio Thiengo ",
+    "title": "Cassio Thiengo",
+    "linkedin_url": "https://www.linkedin.com/in/cassio-thiengo/",
+    "search_query": "Founder CEO",
+    "date": "2026-07-23",
+    "status": "failed",
+    "error": "navigation: Attempted to use detached Frame '35986812C4D737350BBB21DE142B3FF3'."
+  },
+  {
+    "prospect_id": "gilarditi",
+    "name": "Gil Arditi ",
+    "title": "Gil Arditi",
+    "linkedin_url": "https://www.linkedin.com/in/gilarditi/",
+    "search_query": "Founder CEO",
+    "date": "2026-07-23",
+    "status": "failed",
+    "error": "navigation: Attempted to use detached Frame '35986812C4D737350BBB21DE142B3FF3'."
+  },
+  {
+    "prospect_id": "raj-cherukuri",
+    "name": "Raj Cherukuri",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/raj-cherukuri/",
+    "search_query": "Founder CEO",
+    "date": "2026-07-23",
+    "status": "failed",
+    "error": "navigation: Attempted to use detached Frame '35986812C4D737350BBB21DE142B3FF3'."
+  },
+  {
+    "prospect_id": "thomasacklin",
+    "name": "Tom Acklin, MD • 2nd",
+    "title": "Founder and CEO at Conversations With Cancer, LL",
+    "linkedin_url": "https://www.linkedin.com/in/thomasacklin/",
+    "search_query": "Founder CEO",
+    "date": "2026-07-23",
+    "status": "failed",
+    "error": "navigation: Attempted to use detached Frame '35986812C4D737350BBB21DE142B3FF3'."
+  },
+  {
+    "prospect_id": "drbenjamindancygier",
+    "name": "Benjamin Dancygier",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/drbenjamindancygier/",
+    "search_query": "Founder CEO",
+    "date": "2026-07-23",
+    "status": "failed",
+    "error": "navigation: Attempted to use detached Frame '35986812C4D737350BBB21DE142B3FF3'."
+  },
+  {
+    "prospect_id": "david-goldhill-5bb1a238",
+    "name": "David Goldhill ",
+    "title": "David Goldhill",
+    "linkedin_url": "https://www.linkedin.com/in/david-goldhill-5bb1a238/",
+    "search_query": "Founder CEO",
+    "date": "2026-07-23",
+    "status": "failed",
+    "error": "navigation: Attempted to use detached Frame '35986812C4D737350BBB21DE142B3FF3'."
+  },
+  {
+    "prospect_id": "stewart-wilkinson-20111b30",
+    "name": "Stewart Wilkinson • 2nd",
+    "title": "CEO at Exec Icon",
+    "linkedin_url": "https://www.linkedin.com/in/stewart-wilkinson-20111b30/",
+    "search_query": "CEO SaaS",
+    "date": "2026-07-23",
+    "status": "sent",
+    "error": null
+  },
+  {
+    "prospect_id": "zacharylai",
+    "name": "Zachary Lai • 2nd",
+    "title": "Founder and CEO",
+    "linkedin_url": "https://www.linkedin.com/in/zacharylai/",
+    "search_query": "Founder CEO",
+    "date": "2026-07-23",
+    "status": "sent",
+    "error": null
+  },
+  {
+    "prospect_id": "josebamenoyo",
+    "name": "Joseba Menoyo ",
+    "title": "Joseba Menoyo",
+    "linkedin_url": "https://www.linkedin.com/in/josebamenoyo/",
+    "search_query": "Founder CEO",
+    "date": "2026-07-23",
+    "status": "sent",
+    "error": null
+  },
+  {
+    "prospect_id": "rafael-canca-repiso-1a1a3928",
+    "name": "Rafael Canca Repiso",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/rafael-canca-repiso-1a1a3928/",
+    "search_query": "Founder CEO",
+    "date": "2026-07-23",
+    "status": "already_connected",
+    "error": null
+  },
+  {
+    "prospect_id": "williamzeqiri",
+    "name": "William Zeqiri ",
+    "title": "William Zeqiri",
+    "linkedin_url": "https://www.linkedin.com/in/williamzeqiri/",
+    "search_query": "Founder CEO",
+    "date": "2026-07-23",
+    "status": "sent",
+    "error": null
+  },
+  {
+    "prospect_id": "prakhar14",
+    "name": "Prakhar Sharma • 2nd",
+    "title": "Founder & CEO - Quboid",
+    "linkedin_url": "https://www.linkedin.com/in/prakhar14/",
+    "search_query": "Founder CEO",
+    "date": "2026-07-23",
+    "status": "sent",
+    "error": null
+  },
+  {
+    "prospect_id": "cuttini",
+    "name": "Davide Cuttini",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/cuttini/",
+    "search_query": "Founder CEO",
+    "date": "2026-07-23",
+    "status": "already_connected",
+    "error": null
+  },
+  {
+    "prospect_id": "allanstern",
+    "name": "Allan Stern • 2nd",
+    "title": "Founder and CEO at get2it",
+    "linkedin_url": "https://www.linkedin.com/in/allanstern/",
+    "search_query": "Founder CEO",
+    "date": "2026-07-23",
+    "status": "already_connected",
+    "error": null
+  },
+  {
+    "prospect_id": "dhruv-rajdev-67869923a",
+    "name": "Dhruv Rajdev",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/dhruv-rajdev-67869923a/",
+    "search_query": "Founder CEO",
+    "date": "2026-07-23",
+    "status": "already_connected",
+    "error": null
+  },
+  {
+    "prospect_id": "cassio-thiengo",
+    "name": "Cassio Thiengo ",
+    "title": "Cassio Thiengo",
+    "linkedin_url": "https://www.linkedin.com/in/cassio-thiengo/",
+    "search_query": "Founder CEO",
+    "date": "2026-07-23",
+    "status": "sent",
+    "error": null
+  },
+  {
+    "prospect_id": "gilarditi",
+    "name": "Gil Arditi ",
+    "title": "Gil Arditi",
+    "linkedin_url": "https://www.linkedin.com/in/gilarditi/",
+    "search_query": "Founder CEO",
+    "date": "2026-07-23",
+    "status": "sent",
+    "error": null
+  },
+  {
+    "prospect_id": "raj-cherukuri",
+    "name": "Raj Cherukuri",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/raj-cherukuri/",
+    "search_query": "Founder CEO",
+    "date": "2026-07-23",
+    "status": "already_connected",
+    "error": null
+  },
+  {
+    "prospect_id": "thomasacklin",
+    "name": "Tom Acklin, MD • 2nd",
+    "title": "Founder and CEO at Conversations With Cancer, LL",
+    "linkedin_url": "https://www.linkedin.com/in/thomasacklin/",
+    "search_query": "Founder CEO",
+    "date": "2026-07-23",
+    "status": "sent",
+    "error": null
+  },
+  {
+    "prospect_id": "drbenjamindancygier",
+    "name": "Benjamin Dancygier",
+    "title": "",
+    "linkedin_url": "https://www.linkedin.com/in/drbenjamindancygier/",
+    "search_query": "Founder CEO",
+    "date": "2026-07-23",
+    "status": "already_connected",
+    "error": null
+  },
+  {
+    "prospect_id": "david-goldhill-5bb1a238",
+    "name": "David Goldhill ",
+    "title": "David Goldhill",
+    "linkedin_url": "https://www.linkedin.com/in/david-goldhill-5bb1a238/",
+    "search_query": "Founder CEO",
+    "date": "2026-07-23",
+    "status": "sent",
+    "error": null
+  },
+  {
+    "prospect_id": "peter-mcparland-9309674a",
+    "name": "Peter McParland ",
+    "title": "Peter McParland",
+    "linkedin_url": "https://www.linkedin.com/in/peter-mcparland-9309674a/",
+    "search_query": "Managing Director",
+    "date": "2026-07-23",
+    "status": "sent",
+    "error": null
   }
 ]

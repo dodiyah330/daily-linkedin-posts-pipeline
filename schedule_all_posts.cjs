@@ -459,7 +459,10 @@ Save this prompt to use on your next idea.`
     const content = fs.readFileSync(portFile, 'utf8');
     const port = content.split('\n')[0].trim();
     console.log(`Connecting to browser on port ${port}...`);
-    const browser = await puppeteer.connect({ browserURL: `http://127.0.0.1:${port}` });
+    const browser = await puppeteer.connect({
+      browserURL: `http://127.0.0.1:${port}`,
+      protocolTimeout: 120000,
+    });
     const pages = await browser.pages();
     const page = pages.find(p => p.url().includes('linkedin.com'));
     if (!page) {
@@ -1034,7 +1037,30 @@ Save this prompt to use on your next idea.`
         await page.screenshot({ path: `${prefix}_draft_composer.png` });
       }
 
-      // ========== OPEN SCHEDULE MODAL ==========
+      // ========== POST NOW or SCHEDULE ==========
+      if (process.env.POST_NOW === '1') {
+        console.log("POST_NOW=1 — clicking Post immediately (no schedule)...");
+        await page.screenshot({ path: `${prefix}_final_draft.png` });
+        const clickedPostNow = await clickNativelyShadow(page, (root) => {
+          const modal = root.querySelector('.share-box, .artdeco-modal, [role="dialog"]');
+          const container = modal || root;
+          const buttons = Array.from(container.querySelectorAll('button'));
+          return buttons.find((b) => {
+            const t = (b.innerText || '').trim();
+            const label = (b.getAttribute('aria-label') || '').trim();
+            const disabled =
+              b.disabled ||
+              b.getAttribute('disabled') !== null ||
+              b.getAttribute('aria-disabled') === 'true' ||
+              (typeof b.className === 'string' && b.className.includes('disabled'));
+            if (disabled) return false;
+            return t === 'Post' || label === 'Post';
+          });
+        });
+        if (!clickedPostNow) throw new Error("Could not find enabled 'Post' button");
+        console.log("Success! Waiting 6s for publish to complete...");
+        await new Promise(r => setTimeout(r, 6000));
+      } else {
       console.log("Opening Schedule Settings...");
       const clickedScheduleIcon = await clickNativelyShadow(page, (root) => {
         const modal = root.querySelector('.share-box, .artdeco-modal, [role="dialog"]');
@@ -1092,6 +1118,7 @@ Save this prompt to use on your next idea.`
       
       console.log("Success! Waiting 6s for scheduling process to complete...");
       await new Promise(r => setTimeout(r, 6000));
+      }
 
       let isClosed = await page.evaluate(() => {
         function findEl(root, sel) {

@@ -1,45 +1,51 @@
 [
-  {"category": "figma", "title": "Saheb Golawala", "url": "https://www.figma.com/design/fnBFw72JnbcGzPlJOc93eF/Saheb-Golawala?node-id=0-1&p=f&t=kbxfgNDgSJJpY1Fr-0"},
-  {"category": "figma", "title": "Behance Template", "url": "https://www.figma.com/design/1M54daPCJwMR3u21mRnv5v/behance-template?node-id=0-1&p=f&t=Qcdi7FSDxd5q2iiw-0"},
-  {"category": "figma", "title": "GLP-1", "url": "https://www.figma.com/design/vjjSqjGWVzXgFp4WFKtnwA/GLP-1?node-id=0-1&p=f&t=y2VtkSfIus8eaXvz-0"},
+  {"category": "figma", "title": "Jai Khodiyar", "url": "https://www.figma.com/proto/UE6brvfhsBoSujHuul5Bxj/Jai-Khodiyar-Foundry?node-id=174-110&t=fw8b67JxDp323kBh-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=573%3A654"},
+  {"category": "figma", "title": "Digital Card Creator", "url": "https://www.figma.com/proto/YIPPEC8h0RvPoNL0YO94Va/Digital-Card-Creator-Website?node-id=265-827&t=XOzKZKDyTduZft6h-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1"},
   {"category": "figma", "title": "Berry Blossom Home", "url": "https://www.figma.com/design/WNSvRNDumX3Y1Mpg7Dsbtp/Berry-Blossom-Home?node-id=0-1&p=f&t=Kf44NWrSdrEBtOtZ-0"},
-  {"category": "figma", "title": "AIGLEMONT", "url": "https://www.figma.com/design/bkJKwh3PIwaiFEfyL0LX4r/AIGLEMONT?node-id=0-1&p=f&t=saP6CBDdgUq4ewa3-0"},
   {"category": "figma", "title": "AV Disposable", "url": "https://www.figma.com/design/XUsKLhtjBxx25y2mVPUtI5/AV-Disposable?node-id=0-1&p=f&t=vqshhrBzzNlI5Fmv-0"},
   {"category": "figma", "title": "Khushboo Jewel", "url": "https://www.figma.com/design/l1GDQyRGSPF0YG8b2P84rv/Khushboo-Jewel?t=YFegxxlLDo13zJ3s-0"},
   {"category": "figma", "title": "HireZa Website", "url": "https://www.figma.com/design/ORZpDCVFR5UGAFL7SUc46s/HireZa-Website?node-id=0-1&p=f&t=fa3geJ6pBAwtqGcc-0"},
   {"category": "figma", "title": "Ficarro's", "url": "https://www.figma.com/design/kjeuk5UIjTjkYJu9YuigIK/Ficarro-s?node-id=0-1&p=f&t=sMgxEtE70PdJO9Td-0"},
 
-  {"category": "shopify", "title": "Eat Clean Bro", "url": ""},
-  {"category": "shopify", "title": "InterTest", "url": ""},
-  {"category": "shopify", "title": "SaGrah Beauty", "url": ""},
+  {"category": "shopify", "title": "Eat Clean Bro", "url": "https://eatcleanbro.com/"},
+  {"category": "shopify", "title": "InterTest", "url": "https://intertest.com/"},
+  {"category": "shopify", "title": "SaGrah Beauty", "url": "https://sagrahbeauty.com/"},
   {"category": "shopify", "title": "HK Truck Parts", "url": "https://hk-truck-parts.myshopify.com/"},
-  {"category": "shopify", "title": "PureSealz", "url": ""},
-  {"category": "shopify", "title": "Sorsoap", "url": ""},
+  {"category": "shopify", "title": "PureSealz", "url": "https://puresealz.com/"},
+  {"category": "shopify", "title": "Sorsoap", "url": "https://www.sorsoap.com/"},
 
+
+  {"category": "react_laravel_nodejs", "title": "Open Tools", "url": "https://opentools.ai/"}, 
   {"category": "react_laravel", "title": "CarbonCryp", "url": "https://carboncryp.com/"},
   {"category": "react_laravel", "title": "ChatOmni", "url": "https://www.chatomni.app/"},
   {"category": "react_laravel", "title": "Adamsea", "url": "https://www.adamsea.com/"},
-  {"category": "react_laravel", "title": "Sacramento Property Management", "url": ""},
-  {"category": "react_laravel", "title": "Professional Hair Labs", "url": ""},
-  {"category": "react_laravel", "title": "Berry Family Services", "url": ""},
+  {"category": "react_laravel", "title": "Professional Hair Labs", "url": "https://puresealz.com/"},
+  {"category": "react_laravel", "title": "Berry Family Services", "url": "https://www.sorsoap.com/"},
 
-  {"category": "wordpress", "title": "CarbonCryp", "url": "https://carboncryp.com/"},
+  {"category": "wordpress", "title": "All Birds", "url": "https://www.allbirds.com"},
+  {"category": "wordpress", "title": "Digital Card Creator", "url": "https://site.digitalcardcreator.com"},
+  {"category": "wordpress", "title": "Pro hair Labs", "url": "https://www.prohairlabs.com/"},
+  {"category": "wordpress", "title": "Bernard London", "url": "https://www.bernardlondon.com/"},
+  {"category": "wordpress", "title": "Jai Khodiyar Foundry", "url": "https://jaikhodiyarfoundry.com/"},
+  
   {"category": "wordpress", "title": "Standal", "url": "http://standal.no"},
   {"category": "wordpress", "title": "Tappezzeria Bergo", "url": "http://www.tappezzeriabergo.com/"},
-  {"category": "wordpress", "title": "Aesthetic", "url": "http://aesthetic.no/"},
-  {"category": "wordpress", "title": "Jai Khodiyar Foundry", "url": "https://jaikhodiyarfoundry.com/"},
   {"category": "wordpress", "title": "Khushboo Jewel", "url": "https://khushboojewel.com/"},
   {"category": "wordpress", "title": "Tinex", "url": "http://www.tinex.no/"},
   {"category": "wordpress", "title": "YogaFest FL", "url": "http://yogafestfl.com/"},
 
+  {"category": "elementor", "title": "All Birds", "url": "https://www.allbirds.com"},
+  {"category": "elementor", "title": "Bernard London", "url": "https://www.bernardlondon.com/"},
+  {"category": "elementor", "title": "Pro hair Labs", "url": "https://www.prohairlabs.com/"},
+  
   {"category": "elementor", "title": "HireZa India", "url": "https://hirezaindia.com/"},
-  {"category": "elementor", "title": "BioLeather", "url": "https://bioleather.in/"},
-  {"category": "elementor", "title": "Aesthetic", "url": "http://aesthetic.no/"},
-  {"category": "elementor", "title": "Tinex", "url": "http://www.tinex.no/"},
   {"category": "elementor", "title": "YogaFest FL", "url": "http://yogafestfl.com/"},
-  {"category": "elementor", "title": "Bernard London", "url": ""},
-  {"category": "elementor", "title": "E-Move24", "url": ""},
-
+  
   {"category": "automation", "title": "Automation demo 1", "url": "https://drive.google.com/file/d/1DDeJpIZnkhTuu0untQ0nxryWnTpevY0B/view?usp=sharing"},
-  {"category": "automation", "title": "Automation demo 2", "url": "https://drive.google.com/file/d/1vhjUVEyCvE2w5x8OCKEPz0dZuzFrks-W/view?usp=sharing"}
+  {"category": "automation", "title": "Automation demo 2", "url": "https://drive.google.com/file/d/1vhjUVEyCvE2w5x8OCKEPz0dZuzFrks-W/view?usp=sharing"},
+
+  {"category": "logo", "title": "Logo Portfolio", "url": "https://drive.google.com/file/d/13IdROl6UjVPjVeyWdgG6sUQfX9zmxV3W/view"},
+
+  {"category": "Banner or graphic work", "title": "Logo Portfolio", "url": "https://drive.google.com/file/d/13IdROl6UjVPjVeyWdgG6sUQfX9zmxV3W/view"}
+
 ]

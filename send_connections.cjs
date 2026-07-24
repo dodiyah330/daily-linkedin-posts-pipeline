@@ -14,14 +14,40 @@ const MAX_PER_DAY = RUN_UNTIL_WEEKLY_LIMIT
   : parseInt(process.env.MAX_CONNECTIONS_PER_DAY || '15', 10);
 const SEARCH_BATCH = parseInt(process.env.CONNECTION_SEARCH_BATCH || '30', 10);
 const SEARCH_SCROLLS = parseInt(process.env.CONNECTION_SEARCH_SCROLLS || '8', 10);
-const US_GEO_URN = '103644278';
+
+// LinkedIn geoUrn IDs: US + major Europe markets (override with CONNECTION_GEO_URNS=id1,id2)
+const DEFAULT_US_EU_GEO_URNS = [
+  '103644278', // United States
+  '101165590', // United Kingdom
+  '101282230', // Germany
+  '105015875', // France
+  '102890719', // Netherlands
+  '105646813', // Spain
+  '103350119', // Italy
+  '104738515', // Ireland
+  '106693272', // Switzerland
+  '105117694', // Sweden
+  '100565514', // Belgium
+  '104514075', // Denmark
+  '103819153', // Norway
+  '103883259', // Austria
+  '100364837', // Portugal
+];
+const GEO_URNS = (process.env.CONNECTION_GEO_URNS || DEFAULT_US_EU_GEO_URNS.join(','))
+  .split(',')
+  .map((x) => x.trim())
+  .filter(Boolean);
+const REGION_LABEL = process.env.CONNECTION_REGION_LABEL || 'USA + Europe';
 
 const SEARCH_QUERIES = (process.env.CONNECTION_SEARCH_QUERIES || [
-  'SaaS founder CEO',
-  'VP Operations SaaS',
-  'Head of RevOps B2B',
-  'COO software startup',
-  'Director of Operations SaaS',
+  'CEO SaaS',
+  'Founder CEO',
+  'Chief Executive Officer',
+  'Managing Director',
+  'COO software',
+  'VP Operations',
+  'Head of Sales B2B',
+  'Chief Operating Officer',
 ].join('|')).split('|').map((q) => q.trim()).filter(Boolean);
 
 function loadLog() {
@@ -98,7 +124,7 @@ function buildSearchUrl(keywords) {
   const params = new URLSearchParams();
   params.set('keywords', keywords);
   params.set('origin', 'GLOBAL_SEARCH_HEADER');
-  params.set('geoUrn', `["${US_GEO_URN}"]`);
+  params.set('geoUrn', JSON.stringify(GEO_URNS));
   return `https://www.linkedin.com/search/results/people/?${params.toString()}`;
 }
 
@@ -227,15 +253,16 @@ async function extractSearchResults(page) {
   });
 }
 
-async function searchProspects(page, needed, touchedSlugs) {
+async function searchProspects(page, needed, touchedSlugs, onlyQuery = null) {
   const found = [];
   const cache = loadCache();
+  const queries = onlyQuery ? [onlyQuery] : SEARCH_QUERIES;
 
-  for (const query of SEARCH_QUERIES) {
+  for (const query of queries) {
     if (found.length >= needed) break;
 
     const url = buildSearchUrl(query);
-    console.log(`\nSearching: "${query}" (US)`);
+    console.log(`\nSearching: "${query}" (${REGION_LABEL})`);
     console.log(url);
 
     try {
@@ -517,12 +544,12 @@ async function sendFromSearchCard(page, prospect, searchQuery, searchUrl) {
 }
 
 async function processSearchQuery(page, query, touched, summary, sentThisRun, sentToday) {
-  console.log(`\nSearching: "${query}" (US)`);
+  console.log(`\nSearching: "${query}" (${REGION_LABEL})`);
   console.log(buildSearchUrl(query));
 
   let prospects = [];
   try {
-    prospects = await searchProspects(page, SEARCH_BATCH, touched);
+    prospects = await searchProspects(page, SEARCH_BATCH, touched, query);
   } catch (err) {
     console.log(`Search failed: ${err.message}`);
     return sentThisRun;
@@ -669,7 +696,9 @@ async function sendConnectionWithoutNote(page, prospect) {
   const log = loadLog();
   const { sentToday } = getDailyStats(log);
 
-  console.log(`Target audience: US SaaS founders & ops leaders`);
+  console.log(`Target audience: CEOs / decision-makers (${REGION_LABEL})`);
+  console.log(`Geo filters: ${GEO_URNS.length} locations`);
+  console.log(`Queries: ${SEARCH_QUERIES.join(' | ')}`);
   if (RUN_UNTIL_WEEKLY_LIMIT) {
     console.log('Mode: send until LinkedIn weekly invitation limit');
   } else {
@@ -684,7 +713,7 @@ async function sendConnectionWithoutNote(page, prospect) {
 
   const browserURL = connectBrowser();
   console.log(`Connecting to browser at ${browserURL}...`);
-  const browser = await puppeteer.connect({ browserURL });
+  const browser = await puppeteer.connect({ browserURL, protocolTimeout: 120000 });
   let page = await browser.newPage();
   await page.setViewport({ width: 1280, height: 1200 });
   try {

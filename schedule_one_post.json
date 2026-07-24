@@ -1,0 +1,12 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "type": "regular",
+      "date": "07/23/2026",
+      "time": "5:00 PM",
+      "caption": "Most teams do not have an AI problem. They have a handoff problem.\n\nWork dies in the gaps between tools. A lead hits the CRM. Someone copies it into Slack. Another person rebuilds the same note in a spreadsheet. By the time a reply goes out, the moment has passed.\n\nThe automations that actually save money are boring. Capture the lead once. Enrich it. Route it. Draft the first reply. Log the outcome. No dashboards. No chatbot theater. Just fewer steps between interest and action.\n\nIf your week still depends on copy-paste between three apps, that is the first workflow worth fixing.\n\nWhere does work stall most often in your stack right now?\n\nFollow me.",
+      "title": "Handoff problem not AI problem"
+    }
+  ]
+}

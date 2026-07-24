@@ -1,0 +1,168 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "type": "infographic",
+      "date": "07/24/2026",
+      "time": "12:00 AM",
+      "stream": "wordpress",
+      "title": "Speed kills conversions",
+      "caption": "A slow WordPress site does not feel 'a bit heavy'. It feels broken.\n\nBefore you redesign again, fix what visitors feel first: image weight, unused plugins, and render-blocking scripts. Most stores I audit gain more from a 2-second speed win than from a new color palette.\n\nIf your homepage takes longer than 3 seconds on mobile, that is your real marketing problem.\n\nFollow me for practical WordPress builds.\n\n#WordPress #WooCommerce #Elementor #WebDevelopment #WebsiteDesign #PHP #eCommerce #Freelancer",
+      "assetPath": "C:\\NEW-OPX\\linkedinpost\\daily-linkedin-posts-pipeline\\post-assets\\july-wp-ai\\wp-2026-07-24.png"
+    },
+    {
+      "id": 2,
+      "type": "infographic",
+      "date": "07/24/2026",
+      "time": "12:30 AM",
+      "stream": "ai",
+      "title": "AI without a workflow is theater",
+      "caption": "Buying another AI tool will not fix a messy process.\n\nStart with one repetitive handoff: lead capture, research, draft reply, CRM update. Automate that path end to end. Then measure hours saved.\n\nIf AI is not attached to a workflow, it is just a chat window.\n\nFollow me for practical AI workflows.\n\n#AI #ArtificialIntelligence #Automation #MachineLearning #ChatGPT #AIAgents #Productivity #Tech",
+      "assetPath": "C:\\NEW-OPX\\linkedinpost\\daily-linkedin-posts-pipeline\\post-assets\\july-wp-ai\\ai-2026-07-24.png"
+    },
+    {
+      "id": 3,
+      "type": "infographic",
+      "date": "07/25/2026",
+      "time": "12:00 AM",
+      "stream": "wordpress",
+      "title": "Stop stacking plugins",
+      "caption": "More WordPress plugins is not more capability. It is more risk.\n\nEvery extra plugin is another update path, another conflict, another support ticket. The sites that stay calm are the ones with a short, intentional stack and clear ownership of what each piece does.\n\nAudit your plugin list this week. If you cannot explain why a plugin exists, remove it.\n\nFollow me for practical WordPress builds.\n\n#WordPress #WooCommerce #Elementor #WebDevelopment #WebsiteDesign #PHP #eCommerce #Freelancer",
+      "assetPath": "C:\\NEW-OPX\\linkedinpost\\daily-linkedin-posts-pipeline\\post-assets\\july-wp-ai\\wp-2026-07-25.png"
+    },
+    {
+      "id": 4,
+      "type": "infographic",
+      "date": "07/25/2026",
+      "time": "12:30 AM",
+      "stream": "ai",
+      "title": "Judgment stays human",
+      "caption": "AI can draft. It cannot own the call.\n\nThe teams winning with AI treat models like fast juniors: useful drafts, mandatory review, clear ownership. Confidence without checking is how bad answers become company policy.\n\nWhere do you still require a human sign-off?\n\nFollow me for practical AI workflows.\n\n#AI #ArtificialIntelligence #Automation #MachineLearning #ChatGPT #AIAgents #Productivity #Tech",
+      "assetPath": "C:\\NEW-OPX\\linkedinpost\\daily-linkedin-posts-pipeline\\post-assets\\july-wp-ai\\ai-2026-07-25.png"
+    },
+    {
+      "id": 5,
+      "type": "infographic",
+      "date": "07/26/2026",
+      "time": "12:00 AM",
+      "stream": "wordpress",
+      "title": "WooCommerce checkout friction",
+      "caption": "Your WooCommerce store does not lose sales at the product page. It loses them at checkout.\n\nToo many fields. Surprise shipping. Weak trust signals. Guests forced into accounts. Fix those and revenue often moves before ads do.\n\nWhat is the one checkout step your buyers complain about most?\n\nFollow me for practical WordPress builds.\n\n#WordPress #WooCommerce #Elementor #WebDevelopment #WebsiteDesign #PHP #eCommerce #Freelancer",
+      "assetPath": "C:\\NEW-OPX\\linkedinpost\\daily-linkedin-posts-pipeline\\post-assets\\july-wp-ai\\wp-2026-07-26.png"
+    },
+    {
+      "id": 6,
+      "type": "infographic",
+      "date": "07/26/2026",
+      "time": "12:30 AM",
+      "stream": "ai",
+      "title": "Agents need guardrails",
+      "caption": "AI agents that can click, send, and edit files are powerful and dangerous.\n\nGive them narrow scopes, audit logs, and approval gates for anything customer-facing. Speed is worthless if one bad action creates cleanup for a week.\n\nWhat is the first task you would never let an agent do alone?\n\nFollow me for practical AI workflows.\n\n#AI #ArtificialIntelligence #Automation #MachineLearning #ChatGPT #AIAgents #Productivity #Tech",
+      "assetPath": "C:\\NEW-OPX\\linkedinpost\\daily-linkedin-posts-pipeline\\post-assets\\july-wp-ai\\ai-2026-07-26.png"
+    },
+    {
+      "id": 7,
+      "type": "infographic",
+      "date": "07/27/2026",
+      "time": "12:00 AM",
+      "stream": "wordpress",
+      "title": "Elementor without bloat",
+      "caption": "Elementor is powerful. Uncontrolled Elementor is a performance tax.\n\nReuse global styles. Limit nested sections. Compress media. Turn off widgets you never use. A clean Elementor build can look premium without feeling sluggish.\n\nPretty pages that bounce are not a design win.\n\nFollow me for practical WordPress builds.\n\n#WordPress #WooCommerce #Elementor #WebDevelopment #WebsiteDesign #PHP #eCommerce #Freelancer",
+      "assetPath": "C:\\NEW-OPX\\linkedinpost\\daily-linkedin-posts-pipeline\\post-assets\\july-wp-ai\\wp-2026-07-27.png"
+    },
+    {
+      "id": 8,
+      "type": "infographic",
+      "date": "07/27/2026",
+      "time": "12:30 AM",
+      "stream": "ai",
+      "title": "Prompting is a skill, not magic",
+      "caption": "Better prompts are clearer briefs.\n\nRole, context, constraints, examples, output format. That is the whole game. Vague asks produce vague work, with or without AI.\n\nWrite the brief you would give a sharp contractor. Then hand it to the model.\n\nFollow me for practical AI workflows.\n\n#AI #ArtificialIntelligence #Automation #MachineLearning #ChatGPT #AIAgents #Productivity #Tech",
+      "assetPath": "C:\\NEW-OPX\\linkedinpost\\daily-linkedin-posts-pipeline\\post-assets\\july-wp-ai\\ai-2026-07-27.png"
+    },
+    {
+      "id": 9,
+      "type": "infographic",
+      "date": "07/28/2026",
+      "time": "12:00 AM",
+      "stream": "wordpress",
+      "title": "Security is a product feature",
+      "caption": "WordPress security is not an afterthought for 'later'.\n\nUpdates, least-privilege users, hardened login, backups you can actually restore. Clients do not celebrate security until something breaks. Then it is the only thing that matters.\n\nWhen did you last test a full restore, not just a backup export?\n\nFollow me for practical WordPress builds.\n\n#WordPress #WooCommerce #Elementor #WebDevelopment #WebsiteDesign #PHP #eCommerce #Freelancer",
+      "assetPath": "C:\\NEW-OPX\\linkedinpost\\daily-linkedin-posts-pipeline\\post-assets\\july-wp-ai\\wp-2026-07-28.png"
+    },
+    {
+      "id": 10,
+      "type": "infographic",
+      "date": "07/28/2026",
+      "time": "12:30 AM",
+      "stream": "ai",
+      "title": "Automate the boring layer",
+      "caption": "The best AI ROI is usually boring.\n\nClassify tickets. Summarize calls. Enrich leads. Draft first replies. Route work. Leave strategy and taste to people.\n\nWhich boring weekly task would free the most hours if it disappeared?\n\nFollow me for practical AI workflows.\n\n#AI #ArtificialIntelligence #Automation #MachineLearning #ChatGPT #AIAgents #Productivity #Tech",
+      "assetPath": "C:\\NEW-OPX\\linkedinpost\\daily-linkedin-posts-pipeline\\post-assets\\july-wp-ai\\ai-2026-07-28.png"
+    },
+    {
+      "id": 11,
+      "type": "infographic",
+      "date": "07/29/2026",
+      "time": "12:00 AM",
+      "stream": "wordpress",
+      "title": "Content architecture beats theme hopping",
+      "caption": "Switching WordPress themes will not fix unclear offers.\n\nMap pages to buyer questions. Make the next step obvious. Keep forms short. Theme changes are expensive distractions when the message is still fuzzy.\n\nClarity converts. Themes decorate.\n\nFollow me for practical WordPress builds.\n\n#WordPress #WooCommerce #Elementor #WebDevelopment #WebsiteDesign #PHP #eCommerce #Freelancer",
+      "assetPath": "C:\\NEW-OPX\\linkedinpost\\daily-linkedin-posts-pipeline\\post-assets\\july-wp-ai\\wp-2026-07-29.png"
+    },
+    {
+      "id": 12,
+      "type": "infographic",
+      "date": "07/29/2026",
+      "time": "12:30 AM",
+      "stream": "ai",
+      "title": "Data quality beats model hype",
+      "caption": "A stronger model will not save dirty CRM fields.\n\nIf names, stages, and notes are inconsistent, every AI summary inherits the mess. Clean inputs first. Then automation looks smart.\n\nYour model is only as good as your last form field.\n\nFollow me for practical AI workflows.\n\n#AI #ArtificialIntelligence #Automation #MachineLearning #ChatGPT #AIAgents #Productivity #Tech",
+      "assetPath": "C:\\NEW-OPX\\linkedinpost\\daily-linkedin-posts-pipeline\\post-assets\\july-wp-ai\\ai-2026-07-29.png"
+    },
+    {
+      "id": 13,
+      "type": "infographic",
+      "date": "07/30/2026",
+      "time": "12:00 AM",
+      "stream": "wordpress",
+      "title": "Custom fields with purpose",
+      "caption": "Custom post types and ACF fields are useful when they match real workflows.\n\nIf editors still dump everything into the page builder, your data model failed. Build fields editors actually fill, then render them cleanly on the front end.\n\nStructure is what makes WordPress scale past one marketer.\n\nFollow me for practical WordPress builds.\n\n#WordPress #WooCommerce #Elementor #WebDevelopment #WebsiteDesign #PHP #eCommerce #Freelancer",
+      "assetPath": "C:\\NEW-OPX\\linkedinpost\\daily-linkedin-posts-pipeline\\post-assets\\july-wp-ai\\wp-2026-07-30.png"
+    },
+    {
+      "id": 14,
+      "type": "infographic",
+      "date": "07/30/2026",
+      "time": "12:30 AM",
+      "stream": "ai",
+      "title": "Local vs cloud AI tradeoffs",
+      "caption": "Cloud AI is convenient. Local AI is private and controllable.\n\nSensitive docs, regulated industries, and internal IP often belong behind your own walls. Public chat is fine for non-sensitive drafting.\n\nWhat data should never leave your environment?\n\nFollow me for practical AI workflows.\n\n#AI #ArtificialIntelligence #Automation #MachineLearning #ChatGPT #AIAgents #Productivity #Tech",
+      "assetPath": "C:\\NEW-OPX\\linkedinpost\\daily-linkedin-posts-pipeline\\post-assets\\july-wp-ai\\ai-2026-07-30.png"
+    },
+    {
+      "id": 15,
+      "type": "infographic",
+      "date": "07/31/2026",
+      "time": "12:00 AM",
+      "stream": "wordpress",
+      "title": "Maintenance is the product",
+      "caption": "A WordPress launch is not the finish line.\n\nUpdates, monitoring, uptime checks, form tests, and content QA keep sites earning. Most 'mysterious' breakage is skipped maintenance catching up.\n\nIf nobody owns monthly care, the site is already decaying.\n\nFollow me for practical WordPress builds.\n\n#WordPress #WooCommerce #Elementor #WebDevelopment #WebsiteDesign #PHP #eCommerce #Freelancer",
+      "assetPath": "C:\\NEW-OPX\\linkedinpost\\daily-linkedin-posts-pipeline\\post-assets\\july-wp-ai\\wp-2026-07-31.png"
+    },
+    {
+      "id": 16,
+      "type": "infographic",
+      "date": "07/31/2026",
+      "time": "12:30 AM",
+      "stream": "ai",
+      "title": "Ship one AI win this month",
+      "caption": "Do not build an AI roadmap of twenty ideas.\n\nPick one painful workflow. Instrument it. Ship a thin automation. Show a before/after in hours saved. Momentum beats strategy decks.\n\nWhat is the one AI win you will finish this month?\n\nFollow me for practical AI workflows.\n\n#AI #ArtificialIntelligence #Automation #MachineLearning #ChatGPT #AIAgents #Productivity #Tech",
+      "assetPath": "C:\\NEW-OPX\\linkedinpost\\daily-linkedin-posts-pipeline\\post-assets\\july-wp-ai\\ai-2026-07-31.png"
+    }
+  ],
+  "meta": {
+    "month": "2026-07",
+    "note": "Remaining July days: 2 posts/day (WordPress 12:00 AM, AI 12:30 AM), image + hashtags"
+  }
+}

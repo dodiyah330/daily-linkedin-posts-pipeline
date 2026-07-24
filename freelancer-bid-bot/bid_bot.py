@@ -562,7 +562,11 @@ def validate_proposal(text: str, config: dict, project: dict | None = None, port
     if "?" not in cleaned:
         return "missing closing question to client"
 
-    first_line = cleaned.splitlines()[0].strip().lower()
+    slogan = get_bid_slogan(config).lower()
+    body_lines = [ln.strip() for ln in cleaned.splitlines() if ln.strip()]
+    if slogan and body_lines and body_lines[0].lower() == slogan:
+        body_lines = body_lines[1:]
+    first_line = (body_lines[0] if body_lines else "").lower()
     weak_openers = (
         "hi there", "hi,", "hi!", "hello", "hello,", "hello!",
         "dear client", "dear hiring", "good day", "greetings",
@@ -632,11 +636,42 @@ def ensure_portfolio_link(text: str, config: dict, portfolio_links: list[dict] |
     return f"{body}\n\n{block}"
 
 
+DEFAULT_BID_SLOGAN = (
+    "THE BEST PROJECTS AREN'T WON WITH PROMISES. THEY'RE WON WITH PROVEN RESULTS."
+)
+
 SYSTEM_PROMPT = (
     "You write elite Freelancer.com proposals: specific hooks, concrete plans, "
     "and always include the provided portfolio URLs exactly. "
-    "Never open with Hi/Hello. Always end with a question mark."
+    "Never open with Hi/Hello. Always end with a question mark. "
+    "If a fixed slogan is provided, put it on the first line exactly, then the proposal body."
 )
+
+
+def get_bid_slogan(config: dict) -> str:
+    slogan = (config.get("bid_slogan") or DEFAULT_BID_SLOGAN).strip()
+    return slogan
+
+
+def ensure_bid_slogan(text: str, config: dict) -> str:
+    """Guarantee every bid starts with the configured slogan."""
+    slogan = get_bid_slogan(config)
+    if not slogan:
+        return (text or "").strip()
+    body = (text or "").strip()
+    if not body:
+        return slogan
+    # Strip existing slogan / near-duplicate openings so we don't double it.
+    lines = body.splitlines()
+    while lines and not lines[0].strip():
+        lines.pop(0)
+    if lines:
+        first = lines[0].strip()
+        if first.upper() == slogan.upper() or first.upper().startswith(
+            "THE BEST PROJECTS AREN'T WON WITH PROMISES"
+        ):
+            body = "\n".join(lines[1:]).lstrip()
+    return f"{slogan}\n\n{body}" if body else slogan
 
 
 def build_proposal_prompt(project: dict, config: dict, *, shorter: bool = False) -> tuple[str, list[dict], int]:
@@ -663,18 +698,22 @@ def build_proposal_prompt(project: dict, config: dict, *, shorter: bool = False)
     bid_amount = project_bid_amount(project, config) or amount
     budget_high = project_budget_max(project) or amount
 
+    slogan = get_bid_slogan(config)
     prompt = f"""Write a Freelancer.com bid proposal for THIS exact project.
 
 Structure (mandatory):
-1) HOOK (first line): a sharp, project-specific opening that references a concrete detail from the brief. Do NOT start with Hi/Hello/Dear/My name is.
-2) FIT: 2-4 sentences proving you understand the scope, naming exact tools/features from the brief.
-3) PLAN: 1-2 concrete next steps you would take in the first 24-48 hours.
-4) PORTFOLIO: include these exact links (do not invent others):
+1) SLOGAN (first line, exact text, alone on its own line):
+{slogan}
+2) HOOK (next line): a sharp, project-specific opening that references a concrete detail from the brief. Do NOT start with Hi/Hello/Dear/My name is.
+3) FIT: 2-4 sentences proving you understand the scope, naming exact tools/features from the brief.
+4) PLAN: 1-2 concrete next steps you would take in the first 24-48 hours.
+5) PORTFOLIO: include these exact links (do not invent others):
 {portfolio_block}
-5) CLOSE: one short question to the client.
+6) CLOSE: one short question to the client.
 
 Rules:
 - {length_rule}
+- First line MUST be the slogan exactly as given above
 - Be highly specific to the project title and requirements below
 - Quote or paraphrase at least one concrete requirement (feature, stack, deliverable)
 - Mention at least one portfolio project by name when natural
@@ -717,12 +756,21 @@ def _finalize_proposal_text(
     max_chars: int,
     finish_reason: str | None,
 ) -> tuple[str, str | None]:
+    text = ensure_bid_slogan(text, config)
     text = ensure_portfolio_link(text, config, portfolio_links)
+    text = ensure_bid_slogan(text, config)
 
     if len(text) > max_chars:
+        slogan = get_bid_slogan(config)
         reserve = "\n\n" + format_portfolio_block(portfolio_links, config) + "\n\nCan we align on scope priorities first?"
-        clipped = text[: max(0, max_chars - len(reserve))].rsplit(" ", 1)[0] + reserve
-        text = ensure_portfolio_link(clipped, config, portfolio_links)
+        # Keep slogan at the top when clipping long proposals.
+        body = text
+        if slogan and body.upper().startswith(slogan.upper()):
+            body = body[len(slogan):].lstrip()
+        clipped_body = body[: max(0, max_chars - len(slogan) - 2 - len(reserve))].rsplit(" ", 1)[0]
+        text = ensure_bid_slogan(clipped_body + reserve, config)
+        text = ensure_portfolio_link(text, config, portfolio_links)
+        text = ensure_bid_slogan(text, config)
 
     if finish_reason in {"length", "max_tokens", "MAX_TOKENS"}:
         return text, "model hit token limit (truncated)"
@@ -730,19 +778,22 @@ def _finalize_proposal_text(
 
 
 def call_gemini(prompt: str, config: dict, api_key: str, *, shorter: bool = False) -> tuple[str, str | None]:
-    model = config.get("gemini_model") or "gemini-2.5-flash"
+    model = config.get("gemini_model") or "gemini-flash-latest"
     max_tokens = int(config.get("proposal_max_tokens", 1400))
     temperature = 0.55 if shorter else 0.65
     # Disable thinking so free-tier output tokens aren't burned on internals.
     thinking_budget = int(config.get("gemini_thinking_budget", 0))
+    generation_config: dict = {
+        "temperature": temperature,
+        "maxOutputTokens": max_tokens,
+    }
+    # Only attach thinkingConfig when explicitly enabled (some models 404 with it).
+    if thinking_budget > 0:
+        generation_config["thinkingConfig"] = {"thinkingBudget": thinking_budget}
     payload = {
         "systemInstruction": {"parts": [{"text": SYSTEM_PROMPT}]},
         "contents": [{"role": "user", "parts": [{"text": prompt}]}],
-        "generationConfig": {
-            "temperature": temperature,
-            "maxOutputTokens": max_tokens,
-            "thinkingConfig": {"thinkingBudget": thinking_budget},
-        },
+        "generationConfig": generation_config,
     }
     url = (
         f"https://generativelanguage.googleapis.com/v1beta/models/"
@@ -818,6 +869,35 @@ def generate_proposal_once(
     return _finalize_proposal_text(text, config, portfolio_links, max_chars, finish_reason)
 
 
+def build_template_proposal(project: dict, config: dict) -> str:
+    """Deterministic proposal used when Gemini/OpenRouter is unavailable."""
+    title = (project.get("title") or "your project").strip()
+    description = project.get("description") or project.get("preview_description") or ""
+    desc_lines = [ln.strip() for ln in description.splitlines() if ln.strip()]
+    key_req = desc_lines[0][:180] if desc_lines else "the requirements in your brief"
+    days = int(config.get("default_delivery_days", 7))
+    pitch = (config.get("your_pitch") or "").strip()
+    name = (config.get("your_name") or "").strip()
+    links = select_portfolio_links(project, config)
+    portfolio_block = format_portfolio_block(links, config)
+
+    parts = [
+        f"For \"{title}\", I can deliver a clean, production-ready build that matches your brief — especially around {key_req}.",
+        "",
+        pitch or "I specialize in WordPress/WooCommerce, Shopify, PHP, JavaScript/Node.js, APIs, and automation (n8n/Zapier/Make).",
+        "",
+        f"Plan for the first 48 hours: confirm scope and stack, set up the project structure, and share a milestone plan for about {days} days delivery.",
+        "",
+        portfolio_block,
+        "",
+    ]
+    if name:
+        parts.append(f"— {name}")
+        parts.append("")
+    parts.append("What is the must-have for the first milestone?")
+    return ensure_bid_slogan(_clean_proposal_text("\n".join(parts)), config)
+
+
 def generate_proposal(project: dict, config: dict, ai: dict) -> str:
     """Generate a proposal and retry until validation passes or attempts exhausted."""
     if not (config.get("portfolio_url") or "").strip() and not load_portfolio_projects(config):
@@ -828,12 +908,17 @@ def generate_proposal(project: dict, config: dict, ai: dict) -> str:
     last_text = ""
 
     for i in range(1, attempts + 1):
-        text, gen_reason = generate_proposal_once(
-            project,
-            config,
-            ai,
-            shorter=(i > 1),
-        )
+        try:
+            text, gen_reason = generate_proposal_once(
+                project,
+                config,
+                ai,
+                shorter=(i > 1),
+            )
+        except Exception as e:
+            last_reason = str(e)
+            print(f"  proposal rejected (attempt {i}/{attempts}): {e}")
+            continue
         last_text = text
         links = project.get("_portfolio_links") or select_portfolio_links(project, config)
         reason = gen_reason or validate_proposal(text, config, project, links)
@@ -843,6 +928,17 @@ def generate_proposal(project: dict, config: dict, ai: dict) -> str:
             return text
         last_reason = reason
         print(f"  proposal rejected (attempt {i}/{attempts}): {reason}")
+
+    # Fallback so live bidding can continue when the LLM is rate-limited/truncated.
+    if config.get("allow_template_fallback", True):
+        print("  using template proposal fallback (AI unavailable/truncated)")
+        text = build_template_proposal(project, config)
+        links = select_portfolio_links(project, config)
+        project["_portfolio_links"] = links
+        reason = validate_proposal(text, config, project, links)
+        if reason is None:
+            return text
+        print(f"  template also rejected: {reason}")
 
     raise RuntimeError(f"incomplete proposal after {attempts} attempts: {last_reason}; last={last_text[:120]!r}")
 
