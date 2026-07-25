@@ -10,6 +10,11 @@ carousel-routine/node_modules/
 connection_notes.json
 connections_queue.json
 searched-prospects-cache.json
+linkedin-comments-run-log.json
+linkedin-comments-cache.json
+connection-dms-run-log.json
+connection-dms-targets-cache.json
+connections-run-log.json
 slack_downloads/
 *.log
 error_screenshot.png

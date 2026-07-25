@@ -10,6 +10,7 @@ Multi-stream automation for LinkedIn content, outreach, and Freelancer.com biddi
 | **US image posts** | Personal profile, US Eastern peak | Daily US-angled infographic | `./run_us_image_posts.sh` |
 | **US connections** | LinkedIn search → invites (no notes) | Until weekly limit | `./run_us_connections.sh` |
 | **Connection DMs** | 1st-degree connections outside India | Caps per run/day | `./run_connection_dms.sh` |
+| **Skill / hiring comments** | Content search → comment + portfolio | Caps 15/day | `./run_linkedin_comments.sh` |
 | **Freelancer bid bot** | Freelancer.com projects | Poll + AI proposal + bid | `freelancer-bid-bot/bid_bot.py` |
 
 ---
@@ -241,7 +242,29 @@ Logs: `connection-dms-run-log.json`, `connection-dms-targets-cache.json`.
 
 ---
 
-## 7. Freelancer.com bid bot
+## 7. Skill / hiring comments
+
+Searches LinkedIn **content** for hiring posts and asks that match your automation + freelancer skill stack, then comments with interest plus a relevant portfolio URL. No Slack approval. Config: `linkedin_comments_config.json`. Skill: `skills/linkedin-comments/SKILL.md`.
+
+```bash
+agent-browser --session linkedin_bot open https://www.linkedin.com/feed/
+./run_linkedin_comments.sh
+DRY_RUN=1 ./run_linkedin_comments.sh
+```
+
+| Env | Default | Purpose |
+|-----|---------|---------|
+| `MAX_COMMENTS_PER_RUN` | `15` | Cap per run |
+| `MAX_COMMENTS_PER_DAY` | `15` | Cap per calendar day |
+| `COMMENT_DELAY_MS` | `20000` | Pause between comments |
+| `COMMENT_VARIANT` | `auto` | `auto` \| `hiring` \| `skills` \| `both` |
+| `COMMENT_QUERIES` | from config | Pipe-separated content queries |
+
+Logs: `linkedin-comments-run-log.json`, `linkedin-comments-cache.json`.
+
+---
+
+## 8. Freelancer.com bid bot
 
 Polls new projects, writes proposals with Gemini (or OpenRouter), bids near budget midpoint. Config: `freelancer-bid-bot/config.json`. Portfolio picks: `freelancer-bid-bot/portfolio_projects.json`.
 
@@ -272,6 +295,7 @@ Requires `FLN_OAUTH_TOKEN` plus `GEMINI_API_KEY` or `OPENROUTER_API_KEY` in repo
 | `skills/openxcode-linkedin/SKILL.md` | OpenXcode company posts |
 | `skills/automation-leads-engine/SKILL.md` | Automation lead-gen week |
 | `skills/us-connections/SKILL.md` | US connection outreach |
+| `skills/linkedin-comments/SKILL.md` | Skill / hiring post comments |
 
 Profiles: `openxcode_profile.md`, `automation_profile.md`.
 
@@ -305,6 +329,7 @@ Profiles: `openxcode_profile.md`, `automation_profile.md`.
 | `schedule_all_posts.cjs` | Universal LinkedIn scheduler |
 | `verify_scheduled_posts.cjs` / `edit_scheduled_posts.cjs` / `delete_all_scheduled.cjs` | Schedule maintenance |
 | `send_connections.cjs` / `send_connection_dms.cjs` | Outreach |
+| `comment_on_posts.cjs` | Skill / hiring comments |
 
 ### Shell runners
 | Script | Pipeline |
@@ -316,6 +341,7 @@ Profiles: `openxcode_profile.md`, `automation_profile.md`.
 | `run_us_connections.sh` | US connection invites |
 | `run_connection_dms.sh` | Connection DMs |
 | `run_connection_dms_guarded.sh` | DMs + browser lock / invite-bot watchdog |
+| `run_linkedin_comments.sh` | Skill / hiring comments |
 
 ---
 
@@ -336,13 +362,16 @@ Profiles: `openxcode_profile.md`, `automation_profile.md`.
 | `searched-prospects-cache.json` | Connection search dedup |
 | `connection-dms-targets-cache.json` | DM target cache |
 | `connection_dm_templates.json` | DM copy variants |
+| `linkedin_comments_config.json` | Comment search / skills / templates |
+| `linkedin-comments-run-log.json` | Comment results |
+| `linkedin-comments-cache.json` | Commented post dedup |
 | `freelancer-bid-bot/bid_state.json` | Bid bot state (local only) |
 
 ---
 
 ## Compliance notes
 
-- LinkedIn rate-limits and may restrict accounts for bulk invites or messaging. Prefer low caps (`MAX_CONNECTIONS_PER_RUN=5`, `MAX_DMS_PER_RUN=5`) when testing; use `DRY_RUN=1` first.
+- LinkedIn rate-limits and may restrict accounts for bulk invites, messaging, or comments. Prefer low caps (`MAX_CONNECTIONS_PER_RUN=5`, `MAX_DMS_PER_RUN=5`, `MAX_COMMENTS_PER_RUN=5`) when testing; use `DRY_RUN=1` first.
 - Freelancer bids: keep `dry_run` / `--dry-run` until proposal quality looks right, then `--live`.
 - Do not commit secrets, OAuth tokens, or live bid/session state.
 
