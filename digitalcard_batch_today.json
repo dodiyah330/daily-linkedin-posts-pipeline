@@ -1,0 +1,83 @@
+{
+  "generated": "2026-07-25",
+  "days": 1,
+  "start": "2026-07-25",
+  "end": "2026-07-25",
+  "posts": [
+    {
+      "day": 1,
+      "date": "2026-07-25",
+      "audience": "recruiters",
+      "topic": "campus and hiring-event QR cards for recruiters",
+      "image_archetype": "NETWORKING_MOMENT",
+      "carousel_archetype": "QR_SHARE_CHECKLIST",
+      "image": {
+        "caption": "At a campus drive or hiring mixer, you meet 40 candidates in two hours. Handing out paper visiting cards means most never type your number later. With Digital Card Creator, candidates scan your QR once, save your contact to their phone, and tap WhatsApp when they are ready to follow up. You track card views and QR scans after the event instead of guessing who cared. Update your role or phone anytime without reprinting a stack of cards. Create your free recruiter card at my.digitalcardcreator.com. Comment CARD and we will send the app link plus a 5-minute setup checklist.",
+        "badge": "Digital Card Creator",
+        "title_main": "Recruiters: stop",
+        "title_span": "losing candidates",
+        "subtitle": "QR share at campus drives and hiring mixers. Save to contacts in one tap.",
+        "takeaway_num": "1 QR",
+        "takeaway_text": "replaces a stack of paper cards that never get typed in",
+        "bars": [
+          {
+            "label": "Contacts saved after scan",
+            "value": "1 tap",
+            "width_pct": "90%",
+            "color": "#536EFD"
+          },
+          {
+            "label": "WhatsApp follow-ups",
+            "value": "Instant",
+            "width_pct": "75%",
+            "color": "#EF5197"
+          },
+          {
+            "label": "Card setup time",
+            "value": "5 min",
+            "width_pct": "55%",
+            "color": "#A855F7"
+          }
+        ]
+      },
+      "carousel": {
+        "caption": "Recruiters live on networking days. A share-ready digital visiting card should do more than look pretty. It should open WhatsApp, save to contacts, and show you who scanned after the event. Swipe through our recruiter QR checklist, then create your free card on Digital Card Creator. Comment CARD for the app link and setup steps.",
+        "slides": [
+          {
+            "kick": "HOOK",
+            "headline": "The recruiter <em>QR</em> checklist",
+            "body": "Before your next campus drive, make sure your digital visiting card is share-ready in under five minutes."
+          },
+          {
+            "kick": "01",
+            "headline": "Clear photo and <em>role</em>",
+            "body": "Add your name, company, and hiring focus so candidates know exactly who they scanned."
+          },
+          {
+            "kick": "02",
+            "headline": "WhatsApp <em>Connect</em> on",
+            "body": "Let candidates message you in one tap. No typing numbers after a noisy hiring fair."
+          },
+          {
+            "kick": "03",
+            "headline": "QR that works <em>offline</em> for them",
+            "body": "They do not need the app. One scan opens your card and save-to-contacts."
+          },
+          {
+            "kick": "04",
+            "headline": "Track scans and <em>views</em>",
+            "body": "See card views, QR scans, and WhatsApp clicks after the event so follow-up is based on interest."
+          },
+          {
+            "cta": true,
+            "headline": "Ready for your <em>digital card</em>?",
+            "body": "Comment CARD and we will send the free app link plus a setup checklist."
+          }
+        ]
+      },
+      "_image_png": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/digitalcard-images/20260725-today/day-01.png",
+      "_carousel_pdf": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/carousel-routine/output/2026-07-25/digitalcard-today-01/carousel-20260725.pdf"
+    }
+  ],
+  "assetDir": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/digitalcard-images/20260725-today"
+}

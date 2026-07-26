@@ -1,0 +1,19 @@
+[
+  {
+    "date": "2026-07-26",
+    "mode": "10-day-image-carousel-us",
+    "file": "us_personal_batch_20260726.json",
+    "topics": [
+      "routine task automation versus custom SaaS ops",
+      "HubSpot to Slack Sales Prep Pipeline",
+      "Automating post-signature onboarding to stop manual Slack and database provisioning chaos",
+      "real-time stripe to slack sales alerts",
+      "Scaling support ticketing using custom webhooks",
+      "The Zapier scale wall in Series A SaaS",
+      "Fixed-price custom AI automation shipping for US SaaS",
+      "SDR Demo Research Automation",
+      "custom-ai-support-triage-workflows",
+      "HubSpot to PostgreSQL database syncing"
+    ]
+  }
+]

@@ -1,0 +1,31 @@
+[
+  {
+    "date": "2026-07-25",
+    "mode": "10-day-image-carousel",
+    "file": "bookwellnow_batch_20260725.json",
+    "topics": [
+      "barbershop no-shows and booking pain points",
+      "beauty salon booking optimization",
+      "spa booking optimization and fee elimination",
+      "Gym and fitness studio staff scheduling optimization",
+      "yoga studio online scheduling and client journey",
+      "tutor booking systems and payments mythbusting",
+      "dental practice speed and booking optimization",
+      "Agency pet grooming site migration guide",
+      "cleaning service customer panels and self-serve bookings",
+      "Consulting agency booking setup checklist"
+    ],
+    "industries": [
+      "barbershops",
+      "beauty and hair salons",
+      "spa and wellness centers",
+      "fitness studios and gyms",
+      "yoga studios",
+      "tutors and private coaches",
+      "dental practices and clinics",
+      "pet grooming studios",
+      "cleaning services",
+      "consultants and agencies"
+    ]
+  }
+]

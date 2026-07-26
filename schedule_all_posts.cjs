@@ -46,17 +46,19 @@ async function waitForSelectorShadow(page, selector, timeout = 15000) {
   throw new Error(`Timeout waiting for shadow selector: ${selector}`);
 }
 
-async function clickNativelyShadow(page, finderFn) {
+// finderArg is serialized and passed as the finder's second parameter, since
+// finderFn is stringified and cannot close over local variables.
+async function clickNativelyShadow(page, finderFn, finderArg = null) {
   try {
     await page.evaluate(() => {
       document.querySelectorAll('.msg-overlay-container, [class*="msg-overlay"], #msg-overlay').forEach(el => el.remove());
     });
 
-    const handle = await page.evaluateHandle((finder) => {
+    const handle = await page.evaluateHandle((finder, arg) => {
       const fn = new Function('return ' + finder)();
       function findInShadow(root) {
         if (!root) return null;
-        const res = fn(root);
+        const res = fn(root, arg);
         if (res) return res;
         const walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT, null, false);
         let node;
@@ -69,7 +71,7 @@ async function clickNativelyShadow(page, finderFn) {
         return null;
       }
       return findInShadow(document.body);
-    }, finderFn.toString());
+    }, finderFn.toString(), finderArg);
 
     const el = handle.asElement();
     if (el) {
@@ -109,10 +111,10 @@ async function clickNativelyShadow(page, finderFn) {
   }
 }
 
-async function clickNativelyShadowRetry(page, finderFn, timeout = 15000) {
+async function clickNativelyShadowRetry(page, finderFn, timeout = 15000, finderArg = null) {
   const startTime = Date.now();
   while (Date.now() - startTime < timeout) {
-    const clicked = await clickNativelyShadow(page, finderFn);
+    const clicked = await clickNativelyShadow(page, finderFn, finderArg);
     if (clicked) return true;
     await new Promise(r => setTimeout(r, 1000));
   }
@@ -488,7 +490,7 @@ Save this prompt to use on your next idea.`
       console.log(`${'='.repeat(50)}`);
       const prefix = `${screenshotDir}/post_${post.id}_${post.type}`;
 
-      // Navigate to feed (or company admin page for OpenXcode / company streams)
+      // Navigate to feed (or company admin page for company streams)
       const scheduleMeta = (() => {
         try {
           return JSON.parse(fs.readFileSync(scheduleFile, 'utf8'));
@@ -581,14 +583,25 @@ Save this prompt to use on your next idea.`
                 el.innerText && el.innerText.trim().toLowerCase().includes('start a post')
         );
       });
-      // Company admin fallbacks
-      if (!clickStartPost && onCompanyAdmin) {
+      // Company admin fallbacks. The Create menu sometimes renders its items late,
+      // so reopen it and retry before giving up.
+      for (let attempt = 1; attempt <= 3 && !clickStartPost && onCompanyAdmin; attempt++) {
         clickStartPost = await clickNativelyShadow(page, (root) => {
           return Array.from(root.querySelectorAll('button, a, [role="button"]')).find(el => {
             const t = ((el.innerText || '') + ' ' + (el.getAttribute('aria-label') || '')).toLowerCase();
             return t.includes('start a post') || t.includes('create a post') || t.includes('share content');
           });
         });
+        if (clickStartPost) break;
+        console.log(`'Start a post' not visible yet, reopening Create menu (attempt ${attempt}/3)...`);
+        await clickNativelyShadow(page, (root) => {
+          return Array.from(root.querySelectorAll('a, button, [role="button"]')).find(el => {
+            const t = (el.innerText || '').trim().toLowerCase();
+            const label = (el.getAttribute('aria-label') || '').toLowerCase();
+            return t === 'create' || label === 'create';
+          });
+        });
+        await new Promise(r => setTimeout(r, 2500));
       }
       if (!clickStartPost) throw new Error("Could not find 'Start a post' button");
 
@@ -596,16 +609,30 @@ Save this prompt to use on your next idea.`
       await waitForSelectorShadow(page, editorSelector, 15000);
       await new Promise(r => setTimeout(r, 1000));
 
-      // Switch author to OpenXcode company page when requested
-      // Skip if composer already shows OpenXCode as author (company admin Create flow).
-      const postAs = (process.env.POST_AS || scheduleMeta.postAs || '').toLowerCase();
-      const alreadyCompany = await page.evaluate(() => {
-        const t = document.body.innerText || '';
-        return /OpenXCode[\s\S]{0,40}Post to Anyone/i.test(t) ||
-          !!document.querySelector('button[aria-label*="OpenXCode"], button[aria-label*="OpenXcode"]');
-      });
-      if (!alreadyCompany && (postAs.includes('openxcode') || postAs.includes('open xcode') || (scheduleMeta.stream && String(scheduleMeta.stream).includes('openxcode')))) {
-        console.log("Switching post author to OpenXcode...");
+      // Switch author to the company page when requested (any company stream).
+      // Skip if composer already shows that company as author (company admin Create flow).
+      const postAs = (process.env.POST_AS || scheduleMeta.postAs || '').trim();
+      // Match the page name loosely: "OpenXCode" also matches "open xcode" / "open-xcode".
+      const companyNamePattern = postAs
+        ? postAs.toLowerCase().replace(/[^a-z0-9]+/g, '').split('').join('[^a-z0-9]*')
+        : null;
+      const alreadyCompany = companyNamePattern
+        ? await page.evaluate((pattern, name) => {
+            const re = new RegExp(pattern, 'i');
+            const t = document.body.innerText || '';
+            const nearAudience = new RegExp(pattern + '[\\s\\S]{0,40}Post to Anyone', 'i');
+            if (nearAudience.test(t)) return true;
+            return Array.from(document.querySelectorAll('button[aria-label]')).some(
+              b => re.test((b.getAttribute('aria-label') || '').replace(/[^a-zA-Z0-9]+/g, ''))
+            ) || Array.from(document.querySelectorAll('button[aria-label]')).some(
+              b => (b.getAttribute('aria-label') || '').toLowerCase().includes(name.toLowerCase())
+            );
+          }, companyNamePattern, postAs)
+        : false;
+      const wantsCompany = !!postAs ||
+        (scheduleMeta.stream && /company/i.test(String(scheduleMeta.stream)));
+      if (!alreadyCompany && wantsCompany && companyNamePattern) {
+        console.log(`Switching post author to ${postAs}...`);
         const openedActor = await clickNativelyShadow(page, (root) => {
           const modal = root.querySelector('.share-box, .artdeco-modal, [role="dialog"]') || root;
           return Array.from(modal.querySelectorAll('button, [role="button"]')).find(el => {
@@ -619,19 +646,19 @@ Save this prompt to use on your next idea.`
         });
         if (openedActor) {
           await new Promise(r => setTimeout(r, 1500));
-          await clickNativelyShadow(page, (root) => {
+          await clickNativelyShadow(page, (root, pattern) => {
+            const re = new RegExp(pattern, 'i');
             return Array.from(root.querySelectorAll('button, [role="menuitem"], li, div, span')).find(el => {
               const t = ((el.innerText || '') + ' ' + (el.getAttribute('aria-label') || '')).toLowerCase();
-              return (t.includes('openxcode') || t.includes('open xcode') || t.includes('open-xcode')) &&
-                !t.includes('post to anyone');
+              return re.test(t) && !t.includes('post to anyone');
             });
-          });
+          }, companyNamePattern);
           await new Promise(r => setTimeout(r, 1500));
         } else {
-          console.log("Author switcher not found — assuming company admin composer already posts as OpenXcode.");
+          console.log(`Author switcher not found — assuming company admin composer already posts as ${postAs}.`);
         }
       } else if (alreadyCompany) {
-        console.log("Composer already posting as OpenXCode — skipping author switch.");
+        console.log(`Composer already posting as ${postAs} — skipping author switch.`);
       }
 
       // ========== HANDLE ATTACHMENTS ==========
@@ -827,6 +854,29 @@ Save this prompt to use on your next idea.`
         }
         if (!captionReady) throw new Error("Could not fill carousel caption before document upload");
 
+        // A URL in the caption makes LinkedIn attach a link preview, which replaces
+        // the media toolbar and hides the document option. Drop the preview first.
+        if (/\b[\w-]+\.(com|io|net|org|co|app|dev)\b/i.test(post.caption)) {
+          for (let attempt = 1; attempt <= 4; attempt++) {
+            await new Promise(r => setTimeout(r, 2500));
+            const removedPreview = await page.evaluate(() => {
+              const btn = Array.from(document.querySelectorAll('button')).find(
+                b => typeof b.className === 'string' &&
+                     b.className.includes('share-creation-state__preview-container-btn') &&
+                     /remove/i.test((b.innerText || '') + ' ' + (b.getAttribute('aria-label') || ''))
+              );
+              if (!btn) return false;
+              btn.click();
+              return true;
+            });
+            if (removedPreview) {
+              console.log("Removed auto link preview from caption.");
+              await new Promise(r => setTimeout(r, 2000));
+              break;
+            }
+          }
+        }
+
         console.log("Handling Carousel document upload...");
         let clickedDoc = await clickNativelyShadow(page, (root) => {
           const btns = Array.from(root.querySelectorAll('button'));
@@ -836,18 +886,39 @@ Save this prompt to use on your next idea.`
         });
 
         if (!clickedDoc) {
-          await clickNativelyShadow(page, (root) => {
-            return Array.from(root.querySelectorAll('button')).find(
-              b => (b.ariaLabel && b.ariaLabel.includes('More')) || (b.innerText && b.innerText.includes('More'))
-            );
+          // Document often hides behind More (company: share-promoted-detour; personal: dialog More).
+          console.log("Document button not in toolbar — opening More menu...");
+          const openedMore = await clickNativelyShadow(page, (root) => {
+            const buttons = Array.from(root.querySelectorAll('button'));
+            // Prefer More that sits in the same toolbar as Add media / Schedule post
+            const media = buttons.find(b => /add media/i.test((b.getAttribute('aria-label') || '') + ' ' + (b.innerText || '')));
+            if (media) {
+              let node = media.parentElement;
+              for (let i = 0; i < 5 && node; i++) {
+                const more = Array.from(node.querySelectorAll('button')).find(b => {
+                  const label = (b.getAttribute('aria-label') || '').trim();
+                  return label === 'More' || (b.innerText || '').trim() === 'More';
+                });
+                if (more) return more;
+                node = node.parentElement;
+              }
+            }
+            const modal = root.querySelector('.share-box, .artdeco-modal, [role="dialog"]');
+            const scope = modal || root;
+            return Array.from(scope.querySelectorAll('button')).find(b => {
+              const label = (b.getAttribute('aria-label') || '').trim();
+              const txt = (b.innerText || '').trim();
+              const cls = typeof b.className === 'string' ? b.className : '';
+              return (label === 'More' || txt === 'More') &&
+                (cls.includes('detour') || cls.includes('share') || !!modal);
+            });
           });
-          await new Promise(r => setTimeout(r, 1500));
-          clickedDoc = await clickNativelyShadow(page, (root) => {
-            const btns = Array.from(root.querySelectorAll('button'));
-            return btns.find(b => b.ariaLabel && b.ariaLabel.includes('Add a document')) ||
-                   btns.find(b => b.innerText && b.innerText.includes('Add a document')) ||
-                   btns.find(b => b.innerText && b.innerText.includes('document'));
-          });
+          console.log(openedMore ? "More menu opened." : "More button not found via shadow walk.");
+          await new Promise(r => setTimeout(r, 2500));
+          clickedDoc = await clickNativelyShadowRetry(page, (root) => {
+            const btns = Array.from(root.querySelectorAll('button, [role="menuitem"], [role="button"]'));
+            return btns.find(b => /add a document/i.test((b.getAttribute('aria-label') || '') + ' ' + (b.innerText || '')));
+          }, 12000);
         }
         if (!clickedDoc) throw new Error("Could not find 'Add a document' button");
         await new Promise(r => setTimeout(r, 2000));
@@ -873,13 +944,20 @@ Save this prompt to use on your next idea.`
         console.log("Document uploaded. Waiting 4s for processing...");
         await new Promise(r => setTimeout(r, 4000));
 
-        // Title
+        // Title — LinkedIn rejects Done when title exceeds 58 characters
+        const docTitle = String(post.title || 'Document').slice(0, 58).replace(/[\s\-:;,]+$/, '');
         await waitForSelectorShadow(page, 'input.document-title-form__title-input, input[placeholder*="title to your document"]');
         const titleInput = await getElementShadow(page, 'input.document-title-form__title-input, input[placeholder*="title to your document"]');
         await titleInput.focus();
-        await page.keyboard.type(post.title);
+        await page.evaluate((el) => {
+          el.focus();
+          el.select();
+          el.value = '';
+          el.dispatchEvent(new Event('input', { bubbles: true }));
+        }, titleInput);
+        await page.keyboard.type(docTitle);
         await titleInput.dispose();
-        console.log("Document title typed:", post.title);
+        console.log("Document title typed:", docTitle);
 
         // Verify title
         const titleVal = await page.evaluate(() => {
@@ -920,33 +998,41 @@ Save this prompt to use on your next idea.`
 
       } else if (post.type === 'infographic') {
         console.log("Handling Infographic image upload...");
-        const clickedMedia = await clickNativelyShadow(page, (root) => {
-          const btns = Array.from(root.querySelectorAll('button'));
-          return btns.find(b => (b.getAttribute('aria-label') || '').includes('Add media')) ||
-                 btns.find(b => b.innerText && b.innerText.includes('Add media')) ||
-                 btns.find(b => b.innerText && b.innerText.includes('Photo')) ||
-                 btns.find(b => (b.getAttribute('aria-label') || '').includes('Photo'));
-        });
-        if (!clickedMedia) throw new Error("Could not find image upload button");
-        await new Promise(r => setTimeout(r, 2000));
-
-        const fileInputHandle = await page.evaluateHandle(() => {
-          function findFileInput(root) {
-            const walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT, null, false);
-            let node;
-            while (node = walker.nextNode()) {
-              if (node.tagName === 'INPUT' && node.type === 'file') return node;
-              if (node.shadowRoot) {
-                const found = findFileInput(node.shadowRoot);
-                if (found) return found;
+        // Scope to the composer modal: the page behind it has its own Photo button
+        // that does nothing when the modal is already open.
+        const mediaFinder = (root) => {
+          const modal = root.querySelector('.share-box, .artdeco-modal, [role="dialog"]');
+          const scope = modal || root;
+          const btns = Array.from(scope.querySelectorAll('button'));
+          const label = (b) => (b.getAttribute('aria-label') || '') + ' ' + (b.innerText || '');
+          return btns.find(b => /add media/i.test(label(b)) && (b.className || '').includes('detour')) ||
+                 btns.find(b => /add media/i.test(label(b))) ||
+                 btns.find(b => /add a photo|^photo$/i.test(label(b).trim()));
+        };
+        let fileInput = null;
+        for (let attempt = 1; attempt <= 3 && !fileInput; attempt++) {
+          const clickedMedia = await clickNativelyShadow(page, mediaFinder);
+          if (!clickedMedia && attempt === 3) throw new Error("Could not find image upload button");
+          await new Promise(r => setTimeout(r, 2500));
+          const fileInputHandle = await page.evaluateHandle(() => {
+            function findFileInput(root) {
+              const walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT, null, false);
+              let node;
+              while (node = walker.nextNode()) {
+                if (node.tagName === 'INPUT' && node.type === 'file') return node;
+                if (node.shadowRoot) {
+                  const found = findFileInput(node.shadowRoot);
+                  if (found) return found;
+                }
               }
+              return null;
             }
-            return null;
-          }
-          return findFileInput(document.body);
-        });
-        if (!fileInputHandle) throw new Error("Could not find file input in shadow DOM");
-        const fileInput = fileInputHandle.asElement();
+            return findFileInput(document.body);
+          });
+          fileInput = fileInputHandle ? fileInputHandle.asElement() : null;
+          if (!fileInput) console.log(`File input not ready, retrying media button (attempt ${attempt}/3)...`);
+        }
+        if (!fileInput) throw new Error("Could not find file input in shadow DOM");
         await fileInput.uploadFile(post.assetPath);
         console.log("Image uploaded. Waiting 4s for processing...");
         await new Promise(r => setTimeout(r, 4000));

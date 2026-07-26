@@ -1,0 +1,36 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "type": "infographic",
+      "date": "07/25/2026",
+      "time": "6:30 PM",
+      "caption": "At a campus drive or hiring mixer, you meet 40 candidates in two hours. Handing out paper visiting cards means most never type your number later. With Digital Card Creator, candidates scan your QR once, save your contact to their phone, and tap WhatsApp when they are ready to follow up. You track card views and QR scans after the event instead of guessing who cared. Update your role or phone anytime without reprinting a stack of cards. Create your free recruiter card at my.digitalcardcreator.com. Comment CARD and we will send the app link plus a 5-minute setup checklist.",
+      "assetPath": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/digitalcard-images/20260725-today/day-01.png",
+      "stream": "digitalcard",
+      "label": "TODAY IMAGE \u2014 NETWORKING_MOMENT",
+      "topic": "campus and hiring-event QR cards for recruiters",
+      "audience": "recruiters"
+    },
+    {
+      "id": 2,
+      "type": "carousel",
+      "date": "07/25/2026",
+      "time": "8:00 PM",
+      "caption": "Recruiters live on networking days. A share-ready digital visiting card should do more than look pretty. It should open WhatsApp, save to contacts, and show you who scanned after the event. Swipe through our recruiter QR checklist, then create your free card on Digital Card Creator. Comment CARD for the app link and setup steps.",
+      "assetPath": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/carousel-routine/output/2026-07-25/digitalcard-today-01/carousel-20260725.pdf",
+      "title": "campus and hiring-event QR cards for recruiters",
+      "stream": "digitalcard",
+      "label": "TODAY CAROUSEL \u2014 QR_SHARE_CHECKLIST",
+      "topic": "campus and hiring-event QR cards for recruiters",
+      "audience": "recruiters"
+    }
+  ],
+  "generated": "2026-07-25",
+  "stream": "digitalcard-company",
+  "scheduleNote": "Today only: 1 image (6:30 PM) + 1 carousel (8:00 PM) IST \u2014 recruiters niche",
+  "companyPage": "https://www.linkedin.com/company/135187143/",
+  "startUrl": "https://www.linkedin.com/company/135187143/admin/dashboard/",
+  "postAs": "Digital Card Creator",
+  "sourceFile": "digitalcard_batch_today.json"
+}
