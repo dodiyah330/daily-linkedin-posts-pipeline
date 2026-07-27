@@ -1695,7 +1695,167 @@
       "location": "",
       "linkedin_url": "https://www.linkedin.com/in/niraj-mistry/",
       "geo": "New Zealand"
+    },
+    {
+      "slug": "cynthia-vincent-42850a40b",
+      "name": "Cynthia Vincent ",
+      "title": "Cynthia Vincent",
+      "location": "Austin, Texas, United States",
+      "linkedin_url": "https://www.linkedin.com/in/cynthia-vincent-42850a40b/",
+      "geo": "United States"
+    },
+    {
+      "slug": "salome-omari-a76b4b232",
+      "name": "Salome Omari ",
+      "title": "Salome Omari",
+      "location": "United States",
+      "linkedin_url": "https://www.linkedin.com/in/salome-omari-a76b4b232/",
+      "geo": "United States"
+    },
+    {
+      "slug": "vikrant-mukherjee-3a48a7251",
+      "name": "Vikrant Mukherjee",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/vikrant-mukherjee-3a48a7251/",
+      "geo": "United States"
+    },
+    {
+      "slug": "jamil-alqatanani-002992209",
+      "name": "Jamil Alqatanani ",
+      "title": "Jamil Alqatanani",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/jamil-alqatanani-002992209/",
+      "geo": "United States"
+    },
+    {
+      "slug": "lewis-feely",
+      "name": "Lewis Feely • 1st",
+      "title": "Junior Software Developer",
+      "location": "Norley, England, United Kingdom",
+      "linkedin_url": "https://www.linkedin.com/in/lewis-feely/",
+      "geo": "United Kingdom"
+    },
+    {
+      "slug": "steven-meilleur",
+      "name": "Steven Meilleur ",
+      "title": "Steven Meilleur",
+      "location": "Canada",
+      "linkedin_url": "https://www.linkedin.com/in/steven-meilleur/",
+      "geo": "Canada"
+    },
+    {
+      "slug": "jameschalmers",
+      "name": "James Chalmers",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/jameschalmers/",
+      "geo": "Canada"
+    },
+    {
+      "slug": "jenishbsoni",
+      "name": "Jenish Soni ",
+      "title": "Jenish Soni",
+      "location": "Greater Toronto Area, Canada",
+      "linkedin_url": "https://www.linkedin.com/in/jenishbsoni/",
+      "geo": "Canada"
+    },
+    {
+      "slug": "jayeshkorat",
+      "name": "Jayesh Korat",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/jayeshkorat/",
+      "geo": "Canada"
+    },
+    {
+      "slug": "mohamed-hagi",
+      "name": "Mohamed Hagi ",
+      "title": "Mohamed Hagi",
+      "location": "Toronto, Ontario, Canada",
+      "linkedin_url": "https://www.linkedin.com/in/mohamed-hagi/",
+      "geo": "Canada"
+    },
+    {
+      "slug": "randy-potter-452b022b",
+      "name": "Randy Potter",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/randy-potter-452b022b/",
+      "geo": "Canada"
+    },
+    {
+      "slug": "sukhman-sidhu15",
+      "name": "Sukhman Sidhu • 1st",
+      "title": "|| Talent Acquisition Specialist (IT , NON-IT Recruiter) ||",
+      "location": "Callide, Queensland, Australia",
+      "linkedin_url": "https://www.linkedin.com/in/sukhman-sidhu15/",
+      "geo": "Australia"
+    },
+    {
+      "slug": "tanuj-uppal-87831717",
+      "name": "Tanuj Uppal",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/tanuj-uppal-87831717/",
+      "geo": "Australia"
+    },
+    {
+      "slug": "elliot-sherbelis-a16582177",
+      "name": "Elliot Sherbelis ",
+      "title": "Elliot Sherbelis",
+      "location": "Melbourne, Victoria, Australia",
+      "linkedin_url": "https://www.linkedin.com/in/elliot-sherbelis-a16582177/",
+      "geo": "Australia"
+    },
+    {
+      "slug": "ido-shamun",
+      "name": "Ido Shamun",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/ido-shamun/",
+      "geo": "Australia"
+    },
+    {
+      "slug": "kiet-pham-a1260b77",
+      "name": "Kiet Pham ",
+      "title": "Kiet Pham",
+      "location": "Wollongong, New South Wales, Australia",
+      "linkedin_url": "https://www.linkedin.com/in/kiet-pham-a1260b77/",
+      "geo": "Australia"
+    },
+    {
+      "slug": "phuongtruchuynh",
+      "name": "Phuong Huynh (Fannie)",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/phuongtruchuynh/",
+      "geo": "Australia"
+    },
+    {
+      "slug": "fawazsullia",
+      "name": "Fawaz Sullia • 1st",
+      "title": "Software Engineer | Typecript, Python and Golang | React and Nodejs | Full Stack",
+      "location": "Dubai, United Arab Emirates",
+      "linkedin_url": "https://www.linkedin.com/in/fawazsullia/",
+      "geo": "United Arab Emirates"
+    },
+    {
+      "slug": "yousif-al-sahlawi-94648937",
+      "name": "Yousif Al Sahlawi",
+      "title": "",
+      "location": "",
+      "linkedin_url": "https://www.linkedin.com/in/yousif-al-sahlawi-94648937/",
+      "geo": "United Arab Emirates"
+    },
+    {
+      "slug": "sokrat-poghosyan",
+      "name": "Sokrat Poghosyan ",
+      "title": "Sokrat Poghosyan",
+      "location": "Dubai, United Arab Emirates",
+      "linkedin_url": "https://www.linkedin.com/in/sokrat-poghosyan/",
+      "geo": "United Arab Emirates"
     }
   ],
-  "last_search": "2026-07-22"
+  "last_search": "2026-07-26"
 }

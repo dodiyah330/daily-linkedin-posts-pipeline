@@ -4,14 +4,18 @@
  *
  * Requires: agent-browser --session linkedin_bot open https://www.linkedin.com/feed/
  *
- * Env:
+ * Env (safe defaults — previous unrestricted burst got the account limited):
  *   DRY_RUN=1                 Discover/filter only, do not send
- *   MAX_DMS_PER_RUN=10        Cap per script run
- *   MAX_DMS_PER_DAY=20        Cap per calendar day
- *   DM_DELAY_MS=18000         Pause between sends
+ *   MAX_DMS_PER_RUN=5          Cap per script run
+ *   MAX_DMS_PER_DAY=8          Cap per calendar day
+ *   MAX_DMS_PER_HOUR=4         Cap per rolling hour
+ *   DM_DELAY_MS=45000          Base pause between sends (jitter added)
+ *   DM_DELAY_JITTER_MS=25000   Random extra wait 0..N ms
  *   DM_VARIANT=hook           Template key: hook|founder|ops|short
  *   DM_SCROLLS=12             Scrolls while collecting search results
  *   DM_SEARCH_BATCH=40        Max prospects to collect before filtering
+ *   DM_USE_CACHE=1            Prefer cached remaining targets (default on)
+ *   ALLOW_UNSAFE_DM_LIMITS=1  Bypass hard ceiling (not recommended)
  */
 const puppeteer = require('puppeteer-core');
 const fs = require('fs');
@@ -23,12 +27,22 @@ const CACHE_FILE = path.join(__dirname, 'connection-dms-targets-cache.json');
 const TEMPLATES_FILE = path.join(__dirname, 'connection_dm_templates.json');
 
 const DRY_RUN = process.env.DRY_RUN === '1';
-const DELAY_MS = parseInt(process.env.DM_DELAY_MS || '18000', 10);
-const MAX_PER_RUN = parseInt(process.env.MAX_DMS_PER_RUN || '10', 10);
-const MAX_PER_DAY = parseInt(process.env.MAX_DMS_PER_DAY || '20', 10);
+const DELAY_MS = parseInt(process.env.DM_DELAY_MS || '45000', 10);
+const DELAY_JITTER_MS = parseInt(process.env.DM_DELAY_JITTER_MS || '25000', 10);
+const MAX_PER_RUN = parseInt(process.env.MAX_DMS_PER_RUN || '5', 10);
+const MAX_PER_DAY = parseInt(process.env.MAX_DMS_PER_DAY || '8', 10);
+const MAX_PER_HOUR = parseInt(process.env.MAX_DMS_PER_HOUR || '4', 10);
 const VARIANT = process.env.DM_VARIANT || 'hook';
 const SEARCH_SCROLLS = parseInt(process.env.DM_SCROLLS || '12', 10);
 const SEARCH_BATCH = parseInt(process.env.DM_SEARCH_BATCH || '40', 10);
+const USE_CACHE = process.env.DM_USE_CACHE !== '0';
+const ALLOW_UNSAFE = process.env.ALLOW_UNSAFE_DM_LIMITS === '1';
+
+// Hard ceilings — last unrestricted run sent ~145/day and triggered a restriction.
+const HARD_MAX_RUN = 8;
+const HARD_MAX_DAY = 12;
+const HARD_MAX_HOUR = 5;
+const HARD_MIN_DELAY_MS = 30000;
 
 // Major markets outside India (LinkedIn geoUrn)
 const GEO_TARGETS = [
@@ -92,6 +106,87 @@ function appendLog(entry) {
 
 function todayStr() {
   return new Date().toISOString().slice(0, 10);
+}
+
+function sleep(ms) {
+  return new Promise((r) => setTimeout(r, ms));
+}
+
+function nextDelayMs() {
+  const base = Math.max(DELAY_MS, HARD_MIN_DELAY_MS);
+  const jitter = DELAY_JITTER_MS > 0 ? Math.floor(Math.random() * (DELAY_JITTER_MS + 1)) : 0;
+  return base + jitter;
+}
+
+function enforceSafeLimits() {
+  if (ALLOW_UNSAFE) {
+    console.log('WARNING: ALLOW_UNSAFE_DM_LIMITS=1 — hard ceilings disabled');
+    return {
+      maxRun: MAX_PER_RUN,
+      maxDay: MAX_PER_DAY,
+      maxHour: MAX_PER_HOUR,
+      delayMs: DELAY_MS,
+    };
+  }
+  const clamped = {
+    maxRun: Math.min(MAX_PER_RUN, HARD_MAX_RUN),
+    maxDay: Math.min(MAX_PER_DAY, HARD_MAX_DAY),
+    maxHour: Math.min(MAX_PER_HOUR, HARD_MAX_HOUR),
+    delayMs: Math.max(DELAY_MS, HARD_MIN_DELAY_MS),
+  };
+  if (
+    clamped.maxRun !== MAX_PER_RUN ||
+    clamped.maxDay !== MAX_PER_DAY ||
+    clamped.maxHour !== MAX_PER_HOUR ||
+    clamped.delayMs !== DELAY_MS
+  ) {
+    console.log(
+      `Safety clamp applied: run=${clamped.maxRun}/day=${clamped.maxDay}/hour=${clamped.maxHour} delay>=${clamped.delayMs}ms`
+    );
+  }
+  return clamped;
+}
+
+function countSentSince(log, sinceMs) {
+  return log.filter(
+    (e) =>
+      e.status === 'sent' &&
+      !e.dry_run &&
+      e.ts &&
+      Date.parse(e.ts) >= sinceMs
+  ).length;
+}
+
+async function detectRestriction(page) {
+  const url = page.url() || '';
+  if (/\/(checkpoint|challenge|uas\/login|login)/i.test(url)) {
+    return 'checkpoint_or_login';
+  }
+  return page
+    .evaluate(() => {
+      const t = (document.body?.innerText || '').toLowerCase();
+      const patterns = [
+        'we restricted your account',
+        'your account has been restricted',
+        'temporarily restricted',
+        'unusual activity',
+        'verify your identity',
+        'confirm your identity',
+        'weekly invitation limit',
+        'weekly limit',
+        'messaging limit',
+        'too many messages',
+        "you've reached the weekly",
+        'try again later',
+        'action blocked',
+        'security verification',
+      ];
+      for (const p of patterns) {
+        if (t.includes(p)) return p;
+      }
+      return null;
+    })
+    .catch(() => null);
 }
 
 function profileSlug(url) {
@@ -353,17 +448,19 @@ async function extractSearchResults(page) {
 async function collectTargets(page, needed, already) {
   const found = [];
   const cache = loadJson(CACHE_FILE, { profiles: [] });
-  const useCacheOnly = process.env.DM_USE_CACHE === '1';
 
-  if (useCacheOnly && (cache.profiles || []).length) {
+  // Prefer cache (remaining targets) to avoid aggressive search scraping.
+  if (USE_CACHE && (cache.profiles || []).length) {
     for (const p of cache.profiles) {
       if (found.length >= needed) break;
       if (already.has(p.slug)) continue;
       if (isIndiaLocation(p.location) || isIndiaLocation(p.title)) continue;
       found.push(p);
     }
-    console.log(`Using cache: ${found.length} targets`);
-    return found;
+    if (found.length) {
+      console.log(`Using cache: ${found.length} remaining targets (set DM_USE_CACHE=0 to re-search)`);
+      return found;
+    }
   }
 
   for (const geo of GEO_TARGETS) {
@@ -610,40 +707,55 @@ async function sendMessageOnProfile(page, prospect, message) {
 
   await new Promise((r) => setTimeout(r, 1800));
 
-  const blocked = await page.evaluate(() => {
-    const t = (document.body.innerText || '').toLowerCase();
-    if (t.includes('weekly limit') || t.includes('messaging limit') || t.includes('too many messages')) {
-      return 'limit_reached';
+  const blocked = await detectRestriction(page);
+  if (blocked) {
+    if (/limit|too many messages|try again later/i.test(blocked)) {
+      return { status: 'limit_reached', location, error: blocked };
     }
-    return null;
-  }).catch(() => null);
-  if (blocked) return { status: blocked, location };
+    return { status: 'restricted', location, error: blocked };
+  }
 
   return { status: 'sent', location };
 }
 
 async function main() {
+  const limits = enforceSafeLimits();
   const template = loadTemplate();
   const log = loadJson(LOG_FILE, []);
   const today = todayStr();
-  const sentToday = log.filter((e) => e.date === today && e.status === 'sent').length;
+  const now = Date.now();
+  const sentToday = log.filter((e) => e.date === today && e.status === 'sent' && !e.dry_run).length;
+  const sentLastHour = countSentSince(log, now - 60 * 60 * 1000);
   const already = new Set(
     log
       .filter((e) => ['sent', 'skipped_india'].includes(e.status) && !e.dry_run)
-      .map((e) => profileSlug(e.linkedin_url || e.slug))
+      .map((e) => profileSlug(e.linkedin_url || e.slug) || String(e.slug || '').toLowerCase())
       .filter(Boolean)
   );
 
-  const remainingDay = Math.max(0, MAX_PER_DAY - sentToday);
-  const budget = Math.min(MAX_PER_RUN, remainingDay);
+  const remainingDay = Math.max(0, limits.maxDay - sentToday);
+  const remainingHour = Math.max(0, limits.maxHour - sentLastHour);
+  const budget = Math.min(limits.maxRun, remainingDay, remainingHour);
 
   console.log('== LinkedIn DMs → non-India 1st-degree connections ==');
   console.log(`Mode: ${DRY_RUN ? 'DRY RUN' : 'LIVE SEND'}`);
   console.log(`Variant: ${VARIANT}`);
-  console.log(`Already sent today: ${sentToday} | Run budget: ${budget}`);
+  console.log(
+    `Caps: run=${limits.maxRun} day=${limits.maxDay} hour=${limits.maxHour} | delay≈${limits.delayMs}+0..${DELAY_JITTER_MS}ms`
+  );
+  console.log(
+    `Already sent today: ${sentToday} | last hour: ${sentLastHour} | Run budget: ${budget}`
+  );
+  console.log(`Already messaged (all time): ${already.size}`);
 
   if (budget <= 0) {
-    console.log('Daily DM cap reached. Increase MAX_DMS_PER_DAY to continue.');
+    if (remainingDay <= 0) {
+      console.log('Daily DM cap reached. Resume tomorrow (safe default).');
+    } else if (remainingHour <= 0) {
+      console.log('Hourly DM cap reached. Wait ~1 hour, then re-run.');
+    } else {
+      console.log('Run budget is 0.');
+    }
     return;
   }
 
@@ -691,12 +803,20 @@ async function main() {
   // Soft navigate to feed only if needed
   if (!/linkedin\.com\/(feed|messaging|in\/|search)/i.test(page.url())) {
     await page.goto('https://www.linkedin.com/feed/', { waitUntil: 'domcontentloaded', timeout: 45000 }).catch(() => {});
-    await new Promise((r) => setTimeout(r, 2000));
+    await sleep(2000);
   }
 
-  const targets = await collectTargets(page, Math.max(budget * 3, SEARCH_BATCH), already);
+  const preRestrict = await detectRestriction(page);
+  if (preRestrict) {
+    console.error(`LinkedIn restriction/challenge detected before sending: ${preRestrict}`);
+    console.error('Resolve it in the browser, wait if needed, then re-run with low caps.');
+    await browser.disconnect();
+    process.exit(3);
+  }
+
+  const targets = await collectTargets(page, Math.max(budget * 3, Math.min(SEARCH_BATCH, 20)), already);
   if (!targets.length) {
-    console.log('No targets found. Are you logged into LinkedIn?');
+    console.log('No remaining targets in cache/search. Done, or set DM_USE_CACHE=0 to re-search.');
     await browser.disconnect();
     return;
   }
@@ -706,7 +826,7 @@ async function main() {
   let skipped = 0;
   let attempts = 0;
   let consecutiveFails = 0;
-  const maxAttempts = Math.min(targets.length, budget * 4);
+  const maxAttempts = Math.min(targets.length, budget * 3);
 
   for (const prospect of targets) {
     if (sent >= budget || attempts >= maxAttempts) break;
@@ -755,19 +875,21 @@ async function main() {
       consecutiveFails += 1;
     }
 
-    if (result.status === 'limit_reached') {
-      console.log('LinkedIn messaging limit hit — stopping.');
+    if (result.status === 'limit_reached' || result.status === 'restricted') {
+      console.log(`Stopping for account safety (${result.status}: ${result.error || ''}).`);
       break;
     }
-    if (consecutiveFails >= 8) {
+    // Fail fast vs previous run (8) — LinkedIn often blocks quietly via missing Message UI.
+    if (consecutiveFails >= 3) {
       console.log('Too many consecutive failures (likely messaging limit/UI block). Stopping.');
       break;
     }
 
     await dismissOverlays(page);
     if (sent < budget) {
-      console.log(`Waiting ${DELAY_MS}ms before next...`);
-      await new Promise((r) => setTimeout(r, DELAY_MS));
+      const waitMs = nextDelayMs();
+      console.log(`Waiting ${waitMs}ms before next (anti-restrict jitter)...`);
+      await sleep(waitMs);
     }
   }
 
