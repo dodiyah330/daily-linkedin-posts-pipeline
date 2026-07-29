@@ -4,7 +4,7 @@ Multi-stream automation for LinkedIn content, outreach, and Freelancer.com biddi
 
 | Stream | Audience / page | Cadence | Entry script |
 |--------|-----------------|---------|--------------|
-| **FoundersWing daily** | Personal brand (`@founderswing`) | Reddit + AI news + performance posts → Slack → schedule | Agent skill: `daily-linkedin-posts/SKILL.md` |
+| **Daily LinkedIn** | Personal profile | Reddit + AI news + performance posts → Slack → schedule | Agent skill: `daily-linkedin-posts/SKILL.md` |
 | **OpenXcode batch** | Company page ([OpenXcode](https://www.linkedin.com/company/open-xcode)) | Default **10 days × 2 posts/day** (image + carousel) | `./run_openxcode_batch.sh` |
 | **Automation leads** | Personal profile (AI automation ICP) | **14 posts/week** (image + text each day) | `./run_automation_leads.sh` |
 | **US image posts** | Personal profile, US Eastern peak | Daily US-angled infographic | `./run_us_image_posts.sh` |
@@ -103,9 +103,9 @@ agent-browser --session linkedin_bot --profile Default open \
 
 ---
 
-## 1. FoundersWing daily content
+## 1. Daily LinkedIn content
 
-Agent-orchestrated batch for the FoundersWing personal brand. Follow:
+Agent-orchestrated batch for the personal LinkedIn profile. Follow:
 
 - `daily-linkedin-posts/SKILL.md` — master steps
 - `commands/linkedin-content.md` — Reddit post rules
@@ -297,7 +297,7 @@ Requires `FLN_OAUTH_TOKEN` plus `GEMINI_API_KEY` or `OPENROUTER_API_KEY` in repo
 
 | Path | Role |
 |------|------|
-| `daily-linkedin-posts/SKILL.md` | FoundersWing daily orchestration |
+| `daily-linkedin-posts/SKILL.md` | Daily LinkedIn orchestration |
 | `commands/linkedin-content.md` | Reddit post writing rules |
 | `skills/linkedin-ai-news-engine/SKILL.md` | AI news text posts |
 | `skills/linkedin-performance-engine/SKILL.md` | Analytics-modeled posts |
@@ -362,7 +362,7 @@ Profiles: `openxcode_profile.md`, `automation_profile.md`.
 | File | Purpose |
 |------|---------|
 | `reddit_data.json` / `ai_news_data.json` | Latest fetched source content |
-| `schedule_today.json` | FoundersWing schedule payload |
+| `schedule_today.json` | Daily schedule payload |
 | `schedule_openxcode.json` | OpenXcode schedule |
 | `schedule_automation_leads.json` | Automation leads schedule |
 | `schedule_us_image_posts.json` | US image schedule |
@@ -393,4 +393,4 @@ Profiles: `openxcode_profile.md`, `automation_profile.md`.
 
 ## Sample outputs
 
-`sample-outputs/` includes a FoundersWing run snapshot (posts text, carousel HTML/PDF, infographic PNG) from 2026-06-12.
+`sample-outputs/` includes a daily run snapshot (posts text, carousel HTML/PDF, infographic PNG) from 2026-06-12.

@@ -48,7 +48,7 @@ The generator rotates the industry list so a 10-day batch never repeats a niche.
 - CTA rotate: Comment **BOOK**, DM us your industry and staff count, download the free version
 - No named competitor bashing; contrast with "most booking plugins"
 - No em-dashes; banned hype words listed in `bookwellnow_profile.md`
-- No OpenXcode / FoundersWing / personal @handles
+- No OpenXcode / personal @handles
 
 ## Peak times (IST account timezone)
 
@@ -108,7 +108,7 @@ START_POST_ID=7 SCHEDULE_FILE=schedule_bookwellnow.json POST_AS=BookWellNow node
 
 ## Notes
 
-- This stream is **separate** from OpenXcode, FoundersWing, and the automation-leads streams.
+- This stream is **separate** from OpenXcode and the automation-leads streams.
 - Batch starts **tomorrow** and runs for 10 consecutive days.
 - Brand accent is `#5700B4`; carousels and infographics use BookWellNow branding.
 - If a carousel caption is cleared by LinkedIn after the PDF upload, `schedule_all_posts.cjs` refills it automatically.

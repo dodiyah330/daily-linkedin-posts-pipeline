@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate Founders Wing cream-design carousel slides (typography-forward) for both
+"""Generate  cream-design carousel slides (typography-forward) for both
 the branded carousel and the performance carousel. Writes slide-01..07.html into
 carousel-routine/temp/<dir>/."""
 import os
@@ -18,7 +18,7 @@ body{{width:1080px;height:1080px;overflow:hidden;background:#F8F7F3;color:#111;f
 .hleft{{display:flex;align-items:center;gap:12px;font-size:14px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#111}}
 .dot{{width:14px;height:14px;border-radius:50%;background:{accent}}}
 .hright{{display:flex;align-items:center;gap:15px}}
-.fw{{font-family:'Instrument Serif',serif;font-style:italic;font-size:26px;color:#999}}
+.meta{{font-family:'Instrument Serif',serif;font-style:italic;font-size:26px;color:#999}}
 .badge{{width:46px;height:46px;background:{accent};border-radius:50%;display:flex;justify-content:center;align-items:center;color:#fff;font-weight:800;font-size:17px}}
 .content{{position:absolute;top:{top}px;left:70px;right:70px;z-index:5}}
 .kick{{font-size:18px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:{accent};margin-bottom:22px}}

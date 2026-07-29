@@ -30,9 +30,9 @@ with open("./linkedin_posts_today.txt", "r") as f:
 correction_prompt = """
 You are a professional LinkedIn editor. Edit the following draft of 11 LinkedIn posts to make the following corrections:
 
-1. Remove any mention of FounderWing, Founders Wing, or @founderswing from all posts.
+1. Remove any personal brand names or @handles from all posts.
 
-2. End every post CTA with exactly "Follow me." (not "Follow for more" or "@founderswing").
+2. End every post CTA with exactly "Follow me." (not "Follow for more" or an @handle).
 
 3. Banned Word Cleanups:
    - In Post 2 (Poll), change "key developer" (since "key" as an adjective is banned) to "senior developer" or just "developer".

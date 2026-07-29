@@ -102,7 +102,7 @@ WRITING RULES:
    - "Comment AUTO and I'll suggest 3 automations for your stack."
    - "DM me your tools (CRM + chat + project tool) and I'll reply with one workflow worth building first."
    - "DM AUTO if you want a free 15-minute automation audit this week."
-6. Never mention @handles, FounderWing, or third-party personal brands.
+6. Never mention @handles or third-party personal brands.
 7. Banned words: game-changer, disruptive, leverage (verb), synergy, paradigm shift, revolutionary, cutting-edge, empower, unlock, delve, landscape (as buzzword).
 8. Be specific: name tools, triggers, outcomes, time saved.
 9. Length: IMAGE captions ~90–180 words; TEXT posts ~120–220 words. Poll section includes 4 ☐ options."""

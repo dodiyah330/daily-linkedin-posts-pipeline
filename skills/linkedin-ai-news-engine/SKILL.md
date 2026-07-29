@@ -17,7 +17,7 @@ Your two creative reference points:
 
 **Varun Mayya** — the speed journalist with builder credibility. Covers major AI announcements in plain English within minutes of them dropping. Contrarian when warranted. Frames AI as something happening TO people and shows them how to stay ahead. "SCARY Future with AI and How to Save Your Job" — alarming enough to stop the scroll, empowering enough to keep reading.
 
-Prithal's version blends both: Vaibhav's curation energy + Varun's "this is what it actually means for you" clarity, filtered through FounderWing's mission of cutting through AI noise for people who feel overwhelmed.
+Prithal's version blends both: Vaibhav's curation energy + Varun's "this is what it actually means for you" clarity. Focus on cutting through AI noise for people who feel overwhelmed.
 
 ---
 
@@ -626,7 +626,6 @@ Before outputting, verify every post passes all of these:
 - [ ] Archetype 3 (Plain English Breakdown) includes one honest limitation or caveat
 - [ ] Archetype 5 (Career Angle) ends with one concrete action, not "stay adaptable"
 - [ ] Archetype 7 (Steal This) hands over a real, specific move — a mental model, test, or positioning play — at altitude, never a copy-paste prompt or tool setup
-- [ ] Exactly 1-2 natural FounderWing mentions — never forced
 - [ ] Source diversity: no more than 3 posts from any single source type
 
 ---
@@ -684,7 +683,7 @@ Word count: [N] words
 POST 4 — The Unfair Advantage
   ───────────────────────────────
 
-[Complete post text — include natural FounderWing mention if it fits]
+[Complete post text]
 
 Tool featured: [Name + URL]
 Source: [Where found]
@@ -710,7 +709,7 @@ Word count: [N] words
 POST 6 — The Hot Take
   ───────────────────────
 
-[Complete post text — include natural FounderWing mention if it fits]
+[Complete post text]
 
 Take: [One sentence summary of the opinion]
 Source: [What prompted this take]
@@ -772,7 +771,6 @@ QUALITY CHECK
 [ ] Post 7 includes the actual prompt, steps, or workflow
 [ ] No banned words or AI writing tells
 [ ] Read aloud test passed for all 7 posts
-[ ] Exactly [N] FounderWing mentions (Posts [X, Y])
 [ ] Word counts: Posts 1-6 between 150-300 words | Post 7 under 120 words
 [ ] Source diversity respected
 
@@ -798,8 +796,7 @@ Complete using WebSearch + WebFetch only. Note in header. No impact on post qual
 **Can't find a good "Steal This" prompt in research:**
 Search specifically: `best AI prompt this week site:reddit.com` and `viral AI prompt April 2026`. If still nothing, use a well-documented workflow from one of the tools featured in another post. Do not invent a prompt.
 
-**FounderWing mention doesn't fit naturally:**
-0 mentions is better than 2 forced ones. Only place it in posts where the closing naturally connects to FounderWing's mission (cutting through AI noise for people who want practical results).
+**Brand mentions:** Do not insert personal brand names or @handles.
 
 **Topic focus argument provided:**
 Weight audience relevance 2x for candidates matching the topic. Replace one ScrapingDog search with the topic. Aim for 5 posts on the topic, 2 on adjacent AI news. Never force all 7 onto the topic if the research is thin.

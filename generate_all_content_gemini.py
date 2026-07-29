@@ -197,7 +197,7 @@ Start directly with the hook. No titles.
         "prompt": f"""Write POST 4 (Unfair Advantage).
 Tool: Theker's generalist factory robot.
 Description: Theker raised 85 million dollars to build robots that don't specialize in a single task, allowing small factories to deploy them for arbitrary manual operations that traditionally required custom, expensive automation programming.
-End with "Follow me." as the CTA. Do not mention FounderWing, Founders Wing, or @founderswing.
+End with "Follow me." as the CTA. Do not mention personal brand names or @handles.
 Archetype: Unfair Advantage | Emotion: WOW.
 Start directly with the hook. No titles.
 """
@@ -216,7 +216,7 @@ Start directly with the hook. No titles.
         "prompt": f"""Write POST 6 (Hot Take).
 Topic: Meta's new AI unit being called a "soul-crushing gulag" by its engineers.
 Hot Take: The race for AGI has created a toxic work culture where engineers are treated as disposable inputs. True startup moats are built on sustainable engineering cultures and distribution, not by burning out talent in a compute race.
-End with "Follow me." as the CTA. Do not mention FounderWing, Founders Wing, or @founderswing.
+End with "Follow me." as the CTA. Do not mention personal brand names or @handles.
 Archetype: Hot Take | Emotion: THINK.
 Start directly with the hook. No titles.
 """
@@ -412,7 +412,7 @@ if infographic_json_str:
 
 # Now generate the 5 Performance posts
 print("Generating 5 Performance Posts...")
-performance_system_prompt = f"""You are the Founders Wing Performance Engine. Write 5 report-driven posts reverse-engineered from actual analytics.
+performance_system_prompt = f"""You are the Performance Engine. Write 5 report-driven posts reverse-engineered from actual analytics.
 {writing_rules}
 """
 

@@ -17,7 +17,7 @@ body{{width:1080px;height:1080px;overflow:hidden;background:#F8F7F3;color:#111;f
 .hleft{{display:flex;align-items:center;gap:12px;font-size:14px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#111}}
 .dot{{width:14px;height:14px;border-radius:50%;background:{accent}}}
 .hright{{display:flex;align-items:center;gap:15px}}
-.fw{{font-family:'Instrument Serif',serif;font-style:italic;font-size:26px;color:#999}}
+.meta{{font-family:'Instrument Serif',serif;font-style:italic;font-size:26px;color:#999}}
 .badge{{width:46px;height:46px;background:{accent};border-radius:50%;display:flex;justify-content:center;align-items:center;color:#fff;font-weight:800;font-size:17px}}
 .content{{position:absolute;top:230px;left:70px;right:70px;bottom:150px;z-index:5;display:flex;align-items:center;gap:54px}}
 .col{{flex:1;min-width:0}}
@@ -37,13 +37,13 @@ body{{width:1080px;height:1080px;overflow:hidden;background:#F8F7F3;color:#111;f
 .cta-content{{position:absolute;top:300px;left:70px;right:70px;z-index:5}}
 </style></head><body>
 <div class="header"><div class="hleft"><span class="dot"></span>{kicker}</div>
-<div class="hright"><div class="fw">founders wing / 2026</div><div class="badge">{num}</div></div></div>
+<div class="hright"><div class="meta">2026</div><div class="badge">{num}</div></div></div>
 {main}
 <div class="bottom">{bottom}</div>
 </body></html>"""
 
 ACCENT = "#5E6AD2"
-KICKER = "Founders Wing / future of work"
+KICKER = "future of work"
 
 SLIDES = [
     {"num":"01","hsize":62,"img":"hero.jpg","tag":"the shift","kick":"Future of work",

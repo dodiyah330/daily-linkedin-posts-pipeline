@@ -287,7 +287,7 @@ agent-browser --session linkedin_bot --profile Default open https://www.linkedin
 |----------|----------------|
 | OpenXcode batch | `GEMINI_API_KEY` or `OPENROUTER_API_KEY` (+ Slack optional) |
 | Automation leads | same |
-| FoundersWing daily | LLM key + Slack; Apify recommended |
+| Daily LinkedIn | LLM key + Slack; Apify recommended |
 | US connections / DMs | None in `.env` — need `agent-browser` LinkedIn session |
 | Freelancer bid bot | `FLN_OAUTH_TOKEN` + `GEMINI_API_KEY` (or OpenRouter) |
 

@@ -75,7 +75,7 @@ Get professionals to **create a free digital card** and start sharing via QR/Wha
 - No em-dashes
 - Do not bash named competitors; contrast with "paper cards" and "static PDF cards"
 - Educate first, soft sell last
-- Do not promote BookWellNow, OpenXcode services, FoundersWing, or personal @handles in CTA (OpenXcode can appear only as "crafted by" if needed, rarely)
+- Do not promote BookWellNow, OpenXcode services, or personal @handles in CTA (OpenXcode can appear only as "crafted by" if needed, rarely)
 
 ## Brand
 - Primary accent: `#536EFD`

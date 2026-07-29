@@ -1,11 +1,11 @@
 ---
 name: branded-carousel
-description: Creates a single branded LinkedIn carousel (7 slides, 1080×1080 PNG + PDF) from a given topic, post, or AI news story. Automatically fetches official logos, product screenshots, and brand colors from the source website, then generates slides using the Founders Wing design system with the subject brand's visual identity woven in.
+description: Creates a single branded LinkedIn carousel (7 slides, 1080×1080 PNG + PDF) from a given topic, post, or AI news story. Automatically fetches official logos, product screenshots, and brand colors from the source website, then generates slides using the cream design system with the subject brand's visual identity woven in.
 argument-hint: "[post text OR topic + source URL, e.g. 'Claude Design — https://anthropic.com/news/claude-design-anthropic-labs']"
 allowed-tools: WebFetch, WebSearch, Browser, Bash, Read, Write, ImageGeneration
 ---
 
-You are the Founders Wing **branded carousel engine**. You produce one polished, on-brand LinkedIn carousel per run — 7 slides that blend the **Founders Wing dark design system** with the **official branding of the featured product/company**.
+You are the **branded carousel engine**. You produce one polished, on-brand LinkedIn carousel per run — 7 slides that blend the **cream dark design system** with the **official branding of the featured product/company**.
 
 Follow every phase in strict order. Do NOT skip phases.
 
@@ -509,7 +509,7 @@ Select the color and use it as `{{BRAND_COLOR}}` in all CSS blocks below.
   .header-left { display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: #111111; }
   .star-icon { width: 24px; height: 24px; }
   .header-right { display: flex; align-items: center; gap: 15px; }
-  .fw-text { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 26px; color: #999999; }
+  .meta-text { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 26px; color: #999999; }
   .slide-badge { width: 44px; height: 44px; background-color: {{BRAND_COLOR}}; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-weight: 800; font-size: 16px; }
 
   .content { position: absolute; top: 260px; left: 70px; right: 70px; z-index: 5; }
@@ -530,7 +530,7 @@ Select the color and use it as `{{BRAND_COLOR}}` in all CSS blocks below.
       {{HEADER_LABEL}}
     </div>
     <div class="header-right">
-      <div class="fw-text">founders wing / 2026</div>
+      <div class="meta-text">2026</div>
       <div class="slide-badge">01</div>
     </div>
   </div>
@@ -632,7 +632,7 @@ Select the color and use it as `{{BRAND_COLOR}}` in all CSS blocks below.
   .header { position: absolute; top: 60px; left: 70px; right: 70px; display: flex; justify-content: space-between; align-items: center; z-index: 10; }
   .header-left { display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: #111111; }
   .header-right { display: flex; align-items: center; gap: 15px; }
-  .fw-text { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 26px; color: #999999; }
+  .meta-text { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 26px; color: #999999; }
   .slide-badge { width: 44px; height: 44px; background-color: {{BRAND_COLOR}}; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-weight: 800; font-size: 16px; }
 
   .content { position: absolute; top: 300px; left: 70px; right: 70px; z-index: 5; }
@@ -658,7 +658,7 @@ Select the color and use it as `{{BRAND_COLOR}}` in all CSS blocks below.
       {{HEADER_LABEL}}
     </div>
     <div class="header-right">
-      <div class="fw-text">founders wing / 2026</div>
+      <div class="meta-text">2026</div>
       <div class="slide-badge">{{SLIDE_NUM}}</div>
     </div>
   </div>
@@ -703,7 +703,7 @@ Select the color and use it as `{{BRAND_COLOR}}` in all CSS blocks below.
   .header { position: absolute; top: 60px; left: 70px; right: 70px; display: flex; justify-content: space-between; align-items: center; z-index: 10; }
   .header-left { display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: #111111; }
   .header-right { display: flex; align-items: center; gap: 15px; }
-  .fw-text { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 26px; color: #999999; }
+  .meta-text { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 26px; color: #999999; }
   .slide-badge { width: 44px; height: 44px; background-color: {{BRAND_COLOR}}; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-weight: 800; font-size: 16px; }
 
   .content { position: absolute; top: 220px; left: 70px; right: 70px; z-index: 5; }
@@ -729,7 +729,7 @@ Select the color and use it as `{{BRAND_COLOR}}` in all CSS blocks below.
       {{HEADER_LABEL}}
     </div>
     <div class="header-right">
-      <div class="fw-text">founders wing / 2026</div>
+      <div class="meta-text">2026</div>
       <div class="slide-badge">06</div>
     </div>
   </div>
@@ -772,7 +772,7 @@ Select the color and use it as `{{BRAND_COLOR}}` in all CSS blocks below.
   .header { position: absolute; top: 60px; left: 70px; right: 70px; display: flex; justify-content: space-between; align-items: center; z-index: 10; }
   .header-left { display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: #111111; }
   .header-right { display: flex; align-items: center; gap: 15px; }
-  .fw-text { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 26px; color: #999999; }
+  .meta-text { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 26px; color: #999999; }
   .slide-badge { width: 44px; height: 44px; background-color: {{BRAND_COLOR}}; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-weight: 800; font-size: 16px; }
 
   .content { position: absolute; top: 280px; left: 70px; right: 70px; z-index: 5; }
@@ -794,7 +794,7 @@ Select the color and use it as `{{BRAND_COLOR}}` in all CSS blocks below.
       THE LESSON
     </div>
     <div class="header-right">
-      <div class="fw-text">founders wing / 2026</div>
+      <div class="meta-text">2026</div>
       <div class="slide-badge">07</div>
     </div>
   </div>
@@ -805,7 +805,7 @@ Select the color and use it as `{{BRAND_COLOR}}` in all CSS blocks below.
     <div class="subhead">{{SUBHEAD}}</div>
   </div>
   <div class="bottom-area">
-    <div class="s7-pill">follow founders wing for daily <em>frameworks.</em></div>
+    <div class="s7-pill">follow for daily <em>frameworks.</em></div>
   </div>
 </body>
 </html>
@@ -872,7 +872,7 @@ Open each rendered PNG to verify:
 ### 6B: Print Final Report
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Founders Wing — Branded Carousel — YYYY-MM-DD
+ Branded Carousel — YYYY-MM-DD
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Product:     [PRODUCT_NAME]
 Company:     [COMPANY_NAME]
@@ -928,7 +928,7 @@ Use these as starting points. Always verify against the live website.
 
 ## DESIGN PRINCIPLES (non-negotiable)
 
-1. **Brand blending, not brand takeover.** The carousel is a Founders Wing product with the guest brand's DNA woven in — not a reskin of the guest brand's website.
+1. **Brand blending, not brand takeover.** Weave the guest brand's DNA into the cream design system — do not fully reskin slides as the guest brand's website.
 2. **Official assets only.** Never generate fake logos. Use screenshots, SVG recreations of marks, or text-based logo treatments.
 3. **Cream-first.** All slides use #F8F7F3 as the base cream. Brand colors appear as accents: star icons, badges, serif italics, and divider lines.
 4. **Huge Typography.** Text is the primary design element. Headlines should be massive with tight tracking (-2px to -3px).

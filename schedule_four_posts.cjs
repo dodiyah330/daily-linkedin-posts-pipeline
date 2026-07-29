@@ -183,7 +183,7 @@ How do you balance aggressive growth with long-term stability?
 
 ♻️ Repost to save a freelancer from the revenue trap.
 
-Follow @founderswing for daily frameworks.`,
+Follow me.`,
       assetPath: '/Users/prithal/3d website/linkedin-automation-routine/slack_downloads/linkedin-carousel-2026-06-11.pdf',
       title: 'Built $1.06M revenue with 17,000 orders'
     },
@@ -208,7 +208,7 @@ Is this level of spending a smart long-term bet, or a bubble about to burst?
 
 ♻️ Repost to help a founder benchmark their AI costs.
 
-Follow @founderswing for more data drops.`,
+Follow me.`,
       assetPath: '/Users/prithal/3d website/linkedin-automation-routine/slack_downloads/linkedin-infographic.png'
     },
     {
@@ -233,7 +233,7 @@ This stops the AI from guessing and makes the output incredibly accurate.
 
 Have you tried using a dedicated context file for your AI agents yet?
 
-Follow @founderswing for more insights.`
+Follow me.`
     },
     {
       id: 4,
@@ -286,7 +286,7 @@ You need to see the guts of the system, not just the skin.
 
 How do you properly audit a "vibe-coded" prototype before joining a team?
 
-Follow @founderswing for more insights.`
+Follow me.`
     },
     {
       id: 6,
@@ -305,7 +305,7 @@ Tool featured: Oasis 3 (by Decart)
 Source: TechCrunch AI
 Archetype: Tool Spotlight | Emotion: WOW
 
-Follow @founderswing for more insights.`
+Follow me.`
     },
     {
       id: 7,
@@ -326,7 +326,7 @@ Archetype: Weekly Roundup | Emotion: OHHH
 
 Which of these updates do you think will have the biggest long-term impact?
 
-Follow @founderswing for more insights.`
+Follow me.`
     },
     {
       id: 8,
@@ -347,7 +347,7 @@ Archetype: Plain English Breakdown | Emotion: OHHH
 
 Do you think tech giants are over-leveraging themselves in the AI race?
 
-Follow @founderswing for more insights.`
+Follow me.`
     },
     {
       id: 9,
@@ -368,7 +368,7 @@ Control over the tech stack is the only way to stay lean and agile.
 Source: TechCrunch AI
 Archetype: Unfair Advantage | Emotion: WOW
 
-Follow @founderswing for more insights.`
+Follow me.`
     },
     {
       id: 10,
@@ -388,7 +388,7 @@ Learning how to structure business knowledge for AI is the quickest way to incre
 Source: TechCrunch AI
 Archetype: Career/Income | Emotion: AHA
 
-Follow @founderswing for more insights.`
+Follow me.`
     },
     {
       id: 11,
@@ -409,7 +409,7 @@ Archetype: Hot Take | Emotion: THINK
 
 How do you think we should handle copyright and attribution in the era of generative AI?
 
-Follow @founderswing for more insights.`
+Follow me.`
     }
   ];
 

@@ -57,7 +57,7 @@ The founders who win their first market rarely build the most. They build the le
 
 What is the one feature you could cut this week and still have something people would pay for?
 
-Follow @founderswing for more."""
+Follow me."""
 
 POLL = """A question keeps coming up from people sitting at the same fork. A few years into a job they do not love, with a little savings and real doubt about whether the safe move is actually the safe one.
 
@@ -88,7 +88,7 @@ It runs about 20 dollars per user a month, so it is built for teams, not free fo
 
 For anyone who runs five plus calls a day, what would you want it handling automatically while you stay in the conversation?
 
-Follow @founderswing for more tools worth knowing."""
+Follow me."""
 
 AI2 = """Four of the biggest AI labs shipped new models in the same four weeks.
 
@@ -124,7 +124,7 @@ The honest caveat. This is one directive, early and likely to shift as it gets c
 
 Does where you are based change which AI tools you reach for, or have you not had to think about it yet?
 
-Follow @founderswing for more breakdowns."""
+Follow me."""
 
 AI4 = """Most people paying 200 dollars a month for an AI coder do not know this exists.
 
@@ -138,11 +138,11 @@ What you can do with it. If you are a non-technical founder shipping a small pro
 
 The edge is the price. Same category of result, no subscription, no lock-in to one company.
 
-This is exactly the kind of thing we track at FounderWing, the cheaper tool that quietly does the expensive tool's job.
+This is exactly the kind of cheaper tool that quietly does the expensive tool's job.
 
 Who in your network is overpaying for AI tooling and should see this?
 
-Follow @founderswing for more."""
+Follow me."""
 
 AI5 = """If your job lives inside Slack, an AI agent just moved into the building.
 
@@ -158,7 +158,7 @@ The practical move this week. Pick the one task you do most that is really just 
 
 For anyone in sales or ops, which part of your week is mostly fetching information for other people?
 
-Follow @founderswing for more."""
+Follow me."""
 
 AI6 = """The smartest AI model is about to stop being the one that wins.
 
@@ -170,11 +170,11 @@ Two things this month proved it. First, the US ordered Anthropic to cut its best
 
 What most people get wrong. They obsess over which model scored highest on a test that has nothing to do with their business. The founder using a good enough model inside a sharp workflow beats the one chasing the leaderboard with no system around it.
 
-Capability is getting commoditized. Access, cost, and the workflow you build around the model are the real moat. That is the whole reason FounderWing exists, to help founders pick the tool that fits instead of the one that trends.
+Capability is getting commoditized. Access, cost, and the workflow you build around the model are the real moat. That is why it pays to pick the tool that fits instead of the one that trends.
 
 Am I wrong, or has the benchmark race stopped mattering for normal businesses?
 
-Follow @founderswing for more takes."""
+Follow me."""
 
 AI7 = """Steal this: a recurring AI agent that does your Monday research while you sleep.
 
@@ -192,7 +192,7 @@ Save this.
 
 Which recurring task would you hand to an agent first?"""
 
-PERF_HEADER = f"📈 *Performance Posts — {DATE}*\n5 posts modeled on your own top-performing analytics (founderswing report):"
+PERF_HEADER = f"📈 *Performance Posts — {DATE}*\n5 posts modeled on your own top-performing analytics (performance report):"
 
 PERF1 = """Most founders talk their startups to death.
 
@@ -237,7 +237,7 @@ This does not kill search traffic overnight. But the slow version of this change
 
 If half your customers found you through Google search, what would you do differently starting this month?
 
-Follow @founderswing for more."""
+Follow me."""
 
 # Captions for file uploads
 CAP_CAROUSEL = """━━━ CAROUSEL (Reddit) ━━━
@@ -253,7 +253,7 @@ The AI skills market has split into tiers, and the gap is wider than most freela
 AI agent developers now command up to 300 dollars an hour while general prompt work sits near 70.
 The premium is not for knowing AI exists. It is for building systems most people cannot.
 Which of these skills are you closest to charging for?
-Follow @founderswing for more data."""
+Follow me."""
 
 CAP_PERF_CAROUSEL = """━━━ PERFORMANCE CAROUSEL ━━━
 
@@ -269,7 +269,7 @@ CAP_PERF_DATAVIZ = """━━━ PERFORMANCE DATA VISUAL ━━━
 Most of it is busywork dressed up as progress. Summaries, rewrites, tidy emails.
 The founders pulling ahead live in the other 15 percent, using AI to make decisions and money, not just to look busy faster.
 Are you using AI to do real work, or just to do small work quicker?
-Follow @founderswing for more data."""
+Follow me."""
 
 def main():
     print("== Section A: header + Reddit text posts ==")

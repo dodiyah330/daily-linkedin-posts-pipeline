@@ -14,7 +14,7 @@ Usage:
 import sys, os, json, base64, subprocess, urllib.request, urllib.parse, argparse
 
 BASE = os.path.dirname(os.path.abspath(__file__))
-UA = {"User-Agent": "Mozilla/5.0 (FounderWing pipeline)"}
+UA = {"User-Agent": "Mozilla/5.0 (LinkedIn content pipeline)"}
 
 def _valid(path, minbytes=10000):
     if not (os.path.exists(path) and os.path.getsize(path) > minbytes):

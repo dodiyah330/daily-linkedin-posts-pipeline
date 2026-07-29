@@ -78,6 +78,6 @@ SCHEDULE_FILE=schedule_digitalcard.json POST_AS="Digital Card Creator" node sche
 
 ## Notes
 
-- Separate from OpenXcode, BookWellNow, FoundersWing, and automation-leads streams.
+- Separate from OpenXcode, BookWellNow, and automation-leads streams.
 - Brand accent `#536EFD`. CTA keyword **CARD**.
 - Batch starts tomorrow for 10 consecutive days.

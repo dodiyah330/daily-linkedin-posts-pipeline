@@ -110,7 +110,7 @@ Why it stays under the radar. No marketing budget. It is the quiet open option, 
 
 What you can do with it. A non-technical founder can wire up real features without a subscription, before there is a single paying customer. Same category of result, no monthly bill, no lock-in.
 
-This is exactly the kind of thing we hunt for at FounderWing, the cheaper tool quietly doing the expensive one's job.
+This is exactly the kind of cheaper tool quietly doing the expensive one's job.
 
 Who in your network is overpaying for AI tooling and should see this?
 
@@ -138,7 +138,7 @@ Here is the take. "Using AI" already became table stakes. It is the new baseline
 
 It is no longer whether you use AI. It is whether you have built it into how you actually work, on the tasks that move money. The person doing real work with AI is now quietly competing against people doing busywork with AI and calling it the same thing. It is not the same thing.
 
-That gap, between using it and using it well, is the whole reason FounderWing exists.
+That gap, between using it and using it well, is the whole opportunity.
 
 Are you using AI to do real work, or just to do small work faster?
 

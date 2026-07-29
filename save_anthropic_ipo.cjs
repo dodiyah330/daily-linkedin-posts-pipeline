@@ -66,7 +66,7 @@ For a company that has positioned itself as the safety-first, mission-driven cou
 
 Anthropic is raising capital, but they're also entering a phase where safe, slow, safety-centric AI research becomes a tough sell to institutional public market investors looking for immediate ARR growth.
 
-Founders Wing sees something different worth talking about: this IPO is a defensive play. As compute costs rise and private capital markets get more selective, going public is the only way to lock in the massive, sustained funding needed to compete with OpenAI and Google.
+Here is something different worth talking about: this IPO is a defensive play. As compute costs rise and private capital markets get more selective, going public is the only way to lock in the massive, sustained funding needed to compete with OpenAI and Google.
 
 It's not a victory lap; it's a resource grab in a race where the burn rate is measured in billions.
 

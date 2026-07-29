@@ -38,7 +38,7 @@ Apply the following style rules strictly:
 - No hashtags or maximum 1 at the very end.
 - Every post must end with a specific question (never "what do you think?").
 - Avoid banned words: game-changer, disruptive, hustle, grind, crush it, synergy, paradigm shift, thought leader, go viral, revolutionary, groundbreaking, unprecedented, cutting-edge, state-of-the-art, next-generation.
-- End every post with "Follow me." as the CTA. Do not mention FounderWing, Founders Wing, or @founderswing.
+- End every post with "Follow me." as the CTA. Do not mention personal brand names or @handles.
 
 Here are the news items of the week (June 1-4, 2026) to cover:
 - Post 4 (Unfair Advantage): S&P Global's Credit Memo Builder. Explain how analysts can build credit memos in minutes.

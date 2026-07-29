@@ -51,4 +51,4 @@ Attract **project inquiries** (web apps, mobile apps, UI/UX, AI features) — no
 - No fake hype: avoid "cutting-edge", "disruptive", "game-changer", "leverage", "synergy", "unlock", "delve"
 - No em-dashes
 - Educate first, soft sell last
-- Do not promote FounderWing, personal brands, or @handles
+- Do not promote personal brands or @handles

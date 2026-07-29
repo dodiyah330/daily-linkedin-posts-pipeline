@@ -86,7 +86,7 @@ Which client concentration percentage makes you start looking for new deals?
 
 ♻️ Repost to save a freelancer from the dependency trap
 
-Follow @founderswing for daily frameworks`,
+Follow me.`,
 
   // Post 2 (Infographic - Sun June 7, 2026 at 11:30 PM)
   infographic: `The organic reach numbers that explain why social media feels harder.
@@ -106,7 +106,7 @@ Which platform's organic reach rate surprised you the most?
 
 ♻️ Repost to help a founder bench their social metrics correctly
 
-Follow @founderswing for daily data drops`,
+Follow me.`,
 
   // Post 3 (Text-only - Mon June 8, 2026 at 2:30 AM)
   creditMemos: `Credit memos used to take days. S&P Global just made them a morning task.
@@ -117,7 +117,7 @@ S&P Global just launched a platform called Credit Memo Builder that compresses t
 
 The human consequence is straightforward: analysts get hours back every week. Those hours can go toward higher-judgment work, like stress-testing assumptions, having deeper client conversations, or reviewing more deals than the team could previously handle.
 
-At Founders Wing, we have been tracking how agentic tools are quietly reshaping financial workflows, and Credit Memo Builder is one of the cleaner examples of agents doing repetitive analytical work so humans can focus on the decisions that actually require expertise.
+We have been tracking how agentic tools are quietly reshaping financial workflows, and Credit Memo Builder is one of the cleaner examples of agents doing repetitive analytical work so humans can focus on the decisions that actually require expertise.
 
 The tool does not replace the analyst's judgment. It removes the friction that slows the analyst down before they even get to apply that judgment.
 
@@ -132,7 +132,7 @@ For a company that has positioned itself as the safety-first, mission-driven cou
 
 Anthropic is raising capital, but they're also entering a phase where safe, slow, safety-centric AI research becomes a tough sell to institutional public market investors looking for immediate ARR growth.
 
-Founders Wing sees something different worth talking about: this IPO is a defensive play. As compute costs rise and private capital markets get more selective, going public is the only way to lock in the massive, sustained funding needed to compete with OpenAI and Google.
+Here is something different worth talking about: this IPO is a defensive play. As compute costs rise and private capital markets get more selective, going public is the only way to lock in the massive, sustained funding needed to compete with OpenAI and Google.
 
 It's not a victory lap; it's a resource grab in a race where the burn rate is measured in billions.
 

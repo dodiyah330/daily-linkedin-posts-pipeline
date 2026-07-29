@@ -5,7 +5,7 @@ Writes 7 slides to temp/carousel-branded/ (assets captured there by capture_sour
 import os
 BASE = os.path.dirname(os.path.abspath(__file__))
 ACCENT = "#7C3AED"
-KICK = "Founders Wing / the shift"
+KICK = "the shift"
 OUTDIR_NAME = "carousel-branded"
 
 PAGE = """<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/>
@@ -20,7 +20,7 @@ body{{width:1080px;height:1080px;overflow:hidden;background:#F8F7F3;color:#111;f
 .hleft{{display:flex;align-items:center;gap:12px;font-size:14px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#111}}
 .dot{{width:14px;height:14px;border-radius:50%;background:{accent}}}
 .hright{{display:flex;align-items:center;gap:14px}}
-.fw{{font-family:'Instrument Serif',serif;font-style:italic;font-size:24px;color:#999}}
+.meta{{font-family:'Instrument Serif',serif;font-style:italic;font-size:24px;color:#999}}
 .badge{{width:46px;height:46px;background:{accent};border-radius:50%;display:flex;justify-content:center;align-items:center;color:#fff;font-weight:800;font-size:17px}}
 .top{{position:absolute;top:165px;left:70px;right:70px;z-index:5}}
 .kick{{font-size:18px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:{accent};margin-bottom:18px}}
@@ -42,7 +42,7 @@ body{{width:1080px;height:1080px;overflow:hidden;background:#F8F7F3;color:#111;f
 .pill em{{font-family:'Instrument Serif',serif;font-style:italic;color:{accent};font-weight:400;margin-left:6px}}
 </style></head><body>
 <div class="header"><div class="hleft"><span class="dot"></span>{kick}</div>
-<div class="hright"><div class="fw">founders wing</div><div class="badge">{num}</div></div></div>
+<div class="hright"><div class="meta"></div><div class="badge">{num}</div></div></div>
 {main}
 <div class="bottom">{bottom}</div>
 </body></html>"""

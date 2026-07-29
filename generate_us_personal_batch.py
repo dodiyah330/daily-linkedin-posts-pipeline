@@ -101,7 +101,7 @@ Voice: first person (I / I've / my). Practical. Name real tools.
 AUDIENCE: US founders and ops leaders (East Coast + West Coast). HubSpot, Salesforce, Slack, Stripe, DocuSign, Intercom, Notion, Calendly.
 US FRAMING REQUIRED: "US SaaS", "Series A", "before your 9 AM ET standup", dollar outcomes, SOC 2 / audit trail when relevant.
 CTA rotate: Comment AUTO / DM AUTO / DM your stack (CRM + chat + project tool).
-No em-dashes. No FounderWing/@handles. No company-page "we/our" voice.
+No em-dashes. No @handles. No company-page "we/our" voice.
 Banned: game-changer, cutting-edge, leverage, synergy, unlock, delve, disruptive, revolutionary.
 Return ONLY valid JSON."""
 

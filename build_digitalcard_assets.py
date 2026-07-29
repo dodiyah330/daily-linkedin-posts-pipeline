@@ -86,7 +86,7 @@ body{{width:1080px;height:1080px;overflow:hidden;background:#F5F7FF;color:#111;f
 .hleft{{display:flex;align-items:center;gap:12px;font-size:14px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#111}}
 .dot{{width:14px;height:14px;border-radius:50%;background:{accent}}}
 .hright{{display:flex;align-items:center;gap:15px}}
-.fw{{font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;color:#999}}
+.meta{{font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;color:#999}}
 .badge{{width:46px;height:46px;background:{accent};border-radius:50%;display:flex;justify-content:center;align-items:center;color:#fff;font-weight:800;font-size:17px}}
 .content{{position:absolute;top:240px;left:70px;right:70px;bottom:150px;z-index:5}}
 .kick{{font-size:18px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:{accent};margin-bottom:22px}}
@@ -100,7 +100,7 @@ body{{width:1080px;height:1080px;overflow:hidden;background:#F5F7FF;color:#111;f
 .pill em{{font-family:'Instrument Serif',serif;font-style:italic;color:{accent};font-weight:400;margin-left:6px}}
 </style></head><body>
 <div class="header"><div class="hleft"><span class="dot"></span>Digital Card Creator</div>
-<div class="hright"><div class="fw">{site}</div><div class="badge">{num}</div></div></div>
+<div class="hright"><div class="meta">{site}</div><div class="badge">{num}</div></div></div>
 {main}
 <div class="bottom">{bottom}</div>
 </body></html>"""

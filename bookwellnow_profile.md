@@ -84,7 +84,7 @@ Get service business owners and WordPress agencies to **install the free plugin*
 - No em-dashes
 - Do not bash named competitors; contrast with "most booking plugins" instead
 - Educate first, soft sell last
-- Do not promote OpenXcode, FoundersWing, personal brands, or @handles
+- Do not promote OpenXcode, personal brands, or @handles
 
 ## Brand
 - Primary accent: `#5700B4` (brand purple)

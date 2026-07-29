@@ -33,7 +33,7 @@ Posts use **company voice** (`we` / `our`) and aim to attract **project inquirie
 - **We / our / OpenXcode team** only (never solo freelancer "I")
 - Specific platforms and outcomes over buzzwords
 - Soft lead CTAs: Comment **BUILD**, DM us, or request a proposal
-- No FounderWing / personal @handles
+- No personal @handles
 - No em-dashes; banned hype words listed in `openxcode_profile.md`
 
 ## Peak times (this week / weekly batch)
@@ -97,6 +97,6 @@ OPENXCODE_POST_TIME='11:00 AM' python3 prepare_openxcode_schedule.py
 
 ## Notes
 
-- This stream is **separate** from FoundersWing daily content and the automation-leads stream.
+- This stream is **separate** from the daily personal content stream and the automation-leads stream.
 - Default schedule: **tomorrow at 10:00 AM** in the LinkedIn account timezone.
 - Text-only for v1 (no carousel/infographic). Add visuals later if needed.

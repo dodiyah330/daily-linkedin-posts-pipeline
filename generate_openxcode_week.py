@@ -137,7 +137,7 @@ WRITING RULES:
    - "Comment BUILD and we'll reply with a rough approach and timeline."
    - "DM us your idea (or current stack + deadline) and we'll reply within one business day."
    - "Request a proposal at openxcode.com — we get back within one business day."
-7. Never mention FounderWing, personal @handles, or third-party personal brands.
+7. Never mention personal @handles or third-party personal brands.
 8. Banned words: game-changer, disruptive, leverage (verb), synergy, paradigm shift,
    revolutionary, cutting-edge, empower, unlock, delve, landscape (as buzzword).
 9. Length: roughly 120–220 words each. Short paragraphs. Scannable on mobile.

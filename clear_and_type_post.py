@@ -20,7 +20,7 @@ The trend this week is clear: AI is moving from a chatbot helper to automated sy
 
 Which of these updates will have the biggest impact on your team's workflow this quarter?
 
-Follow @founderswing for daily data drops"""
+Follow me."""
 
 def run_cmd(args):
     print("Running:", " ".join(args))
