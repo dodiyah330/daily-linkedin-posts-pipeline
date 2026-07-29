@@ -21,17 +21,22 @@ trap 'rmdir "$LOCK_FILE" 2>/dev/null || true; kill $WATCHDOG_PID 2>/dev/null || 
 ) &
 WATCHDOG_PID=$!
 
-# Conservative defaults after prior restriction (~145 DMs in one day).
+# Locked safe defaults after Jul 2026 restrictions.
 export MAX_DMS_PER_RUN="${MAX_DMS_PER_RUN:-5}"
-export MAX_DMS_PER_DAY="${MAX_DMS_PER_DAY:-8}"
-export MAX_DMS_PER_HOUR="${MAX_DMS_PER_HOUR:-4}"
-export DM_DELAY_MS="${DM_DELAY_MS:-45000}"
-export DM_DELAY_JITTER_MS="${DM_DELAY_JITTER_MS:-25000}"
-export DM_VARIANT="${DM_VARIANT:-hook}"
+export MAX_DMS_PER_DAY="${MAX_DMS_PER_DAY:-12}"
+export MAX_DMS_PER_HOUR="${MAX_DMS_PER_HOUR:-3}"
+export MAX_DMS_PER_WEEK="${MAX_DMS_PER_WEEK:-60}"
+export DM_DELAY_MS="${DM_DELAY_MS:-90000}"
+export DM_DELAY_JITTER_MS="${DM_DELAY_JITTER_MS:-45000}"
+export DM_VARIANT="${DM_VARIANT:-auto}"
 export DM_USE_CACHE="${DM_USE_CACHE:-1}"
+export DM_SCROLLS="${DM_SCROLLS:-4}"
+export DM_SEARCH_BATCH="${DM_SEARCH_BATCH:-25}"
+export DM_MAX_GEO_SEARCHES="${DM_MAX_GEO_SEARCHES:-3}"
 
-echo "== Guarded connection DMs (safe mode) =="
+echo "== Guarded connection DMs (anti-restriction mode) =="
 echo "    watchdog_pid=$WATCHDOG_PID variant=$DM_VARIANT"
-echo "    run=$MAX_DMS_PER_RUN/day=$MAX_DMS_PER_DAY/hour=$MAX_DMS_PER_HOUR"
+echo "    run=$MAX_DMS_PER_RUN/day=$MAX_DMS_PER_DAY/hour=$MAX_DMS_PER_HOUR/week=$MAX_DMS_PER_WEEK"
 echo "    delay=${DM_DELAY_MS}ms + jitter 0..${DM_DELAY_JITTER_MS}ms"
+echo "    Absolute max in code: 5/run, 15/day, 3/hour, 70/week"
 node send_connection_dms.cjs

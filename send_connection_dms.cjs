@@ -4,18 +4,22 @@
  *
  * Requires: agent-browser --session linkedin_bot open https://www.linkedin.com/feed/
  *
- * Env (safe defaults — previous unrestricted burst got the account limited):
+ * SAFETY (Jul 2026): LinkedIn restricted this account for high profile-data volume
+ * after ~77–145 DMs/day + aggressive search. Caps below are non-bypassable.
+ *
+ * Env:
  *   DRY_RUN=1                 Discover/filter only, do not send
- *   MAX_DMS_PER_RUN=5          Cap per script run
- *   MAX_DMS_PER_DAY=8          Cap per calendar day
- *   MAX_DMS_PER_HOUR=4         Cap per rolling hour
- *   DM_DELAY_MS=45000          Base pause between sends (jitter added)
- *   DM_DELAY_JITTER_MS=25000   Random extra wait 0..N ms
- *   DM_VARIANT=hook           Template key: hook|founder|ops|short
- *   DM_SCROLLS=12             Scrolls while collecting search results
- *   DM_SEARCH_BATCH=40        Max prospects to collect before filtering
+ *   MAX_DMS_PER_RUN=5          Cap per script run (absolute max 5)
+ *   MAX_DMS_PER_DAY=12         Cap per calendar day (absolute max 15)
+ *   MAX_DMS_PER_HOUR=3         Cap per rolling hour (absolute max 3)
+ *   MAX_DMS_PER_WEEK=60        Cap per rolling 7 days (absolute max 70)
+ *   DM_DELAY_MS=90000          Base pause between sends (min 75s)
+ *   DM_DELAY_JITTER_MS=45000   Random extra wait 0..N ms
+ *   DM_VARIANT=auto           auto|founder|ops|sales|...
+ *   DM_SCROLLS=4              Scrolls while collecting search results
+ *   DM_SEARCH_BATCH=25        Max prospects to collect before filtering
+ *   DM_MAX_GEO_SEARCHES=3     Max countries to search per run (cache preferred)
  *   DM_USE_CACHE=1            Prefer cached remaining targets (default on)
- *   ALLOW_UNSAFE_DM_LIMITS=1  Bypass hard ceiling (not recommended)
  */
 const puppeteer = require('puppeteer-core');
 const fs = require('fs');
@@ -27,22 +31,29 @@ const CACHE_FILE = path.join(__dirname, 'connection-dms-targets-cache.json');
 const TEMPLATES_FILE = path.join(__dirname, 'connection_dm_templates.json');
 
 const DRY_RUN = process.env.DRY_RUN === '1';
-const DELAY_MS = parseInt(process.env.DM_DELAY_MS || '45000', 10);
-const DELAY_JITTER_MS = parseInt(process.env.DM_DELAY_JITTER_MS || '25000', 10);
+const DELAY_MS = parseInt(process.env.DM_DELAY_MS || '90000', 10);
+const DELAY_JITTER_MS = parseInt(process.env.DM_DELAY_JITTER_MS || '45000', 10);
 const MAX_PER_RUN = parseInt(process.env.MAX_DMS_PER_RUN || '5', 10);
-const MAX_PER_DAY = parseInt(process.env.MAX_DMS_PER_DAY || '8', 10);
-const MAX_PER_HOUR = parseInt(process.env.MAX_DMS_PER_HOUR || '4', 10);
-const VARIANT = process.env.DM_VARIANT || 'hook';
-const SEARCH_SCROLLS = parseInt(process.env.DM_SCROLLS || '12', 10);
-const SEARCH_BATCH = parseInt(process.env.DM_SEARCH_BATCH || '40', 10);
+const MAX_PER_DAY = parseInt(process.env.MAX_DMS_PER_DAY || '12', 10);
+const MAX_PER_HOUR = parseInt(process.env.MAX_DMS_PER_HOUR || '3', 10);
+const MAX_PER_WEEK = parseInt(process.env.MAX_DMS_PER_WEEK || '60', 10);
+const VARIANT = process.env.DM_VARIANT || 'auto';
+const SEARCH_SCROLLS = parseInt(process.env.DM_SCROLLS || '4', 10);
+const SEARCH_BATCH = parseInt(process.env.DM_SEARCH_BATCH || '25', 10);
+const MAX_GEO_SEARCHES = parseInt(process.env.DM_MAX_GEO_SEARCHES || '3', 10);
 const USE_CACHE = process.env.DM_USE_CACHE !== '0';
-const ALLOW_UNSAFE = process.env.ALLOW_UNSAFE_DM_LIMITS === '1';
 
-// Hard ceilings — last unrestricted run sent ~145/day and triggered a restriction.
-const HARD_MAX_RUN = 8;
-const HARD_MAX_DAY = 12;
-const HARD_MAX_HOUR = 5;
-const HARD_MIN_DELAY_MS = 30000;
+// Absolute ceilings — cannot be raised via env (past ALLOW_UNSAFE caused restrictions).
+// LinkedIn cited "unusually high volume of LinkedIn profile data" at ~77+/day.
+const ABSOLUTE_MAX_RUN = 5;
+const ABSOLUTE_MAX_DAY = 15;
+const ABSOLUTE_MAX_HOUR = 3;
+const ABSOLUTE_MAX_WEEK = 70;
+const HARD_MIN_DELAY_MS = 75000;
+const RECOVERY_MAX_DAY = 8;
+const RECOVERY_MAX_RUN = 4;
+const RECOVERY_MAX_HOUR = 2;
+const RECOVERY_DAYS = 14;
 
 // Major markets outside India (LinkedIn geoUrn)
 const GEO_TARGETS = [
@@ -112,36 +123,85 @@ function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));
 }
 
-function nextDelayMs() {
-  const base = Math.max(DELAY_MS, HARD_MIN_DELAY_MS);
+function nextDelayMs(baseDelayMs) {
+  const base = Math.max(baseDelayMs || DELAY_MS, HARD_MIN_DELAY_MS);
   const jitter = DELAY_JITTER_MS > 0 ? Math.floor(Math.random() * (DELAY_JITTER_MS + 1)) : 0;
   return base + jitter;
 }
 
-function enforceSafeLimits() {
-  if (ALLOW_UNSAFE) {
-    console.log('WARNING: ALLOW_UNSAFE_DM_LIMITS=1 — hard ceilings disabled');
-    return {
-      maxRun: MAX_PER_RUN,
-      maxDay: MAX_PER_DAY,
-      maxHour: MAX_PER_HOUR,
-      delayMs: DELAY_MS,
-    };
+function recentlyRestricted(log) {
+  const since = Date.now() - RECOVERY_DAYS * 24 * 60 * 60 * 1000;
+  const flagged = log.some((e) => {
+    if (!e.ts || Date.parse(e.ts) < since) return false;
+    if (['restricted', 'limit_reached'].includes(e.status)) return true;
+    const err = String(e.error || '').toLowerCase();
+    return /restrict|checkpoint|unusual activity|messaging limit|too many messages/.test(err);
+  });
+  if (flagged) return true;
+
+  // Also treat recent high-volume days as recovery signal (77+ and 145 previously led to locks).
+  const byDay = {};
+  for (const e of log) {
+    if (e.status !== 'sent' || e.dry_run || !e.date) continue;
+    if (e.ts && Date.parse(e.ts) < since) continue;
+    byDay[e.date] = (byDay[e.date] || 0) + 1;
   }
+  return Object.values(byDay).some((n) => n >= 40);
+}
+
+function countSentInLastDays(log, days, opts = {}) {
+  const since = Date.now() - days * 24 * 60 * 60 * 1000;
+  const byDay = {};
+  for (const e of log) {
+    if (e.status !== 'sent' || e.dry_run) continue;
+    if (!e.ts || Date.parse(e.ts) < since) continue;
+    const d = e.date || String(e.ts).slice(0, 10);
+    byDay[d] = (byDay[d] || 0) + 1;
+  }
+  // Past burst days (≥40) already caused restriction — don't let them block safe resume.
+  if (opts.excludeBurstDays) {
+    return Object.values(byDay).reduce((sum, n) => sum + (n >= 40 ? 0 : n), 0);
+  }
+  return Object.values(byDay).reduce((sum, n) => sum + n, 0);
+}
+
+function enforceSafeLimits(log) {
+  const recovery = recentlyRestricted(log);
+  if (recovery) {
+    console.log(
+      `Recovery mode ON (restriction/limit signal in last ${RECOVERY_DAYS} days): using tighter caps`
+    );
+  }
+
+  // Absolute ceilings always apply — ALLOW_UNSAFE_DM_LIMITS is ignored for max volume.
+  if (process.env.ALLOW_UNSAFE_DM_LIMITS === '1') {
+    console.log(
+      'NOTE: ALLOW_UNSAFE_DM_LIMITS is ignored. Absolute caps always apply to protect the account.'
+    );
+  }
+
+  const dayCap = recovery ? RECOVERY_MAX_DAY : ABSOLUTE_MAX_DAY;
+  const runCap = recovery ? RECOVERY_MAX_RUN : ABSOLUTE_MAX_RUN;
+  const hourCap = recovery ? RECOVERY_MAX_HOUR : ABSOLUTE_MAX_HOUR;
+
   const clamped = {
-    maxRun: Math.min(MAX_PER_RUN, HARD_MAX_RUN),
-    maxDay: Math.min(MAX_PER_DAY, HARD_MAX_DAY),
-    maxHour: Math.min(MAX_PER_HOUR, HARD_MAX_HOUR),
+    maxRun: Math.min(MAX_PER_RUN, runCap),
+    maxDay: Math.min(MAX_PER_DAY, dayCap),
+    maxHour: Math.min(MAX_PER_HOUR, hourCap),
+    maxWeek: Math.min(MAX_PER_WEEK, ABSOLUTE_MAX_WEEK),
     delayMs: Math.max(DELAY_MS, HARD_MIN_DELAY_MS),
+    recovery,
   };
+
   if (
     clamped.maxRun !== MAX_PER_RUN ||
     clamped.maxDay !== MAX_PER_DAY ||
     clamped.maxHour !== MAX_PER_HOUR ||
+    clamped.maxWeek !== MAX_PER_WEEK ||
     clamped.delayMs !== DELAY_MS
   ) {
     console.log(
-      `Safety clamp applied: run=${clamped.maxRun}/day=${clamped.maxDay}/hour=${clamped.maxHour} delay>=${clamped.delayMs}ms`
+      `Safety clamp: run=${clamped.maxRun}/day=${clamped.maxDay}/hour=${clamped.maxHour}/week=${clamped.maxWeek} delay>=${clamped.delayMs}ms`
     );
   }
   return clamped;
@@ -209,12 +269,12 @@ function isIndiaLocation(text) {
   return INDIA_MARKERS.some((m) => t.includes(m));
 }
 
-function loadTemplate() {
-  const data = loadJson(TEMPLATES_FILE, { variants: {} });
-  const key = VARIANT || data.default_variant || 'hook';
-  const tpl = data.variants?.[key] || data.variants?.hook;
-  if (!tpl) throw new Error(`No DM template for variant=${key}`);
-  return tpl;
+function loadTemplates() {
+  const data = loadJson(TEMPLATES_FILE, { variants: {}, role_rules: [] });
+  if (!data.variants || !Object.keys(data.variants).length) {
+    throw new Error('No DM templates found in connection_dm_templates.json');
+  }
+  return data;
 }
 
 function sanitizeMessage(text) {
@@ -229,8 +289,64 @@ function sanitizeMessage(text) {
     .trim();
 }
 
-function renderMessage(template, name) {
-  return sanitizeMessage(template.replace(/\{\{\s*FirstName\s*\}\}/g, firstName(name)));
+function cleanHeadline(text, name) {
+  let t = String(text || '')
+    .replace(/\s+/g, ' ')
+    .replace(/[•·].*$/, '')
+    .trim();
+  if (!t) return '';
+  if (/skip to|notifications?|followers|connections|^home$|^messaging$/i.test(t)) return '';
+  const nameNorm = String(name || '').replace(/\s+/g, ' ').trim().toLowerCase();
+  if (nameNorm && t.toLowerCase() === nameNorm) return '';
+  // Keep a short role phrase for the generic template; don't truncate mid-word harshly
+  if (t.length > 90) t = t.slice(0, 87).replace(/\s+\S*$/, '').trim() + '...';
+  return t;
+}
+
+function detectRole(templates, prospect) {
+  const blob = `${prospect.title || ''} ${prospect.headline || ''} ${prospect.location || ''}`.toLowerCase();
+  const rules = templates.role_rules || [];
+  for (const rule of rules) {
+    const kws = rule.keywords || [];
+    if (kws.some((k) => blob.includes(String(k).toLowerCase()))) {
+      return { variant: rule.variant, label: rule.label || rule.variant };
+    }
+  }
+  return { variant: 'generic', label: 'your space' };
+}
+
+function pickVariant(templates, prospect) {
+  const requested = (VARIANT || templates.default_variant || 'auto').toLowerCase();
+  if (requested && requested !== 'auto' && templates.variants[requested]) {
+    return {
+      variant: requested,
+      label: (templates.role_rules || []).find((r) => r.variant === requested)?.label || requested,
+    };
+  }
+  const detected = detectRole(templates, prospect);
+  if (templates.variants[detected.variant]) return detected;
+  return { variant: 'generic', label: 'your space' };
+}
+
+function renderMessage(templates, prospect) {
+  const picked = pickVariant(templates, prospect);
+  const template =
+    templates.variants[picked.variant] ||
+    templates.variants.generic ||
+    Object.values(templates.variants)[0];
+  const headline = cleanHeadline(prospect.headline || prospect.title, prospect.name);
+  const headlineBit = headline ? ` (${headline})` : '';
+  const text = String(template)
+    .replace(/\{\{\s*FirstName\s*\}\}/g, firstName(prospect.name))
+    .replace(/\{\{\s*RoleLabel\s*\}\}/g, picked.label || 'your space')
+    .replace(/\{\{\s*HeadlineBit\s*\}\}/g, headlineBit)
+    .replace(/\{\{\s*Headline\s*\}\}/g, headline || 'your work');
+  return {
+    message: sanitizeMessage(text),
+    variant: picked.variant,
+    label: picked.label,
+    headline,
+  };
 }
 
 function connectBrowser() {
@@ -445,12 +561,13 @@ async function extractSearchResults(page) {
   });
 }
 
-async function collectTargets(page, needed, already) {
+async function collectTargets(page, needed, already, opts = {}) {
   const found = [];
   const cache = loadJson(CACHE_FILE, { profiles: [] });
+  const useCache = opts.forceSearch ? false : USE_CACHE;
 
   // Prefer cache (remaining targets) to avoid aggressive search scraping.
-  if (USE_CACHE && (cache.profiles || []).length) {
+  if (useCache && (cache.profiles || []).length) {
     for (const p of cache.profiles) {
       if (found.length >= needed) break;
       if (already.has(p.slug)) continue;
@@ -461,9 +578,15 @@ async function collectTargets(page, needed, already) {
       console.log(`Using cache: ${found.length} remaining targets (set DM_USE_CACHE=0 to re-search)`);
       return found;
     }
+    console.log('Cache has no unused targets — searching LinkedIn...');
   }
 
-  for (const geo of GEO_TARGETS) {
+  // Limit country searches — sweeping all geos looks like bulk profile-data scraping.
+  const geoLimit = Math.max(1, Math.min(MAX_GEO_SEARCHES, GEO_TARGETS.length));
+  const geos = GEO_TARGETS.slice(0, geoLimit);
+  console.log(`Live search limited to ${geos.length} geo(s) this run (DM_MAX_GEO_SEARCHES)`);
+
+  for (const geo of geos) {
     if (found.length >= needed) break;
     const url = buildSearchUrl(geo.urn);
     console.log(`\nSearching 1st-degree in ${geo.name}`);
@@ -473,9 +596,9 @@ async function collectTargets(page, needed, already) {
       await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
     } catch (err) {
       console.log(`Nav error: ${err.message}`);
-      await new Promise((r) => setTimeout(r, 2000));
+      await sleep(2000);
     }
-    await new Promise((r) => setTimeout(r, 3500));
+    await sleep(3500);
     await dismissOverlays(page);
 
     for (let scroll = 0; scroll < SEARCH_SCROLLS && found.length < needed; scroll++) {
@@ -484,7 +607,7 @@ async function collectTargets(page, needed, already) {
         batch = await extractSearchResults(page);
       } catch (err) {
         console.log(`Extract error (retrying): ${err.message}`);
-        await new Promise((r) => setTimeout(r, 2000));
+        await sleep(2000);
         try {
           batch = await extractSearchResults(page);
         } catch (_) {
@@ -501,8 +624,10 @@ async function collectTargets(page, needed, already) {
       try {
         await page.evaluate(() => window.scrollBy(0, window.innerHeight * 0.9));
       } catch (_) {}
-      await new Promise((r) => setTimeout(r, 1800));
+      await sleep(2200);
     }
+    // Pause between geo searches to reduce profile-data velocity
+    if (found.length < needed) await sleep(4000);
   }
 
   cache.profiles = [...(cache.profiles || []), ...found]
@@ -518,27 +643,74 @@ async function collectTargets(page, needed, already) {
   return found;
 }
 
-async function readProfileLocation(page) {
+async function readProfileContext(page) {
   return page.evaluate(() => {
-    const selectors = [
-      '.text-body-small.inline.t-black--light.break-words',
-      'span.text-body-small.inline.t-black--light',
-      '[data-anonymize="location"]',
-      '.pv-text-details__left-panel .text-body-small',
-    ];
-    for (const sel of selectors) {
-      const el = document.querySelector(sel);
-      const t = (el?.innerText || '').trim();
-      if (t && t.length < 120) return t;
+    function clean(s) {
+      return (s || '').replace(/\s+/g, ' ').trim();
     }
-    const body = document.body.innerText || '';
-    const lines = body.split('\n').map((l) => l.trim()).filter(Boolean);
-    const hit = lines.find((l) =>
-      /,/.test(l) &&
-      l.length < 80 &&
-      !/followers|connections|message|connect|about|experience/i.test(l)
+
+    const pronoun = /^(he\/him|she\/her|they\/them|he\/they|she\/they)$/i;
+    const degree = /^[·•]?\s*\d+(st|nd|rd|th)$/i;
+    const stopSection = /^(about|activity|experience|education|skills|featured|interests|message|connect|more|contact info|highlights|services)$/i;
+    const junkLine =
+      /skip to|notifications?|followers|connections|mutual connection|get verified|premium|open to|contact info/i;
+
+    const main = document.querySelector('main') || document.body;
+    const lines = (main.innerText || '')
+      .split('\n')
+      .map((l) => clean(l))
+      .filter(Boolean)
+      .slice(0, 35);
+
+    // Name is usually the first real profile heading line
+    let nameIdx = lines.findIndex(
+      (l) =>
+        l.length > 1 &&
+        l.length < 80 &&
+        !junkLine.test(l) &&
+        !stopSection.test(l) &&
+        !pronoun.test(l) &&
+        !degree.test(l)
     );
-    return hit || '';
+    if (nameIdx < 0) nameIdx = 0;
+
+    let headline = '';
+    let location = '';
+    for (let i = nameIdx + 1; i < Math.min(lines.length, nameIdx + 12); i++) {
+      const l = lines[i];
+      if (!l || stopSection.test(l) || junkLine.test(l)) {
+        if (stopSection.test(l)) break;
+        continue;
+      }
+      if (pronoun.test(l) || degree.test(l) || l === '·' || l === '•') continue;
+      if (!location && (/,/.test(l) || /\b(Area|Remote|United|Kingdom|States|Canada|Australia|Emirates|Germany|France|Ireland|Netherlands)\b/i.test(l)) && l.length < 100) {
+        location = l;
+        continue;
+      }
+      if (!headline && l.length >= 3 && l.length <= 160 && !/,/.test(l)) {
+        headline = l;
+      }
+      if (headline && location) break;
+    }
+
+    // CSS fallbacks for older LinkedIn markup
+    if (!headline) {
+      const el =
+        document.querySelector('[data-anonymize="headline"]') ||
+        document.querySelector('.pv-text-details__left-panel .text-body-medium') ||
+        document.querySelector('.text-body-medium.break-words');
+      const t = clean(el?.innerText);
+      if (t && t.length < 180 && !junkLine.test(t)) headline = t;
+    }
+    if (!location) {
+      const el =
+        document.querySelector('[data-anonymize="location"]') ||
+        document.querySelector('.text-body-small.inline.t-black--light.break-words');
+      const t = clean(el?.innerText);
+      if (t && t.length < 120 && !junkLine.test(t)) location = t;
+    }
+
+    return { location, headline };
   });
 }
 
@@ -624,7 +796,7 @@ async function withTimeout(promise, ms, label) {
   }
 }
 
-async function sendMessageOnProfile(page, prospect, message) {
+async function sendMessageOnProfile(page, prospect, templates) {
   await dismissOverlays(page);
   try {
     await withTimeout(
@@ -640,42 +812,58 @@ async function sendMessageOnProfile(page, prospect, message) {
       }
     }
   }
-  await new Promise((r) => setTimeout(r, 2800));
+  await sleep(2800);
   await dismissOverlays(page);
 
   let location = '';
+  let headline = prospect.headline || prospect.title || '';
   try {
-    location = await withTimeout(readProfileLocation(page), 10000, 'location');
+    const ctx = await withTimeout(readProfileContext(page), 10000, 'profile context');
+    location = ctx.location || '';
+    if (ctx.headline) headline = ctx.headline;
   } catch (_) {}
-  if (isIndiaLocation(location)) {
-    return { status: 'skipped_india', location };
+  if (isIndiaLocation(location) || isIndiaLocation(headline)) {
+    return { status: 'skipped_india', location, headline };
   }
+
+  const personalized = renderMessage(templates, {
+    ...prospect,
+    title: prospect.title || headline,
+    headline,
+  });
+  const message = personalized.message;
 
   let opened = false;
   try {
     opened = await withTimeout(openCompose(page), 25000, 'open compose');
   } catch (err) {
-    return { status: 'failed', error: err.message, location };
+    return { status: 'failed', error: err.message, location, headline, variant: personalized.variant };
   }
   if (!opened) {
-    return { status: 'failed', error: 'Message button not found', location };
+    return { status: 'failed', error: 'Message button not found', location, headline, variant: personalized.variant };
   }
 
-  await new Promise((r) => setTimeout(r, 1200));
+  await sleep(1200);
   const editorReady = await waitForEditor(page, 10000);
   if (!editorReady) {
-    return { status: 'failed', error: 'Message editor not ready', location };
+    return { status: 'failed', error: 'Message editor not ready', location, headline, variant: personalized.variant };
   }
 
   const filled = await fillMessage(page, message);
   if (!filled) {
-    return { status: 'failed', error: 'Could not fill message editor', location };
+    return { status: 'failed', error: 'Could not fill message editor', location, headline, variant: personalized.variant };
   }
 
-  await new Promise((r) => setTimeout(r, 600));
+  await sleep(600);
 
   if (DRY_RUN) {
-    return { status: 'dry_run', location, preview: message.slice(0, 120) };
+    return {
+      status: 'dry_run',
+      location,
+      headline,
+      variant: personalized.variant,
+      preview: message.slice(0, 160),
+    };
   }
 
   let sent = false;
@@ -705,27 +893,28 @@ async function sendMessageOnProfile(page, prospect, message) {
     await page.keyboard.up(mod);
   }
 
-  await new Promise((r) => setTimeout(r, 1800));
+  await sleep(1800);
 
   const blocked = await detectRestriction(page);
   if (blocked) {
     if (/limit|too many messages|try again later/i.test(blocked)) {
-      return { status: 'limit_reached', location, error: blocked };
+      return { status: 'limit_reached', location, headline, error: blocked, variant: personalized.variant };
     }
-    return { status: 'restricted', location, error: blocked };
+    return { status: 'restricted', location, headline, error: blocked, variant: personalized.variant };
   }
 
-  return { status: 'sent', location };
+  return { status: 'sent', location, headline, variant: personalized.variant, label: personalized.label };
 }
 
 async function main() {
-  const limits = enforceSafeLimits();
-  const template = loadTemplate();
   const log = loadJson(LOG_FILE, []);
+  const limits = enforceSafeLimits(log);
+  const templates = loadTemplates();
   const today = todayStr();
   const now = Date.now();
   const sentToday = log.filter((e) => e.date === today && e.status === 'sent' && !e.dry_run).length;
   const sentLastHour = countSentSince(log, now - 60 * 60 * 1000);
+  const sentLastWeek = countSentInLastDays(log, 7, { excludeBurstDays: true });
   const already = new Set(
     log
       .filter((e) => ['sent', 'skipped_india'].includes(e.status) && !e.dry_run)
@@ -735,24 +924,30 @@ async function main() {
 
   const remainingDay = Math.max(0, limits.maxDay - sentToday);
   const remainingHour = Math.max(0, limits.maxHour - sentLastHour);
-  const budget = Math.min(limits.maxRun, remainingDay, remainingHour);
+  const remainingWeek = Math.max(0, limits.maxWeek - sentLastWeek);
+  const budget = Math.min(limits.maxRun, remainingDay, remainingHour, remainingWeek);
 
   console.log('== LinkedIn DMs → non-India 1st-degree connections ==');
   console.log(`Mode: ${DRY_RUN ? 'DRY RUN' : 'LIVE SEND'}`);
-  console.log(`Variant: ${VARIANT}`);
+  console.log(`Variant mode: ${VARIANT} (role-personalized when auto)`);
   console.log(
-    `Caps: run=${limits.maxRun} day=${limits.maxDay} hour=${limits.maxHour} | delay≈${limits.delayMs}+0..${DELAY_JITTER_MS}ms`
+    `Caps: run=${limits.maxRun} day=${limits.maxDay} hour=${limits.maxHour} week=${limits.maxWeek} | delay≈${limits.delayMs}+0..${DELAY_JITTER_MS}ms`
   );
   console.log(
-    `Already sent today: ${sentToday} | last hour: ${sentLastHour} | Run budget: ${budget}`
+    `Already sent today: ${sentToday} | last hour: ${sentLastHour} | last 7d: ${sentLastWeek} | Run budget: ${budget}`
   );
   console.log(`Already messaged (all time): ${already.size}`);
+  console.log(
+    `Safe guidance: stay at ${limits.maxDay}/day (absolute max ${ABSOLUTE_MAX_DAY}). 50–200/day previously caused restriction.`
+  );
 
   if (budget <= 0) {
     if (remainingDay <= 0) {
       console.log('Daily DM cap reached. Resume tomorrow (safe default).');
     } else if (remainingHour <= 0) {
       console.log('Hourly DM cap reached. Wait ~1 hour, then re-run.');
+    } else if (remainingWeek <= 0) {
+      console.log('Weekly DM cap reached. Resume next week.');
     } else {
       console.log('Run budget is 0.');
     }
@@ -814,25 +1009,39 @@ async function main() {
     process.exit(3);
   }
 
-  const targets = await collectTargets(page, Math.max(budget * 3, Math.min(SEARCH_BATCH, 20)), already);
+  // Only collect what we need for this small budget — avoid bulk profile-data scraping.
+  const need = Math.min(Math.max(budget + 8, budget * 2), SEARCH_BATCH);
+  let targets = await collectTargets(page, need, already);
+  if (targets.length < budget) {
+    console.log(`Only ${targets.length} cached targets (need ${budget}) — light search for more...`);
+    const more = await collectTargets(page, need, already, { forceSearch: true });
+    const seen = new Set(targets.map((t) => t.slug));
+    for (const p of more) {
+      if (seen.has(p.slug)) continue;
+      targets.push(p);
+      seen.add(p.slug);
+    }
+  }
   if (!targets.length) {
-    console.log('No remaining targets in cache/search. Done, or set DM_USE_CACHE=0 to re-search.');
+    console.log('No remaining targets in cache/search. Done, or wait for new connections.');
     await browser.disconnect();
     return;
   }
+  console.log(`Queue ready: ${Math.min(targets.length, need)} targets for budget ${budget}`);
+  targets = targets.slice(0, Math.max(need, budget * 2));
 
   let sent = 0;
   let failed = 0;
   let skipped = 0;
   let attempts = 0;
   let consecutiveFails = 0;
-  const maxAttempts = Math.min(targets.length, budget * 3);
+  const maxAttempts = Math.min(targets.length, Math.max(budget * 3, budget + 20));
+  const variantCounts = {};
 
   for (const prospect of targets) {
     if (sent >= budget || attempts >= maxAttempts) break;
     attempts += 1;
 
-    const message = renderMessage(template, prospect.name);
     console.log('\n==================================================');
     console.log(`${DRY_RUN ? 'Preview' : 'Messaging'}: ${prospect.name}`);
     console.log(`  ${prospect.title || ''}`);
@@ -841,10 +1050,13 @@ async function main() {
 
     let result;
     try {
-      result = await sendMessageOnProfile(page, prospect, message);
+      result = await sendMessageOnProfile(page, prospect, templates);
     } catch (err) {
       result = { status: 'failed', error: err.message };
     }
+
+    const usedVariant = result.variant || VARIANT;
+    variantCounts[usedVariant] = (variantCounts[usedVariant] || 0) + (result.status === 'sent' ? 1 : 0);
 
     const entry = {
       date: today,
@@ -852,9 +1064,10 @@ async function main() {
       slug: prospect.slug,
       name: prospect.name,
       title: prospect.title,
+      headline: result.headline || '',
       linkedin_url: prospect.linkedin_url,
       geo: prospect.geo,
-      variant: VARIANT,
+      variant: usedVariant,
       status: result.status,
       location: result.location || '',
       error: result.error || '',
@@ -863,7 +1076,11 @@ async function main() {
     appendLog(entry);
     already.add(prospect.slug);
 
-    console.log(`Result: ${result.status}${result.error ? ` (${result.error})` : ''}`);
+    console.log(
+      `Result: ${result.status}${result.error ? ` (${result.error})` : ''}` +
+        (usedVariant ? ` [${usedVariant}]` : '') +
+        (result.headline ? ` | ${String(result.headline).slice(0, 70)}` : '')
+    );
     if (result.status === 'sent' || result.status === 'dry_run') {
       sent += 1;
       consecutiveFails = 0;
@@ -887,7 +1104,7 @@ async function main() {
 
     await dismissOverlays(page);
     if (sent < budget) {
-      const waitMs = nextDelayMs();
+      const waitMs = nextDelayMs(limits.delayMs);
       console.log(`Waiting ${waitMs}ms before next (anti-restrict jitter)...`);
       await sleep(waitMs);
     }
@@ -897,6 +1114,7 @@ async function main() {
   console.log(`Sent/previewed: ${sent}`);
   console.log(`Skipped (India): ${skipped}`);
   console.log(`Failed: ${failed}`);
+  console.log(`Variants used: ${JSON.stringify(variantCounts)}`);
   console.log(`Log: ${LOG_FILE}`);
 
   await browser.disconnect();

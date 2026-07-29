@@ -1,9 +1,56 @@
 {
-  "default_variant": "hook",
+  "default_variant": "auto",
   "variants": {
-    "hook": "Hi {{FirstName}}, quick thought.\n\nMost founders and ops leaders I talk to aren't short on ideas. They're short on time: stuck in follow-ups, reporting, and busywork that shouldn't need them.\n\nI build AI automation systems that take that off your plate: lead handling, internal workflows, chatbots, and custom agents.\n\nCurious: what's one repetitive task you wish just ran itself?",
-    "founder": "Hi {{FirstName}}, quick thought.\n\nMost founders I talk to aren't short on ideas. They're short on time: stuck in follow-ups, reporting, and ops that shouldn't need them.\n\nI build AI automation systems that take that off your plate: lead handling, internal workflows, chatbots, and custom agents.\n\nWhat's one process in your business that still depends on you doing it manually every day?",
-    "ops": "Hi {{FirstName}}, hope you're well.\n\nOps teams usually lose the most time to the same loops: handoffs, status updates, lead routing, reporting, and support triage.\n\nI help companies automate those with AI + n8n / Make / Zapier, so teams spend less time copying data and more time closing work.\n\nWhich workflow eats the most hours on your team right now: leads, reporting, onboarding, or support?",
-    "short": "Hi {{FirstName}}, saw we're connected and thought I'd reach out properly.\n\nI help companies set up AI automation: lead handling, chatbots, and internal workflows, so teams save 10 to 20 hours/week.\n\nWorth a quick look if that's on your radar? Happy to send 2 to 3 examples."
-  }
+    "founder": "Hi {{FirstName}}, quick one.\n\nMost {{RoleLabel}} I talk to aren't short on ideas. They're short on time: follow-ups, reporting, and ops that still need them every day.\n\nI build AI automations that take that off your plate (lead handling, internal workflows, chatbots).\n\nWhat's one process in your business that still depends on you doing it manually?",
+    "ops": "Hi {{FirstName}}, saw your {{RoleLabel}} background and thought this might be useful.\n\nOps teams usually lose hours to the same loops: handoffs, status updates, lead routing, and reporting.\n\nI help automate those with AI + n8n / Make / Zapier so the team spends less time copying data.\n\nWhich workflow eats the most hours for you right now: leads, reporting, onboarding, or support?",
+    "sales": "Hi {{FirstName}}, quick thought for someone in {{RoleLabel}}.\n\nA lot of sales teams still burn time on manual research, CRM updates, and follow-up chasing before every call.\n\nI build AI automations that prep dossiers, sync CRM fields, and trigger follow-ups automatically.\n\nCurious: what's the most repetitive part of your pipeline right now?",
+    "recruiting": "Hi {{FirstName}}, quick one for {{RoleLabel}}.\n\nRecruiters I talk to often lose time on screening, status updates, and candidate follow-ups that shouldn't need a human every time.\n\nI build AI workflows that handle screening notes, outreach sequences, and pipeline updates.\n\nWhat's one recruiting task you'd happily never do manually again?",
+    "engineering": "Hi {{FirstName}}, noticed you're in {{RoleLabel}}.\n\nI help teams automate the boring glue work around product: ticket triage, status syncs, onboarding steps, and internal alerts, so engineers stay on real build work.\n\nNot selling a generic chatbot. More like custom workflows wired into your stack.\n\nWhat's one internal process your team still babysits by hand?",
+    "marketing": "Hi {{FirstName}}, quick thought for {{RoleLabel}}.\n\nMarketing teams often get stuck in reporting pulls, lead handoffs, and campaign follow-ups that eat half the week.\n\nI build AI automations that clean that up: lead routing, content ops, and reporting syncs.\n\nWhich of those is the biggest time sink for you right now?",
+    "support": "Hi {{FirstName}}, saw you're in {{RoleLabel}}.\n\nSupport teams usually drown in triage, ticket tagging, and the same Tier-1 replies every day.\n\nI build AI workflows that auto-triage, draft replies, and escalate only the real issues.\n\nWhat's the most repetitive ticket type your team still handles manually?",
+    "agency": "Hi {{FirstName}}, quick one.\n\nAgency / consulting teams I talk to usually lose hours to client updates, reporting, and lead follow-ups between projects.\n\nI build AI automations that keep that running in the background so delivery stays the focus.\n\nWhat's one client-ops task you'd love to stop doing manually?",
+    "generic": "Hi {{FirstName}}, saw we're connected and wanted to reach out properly{{HeadlineBit}}.\n\nI help companies cut repetitive busywork with AI automation: lead handling, internal workflows, and chatbots.\n\nCurious: what's one task on your team that still feels too manual?"
+  },
+  "role_rules": [
+    {
+      "variant": "founder",
+      "label": "founders / owners",
+      "keywords": ["founder", "co-founder", "cofounder", "ceo", "owner", "managing director", "md ", "entrepreneur", "solopreneur"]
+    },
+    {
+      "variant": "ops",
+      "label": "ops / operations",
+      "keywords": ["operations", "ops ", "chief operating", "coo", "revops", "revenue operations", "business operations", "process", "program manager"]
+    },
+    {
+      "variant": "sales",
+      "label": "sales",
+      "keywords": ["sales", "account executive", "ae ", "sdr", "bdr", "business development", "revenue", "closer", "partnerships"]
+    },
+    {
+      "variant": "recruiting",
+      "label": "recruiting / talent",
+      "keywords": ["recruit", "talent acquisition", "talent partner", "sourcer", "hiring", "hr ", "people ops", "human resources"]
+    },
+    {
+      "variant": "engineering",
+      "label": "engineering / product",
+      "keywords": ["engineer", "developer", "software", "cto", "devops", "full stack", "backend", "frontend", "product manager", "tech lead", "architect", "data analyst", "data scientist"]
+    },
+    {
+      "variant": "marketing",
+      "label": "marketing / growth",
+      "keywords": ["marketing", "growth", "demand gen", "content", "seo", "brand", "cmo", "performance marketer"]
+    },
+    {
+      "variant": "support",
+      "label": "support / success",
+      "keywords": ["support", "customer success", "customer service", "cx ", "helpdesk", "service desk", "success manager"]
+    },
+    {
+      "variant": "agency",
+      "label": "agency / consulting",
+      "keywords": ["agency", "consultant", "consulting", "freelance", "freelancer", "advisor", "studio"]
+    }
+  ]
 }
