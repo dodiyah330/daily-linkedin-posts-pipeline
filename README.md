@@ -25,11 +25,14 @@ Multi-stream automation for LinkedIn content, outreach, and Freelancer.com biddi
 
 ### Install
 ```bash
-# Carousel / PDF renderer
-cd carousel-routine && npm install && cd ..
+# One-shot (root puppeteer-core + carousel puppeteer + bid-bot venv)
+./setup.sh
 
-# Freelancer bid bot (optional)
-python3 -m venv freelancer-bid-bot/.venv
+# Or manually:
+npm install                                      # root: puppeteer-core for schedule/cap scripts
+cd carousel-routine && npm install && cd ..       # carousel / PDF renderer + Chromium
+
+python3 -m venv freelancer-bid-bot/.venv         # Freelancer bid bot (optional)
 source freelancer-bid-bot/.venv/bin/activate
 pip install -r freelancer-bid-bot/requirements.txt
 ```
