@@ -1,0 +1,37 @@
+{
+  "generated": "2026-07-31",
+  "stream": "x-us-week-1perday",
+  "startUrl": "https://x.com/home",
+  "audience": "US",
+  "scheduleNote": "Remaining days only (1 post/day). Existing Aug 1-5 posts left untouched. 6:00 PM IST = 8:30 AM ET.",
+  "posts": [
+    {
+      "id": 1,
+      "type": "image",
+      "date": "08/06/2026",
+      "time": "6:00 PM",
+      "caption": "US job posts in AI-exposed fields keep raising the experience bar for roles that used to train people on the job.\n\nYou need judgment before you get the seat that builds judgment.\n\nThat loop is the real US early-career crisis.\n\nIf you hire juniors, leave one real learning task that AI is not allowed to finish. That is how the pipeline stays alive.",
+      "assetPaths": [
+        "/Users/hitesh/Development/daily-linkedin-posts-pipeline/carousel-routine/output/2026-07-31/us-personal-day-05/slide-03.png",
+        "/Users/hitesh/Development/daily-linkedin-posts-pipeline/carousel-routine/output/2026-07-31/us-personal-day-05/slide-04.png",
+        "/Users/hitesh/Development/daily-linkedin-posts-pipeline/carousel-routine/output/2026-07-31/us-personal-day-05/slide-05.png",
+        "/Users/hitesh/Development/daily-linkedin-posts-pipeline/carousel-routine/output/2026-07-31/us-personal-day-05/slide-06.png"
+      ],
+      "assetPath": "/Users/hitesh/Development/daily-linkedin-posts-pipeline/carousel-routine/output/2026-07-31/us-personal-day-05/slide-03.png"
+    },
+    {
+      "id": 2,
+      "type": "image",
+      "date": "08/07/2026",
+      "time": "6:00 PM",
+      "caption": "One US-focused move for the week ahead.\n\nPick one workflow you own. Cut the steps a model can draft. Keep the steps that need your call.\n\nThen tell your manager what you freed up, in business outcomes, not tool names.\n\nIn this labor market, the people who show leverage keep the leverage.\n\nWhat workflow are you rewriting first?",
+      "assetPaths": [
+        "/Users/hitesh/Development/daily-linkedin-posts-pipeline/carousel-routine/output/2026-07-30/us-personal-day-04/slide-04.png",
+        "/Users/hitesh/Development/daily-linkedin-posts-pipeline/carousel-routine/output/2026-07-30/us-personal-day-04/slide-05.png",
+        "/Users/hitesh/Development/daily-linkedin-posts-pipeline/carousel-routine/output/2026-07-30/us-personal-day-04/slide-06.png",
+        "/Users/hitesh/Development/daily-linkedin-posts-pipeline/us-images/20260706/us-img-01.png"
+      ],
+      "assetPath": "/Users/hitesh/Development/daily-linkedin-posts-pipeline/carousel-routine/output/2026-07-30/us-personal-day-04/slide-04.png"
+    }
+  ]
+}

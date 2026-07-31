@@ -1,10 +1,11 @@
 # Daily LinkedIn Posts Pipeline
 
-Multi-stream automation for LinkedIn content, outreach, and Freelancer.com bidding. One repo drives several independent pipelines that share data fetchers, LLM keys, Slack delivery, and a Puppeteer-based LinkedIn scheduler.
+Multi-stream automation for LinkedIn content, X (Twitter) scheduling, outreach, and Freelancer.com bidding. One repo drives several independent pipelines that share data fetchers, LLM keys, Slack delivery, and Puppeteer-based native schedulers.
 
 | Stream | Audience / page | Cadence | Entry script |
 |--------|-----------------|---------|--------------|
 | **Daily LinkedIn** | Personal profile | Reddit + AI news + performance posts → Slack → schedule | Agent skill: `daily-linkedin-posts/SKILL.md` |
+| **X (Twitter) posts** | Personal X account | Text + image → Slack → native Schedule UI | Agent skill: `skills/daily-x-posts/SKILL.md` |
 | **OpenXcode batch** | Company page ([OpenXcode](https://www.linkedin.com/company/open-xcode)) | Default **10 days × 2 posts/day** (image + carousel) | `./run_openxcode_batch.sh` |
 | **Automation leads** | Personal profile (AI automation ICP) | **14 posts/week** (image + text each day) | `./run_automation_leads.sh` |
 | **US image posts** | Personal profile, US Eastern peak | Daily US-angled infographic | `./run_us_image_posts.sh` |
@@ -100,6 +101,7 @@ agent-browser --session linkedin_bot --profile Default open \
 | `LINKEDIN_START_URL` | Override start URL (personal feed vs company admin) |
 | `START_POST_ID` | Resume from a given post id |
 | `FORCE_GENERAL_BATCH=1` | Override general-batch pause guard |
+| `POST_NOW=1` | Publish immediately (LinkedIn or X) instead of scheduling |
 
 ---
 
@@ -130,6 +132,60 @@ node schedule_all_posts.cjs      # uses schedule_today.json by default
 ```
 
 Outputs land as `linkedin_posts_YYYYMMDD.txt`, carousel PDF under `carousel-routine/output/`, and infographic PNGs at repo root / dated folders. Sample artifacts: `sample-outputs/`.
+
+---
+
+## 1b. X (Twitter) scheduling
+
+Browser automation of x.com’s native Schedule UI — same pattern as LinkedIn (`agent-browser` + Puppeteer). Supports **text**, **single image**, and **up to 4 images** (swipe gallery; closest thing to a carousel). No LinkedIn-style PDF document carousels. Native scheduling requires **X Premium** on desktop web; without Premium use `POST_NOW=1`.
+
+Never put `—` / `--` in captions (`prepare_x_schedule.py` strips them).
+
+Agent skill (generate → Slack → schedule): `skills/daily-x-posts/SKILL.md`
+
+```bash
+# 1) Build schedule_x.json
+# Prefers x_posts_YYYYMMDD.txt; else adapts schedule_today.json / linkedin_posts_*.txt
+python3 prepare_x_schedule.py
+# Optional: X_MAX_CHARS=280 START_DATE=2026-08-01 SCHEDULE_SOURCE=schedule_today.json
+
+# 2) Slack review (optional)
+python3 send_x_to_slack.py
+
+# 3) Open a logged-in X session
+/opt/homebrew/bin/agent-browser --session x_bot --profile Default open https://x.com/home
+
+# 4) Schedule (or post now)
+SCHEDULE_FILE=schedule_x.json node schedule_all_x_posts.cjs
+POST_NOW=1 SCHEDULE_FILE=schedule_x.json node schedule_all_x_posts.cjs
+START_POST_ID=3 SCHEDULE_FILE=schedule_x.json node schedule_all_x_posts.cjs
+```
+
+**Dedicated X copy file** (`x_posts_YYYYMMDD.txt`) — same `====` section style as LinkedIn:
+
+```
+==================================================
+1. HOOK
+==================================================
+Your short post here.
+
+==================================================
+2. WITH IMAGE
+==================================================
+IMAGE: sample-outputs/linkedin-infographic-20260612.png
+CAPTION:
+Caption under the image.
+```
+
+| Variable | Purpose |
+|----------|---------|
+| `SCHEDULE_FILE` | Default `schedule_x.json` |
+| `START_POST_ID` | Resume mid-batch |
+| `POST_NOW=1` | Skip schedule picker; publish immediately |
+| `X_MAX_CHARS` | Soft length warning / prepare truncate (default 280) |
+| `X_START_URL` | Override home URL |
+
+Polls and LinkedIn PDF carousels are not scheduled on X (carousel captions become text-only). Threads are not supported by X’s native scheduler.
 
 ---
 
@@ -331,15 +387,18 @@ Profiles: `openxcode_profile.md`, `automation_profile.md`.
 | `generate_openxcode_posts.py` / `generate_openxcode_week.py` | OpenXcode text (legacy / week) |
 | `generate_automation_leads.py` / `build_automation_images.py` | Automation week |
 | `generate_us_image_posts.py` / `build_us_image_posts.py` | US image stream |
-| `prepare_*_schedule.py` | Build schedule JSON for each stream |
+| `prepare_*_schedule.py` / `prepare_x_schedule.py` | Build schedule JSON for each stream (incl. X) |
 | `carousel-routine/screenshot_all.js` / `compile_pdf.js` / `render.js` | Slide PNG + PDF |
 
 ### Deliver & schedule
 | Script | Purpose |
 |--------|---------|
-| `send_to_slack.py` / `send_*_to_slack.py` | Slack review delivery |
+| `send_to_slack.py` / `send_*_to_slack.py` / `send_x_to_slack.py` | Slack review delivery (incl. X) |
 | `schedule_all_posts.cjs` | Universal LinkedIn scheduler |
-| `verify_scheduled_posts.cjs` / `edit_scheduled_posts.cjs` / `delete_all_scheduled.cjs` | Schedule maintenance |
+| `schedule_all_x_posts.cjs` | X (Twitter) native scheduler (text + image) |
+| `clear_x_scheduled.cjs` | Delete all X scheduled posts (Drafts → Scheduled) |
+| `skills/daily-x-posts/SKILL.md` | Daily X generate → Slack → schedule |
+| `verify_scheduled_posts.cjs` / `edit_scheduled_posts.cjs` / `delete_all_scheduled.cjs` | LinkedIn schedule maintenance |
 | `send_connections.cjs` / `send_connection_dms.cjs` | Outreach |
 | `comment_on_posts.cjs` | Skill / hiring comments |
 
@@ -362,7 +421,8 @@ Profiles: `openxcode_profile.md`, `automation_profile.md`.
 | File | Purpose |
 |------|---------|
 | `reddit_data.json` / `ai_news_data.json` | Latest fetched source content |
-| `schedule_today.json` | Daily schedule payload |
+| `schedule_today.json` | Daily LinkedIn schedule payload |
+| `schedule_x.json` | X (Twitter) schedule payload |
 | `schedule_openxcode.json` | OpenXcode schedule |
 | `schedule_automation_leads.json` | Automation leads schedule |
 | `schedule_us_image_posts.json` | US image schedule |

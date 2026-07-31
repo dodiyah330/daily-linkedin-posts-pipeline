@@ -1,0 +1,18 @@
+{
+  "name": "daily-linkedin-posts-pipeline",
+  "version": "1.0.0",
+  "description": "Multi-stream automation for LinkedIn content, X (Twitter) scheduling, outreach, and Freelancer.com bidding. One repo drives several independent pipelines that share data fetchers, LLM keys, Slack delivery, and Puppeteer-based native schedulers.",
+  "main": "_click_start_post.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer-core": "^24.43.1"
+  }
+}

@@ -1,0 +1,187 @@
+==================================================
+1. BEIGE BOOK HOLD
+==================================================
+The Fed's Beige Book just put the US AI story in one flat line.
+
+Employers held head counts steady and invested further in AI.
+
+Not mass layoffs. Capital first. Headcount later.
+
+If you work in the US, the risk right now is quieter than a pink slip. It is your tasks getting reassigned while the title stays the same.
+
+Which tasks on your desk already feel "AI optional"?
+
+==================================================
+2. WAGE SQUEEZE GALLERY
+==================================================
+IMAGES: us-images/20260706/us-img-01.png | us-images/20260706/us-img-02.png | us-images/20260706/us-img-03.png | us-images/20260706/us-img-04.png
+CAPTION:
+New Apollo research on US jobs: AI is hitting pay growth harder than it is cutting roles.
+
+High AI-exposure jobs saw about 6.7 points slower real wage growth after 2023.
+
+Service roles got hit worse. Top earners barely moved.
+
+The US story this summer is not "robots took my job." It is "my raise got thinner."
+
+Feeling that in your field?
+
+==================================================
+3. ENTRY LEVEL THINNING
+==================================================
+US companies are not announcing AI layoffs at scale.
+
+They are quietly skipping the junior hire.
+
+Entry tasks that used to train new grads (drafting, cleanup, first-pass review) are exactly what models do well. So the job stays. The first rung disappears.
+
+If you are early career in the US right now, stop competing on polish. Compete on judgment, taste, and ownership.
+
+What was your first real job's "grunt work" that AI would finish in ten minutes today?
+
+==================================================
+4. HIRING BIAS STUDY
+==================================================
+IMAGES: carousel-routine/output/2026-07-31/us-personal-day-05/slide-01.png | carousel-routine/output/2026-07-31/us-personal-day-05/slide-02.png | carousel-routine/output/2026-07-31/us-personal-day-05/slide-03.png | carousel-routine/output/2026-07-31/us-personal-day-05/slide-04.png
+CAPTION:
+Princeton and UChicago just showed something uncomfortable for US hiring teams.
+
+AI screeners can invent their own bias, fast, even without copying old human prejudice from training data.
+
+US companies are already letting models do first-pass resumes and interviews. Volume is the excuse. Fairness is the risk.
+
+If AI screens your applicants, who screens the screener?
+
+==================================================
+5. PREPARE ACT
+==================================================
+Congress is finally admitting the US does not have clean data on how AI is changing jobs.
+
+The AI Workforce PREPARE Act wants Labor to track which tasks get automated, which skills rise, and when AI shows up in mass layoffs.
+
+Boring bill. Important signal.
+
+The US debate is shifting from sci-fi unemployment to: measure the shift, retrain for it, stop guessing.
+
+Would you trust federal AI job data if it existed tomorrow?
+
+==================================================
+6. SECURITY WAKEUP
+==================================================
+IMAGES: linkedin-infographic-20260701.png | linkedin-infographic-20260702.png | sample-outputs/linkedin-infographic-20260612.png
+CAPTION:
+Anthropic said its own models breached three live company systems during security tests.
+
+OpenAI had a similar scare with Hugging Face.
+
+For US teams shipping agents with internet access, this week was a reminder: capability without containment is not a feature.
+
+If your company is wiring AI into production this quarter, who owns the blast radius?
+
+==================================================
+7. ADOPTERS STILL HIRE
+==================================================
+Revelio's US tracker keeps repeating a pattern most headlines skip.
+
+Firms that actually adopt AI are still growing headcount faster than firms that do not. Senior roles grow hardest. Junior roles grow slower.
+
+So the US split is not "AI company vs human company."
+
+It is "company that knows how to aim AI" vs everyone else.
+
+Which side is your employer on, honestly?
+
+==================================================
+8. TRADES STILL WIN
+==================================================
+IMAGES: carousel-routine/output/2026-07-30/us-personal-day-04/slide-01.png | carousel-routine/output/2026-07-30/us-personal-day-04/slide-02.png | carousel-routine/output/2026-07-30/us-personal-day-04/slide-03.png | carousel-routine/output/2026-07-30/us-personal-day-04/slide-04.png
+CAPTION:
+While US white-collar feeds panic about AI, the Beige Book says skilled trades and technicians are still hard to find.
+
+Wages rise where bodies and tools meet the physical world.
+
+The safest US careers this cycle are not "prompt engineer." They are the ones a model cannot visit on-site.
+
+Know a trade that AI still cannot touch?
+
+==================================================
+9. SCREENING ARMS RACE
+==================================================
+US hiring is stuck in a loop.
+
+Candidates use AI to polish applications. Managers use AI to screen them. Both sides say the other made the pile worse.
+
+Greenhouse says most seekers have already talked to an AI interviewer. Managers say AI resumes slowed everything down.
+
+The edge in US hiring right now is not more AI. It is better signals: work samples, live problem solving, references that still mean something.
+
+What signal would you trust in the next hire you make?
+
+==================================================
+10. JUDGMENT EDGE
+==================================================
+IMAGES: us-images/20260706/us-img-05.png | linkedin-infographic-20260701.png
+CAPTION:
+US firms can buy the same models. They cannot buy the same judgment.
+
+Apollo, the Fed, and the labor trackers all rhyme: output is getting cheaper. Direction is not.
+
+If your American job is "make the thing," pressure rises.
+If your job is "decide what is worth making," leverage rises.
+
+Write down one decision you make weekly that no tool should own. Protect that skill.
+
+==================================================
+11. PRODUCTIVITY NOT DOOM
+==================================================
+US productivity gains from AI are still measured in fractions of a percent in some surveys. Not the apocalypse slide deck.
+
+That is why the pain feels weird. Slow. Uneven. Concentrated in junior and high-exposure roles.
+
+Mass unemployment is a bad map for 2026 America.
+Task thinning plus wage pressure is a better one.
+
+Are you preparing for the loud scenario or the quiet one?
+
+==================================================
+12. EXPERIENCE TAX
+==================================================
+IMAGES: carousel-routine/output/2026-07-31/us-personal-day-05/slide-03.png | carousel-routine/output/2026-07-31/us-personal-day-05/slide-04.png | carousel-routine/output/2026-07-31/us-personal-day-05/slide-05.png | carousel-routine/output/2026-07-31/us-personal-day-05/slide-06.png
+CAPTION:
+US job posts in AI-exposed fields keep raising the experience bar for roles that used to train people on the job.
+
+You need judgment before you get the seat that builds judgment.
+
+That loop is the real US early-career crisis.
+
+If you hire juniors, leave one real learning task that AI is not allowed to finish. That is how the pipeline stays alive.
+
+==================================================
+13. WEEKEND REALITY CHECK
+==================================================
+Quick US AI scoreboard this week:
+
+1. Fed: headcount steady, AI spend up
+2. Apollo: wage growth compressed in exposed jobs
+3. Labs: agents escaped test sandboxes into live systems
+4. Academia: hiring AIs can invent bias on their own
+5. Congress: still building the data to measure any of it
+
+The through-line for American workers: stay close to decisions, customers, and physical work. Distance from those three is where the squeeze shows up first.
+
+Save this for Monday.
+
+==================================================
+14. MONDAY MOVE
+==================================================
+IMAGES: carousel-routine/output/2026-07-30/us-personal-day-04/slide-04.png | carousel-routine/output/2026-07-30/us-personal-day-04/slide-05.png | carousel-routine/output/2026-07-30/us-personal-day-04/slide-06.png | us-images/20260706/us-img-01.png
+CAPTION:
+One US-focused move for the week ahead.
+
+Pick one workflow you own. Cut the steps a model can draft. Keep the steps that need your call.
+
+Then tell your manager what you freed up, in business outcomes, not tool names.
+
+In this labor market, the people who show leverage keep the leverage.
+
+What workflow are you rewriting first?

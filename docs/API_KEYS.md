@@ -39,6 +39,10 @@ LINKEDIN_PASSWORD=
 | `FLN_OAUTH_TOKEN` | Freelancer bid bot | Skip if not running bid bot |
 | `LINKEDIN_EMAIL` / `LINKEDIN_PASSWORD` | Rare login helpers | Prefer `agent-browser` session |
 
+### X (Twitter) posting — no API keys
+
+Scheduling uses the same **agent-browser** Chrome session pattern as LinkedIn (see README §1b). Log into [x.com](https://x.com) in that browser once. Native Schedule UI needs **X Premium**; free accounts can still use `POST_NOW=1`. `SCRAPINGDOG_API_KEY` is research-only and cannot post.
+
 ---
 
 ## 1. Google Gemini — `GEMINI_API_KEY`
