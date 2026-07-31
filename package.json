@@ -1,0 +1,12 @@
+{
+  "name": "daily-linkedin-posts-pipeline",
+  "version": "1.0.0",
+  "description": "Root Puppeteer/LinkedIn automation scripts (puppeteer-core based). See README.md.",
+  "private": true,
+  "dependencies": {
+    "puppeteer-core": "^24.43.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
