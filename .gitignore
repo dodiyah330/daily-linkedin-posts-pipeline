@@ -1,6 +1,4 @@
 # Secrets
-.env
-.env.*
 
 # Dependencies
 node_modules/
@@ -41,3 +39,4 @@ freelancer-bid-bot/ramiz-config.json
 
 # Local scratch files that may contain secrets
 Untitled
+config.bat
