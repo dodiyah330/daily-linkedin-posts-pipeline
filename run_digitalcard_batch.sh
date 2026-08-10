@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Digital Card Creator company page — N-day batch (default 10): 2 posts/day (image + carousel)
+# Digital Card Creator company page — N-day batch (default 10): 4 posts/day (2 image + 2 carousel)
 set -euo pipefail
 cd "$(dirname "$0")"
 
@@ -7,7 +7,7 @@ DAYS="${DIGITALCARD_DAYS:-10}"
 COMPANY_ID="${DIGITALCARD_COMPANY_ID:-135187143}"
 ADMIN_URL="https://www.linkedin.com/company/${COMPANY_ID}/admin/dashboard/"
 
-echo "== Generate ${DAYS}-day Digital Card Creator batch (image + carousel each day) =="
+echo "== Generate ${DAYS}-day Digital Card Creator batch (4 posts/day: 2 image + 2 carousel) =="
 DIGITALCARD_DAYS="$DAYS" python3 generate_digitalcard_batch.py
 
 echo "== Build images + carousel PDFs =="
@@ -37,11 +37,11 @@ send(
     f"Posts: {len(sched.get('posts',[]))}\n"
     '`SCHEDULE_FILE=schedule_digitalcard.json POST_AS="Digital Card Creator" node schedule_all_posts.cjs`'
 )
-for p in sched.get('posts',[])[:6]:
+for p in sched.get('posts',[])[:8]:
     kind='🖼 IMAGE' if p['type']=='infographic' else '📑 CAROUSEL'
     send(f"*{kind} — {p['date']} {p['time']}*\n{p.get('label','')} · {p.get('audience','')}\n\n{p.get('caption','')[:500]}")
-if len(sched.get('posts',[]))>6:
-    send(f"_…plus {len(sched['posts'])-6} more posts in schedule_digitalcard.json_")
+if len(sched.get('posts',[]))>8:
+    send(f"_…plus {len(sched['posts'])-8} more posts in schedule_digitalcard.json_")
 print('Slack done')
 PY
 

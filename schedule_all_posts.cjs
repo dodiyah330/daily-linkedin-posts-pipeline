@@ -463,7 +463,7 @@ Save this prompt to use on your next idea.`
     console.log(`Connecting to browser on port ${port}...`);
     const browser = await puppeteer.connect({
       browserURL: `http://127.0.0.1:${port}`,
-      protocolTimeout: 120000,
+      protocolTimeout: 180000,
     });
     const pages = await browser.pages();
     const page = pages.find(p => p.url().includes('linkedin.com'));
@@ -472,7 +472,20 @@ Save this prompt to use on your next idea.`
       process.exit(1);
     }
     await page.bringToFront();
+    // Real Chrome window can stay tiny (~700px) even after setViewport — resize via CDP.
+    try {
+      const cdp = await page.createCDPSession();
+      const { windowId } = await cdp.send('Browser.getWindowForTarget');
+      await cdp.send('Browser.setWindowBounds', {
+        windowId,
+        bounds: { width: 1440, height: 1000, windowState: 'normal' },
+      });
+      await cdp.detach().catch(() => {});
+    } catch (resizeErr) {
+      console.log('Window resize skipped:', resizeErr.message);
+    }
     await page.setViewport({ width: 1280, height: 1200 });
+    console.log('Viewport:', await page.evaluate(() => ({ w: innerWidth, h: innerHeight })));
 
     const startFrom = parseInt(process.env.START_POST_ID || '1', 10);
     const queue = posts.filter(p => p.id >= startFrom);
@@ -484,12 +497,16 @@ Save this prompt to use on your next idea.`
     console.log(`SCHEDULING ${queue.length} POSTS (4 per day, 3 days)`);
     console.log(`${'='.repeat(60)}\n`);
 
+    const failedPosts = [];
+    const okPosts = [];
+
     for (const post of queue) {
       console.log(`\n${'='.repeat(50)}`);
       console.log(`Scheduling Post ${post.id}/${posts.length} (${post.type}): Date=${post.date}, Time=${post.time}`);
       console.log(`${'='.repeat(50)}`);
       const prefix = `${screenshotDir}/post_${post.id}_${post.type}`;
 
+      try {
       // Navigate to feed (or company admin page for company streams)
       const scheduleMeta = (() => {
         try {
@@ -514,7 +531,7 @@ Save this prompt to use on your next idea.`
       } catch (err) {
         console.log("Navigation timeout/error, continuing:", err.message);
       }
-      await new Promise(r => setTimeout(r, 4000));
+      await new Promise(r => setTimeout(r, 5000));
 
       // Hide messaging overlays
       console.log("Hiding messaging overlays...");
@@ -564,6 +581,7 @@ Save this prompt to use on your next idea.`
       await new Promise(r => setTimeout(r, 2000));
 
       console.log("Clicking 'Start a post'...");
+      const editorSelector = '.ql-editor';
       // Company admin only: open Create menu first if present
       const onCompanyAdmin = /linkedin\.com\/company\/.+\/admin/i.test(page.url());
       if (onCompanyAdmin) {
@@ -577,36 +595,67 @@ Save this prompt to use on your next idea.`
         await new Promise(r => setTimeout(r, 1500));
       }
 
-      let clickStartPost = await clickNativelyShadow(page, (root) => {
-        return Array.from(root.querySelectorAll('*')).find(
-          el => (el.tagName === 'BUTTON' || el.getAttribute('role') === 'button' || el.tagName === 'A' || el.getAttribute('aria-label') === 'Start a post') &&
-                el.innerText && el.innerText.trim().toLowerCase().includes('start a post')
-        );
-      });
-      // Company admin fallbacks. The Create menu sometimes renders its items late,
-      // so reopen it and retry before giving up.
-      for (let attempt = 1; attempt <= 3 && !clickStartPost && onCompanyAdmin; attempt++) {
-        clickStartPost = await clickNativelyShadow(page, (root) => {
-          return Array.from(root.querySelectorAll('button, a, [role="button"]')).find(el => {
-            const t = ((el.innerText || '') + ' ' + (el.getAttribute('aria-label') || '')).toLowerCase();
-            return t.includes('start a post') || t.includes('create a post') || t.includes('share content');
-          });
+      let editorReady = false;
+      for (let startAttempt = 1; startAttempt <= 4 && !editorReady; startAttempt++) {
+        // Dismiss leftovers that block the composer
+        await page.keyboard.press('Escape').catch(() => {});
+        await new Promise(r => setTimeout(r, 600));
+        await page.evaluate(() => {
+          document.querySelectorAll('.msg-overlay-container, [class*="msg-overlay"], #msg-overlay').forEach(el => el.remove());
         });
-        if (clickStartPost) break;
-        console.log(`'Start a post' not visible yet, reopening Create menu (attempt ${attempt}/3)...`);
-        await clickNativelyShadow(page, (root) => {
-          return Array.from(root.querySelectorAll('a, button, [role="button"]')).find(el => {
-            const t = (el.innerText || '').trim().toLowerCase();
-            const label = (el.getAttribute('aria-label') || '').toLowerCase();
-            return t === 'create' || label === 'create';
-          });
-        });
-        await new Promise(r => setTimeout(r, 2500));
-      }
-      if (!clickStartPost) throw new Error("Could not find 'Start a post' button");
 
-      const editorSelector = '.ql-editor';
-      await waitForSelectorShadow(page, editorSelector, 15000);
+        let clickStartPost = await clickNativelyShadow(page, (root) => {
+          return Array.from(root.querySelectorAll('*')).find(
+            el => {
+              if (!(el.tagName === 'BUTTON' || el.getAttribute('role') === 'button' || el.tagName === 'A' || el.getAttribute('aria-label') === 'Start a post')) return false;
+              const t = (el.innerText || '').trim().toLowerCase();
+              if (!t.includes('start a post')) return false;
+              // Avoid giant parent containers that also contain the phrase
+              const r = el.getBoundingClientRect();
+              return r.width > 40 && r.width < 900 && r.height > 20 && r.height < 120;
+            }
+          );
+        });
+        // Company admin fallbacks. The Create menu sometimes renders its items late,
+        // so reopen it and retry before giving up.
+        for (let attempt = 1; attempt <= 3 && !clickStartPost && onCompanyAdmin; attempt++) {
+          clickStartPost = await clickNativelyShadow(page, (root) => {
+            return Array.from(root.querySelectorAll('button, a, [role="button"]')).find(el => {
+              const t = ((el.innerText || '') + ' ' + (el.getAttribute('aria-label') || '')).toLowerCase();
+              return t.includes('start a post') || t.includes('create a post') || t.includes('share content');
+            });
+          });
+          if (clickStartPost) break;
+          console.log(`'Start a post' not visible yet, reopening Create menu (attempt ${attempt}/3)...`);
+          await clickNativelyShadow(page, (root) => {
+            return Array.from(root.querySelectorAll('a, button, [role="button"]')).find(el => {
+              const t = (el.innerText || '').trim().toLowerCase();
+              const label = (el.getAttribute('aria-label') || '').toLowerCase();
+              return t === 'create' || label === 'create';
+            });
+          });
+          await new Promise(r => setTimeout(r, 2500));
+        }
+        if (!clickStartPost) {
+          console.log(`Start a post click missed (attempt ${startAttempt}/4), reloading feed...`);
+          await page.goto(startUrl, { waitUntil: 'domcontentloaded', timeout: 20000 }).catch(() => {});
+          await new Promise(r => setTimeout(r, 3500));
+          continue;
+        }
+
+        try {
+          await waitForSelectorShadow(page, editorSelector, 12000);
+          editorReady = true;
+        } catch (_) {
+          console.log(`Composer editor not ready (attempt ${startAttempt}/4), retrying Start a post...`);
+          await page.keyboard.press('Escape').catch(() => {});
+          await new Promise(r => setTimeout(r, 1000));
+          if (startAttempt === 4) {
+            throw new Error("Timeout waiting for shadow selector: .ql-editor");
+          }
+        }
+      }
+      if (!editorReady) throw new Error("Could not open post composer");
       await new Promise(r => setTimeout(r, 1000));
 
       // Switch author to the company page when requested (any company stream).
@@ -841,84 +890,86 @@ Save this prompt to use on your next idea.`
         await new Promise(r => setTimeout(r, 2000));
 
       } else if (post.type === 'carousel') {
-        console.log("Filling carousel caption before document upload...");
-        await new Promise(r => setTimeout(r, 2000));
-        await waitForSelectorShadow(page, editorSelector, 15000);
-        let captionReady = false;
-        for (let attempt = 1; attempt <= 5 && !captionReady; attempt++) {
-          captionReady = await fillCaptionShadow(page, post.caption);
-          if (!captionReady) {
-            console.log(`Early caption fill attempt ${attempt}/5 failed, retrying...`);
-            await new Promise(r => setTimeout(r, 1500));
-          }
-        }
-        if (!captionReady) throw new Error("Could not fill carousel caption before document upload");
+        // Upload the PDF BEFORE typing captions that contain URLs.
+        // Link previews replace the media toolbar and hide "Add a document".
+        console.log("Handling Carousel document upload (before caption)...");
+        await new Promise(r => setTimeout(r, 1500));
 
-        // A URL in the caption makes LinkedIn attach a link preview, which replaces
-        // the media toolbar and hides the document option. Drop the preview first.
-        if (/\b[\w-]+\.(com|io|net|org|co|app|dev)\b/i.test(post.caption)) {
-          for (let attempt = 1; attempt <= 4; attempt++) {
-            await new Promise(r => setTimeout(r, 2500));
-            const removedPreview = await page.evaluate(() => {
-              const btn = Array.from(document.querySelectorAll('button')).find(
-                b => typeof b.className === 'string' &&
-                     b.className.includes('share-creation-state__preview-container-btn') &&
-                     /remove/i.test((b.innerText || '') + ' ' + (b.getAttribute('aria-label') || ''))
-              );
-              if (!btn) return false;
-              btn.click();
-              return true;
-            });
-            if (removedPreview) {
-              console.log("Removed auto link preview from caption.");
-              await new Promise(r => setTimeout(r, 2000));
-              break;
-            }
-          }
-        }
-
-        console.log("Handling Carousel document upload...");
-        let clickedDoc = await clickNativelyShadow(page, (root) => {
-          const btns = Array.from(root.querySelectorAll('button'));
-          return btns.find(b => b.ariaLabel && b.ariaLabel.includes('Add a document')) ||
-                 btns.find(b => b.innerText && b.innerText.includes('Add a document')) ||
-                 btns.find(b => b.innerText && b.innerText.includes('document'));
-        });
-
-        if (!clickedDoc) {
-          // Document often hides behind More (company: share-promoted-detour; personal: dialog More).
-          console.log("Document button not in toolbar — opening More menu...");
-          const openedMore = await clickNativelyShadow(page, (root) => {
-            const buttons = Array.from(root.querySelectorAll('button'));
-            // Prefer More that sits in the same toolbar as Add media / Schedule post
-            const media = buttons.find(b => /add media/i.test((b.getAttribute('aria-label') || '') + ' ' + (b.innerText || '')));
-            if (media) {
-              let node = media.parentElement;
-              for (let i = 0; i < 5 && node; i++) {
-                const more = Array.from(node.querySelectorAll('button')).find(b => {
-                  const label = (b.getAttribute('aria-label') || '').trim();
-                  return label === 'More' || (b.innerText || '').trim() === 'More';
-                });
-                if (more) return more;
-                node = node.parentElement;
-              }
-            }
-            const modal = root.querySelector('.share-box, .artdeco-modal, [role="dialog"]');
-            const scope = modal || root;
-            return Array.from(scope.querySelectorAll('button')).find(b => {
-              const label = (b.getAttribute('aria-label') || '').trim();
-              const txt = (b.innerText || '').trim();
-              const cls = typeof b.className === 'string' ? b.className : '';
-              return (label === 'More' || txt === 'More') &&
-                (cls.includes('detour') || cls.includes('share') || !!modal);
-            });
+        const findDocButton = (root) => {
+          // Prefer exact aria-label on a real control — never match page-wide DIVs
+          // (e.g. .application-outlet) whose innerText can contain "document"/"pdf".
+          const controls = Array.from(root.querySelectorAll(
+            'button, [role="menuitem"], [role="button"], label, input[type="file"]'
+          ));
+          const byAria = controls.find(b => {
+            const label = (b.getAttribute('aria-label') || '').trim().toLowerCase();
+            const r = b.getBoundingClientRect();
+            return r.width > 8 && r.height > 8 && (
+              label === 'add a document' ||
+              label.includes('add a document') ||
+              label === 'document'
+            );
           });
-          console.log(openedMore ? "More menu opened." : "More button not found via shadow walk.");
+          if (byAria) return byAria;
+          return controls.find(b => {
+            const hay = ((b.getAttribute('aria-label') || '') + ' ' + (b.innerText || '')).toLowerCase().replace(/\s+/g, ' ').trim();
+            const r = b.getBoundingClientRect();
+            // Keep text match short so we don't match the whole page chrome
+            if (hay.length > 80) return false;
+            return r.width > 8 && r.height > 8 && (
+              hay.includes('add a document') ||
+              hay === 'document' ||
+              (hay.includes('document') && hay.includes('pdf'))
+            );
+          });
+        };
+
+        const findShareMore = (root) => {
+          // Prefer the share-box detour More (not nav "More")
+          const detour = Array.from(root.querySelectorAll('button.share-promoted-detour-button')).find(
+            b => (b.getAttribute('aria-label') || '').trim() === 'More'
+          );
+          if (detour) return detour;
+          const media = Array.from(root.querySelectorAll('button')).find(b =>
+            /add media/i.test((b.getAttribute('aria-label') || '') + ' ' + (b.innerText || ''))
+          );
+          if (media) {
+            let node = media.parentElement;
+            for (let i = 0; i < 6 && node; i++) {
+              const more = Array.from(node.querySelectorAll('button')).find(b => {
+                const label = (b.getAttribute('aria-label') || '').trim();
+                const cls = typeof b.className === 'string' ? b.className : '';
+                return (label === 'More' || (b.innerText || '').trim() === 'More') &&
+                  (cls.includes('detour') || cls.includes('share'));
+              });
+              if (more) return more;
+              node = node.parentElement;
+            }
+          }
+          return null;
+        };
+
+        let clickedDoc = await clickNativelyShadow(page, findDocButton);
+        if (!clickedDoc) {
+          console.log("Document button not in toolbar — opening share More menu...");
+          // Ensure toolbar is visible
+          await page.evaluate(() => {
+            const more = document.querySelector('button.share-promoted-detour-button[aria-label="More"]');
+            const footer = document.querySelector('.share-creation-state__footer, .share-box__footer, [role="dialog"]');
+            (more || footer)?.scrollIntoView({ block: 'center', inline: 'nearest' });
+          });
+          await new Promise(r => setTimeout(r, 500));
+          const openedMore = await clickNativelyShadow(page, findShareMore);
+          console.log(openedMore ? "Share More menu opened." : "Share More button not found.");
+          await new Promise(r => setTimeout(r, 2000));
+          clickedDoc = await clickNativelyShadowRetry(page, findDocButton, 15000);
+        }
+        // One more pass: reopen More if still missing
+        if (!clickedDoc) {
+          console.log("Retrying share More → Add a document...");
+          await clickNativelyShadow(page, findShareMore);
           await new Promise(r => setTimeout(r, 2500));
-          clickedDoc = await clickNativelyShadowRetry(page, (root) => {
-            const btns = Array.from(root.querySelectorAll('button, [role="menuitem"], [role="button"]'));
-            return btns.find(b => /add a document/i.test((b.getAttribute('aria-label') || '') + ' ' + (b.innerText || '')));
-          }, 12000);
+          clickedDoc = await clickNativelyShadow(page, findDocButton);
         }
         if (!clickedDoc) throw new Error("Could not find 'Add a document' button");
         await new Promise(r => setTimeout(r, 2000));
@@ -938,8 +989,31 @@ Save this prompt to use on your next idea.`
           }
           return findFileInput(document.body);
         });
-        if (!fileInputHandle) throw new Error("Could not find file input in shadow DOM");
-        const fileInput = fileInputHandle.asElement();
+        let fileInput = fileInputHandle.asElement();
+        if (!fileInput) {
+          // Wait briefly for LinkedIn to inject the file picker after Add a document
+          for (let i = 0; i < 10 && !fileInput; i++) {
+            await new Promise(r => setTimeout(r, 400));
+            const retry = await page.evaluateHandle(() => {
+              function findFileInput(root) {
+                const walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT, null, false);
+                let node;
+                while (node = walker.nextNode()) {
+                  if (node.tagName === 'INPUT' && node.type === 'file') return node;
+                  if (node.shadowRoot) {
+                    const found = findFileInput(node.shadowRoot);
+                    if (found) return found;
+                  }
+                }
+                return null;
+              }
+              return findFileInput(document.body);
+            });
+            fileInput = retry.asElement();
+            if (!fileInput) await retry.dispose();
+          }
+        }
+        if (!fileInput) throw new Error("Could not find file input after Add a document");
         await fileInput.uploadFile(post.assetPath);
         console.log("Document uploaded. Waiting 4s for processing...");
         await new Promise(r => setTimeout(r, 4000));
@@ -1271,16 +1345,36 @@ Save this prompt to use on your next idea.`
       }
       
       console.log(`✓ Successfully scheduled Post ${post.id}/${posts.length}!`);
+      okPosts.push(post.id);
+      // Cool down between posts — LinkedIn UI gets flaky if we hammer Start a post
+      await new Promise(r => setTimeout(r, 4000));
+      } catch (postErr) {
+        console.error(`✗ Failed Post ${post.id}/${posts.length}:`, postErr.message || postErr);
+        failedPosts.push({ id: post.id, type: post.type, date: post.date, time: post.time, error: String(postErr.message || postErr) });
+        try {
+          await page.screenshot({ path: `${prefix}_FAILED.png` });
+        } catch (_) {}
+        try {
+          await page.keyboard.press('Escape');
+          await page.keyboard.press('Escape');
+        } catch (_) {}
+        await new Promise(r => setTimeout(r, 3000));
+      }
     }
 
     console.log(`\n${'='.repeat(60)}`);
-    console.log(`✓ ALL ${posts.length} POSTS HAVE BEEN SCHEDULED SUCCESSFULLY!`);
+    console.log(`✓ SCHEDULED ${okPosts.length}/${queue.length} posts this run (ids: ${okPosts.join(', ') || 'none'})`);
+    if (failedPosts.length) {
+      console.log(`✗ FAILED ${failedPosts.length}:`);
+      for (const f of failedPosts) {
+        console.log(`  #${f.id} ${f.type} ${f.date} ${f.time} — ${f.error}`);
+      }
+      console.log(`Resume with: START_POST_ID=${failedPosts[0].id} SCHEDULE_FILE=${path.basename(scheduleFile)} node schedule_all_posts.cjs`);
+    } else {
+      console.log(`✓ ALL ${queue.length} REMAINING POSTS SCHEDULED SUCCESSFULLY!`);
+    }
     console.log(`${'='.repeat(60)}`);
-    console.log("\nSchedule Summary:");
-    console.log("Day 1 (06/13): Carousel 9AM, Infographic 12PM, Collaborative Article 3PM, Poll 6PM");
-    console.log("Day 2 (06/14): Tool Spotlight 9AM, Weekly Roundup 12PM, Plain English 3PM, Unfair Advantage 6PM");
-    console.log("Day 3 (06/15): Career/Income 9AM, Hot Take 12PM, Steal This 3PM");
-    process.exit(0);
+    process.exit(failedPosts.length ? 1 : 0);
 
   } catch (err) {
     console.error("Automator Exception:", err);

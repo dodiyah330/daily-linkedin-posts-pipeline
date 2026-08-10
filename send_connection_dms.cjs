@@ -9,12 +9,13 @@
  *
  * Env:
  *   DRY_RUN=1                 Discover/filter only, do not send
- *   MAX_DMS_PER_RUN=5          Cap per script run (absolute max 5)
- *   MAX_DMS_PER_DAY=12         Cap per calendar day (absolute max 15)
- *   MAX_DMS_PER_HOUR=3         Cap per rolling hour (absolute max 3)
+ *   MAX_DMS_PER_RUN=3          Cap per script run (absolute max 5; prefer 2–3)
+ *   MAX_DMS_PER_DAY=15         Cap per calendar day (absolute max 15)
+ *   MAX_DMS_PER_HOUR=2         Cap per rolling hour (absolute max 3)
  *   MAX_DMS_PER_WEEK=60        Cap per rolling 7 days (absolute max 70)
- *   DM_DELAY_MS=90000          Base pause between sends (min 75s)
- *   DM_DELAY_JITTER_MS=45000   Random extra wait 0..N ms
+ *   DM_DELAY_MS=180000         Base pause between sends (min 120s)
+ *   DM_DELAY_JITTER_MS=120000  Random extra wait 0..N ms
+ *   DM_HUMANIZE=1              Human-like browse/type/mouse (default on)
  *   DM_VARIANT=auto           auto|founder|ops|sales|...
  *   DM_SCROLLS=4              Scrolls while collecting search results
  *   DM_SEARCH_BATCH=25        Max prospects to collect before filtering
@@ -31,29 +32,35 @@ const CACHE_FILE = path.join(__dirname, 'connection-dms-targets-cache.json');
 const TEMPLATES_FILE = path.join(__dirname, 'connection_dm_templates.json');
 
 const DRY_RUN = process.env.DRY_RUN === '1';
-const DELAY_MS = parseInt(process.env.DM_DELAY_MS || '90000', 10);
-const DELAY_JITTER_MS = parseInt(process.env.DM_DELAY_JITTER_MS || '45000', 10);
-const MAX_PER_RUN = parseInt(process.env.MAX_DMS_PER_RUN || '5', 10);
-const MAX_PER_DAY = parseInt(process.env.MAX_DMS_PER_DAY || '12', 10);
-const MAX_PER_HOUR = parseInt(process.env.MAX_DMS_PER_HOUR || '3', 10);
+const DELAY_MS = parseInt(process.env.DM_DELAY_MS || '180000', 10);
+const DELAY_JITTER_MS = parseInt(process.env.DM_DELAY_JITTER_MS || '120000', 10);
+const MAX_PER_RUN = parseInt(process.env.MAX_DMS_PER_RUN || '3', 10);
+const MAX_PER_DAY = parseInt(process.env.MAX_DMS_PER_DAY || '15', 10);
+const MAX_PER_HOUR = parseInt(process.env.MAX_DMS_PER_HOUR || '2', 10);
 const MAX_PER_WEEK = parseInt(process.env.MAX_DMS_PER_WEEK || '60', 10);
 const VARIANT = process.env.DM_VARIANT || 'auto';
 const SEARCH_SCROLLS = parseInt(process.env.DM_SCROLLS || '4', 10);
 const SEARCH_BATCH = parseInt(process.env.DM_SEARCH_BATCH || '25', 10);
 const MAX_GEO_SEARCHES = parseInt(process.env.DM_MAX_GEO_SEARCHES || '3', 10);
 const USE_CACHE = process.env.DM_USE_CACHE !== '0';
+const HUMANIZE = process.env.DM_HUMANIZE !== '0';
 
 // Absolute ceilings — cannot be raised via env (past ALLOW_UNSAFE caused restrictions).
 // LinkedIn cited "unusually high volume of LinkedIn profile data" at ~77+/day.
+// Sustain by looking human + spreading volume, not by blasting.
 const ABSOLUTE_MAX_RUN = 5;
 const ABSOLUTE_MAX_DAY = 15;
 const ABSOLUTE_MAX_HOUR = 3;
 const ABSOLUTE_MAX_WEEK = 70;
-const HARD_MIN_DELAY_MS = 75000;
-const RECOVERY_MAX_DAY = 8;
-const RECOVERY_MAX_RUN = 4;
-const RECOVERY_MAX_HOUR = 2;
+const HARD_MIN_DELAY_MS = 120000;
+const RECOVERY_STRICT_DAY = 8;
+const RECOVERY_STRICT_RUN = 2;
+const RECOVERY_STRICT_HOUR = 2;
+const RECOVERY_EASING_DAY = 12;
+const RECOVERY_EASING_RUN = 3;
+const RECOVERY_EASING_HOUR = 2;
 const RECOVERY_DAYS = 14;
+const RECOVERY_STRICT_DAYS = 7;
 
 // Major markets outside India (LinkedIn geoUrn)
 const GEO_TARGETS = [
@@ -123,30 +130,150 @@ function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));
 }
 
+function randInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function chance(p) {
+  return Math.random() < p;
+}
+
 function nextDelayMs(baseDelayMs) {
   const base = Math.max(baseDelayMs || DELAY_MS, HARD_MIN_DELAY_MS);
   const jitter = DELAY_JITTER_MS > 0 ? Math.floor(Math.random() * (DELAY_JITTER_MS + 1)) : 0;
-  return base + jitter;
+  // Occasional "got distracted" pause: longer gap like a real session break
+  const longBreak = HUMANIZE && chance(0.18) ? randInt(45000, 120000) : 0;
+  return base + jitter + longBreak;
+}
+
+async function humanIdle(minMs = 400, maxMs = 1400) {
+  await sleep(randInt(minMs, maxMs));
+}
+
+async function humanMouseWander(page) {
+  if (!HUMANIZE) return;
+  try {
+    const vp = page.viewport() || { width: 1280, height: 800 };
+    const steps = randInt(2, 5);
+    for (let i = 0; i < steps; i++) {
+      const x = randInt(80, Math.max(120, vp.width - 80));
+      const y = randInt(120, Math.max(200, vp.height - 100));
+      await page.mouse.move(x, y, { steps: randInt(8, 22) });
+      await sleep(randInt(80, 280));
+    }
+  } catch (_) {}
+}
+
+async function humanScrollRead(page) {
+  if (!HUMANIZE) {
+    await sleep(1200);
+    return;
+  }
+  await humanMouseWander(page);
+  const scrolls = randInt(1, 3);
+  for (let i = 0; i < scrolls; i++) {
+    const delta = randInt(220, 520) * (chance(0.15) ? -1 : 1);
+    try {
+      await page.mouse.wheel({ deltaY: delta });
+    } catch (_) {
+      try {
+        await page.evaluate((dy) => window.scrollBy(0, dy), Math.abs(delta));
+      } catch (_) {}
+    }
+    await sleep(randInt(700, 2200));
+  }
+  // Settle on upper profile before Message CTA
+  try {
+    await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  } catch (_) {}
+  await sleep(randInt(900, 2200));
+}
+
+async function humanClickElement(page, el) {
+  const box = await el.boundingBox().catch(() => null);
+  if (box) {
+    const x = box.x + box.width * (0.3 + Math.random() * 0.4);
+    const y = box.y + box.height * (0.3 + Math.random() * 0.4);
+    if (HUMANIZE) {
+      await page.mouse.move(x, y, { steps: randInt(10, 28) });
+      await sleep(randInt(80, 320));
+    }
+    await page.mouse.click(x, y, { delay: HUMANIZE ? randInt(40, 120) : 40 });
+    return true;
+  }
+  try {
+    await el.click({ delay: HUMANIZE ? randInt(40, 120) : 40 });
+    return true;
+  } catch {
+    await page.evaluate((e) => e.click(), el);
+    return true;
+  }
+}
+
+async function betweenDmBrowse(page) {
+  if (!HUMANIZE || !chance(0.55)) return;
+  const mode = chance(0.55) ? 'feed' : 'messaging';
+  console.log(`  human browse: ${mode} (looks like a real session)...`);
+  try {
+    if (mode === 'feed') {
+      await page.goto('https://www.linkedin.com/feed/', {
+        waitUntil: 'domcontentloaded',
+        timeout: 35000,
+      }).catch(() => {});
+      await sleep(randInt(2000, 4500));
+      await humanScrollRead(page);
+      await humanIdle(1500, 5000);
+    } else {
+      await page.goto('https://www.linkedin.com/messaging/', {
+        waitUntil: 'domcontentloaded',
+        timeout: 35000,
+      }).catch(() => {});
+      await sleep(randInt(2000, 4000));
+      await humanMouseWander(page);
+      await humanIdle(1200, 3500);
+    }
+  } catch (_) {}
+}
+
+function lastRestrictionTs(log) {
+  let latest = 0;
+  for (const e of log) {
+    const ts = e.ts ? Date.parse(e.ts) : 0;
+    if (!ts) continue;
+    if (['restricted', 'limit_reached'].includes(e.status)) {
+      latest = Math.max(latest, ts);
+      continue;
+    }
+    const err = String(e.error || '').toLowerCase();
+    if (/restrict|checkpoint|unusual activity|messaging limit|too many messages/.test(err)) {
+      latest = Math.max(latest, ts);
+    }
+  }
+  // Burst days also count as restriction signal
+  const byDay = {};
+  for (const e of log) {
+    if (e.status !== 'sent' || e.dry_run || !e.date || !e.ts) continue;
+    byDay[e.date] = byDay[e.date] || { n: 0, ts: 0 };
+    byDay[e.date].n += 1;
+    byDay[e.date].ts = Math.max(byDay[e.date].ts, Date.parse(e.ts) || 0);
+  }
+  for (const d of Object.values(byDay)) {
+    if (d.n >= 40) latest = Math.max(latest, d.ts);
+  }
+  return latest || 0;
+}
+
+function recoveryStage(log) {
+  const ts = lastRestrictionTs(log);
+  if (!ts) return null;
+  const daysAgo = (Date.now() - ts) / (24 * 60 * 60 * 1000);
+  if (daysAgo > RECOVERY_DAYS) return null;
+  if (daysAgo <= RECOVERY_STRICT_DAYS) return 'strict';
+  return 'easing';
 }
 
 function recentlyRestricted(log) {
-  const since = Date.now() - RECOVERY_DAYS * 24 * 60 * 60 * 1000;
-  const flagged = log.some((e) => {
-    if (!e.ts || Date.parse(e.ts) < since) return false;
-    if (['restricted', 'limit_reached'].includes(e.status)) return true;
-    const err = String(e.error || '').toLowerCase();
-    return /restrict|checkpoint|unusual activity|messaging limit|too many messages/.test(err);
-  });
-  if (flagged) return true;
-
-  // Also treat recent high-volume days as recovery signal (77+ and 145 previously led to locks).
-  const byDay = {};
-  for (const e of log) {
-    if (e.status !== 'sent' || e.dry_run || !e.date) continue;
-    if (e.ts && Date.parse(e.ts) < since) continue;
-    byDay[e.date] = (byDay[e.date] || 0) + 1;
-  }
-  return Object.values(byDay).some((n) => n >= 40);
+  return Boolean(recoveryStage(log));
 }
 
 function countSentInLastDays(log, days, opts = {}) {
@@ -166,10 +293,14 @@ function countSentInLastDays(log, days, opts = {}) {
 }
 
 function enforceSafeLimits(log) {
-  const recovery = recentlyRestricted(log);
-  if (recovery) {
+  const stage = recoveryStage(log);
+  if (stage === 'strict') {
     console.log(
-      `Recovery mode ON (restriction/limit signal in last ${RECOVERY_DAYS} days): using tighter caps`
+      `Recovery STRICT (≤${RECOVERY_STRICT_DAYS}d since restriction signal): tight caps`
+    );
+  } else if (stage === 'easing') {
+    console.log(
+      `Recovery EASING (${RECOVERY_STRICT_DAYS + 1}–${RECOVERY_DAYS}d): raising toward ~${ABSOLUTE_MAX_DAY}/day`
     );
   }
 
@@ -180,9 +311,22 @@ function enforceSafeLimits(log) {
     );
   }
 
-  const dayCap = recovery ? RECOVERY_MAX_DAY : ABSOLUTE_MAX_DAY;
-  const runCap = recovery ? RECOVERY_MAX_RUN : ABSOLUTE_MAX_RUN;
-  const hourCap = recovery ? RECOVERY_MAX_HOUR : ABSOLUTE_MAX_HOUR;
+  let dayCap = ABSOLUTE_MAX_DAY;
+  let runCap = ABSOLUTE_MAX_RUN;
+  let hourCap = ABSOLUTE_MAX_HOUR;
+  if (stage === 'strict') {
+    dayCap = RECOVERY_STRICT_DAY;
+    runCap = RECOVERY_STRICT_RUN;
+    hourCap = RECOVERY_STRICT_HOUR;
+  } else if (stage === 'easing') {
+    dayCap = RECOVERY_EASING_DAY;
+    runCap = RECOVERY_EASING_RUN;
+    hourCap = RECOVERY_EASING_HOUR;
+  } else {
+    // Healthy: prefer small human sessions even when day cap is 15
+    runCap = Math.min(runCap, 3);
+    hourCap = Math.min(hourCap, 2);
+  }
 
   const clamped = {
     maxRun: Math.min(MAX_PER_RUN, runCap),
@@ -190,7 +334,8 @@ function enforceSafeLimits(log) {
     maxHour: Math.min(MAX_PER_HOUR, hourCap),
     maxWeek: Math.min(MAX_PER_WEEK, ABSOLUTE_MAX_WEEK),
     delayMs: Math.max(DELAY_MS, HARD_MIN_DELAY_MS),
-    recovery,
+    recovery: Boolean(stage),
+    stage: stage || 'healthy',
   };
 
   if (
@@ -204,6 +349,9 @@ function enforceSafeLimits(log) {
       `Safety clamp: run=${clamped.maxRun}/day=${clamped.maxDay}/hour=${clamped.maxHour}/week=${clamped.maxWeek} delay>=${clamped.delayMs}ms`
     );
   }
+  console.log(
+    `Humanize: ${HUMANIZE ? 'ON' : 'OFF'} | stage=${clamped.stage} | tip: 4–6 tiny sessions/day beats one burst`
+  );
   return clamped;
 }
 
@@ -436,16 +584,7 @@ async function clickByText(page, texts, opts = {}) {
 
   const el = handle.asElement();
   if (!el) return false;
-  const box = await el.boundingBox();
-  if (box) {
-    await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2);
-  } else {
-    try {
-      await el.click({ delay: 40 });
-    } catch {
-      await page.evaluate((e) => e.click(), el);
-    }
-  }
+  await humanClickElement(page, el);
   await el.dispose();
   return true;
 }
@@ -743,20 +882,34 @@ async function fillMessage(page, text) {
   const editor = await getEditorHandle(page);
   if (!editor) return false;
 
-  await editor.click({ clickCount: 1 });
-  await new Promise((r) => setTimeout(r, 300));
+  await humanClickElement(page, editor);
+  await humanIdle(250, 700);
   await page.evaluate((el) => {
     el.focus();
     el.innerHTML = '<p><br></p>';
     el.dispatchEvent(new InputEvent('input', { bubbles: true }));
   }, editor);
 
-  try {
-    const client = await page.createCDPSession();
-    await client.send('Input.insertText', { text });
-    await client.detach();
-  } catch (_) {
-    await page.keyboard.type(text, { delay: 5 });
+  if (HUMANIZE) {
+    // Type like a person: variable key delay, pauses at punctuation / newlines
+    for (let i = 0; i < text.length; i++) {
+      const ch = text[i];
+      await page.keyboard.type(ch, { delay: 0 });
+      let pause = randInt(28, 95);
+      if (ch === '\n') pause = randInt(220, 700);
+      else if (/[,.;:?]/.test(ch)) pause = randInt(120, 380);
+      else if (ch === ' ' && chance(0.08)) pause = randInt(180, 520);
+      else if (chance(0.03)) pause = randInt(250, 900); // think / typo hesitation
+      await sleep(pause);
+    }
+  } else {
+    try {
+      const client = await page.createCDPSession();
+      await client.send('Input.insertText', { text });
+      await client.detach();
+    } catch (_) {
+      await page.keyboard.type(text, { delay: 5 });
+    }
   }
 
   const len = await editor.evaluate((el) => (el.innerText || '').trim().length);
@@ -812,8 +965,9 @@ async function sendMessageOnProfile(page, prospect, templates) {
       }
     }
   }
-  await sleep(2800);
+  await sleep(HUMANIZE ? randInt(2200, 4800) : 2800);
   await dismissOverlays(page);
+  await humanScrollRead(page);
 
   let location = '';
   let headline = prospect.headline || prospect.title || '';
@@ -843,7 +997,7 @@ async function sendMessageOnProfile(page, prospect, templates) {
     return { status: 'failed', error: 'Message button not found', location, headline, variant: personalized.variant };
   }
 
-  await sleep(1200);
+  await sleep(HUMANIZE ? randInt(900, 2200) : 1200);
   const editorReady = await waitForEditor(page, 10000);
   if (!editorReady) {
     return { status: 'failed', error: 'Message editor not ready', location, headline, variant: personalized.variant };
@@ -854,7 +1008,9 @@ async function sendMessageOnProfile(page, prospect, templates) {
     return { status: 'failed', error: 'Could not fill message editor', location, headline, variant: personalized.variant };
   }
 
-  await sleep(600);
+  // Re-read draft before send (humans pause here)
+  await sleep(HUMANIZE ? randInt(1800, 5200) : 600);
+  await humanMouseWander(page);
 
   if (DRY_RUN) {
     return {
@@ -893,7 +1049,7 @@ async function sendMessageOnProfile(page, prospect, templates) {
     await page.keyboard.up(mod);
   }
 
-  await sleep(1800);
+  await sleep(HUMANIZE ? randInt(1500, 3200) : 1800);
 
   const blocked = await detectRestriction(page);
   if (blocked) {
@@ -938,7 +1094,7 @@ async function main() {
   );
   console.log(`Already messaged (all time): ${already.size}`);
   console.log(
-    `Safe guidance: stay at ${limits.maxDay}/day (absolute max ${ABSOLUTE_MAX_DAY}). 50–200/day previously caused restriction.`
+    `Safe guidance: ${limits.maxDay}/day via short sessions (≤${limits.maxHour}/hour). Absolute max ${ABSOLUTE_MAX_DAY}/day — 50–200/day caused restriction.`
   );
 
   if (budget <= 0) {
@@ -1104,8 +1260,11 @@ async function main() {
 
     await dismissOverlays(page);
     if (sent < budget) {
+      await betweenDmBrowse(page);
       const waitMs = nextDelayMs(limits.delayMs);
-      console.log(`Waiting ${waitMs}ms before next (anti-restrict jitter)...`);
+      console.log(
+        `Waiting ${Math.round(waitMs / 1000)}s before next (human gap ${limits.delayMs}+jitter)...`
+      );
       await sleep(waitMs);
     }
   }

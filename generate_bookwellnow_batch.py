@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Generate 10 days of BookWellNow company LinkedIn content:
-  each day = 1 IMAGE post + 1 CAROUSEL post (6 slides).
+  each day = 2 IMAGE posts + 2 CAROUSEL posts (4 total).
 Writes bookwellnow_batch_YYYYMMDD.json
 """
 import datetime
@@ -22,7 +22,14 @@ ctx.check_hostname = False
 ctx.verify_mode = ssl.CERT_NONE
 
 DAYS = int(os.environ.get("BOOKWELLNOW_DAYS", "10"))
-START = datetime.date.today() + datetime.timedelta(days=1)
+if os.environ.get("BOOKWELLNOW_START"):
+    START = datetime.date.fromisoformat(os.environ["BOOKWELLNOW_START"])
+else:
+    START = datetime.date.today()
+
+SITE_URL = "https://bookwellnow.com/"
+DOCS_URL = "https://bookwellnow.com/docs/getting-started/installing/"
+FOOTER = f"Start free: {SITE_URL}"
 
 gemini_key = openrouter_key = None
 with open(".env") as f:
@@ -51,125 +58,176 @@ if os.path.exists("bookwellnow-run-log.json"):
     except Exception:
         pass
 
-ARCHETYPES = [
-    ("PAIN_NO_SHOW", "FEATURE_CHECKLIST"),
-    ("INDUSTRY_SPOT", "SETUP_STEPS"),
-    ("FREE_VS_PAID", "WHY_BOOKWELLNOW"),
-    ("STAFF_SHIFTS", "BEFORE_AFTER"),
-    ("ZOOM_ONLINE", "CLIENT_JOURNEY"),
-    ("MYTH_BUST", "PAYMENTS_STACK"),
-    ("SPEED_SEO", "MISTAKE_FIX"),
-    ("AGENCY_ANGLE", "MIGRATION_GUIDE"),
-    ("CUSTOMER_PANEL", "INDUSTRY_LISTICLE"),
-    ("SOFT_CTA", "LAUNCH_CHECKLIST"),
+# 4 posts/day: image_am, carousel_am, image_pm, carousel_pm
+DAY_SLOTS = [
+    ("PAIN_NO_SHOW", "FEATURE_CHECKLIST", "NEW_FEATURE_SPOT", "SETUP_STEPS"),
+    ("INDUSTRY_SPOT", "CLIENT_JOURNEY", "GOOGLE_CALENDAR", "BEFORE_AFTER"),
+    ("FREE_VS_PAID", "WHY_BOOKWELLNOW", "CUSTOM_FIELDS", "MISTAKE_FIX"),
+    ("STAFF_SHIFTS", "BUFFER_RESCHEDULE", "SPEED_SEO", "LAUNCH_CHECKLIST"),
+    ("ZOOM_MEET", "ONLINE_STACK", "NOTIFICATIONS", "PAYMENTS_STACK"),
+    ("MYTH_BUST", "MIGRATION_GUIDE", "WIZARD_SETUP", "INDUSTRY_LISTICLE"),
+    ("AGENCY_ANGLE", "SHORTCODE_CTA", "GOOGLE_MEET", "FEATURE_CHECKLIST"),
+    ("CUSTOMER_PANEL", "RESCHEDULE_FLOW", "BUFFER_TIME", "SETUP_STEPS"),
+    ("NEW_FEATURE_SPOT", "WHY_BOOKWELLNOW", "SOFT_CTA", "CLIENT_JOURNEY"),
+    ("PAIN_NO_SHOW", "LAUNCH_CHECKLIST", "GOOGLE_CALENDAR", "SOFT_CTA"),
 ]
 
 INDUSTRIES = [
-    "barbershops",
     "beauty and hair salons",
-    "spa and wellness centers",
-    "fitness studios and gyms",
-    "yoga studios",
-    "tutors and private coaches",
     "dental practices and clinics",
+    "fitness studios and gyms",
+    "spa and wellness centers",
+    "veterinary and pet clinics",
+    "barbershops",
+    "tutors and private coaches",
+    "yoga studios",
+    "WordPress agencies building client booking sites",
+    "physiotherapy and therapy practices",
     "pet grooming studios",
     "cleaning services",
     "consultants and agencies",
-    "physiotherapy and therapy practices",
-    "maintenance and repair workshops",
     "events and workshop hosts",
-    "boat and equipment rental",
     "class and course scheduling",
 ]
 
 ARCHETYPE_BRIEFS = {
-    "PAIN_NO_SHOW": "Open with a booking pain (missed calls, no-shows, double bookings) for this industry, then show the free BookWellNow features that fix it.",
-    "INDUSTRY_SPOT": "Spotlight how this exact industry configures BookWellNow: services, staff, shifts, and the booking page.",
-    "FREE_VS_PAID": "Contrast capped booking plugins and monthly SaaS seat fees with the unlimited free core (staff, services, bookings). Never name a competitor.",
-    "STAFF_SHIFTS": "Focus on staff shift management, breaks, and holiday management for multi-staff teams.",
-    "ZOOM_ONLINE": "Focus on free Zoom integration for online sessions: auto-generated links, confirmations, no manual scheduling.",
-    "MYTH_BUST": "Bust a myth about WordPress booking systems (too slow, too complex, needs a developer, needs a monthly subscription).",
-    "SPEED_SEO": "Focus on the lightweight footprint, fast page load, and why a heavy booking plugin hurts page speed and SEO.",
-    "AGENCY_ANGLE": "Speak to WordPress agencies and freelancers who build client sites and need a booking layer clients can run themselves.",
-    "CUSTOMER_PANEL": "Focus on the customer panel and self-serve cancellation: fewer support emails, fewer no-shows.",
-    "SOFT_CTA": "Soft offer post: free plugin download plus free expert install and configuration.",
-    "FEATURE_CHECKLIST": "Checklist of the free features a booking setup should include, mapped to what this industry needs.",
-    "SETUP_STEPS": "Step by step setup: install and activate, add services, add staff and shifts, drop the [bookwell_booking] shortcode, go live.",
-    "WHY_BOOKWELLNOW": "Reasons to choose BookWellNow: unlimited everything free, fast, WooCommerce and PayPal, free expert setup, 24/7 support.",
-    "BEFORE_AFTER": "Before and after a booking system: manual calendar chaos versus real-time availability and automatic confirmations.",
-    "CLIENT_JOURNEY": "Walk the customer booking journey: choose service, pick staff and time, enter details with no login, confirm and pay.",
-    "PAYMENTS_STACK": "Payments explained: free PayPal checkout, cash on arrival, WooCommerce and Stripe for paid plans.",
-    "MISTAKE_FIX": "Common booking page mistakes for this industry and the fix for each.",
-    "MIGRATION_GUIDE": "How to move from phone, WhatsApp, spreadsheet, or a capped plugin to BookWellNow without losing bookings.",
-    "INDUSTRY_LISTICLE": "Short list of industries that run on BookWellNow with the one setting that matters most for each.",
-    "LAUNCH_CHECKLIST": "Pre-launch checklist before turning on online booking: services priced, staff hours, holidays, payment method, confirmation emails.",
+    "PAIN_NO_SHOW": "Open with missed calls, WhatsApp chaos, or no-shows for this industry, then the BookWellNow fix.",
+    "INDUSTRY_SPOT": "How this industry configures services, staff, shifts, and the booking page.",
+    "FREE_VS_PAID": "Unlimited free core vs plugins that cap staff/services/bookings. Never name a competitor.",
+    "STAFF_SHIFTS": "Staff shifts, breaks, holidays for multi-staff teams.",
+    "ZOOM_MEET": "Free Zoom + NEW Google Meet auto links for online sessions.",
+    "MYTH_BUST": "Bust a myth: WordPress booking is slow, needs a developer, or needs a monthly SaaS.",
+    "SPEED_SEO": "Under 15KB footprint, page speed, SEO for booking pages.",
+    "AGENCY_ANGLE": "WordPress agencies/freelancers who need a booking layer clients can run.",
+    "CUSTOMER_PANEL": "Customer panel + self-serve cancel/reschedule.",
+    "SOFT_CTA": "Free download + free expert install. Include bookwellnow.com.",
+    "NEW_FEATURE_SPOT": "Spotlight ONE new feature (Google Calendar, Meet, Custom Fields, Buffer, Reschedule, Notifications) with industry outcome.",
+    "GOOGLE_CALENDAR": "NEW Google Calendar sync stops double-bookings.",
+    "GOOGLE_MEET": "NEW Google Meet auto links for online services.",
+    "CUSTOM_FIELDS": "NEW custom intake fields from the admin dashboard.",
+    "BUFFER_TIME": "NEW buffer time between appointments for prep.",
+    "BUFFER_RESCHEDULE": "NEW buffer time + client reschedule together.",
+    "RESCHEDULE_FLOW": "NEW client reschedule without phone/DM.",
+    "NOTIFICATIONS": "NEW automated reminders/notifications.",
+    "WIZARD_SETUP": "Booking Setup Wizard: Basic Info → Service → Staff → Finish (docs install path).",
+    "SHORTCODE_CTA": "Shortcode [bookwell_booking] + universal booking button with service_id/staff_id.",
+    "ONLINE_STACK": "Online stack: Zoom, Google Meet, confirmations, reminders.",
+    "FEATURE_CHECKLIST": "Checklist of must-have booking features including NEW ones.",
+    "SETUP_STEPS": "Install ZIP → Activate → Wizard → shortcode → go live (link docs).",
+    "WHY_BOOKWELLNOW": "Unlimited free core + new calendar/meet/fields/buffer/reschedule/reminders.",
+    "BEFORE_AFTER": "Before manual chaos vs after real-time booking + reminders.",
+    "CLIENT_JOURNEY": "Choose service → staff/time → details (no login) → confirm/pay.",
+    "PAYMENTS_STACK": "PayPal free, cash on arrival, WooCommerce/Stripe on paid.",
+    "MISTAKE_FIX": "Common booking-page mistakes for this industry + fix.",
+    "MIGRATION_GUIDE": "Move from phone/WhatsApp/spreadsheet/capped plugin without losing bookings.",
+    "INDUSTRY_LISTICLE": "Industries that run on BookWellNow + one key setting each.",
+    "LAUNCH_CHECKLIST": "Pre-launch: services, staff hours, holidays, buffer, payments, reminders, calendar sync.",
 }
 
-SYSTEM = """You are the LinkedIn ghostwriter for BookWellNow, a WordPress appointment booking plugin.
+ANALYTICS_HINTS = """
+ANALYTICS LESSONS (impressions):
+- Top organic product posts were beauty/salon agency angles, veterinary, dental pain, fitness, spa — be specific.
+- Question hooks and concrete owner pain beat generic 'new feature is here' posts.
+- Pair every NEW feature with a named industry outcome.
+- Avoid vague consulting copy; name the setting (WhatsApp threads, empty chairs, slow clinic site).
+"""
+
+SYSTEM = f"""You are the LinkedIn ghostwriter for BookWellNow, a WordPress appointment booking plugin.
 Company voice only: we / our / BookWellNow team. Never solo "I".
-Audience: owners of appointment based service businesses and the WordPress agencies who build their sites.
-Goal: free plugin installs and setup enquiries. Talk about bookings, staff, no-shows, and revenue, not developer jargon.
-Lead with free features: unlimited staff, unlimited services, unlimited bookings, Zoom integration, PayPal, staff shifts and holidays, customer panel, self-serve cancellation, lightweight and fast, mobile friendly.
-No em-dashes. Never name a competitor plugin; say "most booking plugins" instead.
+Audience: owners of appointment-based service businesses and WordPress agencies.
+Goal: free plugin installs and setup enquiries.
+
+CAPTION FORMAT (never one wall of text):
+1) Hook line (question or sharp pain)
+2) Blank line
+3) 1-2 short paragraphs
+4) Blank line
+5) 3-5 bullets starting with "- "
+6) Blank line
+7) CTA (Comment BOOK / DM industry + staff count / free expert install)
+8) Blank line
+9) Always end with: {FOOTER}
+
+Highlight NEW features when the archetype asks: Google Calendar, Google Meet, Custom Fields, Buffer Time, Client Reschedule, Notifications, Setup Wizard.
+No em-dashes. Never name a competitor plugin; say "most booking plugins".
 Banned: game-changer, cutting-edge, leverage, synergy, unlock, delve, disruptive, revolutionary.
-CTA rotate: Comment BOOK / DM us your industry and staff count / download the free version at bookwellnow.com
 Return ONLY valid JSON."""
 
 
-def call_llm(user, max_tokens=6000):
+def call_llm(user, max_tokens=8000):
     openrouter_model = os.environ.get("OPENROUTER_MODEL", "google/gemini-2.5-flash")
-    gemini_model = os.environ.get("GEMINI_MODEL", "gemini-3.5-flash")
+    gemini_models = [
+        m.strip()
+        for m in os.environ.get(
+            "GEMINI_MODELS",
+            os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
+            + ",gemini-flash-latest,gemini-3.5-flash",
+        ).split(",")
+        if m.strip()
+    ]
+    seen = set()
+    gemini_models = [m for m in gemini_models if not (m in seen or seen.add(m))]
     errors = []
     if gemini_key:
-        try:
-            url = (
-                "https://generativelanguage.googleapis.com/v1beta/models/"
-                f"{gemini_model}:generateContent?key={gemini_key}"
-            )
-            payload = {
-                "contents": [{"role": "user", "parts": [{"text": user}]}],
-                "systemInstruction": {"parts": [{"text": SYSTEM}]},
-                "generationConfig": {
-                    "maxOutputTokens": max_tokens,
-                    "responseMimeType": "application/json",
-                },
-            }
-            req = urllib.request.Request(
-                url,
-                data=json.dumps(payload).encode(),
-                headers={"Content-Type": "application/json"},
-                method="POST",
-            )
-            with urllib.request.urlopen(req, context=ctx, timeout=180) as res:
-                resp = json.loads(res.read().decode())
-                return resp["candidates"][0]["content"]["parts"][0]["text"]
-        except Exception as e:
-            errors.append(f"gemini:{e}")
-            print(f"  Gemini failed ({e})")
+        for gemini_model in gemini_models:
+            try:
+                url = (
+                    "https://generativelanguage.googleapis.com/v1beta/models/"
+                    f"{gemini_model}:generateContent?key={gemini_key}"
+                )
+                payload = {
+                    "contents": [{"role": "user", "parts": [{"text": user}]}],
+                    "systemInstruction": {"parts": [{"text": SYSTEM}]},
+                    "generationConfig": {
+                        "maxOutputTokens": max_tokens,
+                        "responseMimeType": "application/json",
+                    },
+                }
+                req = urllib.request.Request(
+                    url,
+                    data=json.dumps(payload).encode(),
+                    headers={"Content-Type": "application/json"},
+                    method="POST",
+                )
+                with urllib.request.urlopen(req, context=ctx, timeout=180) as res:
+                    resp = json.loads(res.read().decode())
+                    text = resp["candidates"][0]["content"]["parts"][0]["text"]
+                    print(f"  LLM ok via gemini/{gemini_model}")
+                    return text
+            except Exception as e:
+                errors.append(f"gemini/{gemini_model}:{e}")
+                print(f"  Gemini {gemini_model} failed ({e})")
+                time.sleep(1.2)
     if openrouter_key:
-        url = "https://openrouter.ai/api/v1/chat/completions"
-        payload = {
-            "model": openrouter_model,
-            "messages": [
-                {"role": "system", "content": SYSTEM},
-                {"role": "user", "content": user + "\n\nReturn ONLY valid JSON."},
-            ],
-            "max_tokens": max_tokens,
-        }
-        req = urllib.request.Request(
-            url,
-            data=json.dumps(payload).encode(),
-            headers={
-                "Authorization": f"Bearer {openrouter_key}",
-                "Content-Type": "application/json",
-                "HTTP-Referer": "https://bookwellnow.com",
-                "X-Title": "BookWellNowBatch",
-            },
-            method="POST",
-        )
-        with urllib.request.urlopen(req, context=ctx, timeout=180) as res:
-            resp = json.loads(res.read().decode())
-            return resp["choices"][0]["message"]["content"]
+        for model in [openrouter_model, "google/gemini-2.5-flash"]:
+            try:
+                url = "https://openrouter.ai/api/v1/chat/completions"
+                payload = {
+                    "model": model,
+                    "messages": [
+                        {"role": "system", "content": SYSTEM},
+                        {"role": "user", "content": user + "\n\nReturn ONLY valid JSON."},
+                    ],
+                    "max_tokens": max_tokens,
+                }
+                req = urllib.request.Request(
+                    url,
+                    data=json.dumps(payload).encode(),
+                    headers={
+                        "Authorization": f"Bearer {openrouter_key}",
+                        "Content-Type": "application/json",
+                        "HTTP-Referer": "https://bookwellnow.com",
+                        "X-Title": "BookWellNowBatch",
+                    },
+                    method="POST",
+                )
+                with urllib.request.urlopen(req, context=ctx, timeout=180) as res:
+                    resp = json.loads(res.read().decode())
+                    print(f"  LLM ok via openrouter/{model}")
+                    return resp["choices"][0]["message"]["content"]
+            except Exception as e:
+                errors.append(f"openrouter/{model}:{e}")
+                print(f"  OpenRouter {model} failed ({e})")
     raise RuntimeError(" | ".join(errors))
 
 
@@ -188,80 +246,149 @@ def parse_json(raw):
         return json.loads(m.group(0))
 
 
-def gen_day(day_i, date_obj, img_arch, car_arch, industry):
-    user = f"""PRODUCT PROFILE:
-{profile[:3200]}
+def ensure_site(caption: str) -> str:
+    caption = (caption or "").strip().replace("—", "-").replace("–", "-")
+    caption = re.sub(r"[ \t]+\n", "\n", caption)
+    caption = re.sub(r"\n{3,}", "\n\n", caption)
+    if "bookwellnow.com" not in caption.lower():
+        caption = (caption + "\n\n" + FOOTER).strip()
+    return caption
 
-BANNED topics (already posted): {json.dumps(used[-30:])}
 
-Generate ONE day of BookWellNow LinkedIn content for {date_obj.isoformat()} ({date_obj.strftime('%A')}).
-Primary industry for this day: {industry}
-Image archetype: {img_arch} -> {ARCHETYPE_BRIEFS.get(img_arch, '')}
-Carousel archetype: {car_arch} -> {ARCHETYPE_BRIEFS.get(car_arch, '')}
+def densify_image(spec):
+    bars = spec.get("bars") or []
+    while len(bars) < 4:
+        bars.append({
+            "label": f"Booking outcome {len(bars)+1}",
+            "value": "n/a",
+            "width_pct": f"{88 - len(bars)*12}%",
+            "color": ["#5700B4", "#7C3AED", "#C084FC", "#4C1D95"][len(bars) % 4],
+        })
+    spec["bars"] = bars[:4]
+    bullets = spec.get("bullets") or []
+    while len(bullets) < 4:
+        bullets.append("Unlimited staff, services, and bookings in free core")
+    spec["bullets"] = [str(b)[:80] for b in bullets[:4]]
+    spec["caption"] = ensure_site(spec.get("caption", ""))
+    return spec
 
-Return JSON:
-{{
-  "topic": "short unique topic phrase",
-  "industry": "{industry}",
-  "image": {{
-    "caption": "120-200 word company-page caption ending with CTA",
-    "badge": "BookWellNow",
-    "title_main": "3-5 words",
-    "title_span": "2-4 words",
-    "subtitle": "max 120 chars",
-    "takeaway_num": "hero stat or short label",
-    "takeaway_text": "max 100 chars",
-    "bars": [
-      {{"label": "max 36 chars", "value": "display", "width_pct": "85%", "color": "#5700B4"}},
-      {{"label": "b", "value": "v", "width_pct": "70%", "color": "#7C3AED"}},
-      {{"label": "c", "value": "v", "width_pct": "55%", "color": "#C084FC"}}
-    ]
-  }},
-  "carousel": {{
-    "caption": "90-160 word caption for the document carousel ending with CTA",
-    "slides": [
-      {{"kick": "HOOK", "headline": "6-8 word hook with optional <em>accent</em>", "body": "1-2 short sentences"}},
-      {{"kick": "01", "headline": "...", "body": "..."}},
-      {{"kick": "02", "headline": "...", "body": "..."}},
-      {{"kick": "03", "headline": "...", "body": "..."}},
-      {{"kick": "04", "headline": "...", "body": "..."}},
-      {{"cta": true, "headline": "Ready to take <em>bookings</em>?", "body": "Comment BOOK and we will send the free plugin plus a setup checklist."}}
-    ]
-  }}
-}}
 
-Rules:
-- Exactly 6 carousel slides; last must be cta:true
-- No em-dashes in any string
-- Topics must be distinct from banned list
-- Name the industry naturally in both the image caption and the carousel
-- Bars must show booking outcomes (bookings captured, no-shows, admin hours saved, setup time), never fake client counts
-- Company voice throughout
-"""
-    raw = call_llm(user)
-    data = parse_json(raw)
-    if "image" not in data or "carousel" not in data:
-        raise ValueError("missing image/carousel keys")
-    slides = data["carousel"].get("slides") or []
-    if len(slides) < 5:
-        raise ValueError(f"need >=5 slides, got {len(slides)}")
+def densify_carousel(car):
+    car["caption"] = ensure_site(car.get("caption", ""))
+    slides = car.get("slides") or []
     while len(slides) < 6:
         slides.append({
             "cta": True,
             "headline": "Ready to take <em>bookings</em>?",
             "body": "Comment BOOK and we will send the free plugin plus a setup checklist.",
+            "bullets": ["Free core on WordPress.org", "Setup wizard in minutes", SITE_URL],
         })
-    data["carousel"]["slides"] = slides[:6]
-    data["carousel"]["slides"][-1]["cta"] = True
+    slides = slides[:6]
+    slides[-1]["cta"] = True
+    for s in slides:
+        sb = s.get("bullets") or []
+        while len(sb) < 3:
+            sb.append("Concrete setup step for this industry")
+        s["bullets"] = [str(b)[:90] for b in sb[:4]]
+    car["slides"] = slides
+    return car
+
+
+def gen_day(day_i, date_obj, slots, industry):
+    img_a, car_a, img_b, car_b = slots
+    user = f"""PRODUCT PROFILE:
+{profile[:4500]}
+
+{ANALYTICS_HINTS}
+
+Install docs to reference: {DOCS_URL}
+Site URL (required in every caption): {SITE_URL}
+
+BANNED topics: {json.dumps(used[-40:])}
+
+Generate ONE day of BookWellNow LinkedIn content for {date_obj.isoformat()} ({date_obj.strftime('%A')}).
+Primary industry: {industry}
+
+Four posts required:
+1) image_am archetype {img_a} -> {ARCHETYPE_BRIEFS.get(img_a, '')}
+2) carousel_am archetype {car_a} -> {ARCHETYPE_BRIEFS.get(car_a, '')}
+3) image_pm archetype {img_b} -> {ARCHETYPE_BRIEFS.get(img_b, '')}
+4) carousel_pm archetype {car_b} -> {ARCHETYPE_BRIEFS.get(car_b, '')}
+
+At least TWO of the four posts must highlight NEW features (Google Calendar, Google Meet, Custom Fields, Buffer Time, Reschedule, Notifications, or Setup Wizard).
+
+Return JSON:
+{{
+  "topic": "short unique day theme",
+  "industry": "{industry}",
+  "image_am": {{
+    "caption": "structured caption with newlines + bullets + {FOOTER}",
+    "badge": "BookWellNow",
+    "title_main": "3-5 punchy words",
+    "title_span": "2-4 accent words",
+    "subtitle": "specific promise with industry + feature (max 140 chars)",
+    "takeaway_num": "hero stat",
+    "takeaway_text": "outcome max 90 chars",
+    "bars": [
+      {{"label": "specific", "value": "v", "width_pct": "90%", "color": "#5700B4"}},
+      {{"label": "b", "value": "v", "width_pct": "78%", "color": "#7C3AED"}},
+      {{"label": "c", "value": "v", "width_pct": "65%", "color": "#C084FC"}},
+      {{"label": "d", "value": "v", "width_pct": "52%", "color": "#4C1D95"}}
+    ],
+    "bullets": ["stack/step 1", "2", "3", "4"]
+  }},
+  "carousel_am": {{
+    "caption": "structured caption + {FOOTER}",
+    "slides": [
+      {{"kick": "HOOK", "headline": "hook with optional <em>accent</em>", "body": "2 sentences", "bullets": ["a","b","c"]}},
+      {{"kick": "01", "headline": "...", "body": "...", "bullets": ["a","b","c"]}},
+      {{"kick": "02", "headline": "...", "body": "...", "bullets": ["a","b","c"]}},
+      {{"kick": "03", "headline": "...", "body": "...", "bullets": ["a","b","c"]}},
+      {{"kick": "04", "headline": "...", "body": "...", "bullets": ["a","b","c"]}},
+      {{"cta": true, "headline": "Ready to take <em>bookings</em>?", "body": "Comment BOOK for free plugin + setup checklist.", "bullets": ["Free core", "Expert install", "{SITE_URL}"]}}
+    ]
+  }},
+  "image_pm": {{ "...same shape as image_am..." }},
+  "carousel_pm": {{ "...same shape as carousel_am..." }}
+}}
+
+Rules:
+- Exactly 6 slides per carousel; last cta:true
+- Captions use real newlines and "- " bullets
+- Every caption includes {SITE_URL}
+- Each image has 4 bars + 4 bullets (dense, catchy, no empty feel)
+- Each carousel slide has body + 3 bullets
+- Topics distinct; industry named naturally
+- Company voice throughout
+"""
+    raw = call_llm(user)
+    data = parse_json(raw)
+    for key in ("image_am", "carousel_am", "image_pm", "carousel_pm"):
+        if key not in data:
+            raise ValueError(f"missing {key}")
+    data["image_am"] = densify_image(data["image_am"])
+    data["image_pm"] = densify_image(data["image_pm"])
+    data["carousel_am"] = densify_carousel(data["carousel_am"])
+    data["carousel_pm"] = densify_carousel(data["carousel_pm"])
+    # legacy aliases for older builders
+    data["image"] = data["image_am"]
+    data["carousel"] = data["carousel_am"]
     data["day"] = day_i
     data["date"] = date_obj.isoformat()
     data["industry"] = data.get("industry") or industry
-    data["image_archetype"] = img_arch
-    data["carousel_archetype"] = car_arch
+    data["image_archetype"] = img_a
+    data["carousel_archetype"] = car_a
+    data["image_pm_archetype"] = img_b
+    data["carousel_pm_archetype"] = car_b
+    data["slots"] = {
+        "image_am": img_a,
+        "carousel_am": car_a,
+        "image_pm": img_b,
+        "carousel_pm": car_b,
+    }
     return data
 
 
-# Start the industry rotation after the ones used in recent runs
 offset = 0
 for ind in reversed(used_industries[-len(INDUSTRIES):]):
     if ind in INDUSTRIES:
@@ -269,40 +396,58 @@ for ind in reversed(used_industries[-len(INDUSTRIES):]):
         break
 
 days_out = []
+date_compact = datetime.date.today().isoformat().replace("-", "")
+out_path = f"bookwellnow_batch_{date_compact}.json"
+
+
+def save_partial():
+    payload = {
+        "generated": datetime.date.today().isoformat(),
+        "days": DAYS,
+        "postsPerDay": 4,
+        "start": START.isoformat(),
+        "end": (START + datetime.timedelta(days=DAYS - 1)).isoformat(),
+        "posts": days_out,
+        "partial": len(days_out) < DAYS,
+    }
+    json.dump(payload, open(out_path, "w"), indent=2)
+
+
 for i in range(DAYS):
     d = START + datetime.timedelta(days=i)
-    img_a, car_a = ARCHETYPES[i % len(ARCHETYPES)]
+    slots = DAY_SLOTS[i % len(DAY_SLOTS)]
     industry = INDUSTRIES[(offset + i) % len(INDUSTRIES)]
-    print(f"Generating day {i+1}/{DAYS} {d.isoformat()} ({img_a} + {car_a}) [{industry}]...")
+    print(f"Generating day {i+1}/{DAYS} {d.isoformat()} {slots} [{industry}]...")
     last_err = None
-    for attempt in range(3):
+    for attempt in range(5):
         try:
-            day = gen_day(i + 1, d, img_a, car_a, industry)
+            day = gen_day(i + 1, d, slots, industry)
             topic = day.get("topic") or f"day-{i+1}"
             used.append(topic)
+            used.append(f"{topic}-pm")
             days_out.append(day)
+            save_partial()
             print(f"  OK topic={topic}")
             break
         except Exception as e:
             last_err = e
             print(f"  retry {attempt+1}: {e}")
-            time.sleep(2)
+            time.sleep(3 + attempt * 2)
     else:
         traceback.print_exc()
         sys.exit(f"Failed day {i+1}: {last_err}")
-    time.sleep(0.6)
+    time.sleep(1.0)
 
-date_compact = datetime.date.today().isoformat().replace("-", "")
-out_path = f"bookwellnow_batch_{date_compact}.json"
 payload = {
     "generated": datetime.date.today().isoformat(),
     "days": DAYS,
+    "postsPerDay": 4,
     "start": START.isoformat(),
     "end": (START + datetime.timedelta(days=DAYS - 1)).isoformat(),
     "posts": days_out,
 }
 json.dump(payload, open(out_path, "w"), indent=2)
-print(f"Wrote {out_path} ({DAYS} days, {DAYS*2} posts)")
+print(f"Wrote {out_path} ({DAYS} days, {DAYS*4} posts)")
 
 log_path = "bookwellnow-run-log.json"
 try:
@@ -311,7 +456,7 @@ except Exception:
     log = []
 log.append({
     "date": datetime.date.today().isoformat(),
-    "mode": f"{DAYS}-day-image-carousel",
+    "mode": f"{DAYS}-day-4posts-image-carousel",
     "file": out_path,
     "topics": [p.get("topic") for p in days_out],
     "industries": [p.get("industry") for p in days_out],

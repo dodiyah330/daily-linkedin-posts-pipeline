@@ -38,5 +38,34 @@
     "audiences": [
       "sales professionals"
     ]
+  },
+  {
+    "date": "2026-08-06",
+    "mode": "10-day-4posts-image-carousel",
+    "file": "digitalcard_batch_20260806.json",
+    "topics": [
+      "Freelancer networking success with digital cards",
+      "Real Estate Leads & Analytics with Digital Cards",
+      "Digital Cards for Business Owners: Streamlined Networking and Client Connection",
+      "Digital Cards for Doctors & Clinics: Streamlined Patient Connection & Team Branding",
+      "Replacing paper reprints with dynamic digital cards for legal and advisory practices",
+      "Seamless Networking & Lead Conversion for Event Planners",
+      "Student Networking: Digital Cards for Internships & Career Success",
+      "Effortless Creator Networking: From Handshake to Follow",
+      "Agency team branding and cost savings with digital cards",
+      "Sales Networking: From Paper to Digital Leads"
+    ],
+    "audiences": [
+      "freelancers",
+      "real estate agents",
+      "business owners",
+      "doctors and clinics",
+      "lawyers and consultants",
+      "event planners",
+      "students",
+      "influencers and creators",
+      "agency and team leads",
+      "sales professionals"
+    ]
   }
 ]

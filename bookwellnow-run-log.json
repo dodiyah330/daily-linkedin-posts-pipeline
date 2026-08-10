@@ -27,5 +27,34 @@
       "cleaning services",
       "consultants and agencies"
     ]
+  },
+  {
+    "date": "2026-08-06",
+    "mode": "10-day-4posts-image-carousel",
+    "file": "bookwellnow_batch_20260806.json",
+    "topics": [
+      "Event Host Booking Control",
+      "Class and Course Booking Efficiency",
+      "Salon Booking Freedom",
+      "Dental Clinic Scheduling Optimization",
+      "Fitness Studio Online Bookings & Payments",
+      "Streamlined Spa Bookings & WordPress Myth Busting",
+      "Seamless Clinic & Agency Booking",
+      "Barbershop Booking Automation",
+      "Tutor Booking Efficiency with New Features",
+      "yoga studio booking efficiency"
+    ],
+    "industries": [
+      "events and workshop hosts",
+      "class and course scheduling",
+      "beauty and hair salons",
+      "dental practices and clinics",
+      "fitness studios and gyms",
+      "spa and wellness centers",
+      "veterinary and pet clinics",
+      "barbershops",
+      "tutors and private coaches",
+      "yoga studios"
+    ]
   }
 ]

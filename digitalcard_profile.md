@@ -5,6 +5,7 @@ Used by `generate_digitalcard_batch.py` for company-page posts (we/our voice).
 ## Product
 - **Name:** Digital Card Creator (DCC)
 - **Website:** https://my.digitalcardcreator.com/
+- **Android app (required in every caption):** https://play.google.com/store/apps/details?id=com.digital_card_creator_app
 - **App:** Available on Google Play (mobile-first; works on phone)
 - **Positioning:** Create, share, and track a digital visiting card in minutes. The modern standard for professional networking. No printing required.
 - **Crafted by:** OpenXcode (do not hard-sell OpenXcode in posts; DCC is the product)
@@ -63,8 +64,32 @@ Get professionals to **create a free digital card** and start sharing via QR/Wha
 ## CTA preference (company page)
 - Primary: **Comment CARD** — "We will send the free app link and a 5-minute setup checklist for your role"
 - Secondary: **DM us** your role (sales / realtor / freelancer / clinic) and we will suggest a template
-- Soft: Create free at my.digitalcardcreator.com or download the app
+- Soft: Create free at my.digitalcardcreator.com or download the Android app
+- Every caption must end with both URLs:
+  - Create free: https://my.digitalcardcreator.com/
+  - Android app: https://play.google.com/store/apps/details?id=com.digital_card_creator_app
 - Offer framing: free to create; live in under 5 minutes
+
+## Caption format (required)
+1. Hook line (question or sharp audience pain — drives impressions)
+2. Blank line
+3. 1-2 short paragraphs (named audience + concrete networking moment)
+4. Blank line
+5. 3-5 bullets starting with "- "
+6. Blank line
+7. Comment CARD / DM CTA
+8. Blank line
+9. Both URLs (web + Play Store)
+
+## Image / carousel density (required)
+- Infographics: 4 outcome bars + 4 checklist bullets + takeaway (fill the 1080 square; no empty spacing)
+- Carousel slides: headline + body + 3 bullets per slide (content-dense, catchy)
+
+## What analytics say works
+- Question hooks + named pain beat generic product paragraphs
+- Top audiences by impressions: lawyers/consultants, students, sales, freelancers
+- Top by clicks: checklists, update-anytime, recruiter QR, clinic journeys, real-estate analytics
+- Prior batch had zero comments — make Comment CARD loud and reply-worthy
 
 ## Voice for company posts
 - **We / our / the Digital Card Creator team** — never solo "I"

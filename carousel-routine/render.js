@@ -49,8 +49,15 @@ async function render(dateStr, carouselDir) {
   const label = carouselDir ? `[${carouselDir}]` : '';
   console.log(`${label} Found ${htmlFiles.length} slide(s). Launching headless browser…`);
 
+  const chromePath =
+    process.env.PUPPETEER_EXECUTABLE_PATH ||
+    (fs.existsSync('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome')
+      ? '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+      : undefined);
+
   const browser = await puppeteer.launch({
     headless: 'shell',
+    executablePath: chromePath,
     args: [
       '--no-sandbox',
       '--disable-setuid-sandbox',

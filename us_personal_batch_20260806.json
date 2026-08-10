@@ -1,0 +1,1160 @@
+{
+  "generated": "2026-08-06",
+  "days": 10,
+  "start": "2026-08-06",
+  "end": "2026-08-15",
+  "audience": "US SaaS founders and ops leaders",
+  "posts": [
+    {
+      "topic": "Browser Automation for Legacy US SaaS Portals",
+      "image": {
+        "caption": "Hark's new browser agent news reminds me: are your US SaaS ops teams still stuck in legacy portals?\n\nI've seen Series A SaaS companies bleeding developer time and ops hours to manual data entry in outdated internal systems. Things like pulling reports, syncing customer data, or updating CRM records often require clicking through a clunky web UI that lacks API access.\n\nRecently, I built a custom browser automation agent for a client. Their finance team spent 8+ hours a week manually extracting data from an old ERP portal and uploading it into Salesforce. We cut that to zero by having an agent do it before their 9 AM ET standup.\n\n- Automate any browser-based task without custom API endpoints\n- Use Node.js and Puppeteer for robust, shadow-DOM proof navigation\n- Integrate directly with HubSpot, Salesforce, Stripe, or internal databases\n- Implement secure, auditable processes for compliance\n\nComment AUTO or DM AUTO to talk custom browser automation.\n\nPortfolio: https://hitesh-dodiya.netlify.app/\nLinkedIn: https://www.linkedin.com/in/hiteshdodiyaa",
+        "badge": "AI Automation",
+        "title_main": "Browser AI Agents",
+        "title_span": "for Legacy Portals",
+        "subtitle": "Automate data sync & report generation from any internal web portal to HubSpot or Salesforce.",
+        "takeaway_num": "8+ hrs",
+        "takeaway_text": "Saved weekly per ops specialist from manual portal clicks",
+        "bars": [
+          {
+            "label": "Manual Data Entry Hours Saved",
+            "value": "8 hrs",
+            "width_pct": "92%",
+            "color": "#5E6AD2"
+          },
+          {
+            "label": "Reporting Cycle Time Reduction",
+            "value": "50%",
+            "width_pct": "78%",
+            "color": "#2563EB"
+          },
+          {
+            "label": "Data Error Rate Decrease",
+            "value": "90%",
+            "width_pct": "65%",
+            "color": "#059669"
+          },
+          {
+            "label": "Increased Ops Capacity Value (Monthly)",
+            "value": "$2,800",
+            "width_pct": "52%",
+            "color": "#D9785B"
+          }
+        ],
+        "bullets": [
+          "Node.js + Puppeteer for resilient browser automation",
+          "Custom AI agents handle complex portal navigation",
+          "Direct API integration with Salesforce/HubSpot",
+          "Secure, SOC 2 compliant audit trail for all actions"
+        ]
+      },
+      "carousel": {
+        "caption": "US SaaS founders: What ops automations are on your Q3 roadmap?\n\nThe fastest-growing Series A SaaS companies aren't just building product; they're automating internal ops. Many teams get stuck on repetitive tasks that don't scale, from sales prep to client onboarding and support triage.\n\nI've built custom solutions beyond off-the-shelf tools, wiring HubSpot, Slack, Stripe, and internal databases to save hundreds of hours annually. Here are 3 common areas where custom AI agents deliver rapid ROI.\n\n- Boost SDR prep with AI-powered sales briefs\n- Accelerate client onboarding post-DocuSign\n- Triage support tickets for faster resolution\n- Streamline financial reconciliation and alerts\n\nComment AUTO or DM AUTO to get 3 automation ideas tailored to your stack.\n\nPortfolio: https://hitesh-dodiya.netlify.app/\nLinkedIn: https://www.linkedin.com/in/hiteshdodiyaa",
+        "slides": [
+          {
+            "kick": "HOOK",
+            "headline": "3 US SaaS Ops Automations to Wire <em>This Quarter</em>",
+            "body": "Your US SaaS growth demands efficient internal operations, not manual busywork. High-performing Series A teams are leveraging custom automation to scale faster without adding headcount.\nI build production-ready AI agents and integrations that remove these bottlenecks and save significant time across your GTM and ops teams.",
+            "bullets": [
+              "Eliminate manual data entry errors",
+              "Free up high-value employee time",
+              "Boost team productivity and ROI"
+            ]
+          },
+          {
+            "kick": "01",
+            "headline": "Automate Sales Intelligence for <em>Faster Deals</em>",
+            "body": "Manual prospect research before calls eats into valuable SDR time, reducing their selling capacity. I can build automations that pull key data points and deliver actionable insights directly to your reps, eliminating busywork and sharpening discovery.\nThis ensures your sales team is always prepared before their 9 AM ET standup.",
+            "bullets": [
+              "Calendly webhook triggers prospect data fetch",
+              "Apollo.io enrichment + public site scraping",
+              "Gemini API summarizes key talking points to Slack"
+            ]
+          },
+          {
+            "kick": "02",
+            "headline": "Streamline Client Onboarding with <em>AI Efficiency</em>",
+            "body": "New client onboarding is critical but often manual, leading to delays and errors in provisioning and communication. I've built systems that automate every step from DocuSign contract signing to tenant provisioning, ensuring a smooth, branded experience for your US SaaS customers.\nThis reduces average onboarding time from 45 minutes to under 5.",
+            "bullets": [
+              "DocuSign Connect webhook fires on signed contract",
+              "Python FastAPI extracts contract details (seats, SLA)",
+              "Auto-provision tenant in PostgreSQL + update HubSpot"
+            ]
+          },
+          {
+            "kick": "03",
+            "headline": "Improve Support Response Times with <em>AI Triage</em>",
+            "body": "Your support team gets bombarded with tickets, some urgent, some routine, leading to delayed responses. A custom AI agent can triage incoming queries, route them to the right specialist, and even draft initial responses, significantly cutting down on first-response times for your US SaaS customers.\nThis ensures critical issues are handled promptly.",
+            "bullets": [
+              "Intercom/Zendesk webhooks for new tickets",
+              "Anthropic API classifies urgency + topic",
+              "Assigns to agent via Slack + drafts initial reply"
+            ]
+          },
+          {
+            "kick": "04",
+            "headline": "Automate Financial Alerts & <em>Reconciliation</em>",
+            "body": "Keep your finance and ops teams aligned with real-time financial data without manual checks, which are prone to errors. I can build automations that monitor Stripe for specific events, reconcile subscription changes, or alert stakeholders to critical payment issues before they become larger problems.\nThis helps maintain financial accuracy and compliance.",
+            "bullets": [
+              "Stripe webhooks for subscriptions, failed payments",
+              "Node.js worker updates HubSpot/internal CRM",
+              "Real-time alerts to finance in Slack/email"
+            ]
+          },
+          {
+            "cta": true,
+            "headline": "Want this on <em>your</em> stack?",
+            "body": "Comment AUTO or DM AUTO. I will suggest 3 automations for your CRM + chat + project tools.\nStop patching manual processes with more headcount. Let's build custom automations that give you a competitive edge in the US SaaS market.",
+            "bullets": [
+              "Free 15-min audit",
+              "Fixed-price builds",
+              "Portfolio: hitesh-dodiya.netlify.app"
+            ]
+          }
+        ]
+      },
+      "day": 1,
+      "date": "2026-08-06",
+      "image_archetype": "US_NEWS_HOOK",
+      "carousel_archetype": "WORKFLOW_CHECKLIST",
+      "_image_png": "/Users/hitesh/Development/daily-linkedin-posts-pipeline/us-personal-images/20260806/day-01.png",
+      "_carousel_pdf": "/Users/hitesh/Development/daily-linkedin-posts-pipeline/carousel-routine/output/2026-08-06/us-personal-day-01/carousel-20260806.pdf"
+    },
+    {
+      "topic": "AI Prospect Intelligence for US SaaS Discovery Calls",
+      "image": {
+        "caption": "SDRs at a US SaaS company were losing 15 hours/week on pre-call research, hurting their demo-to-close rate. Their tech stack was robust (HubSpot, Calendly), but the manual data gathering was a bottleneck.\n\nI built an AI automation to create structured pre-call briefs, pulling data from multiple sources and delivering key insights directly to Slack before each meeting. This saved reps significant time and boosted call effectiveness.\n\n- Calendly booking triggers webhook\n- Apollo API + web scraping enriches prospect data\n- Gemini API drafts talking points + pain points\n- Slack delivers a concise rep brief 10 min pre-call\n\nComment AUTO to see how AI can transform your sales cycle.\n\nPortfolio: https://hitesh-dodiya.netlify.app/\nLinkedIn: https://www.linkedin.com/in/hiteshdodiyaa",
+        "badge": "AI Automation",
+        "title_main": "Boost Discovery Calls",
+        "title_span": "with AI Briefs",
+        "subtitle": "Auto-generate prospect insights to Slack from HubSpot + Calendly bookings for US SaaS.",
+        "takeaway_num": "+14%",
+        "takeaway_text": "Demo-to-close rate lift in 30 days for Series A SaaS",
+        "bars": [
+          {
+            "label": "Weekly Rep Time Saved",
+            "value": "12 hrs",
+            "width_pct": "92%",
+            "color": "#5E6AD2"
+          },
+          {
+            "label": "Demo-to-Close Rate Jump",
+            "value": "+14%",
+            "width_pct": "78%",
+            "color": "#2563EB"
+          },
+          {
+            "label": "Prospect Data Consolidation",
+            "value": "3 tabs to 1 Slack",
+            "width_pct": "65%",
+            "color": "#059669"
+          },
+          {
+            "label": "Pre-Call Prep Reduction",
+            "value": "80%",
+            "width_pct": "52%",
+            "color": "#D9785B"
+          }
+        ],
+        "bullets": [
+          "Calendly webhook fires on new bookings",
+          "Apollo API + custom scraper gathers public data",
+          "Gemini API drafts personalized talking points",
+          "Slack posts structured brief 10 min before call"
+        ]
+      },
+      "carousel": {
+        "caption": "US SaaS SDRs spending 15+ hours/week digging for prospect insights? That's a huge drag on sales velocity and close rates.\n\nI built a custom AI automation that feeds SDRs critical intelligence *before their 9 AM ET standup*-no more toggling between LinkedIn, HubSpot, and company sites. Here's how I wired it for a client.\n\n- Save 12+ hours/week per rep\n- Boost demo-to-close rates by 14%\n- Deliver a competitive edge in discovery\n\nDM AUTO to learn how to implement similar intelligence for your US SaaS stack.\n\nPortfolio: https://hitesh-dodiya.netlify.app/\nLinkedIn: https://www.linkedin.com/in/hiteshdodiyaa",
+        "slides": [
+          {
+            "kick": "HOOK",
+            "headline": "Stop Wasting <em>15 Hours/Week</em> on SDR Research",
+            "body": "Discovery calls are critical, but manual prospect research drains SDRs, leading to inconsistent briefs and missed opportunities. Imagine a system that delivers key insights on demand.",
+            "bullets": [
+              "Eliminate manual data entry",
+              "Increase rep confidence",
+              "Boost demo-to-close rates"
+            ]
+          },
+          {
+            "kick": "01",
+            "headline": "Trigger on <em>Calendly</em> Booking",
+            "body": "The automation begins the moment a prospect books a meeting via Calendly. A webhook fires, sending essential booking data like prospect email and company name to a custom Node.js backend.",
+            "bullets": [
+              "Calendly webhook for new events",
+              "Node.js server acts as event listener",
+              "Captures lead contact and company info"
+            ]
+          },
+          {
+            "kick": "02",
+            "headline": "Enrich with <em>Apollo & Web Scrape</em>",
+            "body": "Using the company domain, I connect to Apollo's API for firmographic data and then deploy a custom web scraper to gather public information from the company website. This builds a rich profile.",
+            "bullets": [
+              "Apollo.io API for company details",
+              "Custom Node.js scraper for website content",
+              "Consolidates data into a single object"
+            ]
+          },
+          {
+            "kick": "03",
+            "headline": "AI Drafts <em>Talking Points</em>",
+            "body": "The collected data is fed into a Gemini API prompt, custom-tuned to generate three personalized talking points and likely pain points specific to that prospect's industry and company profile. This is where the real intelligence shines.",
+            "bullets": [
+              "Gemini API for summarization",
+              "Custom prompt engineering for sales focus",
+              "Generates relevant talking and pain points"
+            ]
+          },
+          {
+            "kick": "04",
+            "headline": "Deliver to <em>Slack + HubSpot</em>",
+            "body": "The AI-generated brief is then sent as a structured message to the assigned SDR's Slack channel, 10 minutes before the call. Key data is also updated in HubSpot, ensuring a full audit trail and alignment with existing CRM workflows.",
+            "bullets": [
+              "Slack API for real-time brief delivery",
+              "HubSpot API for CRM data update",
+              "Admin dashboard to refine AI prompts"
+            ]
+          },
+          {
+            "cta": true,
+            "headline": "Want this on <em>your</em> stack?",
+            "body": "Comment AUTO or DM AUTO. I will suggest 3 automations for your CRM + chat + project tools.",
+            "bullets": [
+              "Free 15-min audit",
+              "Fixed-price builds",
+              "Portfolio: hitesh-dodiya.netlify.app"
+            ]
+          }
+        ]
+      },
+      "day": 2,
+      "date": "2026-08-07",
+      "image_archetype": "US_CASE_STUDY",
+      "carousel_archetype": "STACK_STEPS",
+      "_image_png": "/Users/hitesh/Development/daily-linkedin-posts-pipeline/us-personal-images/20260806/day-02.png",
+      "_carousel_pdf": "/Users/hitesh/Development/daily-linkedin-posts-pipeline/carousel-routine/output/2026-08-07/us-personal-day-02/carousel-20260807.pdf"
+    },
+    {
+      "topic": "Automating US SaaS Ops Handoffs Before 9 AM ET Standup",
+      "image": {
+        "caption": "Ever dread the pre-9 AM ET standup because of incomplete handoffs?\n\nMany US SaaS ops leaders and founders struggle with fragmented data and manual updates before the day officially kicks off. Whether it's sales prep for a crucial demo or provisioning a new client, these manual steps lead to wasted time and missed context, causing a morning scramble.\n\nI\u2019ve built custom automations that ensure all necessary information, from HubSpot updates to Slack notifications, is ready before your 9 AM ET standup.\n\n- Node.js + Calendly webhooks trigger pre-call briefs\n- AI (Gemini) summarizes prospect data to Slack\n- DocuSign Connect automates client provisioning\n- HubSpot API ensures CRM is always updated\n\nComment AUTO to get a review of your morning ops flow.\n\nPortfolio: https://hitesh-dodiya.netlify.app/\nLinkedIn: https://www.linkedin.com/in/hiteshdodiyaa",
+        "badge": "AI Automation",
+        "title_main": "Crush Your Ops Handoffs",
+        "title_span": "Before 9 AM ET",
+        "subtitle": "Automate pre-standup data, notifications & CRM updates with Node.js & HubSpot API.",
+        "takeaway_num": "12 hrs",
+        "takeaway_text": "Saved per rep monthly in manual prep, improving morning clarity",
+        "bars": [
+          {
+            "label": "Manual Ops Handoffs",
+            "value": "12 hrs/week",
+            "width_pct": "92%",
+            "color": "#5E6AD2"
+          },
+          {
+            "label": "Pre-Call Research",
+            "value": "15 min to 2 min",
+            "width_pct": "78%",
+            "color": "#2563EB"
+          },
+          {
+            "label": "Onboarding Errors",
+            "value": "Down 90%",
+            "width_pct": "65%",
+            "color": "#059669"
+          },
+          {
+            "label": "Standup Prep Time",
+            "value": "Reduced by 80%",
+            "width_pct": "52%",
+            "color": "#D9785B"
+          }
+        ],
+        "bullets": [
+          "Node.js webhooks for event triggers",
+          "AI (Gemini) summarization for Slack briefs",
+          "HubSpot & PostgreSQL API updates",
+          "DocuSign event parsing for client setup"
+        ]
+      },
+      "carousel": {
+        "caption": "Stop the morning chaos before your 9 AM ET standup even begins.\n\nFounders and ops leaders in US SaaS often face fragmented data and manual updates trying to get ready for morning standups. This leads to slow starts, missed context, and wasted time before the day even truly begins.\n\nI build custom automations that transform these manual processes into proactive insights, ensuring your team starts the day aligned and informed.\n\n- Eliminate pre-standup data gathering\n- Consolidate critical information to Slack\n- Ensure CRM and database are always current\n- Reduce errors from manual data entry\n\nDM your stack and I'll send 3 automation ideas for your handoffs.\n\nPortfolio: https://hitesh-dodiya.netlify.app/\nLinkedIn: https://www.linkedin.com/in/hiteshdodiyaa",
+        "slides": [
+          {
+            "kick": "HOOK",
+            "headline": "Stop the <em>Pre-9 AM ET</em> Handoff Headache.",
+            "body": "Founders and ops leaders in US SaaS often face fragmented data and manual updates trying to get ready for morning standups. This leads to slow starts, missed context, and wasted time before the day even truly begins.",
+            "bullets": [
+              "Fragmented data across tools",
+              "Manual updates for standup",
+              "Missed context for reps"
+            ]
+          },
+          {
+            "kick": "01",
+            "headline": "Before: <em>15 hrs/week</em> on Manual Sales Prep.",
+            "body": "Imagine your SDRs manually sifting through LinkedIn, HubSpot, and company sites for discovery call prep. This often means crucial context is missing or incomplete for the rep before their 9 AM ET call, leading to wasted time during handoffs.",
+            "bullets": [
+              "Prospect research across 3+ tabs",
+              "Inconsistent discovery notes",
+              "Reps arrive unprepared"
+            ]
+          },
+          {
+            "kick": "02",
+            "headline": "After: <em>AI-Powered Briefs</em> to Slack.",
+            "body": "I built an automation that uses Calendly webhooks to trigger Apollo enrichment and Gemini API summarization. Before your rep's 9 AM ET call, a concise, actionable brief lands directly in their Slack, ready for standup review.",
+            "bullets": [
+              "Calendly webhooks trigger flow",
+              "Apollo + site scrape data",
+              "AI-drafted talking points in Slack"
+            ]
+          },
+          {
+            "kick": "03",
+            "headline": "Before: <em>45 Mins</em> of Post-Contract Chaos.",
+            "body": "After a DocuSign contract, customer success teams in US SaaS manually create Slack channels, provision database access, and update HubSpot. This manual handoff is prone to errors and delays client activation before the 9 AM ET review.",
+            "bullets": [
+              "Manual Slack channel creation",
+              "PostgreSQL tenant provisioning",
+              "HubSpot deal term updates"
+            ]
+          },
+          {
+            "kick": "04",
+            "headline": "After: <em>Instant Client Provisioning</em> & Handoff.",
+            "body": "With DocuSign Connect webhooks, I built a Python FastAPI worker that extracts contract details, provisions PostgreSQL tenants, and updates HubSpot automatically. This ensures all new client data is ready before your 9 AM ET standup, reducing errors.",
+            "bullets": [
+              "DocuSign webhooks trigger flow",
+              "AI extracts contract details",
+              "Auto-provisioning & HubSpot update"
+            ]
+          },
+          {
+            "cta": true,
+            "headline": "Want this on <em>your</em> stack?",
+            "body": "Comment AUTO or DM AUTO. I will suggest 3 automations for your CRM + chat + project tools that can eliminate pre-9 AM ET handoff chaos.",
+            "bullets": [
+              "Free 15-min audit",
+              "Fixed-price builds",
+              "Portfolio: hitesh-dodiya.netlify.app"
+            ]
+          }
+        ]
+      },
+      "day": 3,
+      "date": "2026-08-08",
+      "image_archetype": "US_OPS_PAIN",
+      "carousel_archetype": "BEFORE_AFTER",
+      "_image_png": "/Users/hitesh/Development/daily-linkedin-posts-pipeline/us-personal-images/20260806/day-03.png",
+      "_carousel_pdf": "/Users/hitesh/Development/daily-linkedin-posts-pipeline/carousel-routine/output/2026-08-08/us-personal-day-03/carousel-20260808.pdf"
+    },
+    {
+      "topic": "Automating High-Priority HubSpot Tasks to Slack",
+      "image": {
+        "caption": "Your US sales reps shouldn't spend 30 minutes every morning digging through HubSpot tasks.\n\nI built a simple automation that pushes critical task reminders directly into Slack, ensuring no high-value follow-up gets missed. My clients find this especially useful before their 9 AM ET standup, giving reps a clear action list without CRM friction.\n\n- HubSpot webhooks for task events\n- Node.js listener to filter priorities\n- Slack API for targeted DMs\n- Delivered relevant tasks before 9 AM ET\n\nComment AUTO to stop CRM task overwhelm.\n\nPortfolio: https://hitesh-dodiya.netlify.app/\nLinkedIn: https://www.linkedin.com/in/hiteshdodiyaa",
+        "badge": "AI Automation",
+        "title_main": "HubSpot Tasks",
+        "title_span": "to Slack Alerts",
+        "subtitle": "Get critical CRM follow-ups into Slack before your 9 AM ET standup.",
+        "takeaway_num": "30 mins",
+        "takeaway_text": "saved per rep daily on task checks",
+        "bars": [
+          {
+            "label": "Reps checking CRM for tasks",
+            "value": "30 min",
+            "width_pct": "92%",
+            "color": "#5E6AD2"
+          },
+          {
+            "label": "Critical tasks missed (monthly)",
+            "value": "5-8",
+            "width_pct": "78%",
+            "color": "#2563EB"
+          },
+          {
+            "label": "Revenue risk from delays",
+            "value": "$XXX",
+            "width_pct": "65%",
+            "color": "#059669"
+          },
+          {
+            "label": "Time to build custom bot",
+            "value": "<1 day",
+            "width_pct": "52%",
+            "color": "#D9785B"
+          }
+        ],
+        "bullets": [
+          "HubSpot Webhooks for Task Creation/Update",
+          "Node.js listener for event processing",
+          "Slack API for targeted DM/channel alerts",
+          "Filter by task priority or deal value"
+        ]
+      },
+      "carousel": {
+        "caption": "Stop reps digging through HubSpot tasks every morning. Your US SaaS team should be acting on leads, not searching for them.\n\nI've seen too many promising deals stall because a critical task sat buried in a CRM tab. This simple automation pushes high-priority HubSpot tasks directly into Slack, making sure nothing slips through the cracks.\n\n- Prevent missed follow-ups\n- Boost rep efficiency and focus\n- Get critical alerts before 9 AM ET\n\nComment AUTO or DM AUTO to get this running in your stack.\n\nPortfolio: https://hitesh-dodiya.netlify.app/\nLinkedIn: https://www.linkedin.com/in/hiteshdodiyaa",
+        "slides": [
+          {
+            "kick": "HOOK",
+            "headline": "Stop Losing Deals to <em>Missed</em> Follow-Ups",
+            "body": "Your US sales and CS teams spend too much time manually checking HubSpot for urgent tasks. Imagine getting critical reminders pushed directly to Slack.",
+            "bullets": [
+              "Focus on high-value activities",
+              "Never miss a deadline",
+              "Boost rep productivity"
+            ]
+          },
+          {
+            "kick": "01",
+            "headline": "Set Up HubSpot Task <em>Webhooks</em>",
+            "body": "Start by configuring a HubSpot workflow to fire a webhook when a high-priority task is created or updated. Filter for tasks related to deals over a certain value or specific customer tiers.",
+            "bullets": [
+              "HubSpot Workflow automation",
+              "Task 'Priority' property",
+              "Send custom webhook data"
+            ]
+          },
+          {
+            "kick": "02",
+            "headline": "Build a Node.js <em>Endpoint</em>",
+            "body": "Create a simple Node.js endpoint to listen for these incoming HubSpot webhooks. This is your central processing unit for filtering and formatting the task data.",
+            "bullets": [
+              "Express.js webhook listener",
+              "Secure API key validation",
+              "Parse HubSpot JSON payload"
+            ]
+          },
+          {
+            "kick": "03",
+            "headline": "Target <em>Relevant</em> Reminders",
+            "body": "Inside your Node.js app, filter tasks by priority, associated deal owner, or even the task subject. Format the message clearly, including direct links back to the HubSpot task and associated deal.",
+            "bullets": [
+              "Filter by task assignee",
+              "Link to HubSpot task URL",
+              "Condense key details"
+            ]
+          },
+          {
+            "kick": "04",
+            "headline": "Slack <em>DM</em> or Channel Alerts",
+            "body": "Use the Slack API to send a direct message to the task owner or post to a team-specific channel. This ensures the right person sees the alert immediately, before their 9 AM ET standup.",
+            "bullets": [
+              "Slack Bot User OAuth token",
+              "Post to private DM",
+              "Use Slack Blocks for rich message"
+            ]
+          },
+          {
+            "cta": true,
+            "headline": "Want this on <em>your</em> stack?",
+            "body": "Comment AUTO or DM AUTO. I will suggest 3 automations for your CRM + chat + project tools.",
+            "bullets": [
+              "Free 15-min audit",
+              "Fixed-price builds",
+              "Portfolio: hitesh-dodiya.netlify.app"
+            ]
+          }
+        ]
+      },
+      "day": 4,
+      "date": "2026-08-09",
+      "image_archetype": "US_STACK_TIP",
+      "carousel_archetype": "STEAL_THIS",
+      "_image_png": "/Users/hitesh/Development/daily-linkedin-posts-pipeline/us-personal-images/20260806/day-04.png",
+      "_carousel_pdf": "/Users/hitesh/Development/daily-linkedin-posts-pipeline/carousel-routine/output/2026-08-09/us-personal-day-04/carousel-20260809.pdf"
+    },
+    {
+      "topic": "Automating Failed Stripe Payment Recovery",
+      "image": {
+        "caption": "Stop losing 5-10% monthly recurring revenue to failed Stripe payments.\n\nI've built a system that tackles delinquent Stripe accounts head-on for US SaaS companies. Instead of manual follow-ups or generic emails, we now use AI to draft personalized recovery messages and alert sales reps directly in Slack before their 9 AM ET standup. This means faster recovery, less churn, and your AEs focus on new deals, not chasing old ones.\n\n- Reduced churn from failed payments by 7%\n- Freed up ~10 hours/week for our AEs\n- Ensured compliance with SOC 2 audit trail\n- Boosted net retention through proactive recovery\n\nComment AUTO to see how this works for your stack.\n\nPortfolio: https://hitesh-dodiya.netlify.app/\nLinkedIn: https://www.linkedin.com/in/hiteshdodiyaa",
+        "badge": "AI Automation",
+        "title_main": "RECOVER",
+        "title_span": "STICKY REVENUE",
+        "subtitle": "Automated Stripe dunning with AI-drafted messages and Slack alerts.",
+        "takeaway_num": "+7%",
+        "takeaway_text": "Net retention from proactive failed payment recovery.",
+        "bars": [
+          {
+            "label": "Monthly Revenue Recovered",
+            "value": "+7%",
+            "width_pct": "92%",
+            "color": "#5E6AD2"
+          },
+          {
+            "label": "AE Hours Saved Weekly",
+            "value": "~10 hrs",
+            "width_pct": "78%",
+            "color": "#2563EB"
+          },
+          {
+            "label": "Dunning Cycle Time Reduced",
+            "value": "-3 Days",
+            "width_pct": "65%",
+            "color": "#059669"
+          },
+          {
+            "label": "Manual Follow-ups Eliminated",
+            "value": "80%",
+            "width_pct": "52%",
+            "color": "#D9785B"
+          }
+        ],
+        "bullets": [
+          "Stripe webhook triggers failed payment alert",
+          "Gemini/OpenAI drafts personalized email",
+          "Slack API posts to dedicated AE channel",
+          "Custom dashboard for audit trail & metrics"
+        ]
+      },
+      "carousel": {
+        "caption": "Are generic Stripe dunning emails actually hurting your churn?\n\nMany US SaaS companies rely on basic Stripe email sequences for failed payments. But these often feel impersonal and fail to engage customers effectively, especially for high-value accounts. I've seen how a tailored approach, powered by AI and integrated with your sales team's workflow, can dramatically improve recovery rates and customer relationships.\n\n- Identify common dunning pitfalls\n- Implement AI-driven personalization\n- Integrate sales team for high-touch follow-up\n- Maintain audit trails for compliance\n\nDM AUTO to discuss your current payment recovery process.\n\nPortfolio: https://hitesh-dodiya.netlify.app/\nLinkedIn: https://www.linkedin.com/in/hiteshdodiyaa",
+        "slides": [
+          {
+            "kick": "HOOK",
+            "headline": "Is your <em>Stripe</em> dunning costing you revenue?",
+            "body": "Generic email sequences from Stripe often miss the mark, leading to avoidable churn. US SaaS companies need more personalized, integrated recovery strategies.",
+            "bullets": [
+              "High-value customer churn",
+              "AE time wasted on chasing",
+              "Inconsistent follow-up"
+            ]
+          },
+          {
+            "kick": "01",
+            "headline": "The *problem* with generic dunning",
+            "body": "Standard Stripe emails lack context and personalization. They don't account for customer history, contract value, or usage patterns, making them easy to ignore.",
+            "bullets": [
+              "Low open rates",
+              "Irrelevant messaging",
+              "Missed recovery opportunities"
+            ]
+          },
+          {
+            "kick": "02",
+            "headline": "*AI-drafted* recovery messages",
+            "body": "I integrate Gemini or OpenRouter APIs to analyze customer data (from HubSpot, Salesforce) and draft highly personalized, empathetic emails. These feel human, not automated.",
+            "bullets": [
+              "Uses customer CRM data",
+              "Adapts tone and urgency",
+              "Higher engagement rates"
+            ]
+          },
+          {
+            "kick": "03",
+            "headline": "*AE Slack* alerts for high-value",
+            "body": "For accounts over a certain threshold, a custom Node.js webhook triggers a Slack alert for the assigned AE. This happens before their 9 AM ET standup, giving them time to prepare.",
+            "bullets": [
+              "Real-time AE notification",
+              "Prioritizes high-value accounts",
+              "Enables proactive outreach"
+            ]
+          },
+          {
+            "kick": "04",
+            "headline": "*End-to-end* audit & metrics",
+            "body": "A custom dashboard built with Next.js and PostgreSQL tracks every interaction, recovery attempt, and success rate. This provides a clear audit trail for SOC 2 compliance.",
+            "bullets": [
+              "Full recovery visibility",
+              "Compliance-ready logging",
+              "ROI tracking"
+            ]
+          },
+          {
+            "cta": true,
+            "headline": "Want this on <em>your</em> stack?",
+            "body": "Comment AUTO or DM AUTO. I will suggest 3 automations for your CRM + chat + project tools.",
+            "bullets": [
+              "Free 15-min audit",
+              "Fixed-price builds",
+              "Portfolio: hitesh-dodiya.netlify.app"
+            ]
+          }
+        ]
+      },
+      "day": 5,
+      "date": "2026-08-10",
+      "image_archetype": "US_WORKFLOW",
+      "carousel_archetype": "MISTAKE_FIX",
+      "_image_png": "/Users/hitesh/Development/daily-linkedin-posts-pipeline/us-personal-images/20260806/day-05.png",
+      "_carousel_pdf": "/Users/hitesh/Development/daily-linkedin-posts-pipeline/carousel-routine/output/2026-08-10/us-personal-day-05/carousel-20260810.pdf"
+    },
+    {
+      "topic": "Why Series A US SaaS Outgrows Zapier for Compliance",
+      "image": {
+        "caption": "Is your Series A US SaaS still relying on Zapier for critical ops?\n\nMany founders hit a wall when their no-code automations can't meet SOC 2 audit trail requirements. I've seen custom scripts built in Node.js and Python provide the granular logging and immutability needed for HubSpot, Stripe, and PostgreSQL transactions. This ensures data integrity and saves countless hours during audit prep.\n\nFor one client, we moved their post-DocuSign onboarding from a Zapier sequence to a custom Python FastAPI worker. This delivered granular logs on every Slack channel creation, Postgres tenant provisioning, and HubSpot update.\n\n- Built custom audit trails with Node.js and Python.\n- Integrated directly with HubSpot, Stripe, and DocuSign APIs.\n- Immutable logging to PostgreSQL for SOC 2 compliance.\n- Reduced manual data checks by 99% before audit season.\n\nComment AUTO to get my free automation audit checklist.\n\nPortfolio: https://hitesh-dodiya.netlify.app/\nLinkedIn: https://www.linkedin.com/in/hiteshdodiyaa",
+        "badge": "AI Automation",
+        "title_main": "Zapier's Audit Trail Wall",
+        "title_span": "for US SaaS",
+        "subtitle": "Custom Node.js automations for SOC 2 compliance beyond Zapier's limits in HubSpot and Stripe.",
+        "takeaway_num": "99%",
+        "takeaway_text": "Compliance-ready data integrity in HubSpot, Stripe, and Postgres.",
+        "bars": [
+          {
+            "label": "Audit Prep Time Reduction (hours)",
+            "value": "75%",
+            "width_pct": "92%",
+            "color": "#5E6AD2"
+          },
+          {
+            "label": "Data Entry Error Rate (%)",
+            "value": "90%",
+            "width_pct": "78%",
+            "color": "#2563EB"
+          },
+          {
+            "label": "Compliance Violation Risk (%)",
+            "value": "60%",
+            "width_pct": "65%",
+            "color": "#059669"
+          },
+          {
+            "label": "Manual Review Time (minutes)",
+            "value": "180",
+            "width_pct": "52%",
+            "color": "#D9785B"
+          }
+        ],
+        "bullets": [
+          "Python API integrations with HubSpot/Stripe",
+          "Node.js for custom audit logging",
+          "PostgreSQL for immutable transaction records",
+          "AI agents for data validation before record"
+        ]
+      },
+      "carousel": {
+        "caption": "If you're a US SaaS founder, your Zapier workflows are likely hiding compliance risks.\n\nI regularly encounter Series A US SaaS companies whose operations leaders are spending too much time proving data integrity. Their current no-code tools just don't offer the granular logging or audit trail needed for SOC 2 or other regulatory checks. This means manual reconciliation and huge headaches.\n\nI specialize in building custom AI automations that connect your core stack like HubSpot, Stripe, and Salesforce with robust audit logging. We can ensure every action is recorded, immutable, and easily verifiable, saving you significant time and worry.\n\n- Custom API integrations for granular data logging.\n- Immutable records in PostgreSQL for compliance.\n- AI agents validating data before it hits your CRM.\n- Automated reporting on key transaction flows.\n\nComment AUTO or DM AUTO for my audit checklist.\n\nPortfolio: https://hitesh-dodiya.netlify.app/\nLinkedIn: https://www.linkedin.com/in/hiteshdodiyaa",
+        "slides": [
+          {
+            "kick": "HOOK",
+            "headline": "Stop <em>guessing</em> if your automations are compliant.",
+            "body": "Many fast-growing US SaaS companies find their no-code tools fall short for critical operations. Without granular logging and immutability, proving data integrity for SOC 2 audits becomes a nightmare.",
+            "bullets": [
+              "Missed audit trails",
+              "Manual data reconciliation",
+              "Increased compliance risk"
+            ]
+          },
+          {
+            "kick": "01",
+            "headline": "Zapier's API calls won't cut it for <em>auditors</em>.",
+            "body": "Standard Zapier actions often don't provide the level of detail or the timestamped audit records required for robust compliance. This becomes a significant bottleneck when you need to track every change.",
+            "bullets": [
+              "Limited data points per log",
+              "Generic action descriptors",
+              "Hard to trace specific user actions"
+            ]
+          },
+          {
+            "kick": "02",
+            "headline": "Build a <em>verifiable</em> audit trail for every transaction.",
+            "body": "I integrate custom Python and Node.js services directly with your core tools like HubSpot, Stripe, and DocuSign. This ensures every data flow, from contract signing to payment processing, has a transparent, immutable record.",
+            "bullets": [
+              "Python FastAPI for webhooks",
+              "Node.js for custom logging",
+              "PostgreSQL for immutable records"
+            ]
+          },
+          {
+            "kick": "03",
+            "headline": "AI Agents for <em>pre-audit</em> data integrity checks.",
+            "body": "Before data is committed to your CRM or database, I deploy AI agents using Gemini or OpenRouter APIs to validate fields and ensure consistency. This proactively catches errors that would otherwise flag during an audit.",
+            "bullets": [
+              "AI validates data structure",
+              "Cross-references CRM entries",
+              "Flags anomalies before commit"
+            ]
+          },
+          {
+            "kick": "04",
+            "headline": "Shift from <em>reactive</em> audits to proactive compliance.",
+            "body": "With custom full-stack automations, you gain full control over your data lifecycle. This means less manual reconciliation before your 9 AM ET standup and more confidence when audit season arrives.",
+            "bullets": [
+              "Real-time compliance monitoring",
+              "Automated incident reporting",
+              "Reduced manual audit prep"
+            ]
+          },
+          {
+            "cta": true,
+            "headline": "Want this on <em>your</em> stack?",
+            "body": "Comment AUTO or DM AUTO. I will suggest 3 automations for your CRM + chat + project tools.",
+            "bullets": [
+              "Free 15-min audit",
+              "Fixed-price builds",
+              "Portfolio: hitesh-dodiya.netlify.app"
+            ]
+          }
+        ]
+      },
+      "day": 6,
+      "date": "2026-08-11",
+      "image_archetype": "US_MYTH_BUST",
+      "carousel_archetype": "AUDIT_CHECKLIST",
+      "_image_png": "/Users/hitesh/Development/daily-linkedin-posts-pipeline/us-personal-images/20260806/day-06.png",
+      "_carousel_pdf": "/Users/hitesh/Development/daily-linkedin-posts-pipeline/carousel-routine/output/2026-08-11/us-personal-day-06/carousel-20260811.pdf"
+    },
+    {
+      "topic": "Automating Cross-Platform Ops Handoffs for US SaaS",
+      "image": {
+        "caption": "SaaS operations costing your team 10+ hours weekly on manual data handoffs?\n\nI recently built an automation for a B2B SaaS client struggling with manual data entry between DocuSign, HubSpot, and their internal Postgres database. After a contract was signed, their CS team spent 45 minutes per client on setup, prone to errors.\n\nMy solution triggered on a DocuSign Connect webhook, parsed the PDF with AI for contract terms, then provisioned the tenant, created Slack channels, and updated HubSpot. All before their 9 AM ET standup.\n\n- Reduced client onboarding from 45 mins to 0 manual effort.\n- Eliminated data entry errors across HubSpot and Postgres.\n- Empowered CS teams to focus on value, not admin.\n- Scaled new client provisioning for future Series A growth.\n\nComment AUTO or DM AUTO to claim one of 2 fixed-price build slots this month. Free 15-min audit included.\n\nPortfolio: https://hitesh-dodiya.netlify.app/\nLinkedIn: https://www.linkedin.com/in/hiteshdodiyaa",
+        "badge": "AI Automation",
+        "title_main": "Automate US SaaS Ops",
+        "title_span": "Handoffs Today",
+        "subtitle": "Seamless client onboarding from DocuSign to HubSpot and Postgres with custom AI",
+        "takeaway_num": "45 min",
+        "takeaway_text": "Reduced client onboarding time, zero manual errors per client",
+        "bars": [
+          {
+            "label": "Onboarding Time Saved (per client)",
+            "value": "45 min",
+            "width_pct": "92%",
+            "color": "#5E6AD2"
+          },
+          {
+            "label": "Manual Error Rate",
+            "value": "0%",
+            "width_pct": "78%",
+            "color": "#2563EB"
+          },
+          {
+            "label": "Demo-to-Close Rate Increase",
+            "value": "+14%",
+            "width_pct": "65%",
+            "color": "#059669"
+          },
+          {
+            "label": "SDR Research Time Saved (per rep)",
+            "value": "12 hrs",
+            "width_pct": "52%",
+            "color": "#D9785B"
+          }
+        ],
+        "bullets": [
+          "DocuSign Connect webhook trigger",
+          "AI contract parsing for key terms",
+          "Auto-provision tenant in PostgreSQL",
+          "HubSpot + Slack API integrations"
+        ]
+      },
+      "carousel": {
+        "caption": "Is manual data syncing and ops handoffs killing your US SaaS growth momentum?\n\nMany Series A SaaS companies hit a wall where off-the-shelf automation tools like Zapier just can't handle complex, multi-system workflows. I specialize in building robust, custom AI automations that bridge these gaps.\n\nI've helped founders and ops leaders reclaim hundreds of hours by automating critical processes, from sales prep to client onboarding. Here\u2019s my fixed-price approach to shipping production-ready automations.\n\n- Eliminate costly manual data transfers.\n- Streamline complex cross-platform operations.\n- Get a production-ready system, not just a proof-of-concept.\n- Deliver tangible ROI before your next board meeting.\n\nComment AUTO or DM AUTO. I will suggest 3 automations for your CRM + chat + project tools.\n\nPortfolio: https://hitesh-dodiya.netlify.app/\nLinkedIn: https://www.linkedin.com/in/hiteshdodiyaa",
+        "slides": [
+          {
+            "kick": "HOOK",
+            "headline": "Stop <em>Wasting</em> Hours on Manual SaaS Handoffs",
+            "body": "US SaaS companies often bottleneck at critical data transfer points, costing thousands in lost productivity. I build custom automations that eliminate these pains, freeing your team to focus on core revenue-generating activities.",
+            "bullets": [
+              "Identify high-impact operational inefficiencies",
+              "Automate workflows Zapier can't handle",
+              "Guarantee fixed-price, production-ready solutions"
+            ]
+          },
+          {
+            "kick": "01",
+            "headline": "15-Minute Audit: <em>Pinpoint</em> Your Bottlenecks",
+            "body": "We start with a quick, focused call to understand your existing tech stack and the specific pain points costing your team time. This isn't a sales pitch; it's a deep dive into your HubSpot, Salesforce, Stripe, or DocuSign workflows.",
+            "bullets": [
+              "Identify 3-5 high-ROI automation candidates",
+              "Map current manual processes",
+              "Prioritize based on impact and complexity"
+            ]
+          },
+          {
+            "kick": "02",
+            "headline": "Blueprint Automation: <em>Code-First</em> Design",
+            "body": "Based on our audit, I design a custom solution using Node.js, Python, and relevant APIs like HubSpot, Calendly, or Slack. We outline data flows, API calls, and the exact steps the AI will perform, ensuring alignment.",
+            "bullets": [
+              "Detailed solution architecture",
+              "API integration strategy (webhooks, REST)",
+              "High-level system design with LLMs"
+            ]
+          },
+          {
+            "kick": "03",
+            "headline": "Full-Stack Build: <em>Robust</em> & Scalable",
+            "body": "I develop the full automation, including any necessary dashboards or admin panels using Next.js. My builds are designed for reliability, audit trails, and future scalability, ready for your Series A growth.",
+            "bullets": [
+              "Next.js, Node.js, Python development",
+              "PostgreSQL for data persistence",
+              "Thorough unit and integration testing"
+            ]
+          },
+          {
+            "kick": "04",
+            "headline": "Deploy & Tune: <em>Production-Ready</em> Ops",
+            "body": "Once built, we deploy the automation, often on serverless infrastructure, and rigorously test it in your environment. I then fine-tune prompts for AI agents and ensure smooth, reliable operation before handover and documentation.",
+            "bullets": [
+              "Secure deployment strategy",
+              "Monitor and optimize performance",
+              "Comprehensive documentation & support"
+            ]
+          },
+          {
+            "cta": true,
+            "headline": "Want this on <em>your</em> stack?",
+            "body": "Comment AUTO or DM AUTO. I will suggest 3 automations for your CRM + chat + project tools. Stop losing hours to manual ops and start seeing real ROI today.",
+            "bullets": [
+              "Free 15-min audit",
+              "Fixed-price builds",
+              "Portfolio: hitesh-dodiya.netlify.app/"
+            ]
+          }
+        ]
+      },
+      "day": 7,
+      "date": "2026-08-12",
+      "image_archetype": "US_OFFER",
+      "carousel_archetype": "HOW_I_BUILD",
+      "_image_png": "/Users/hitesh/Development/daily-linkedin-posts-pipeline/us-personal-images/20260806/day-07.png",
+      "_carousel_pdf": "/Users/hitesh/Development/daily-linkedin-posts-pipeline/carousel-routine/output/2026-08-12/us-personal-day-07/carousel-20260812.pdf"
+    },
+    {
+      "topic": "Streamlined Discovery Calls with Pre-Populated Briefs",
+      "image": {
+        "caption": "My client's SDRs saved 12 hours/week per rep on discovery call research.\n\nPrepping for a demo used to mean juggling LinkedIn, CRM, and company websites for hours. Now, before their 9 AM ET standup, a tailored brief with talking points lands in Slack. This B2B SaaS client boosted their demo-to-close rate by 14% in 30 days.\n\n- Calendly booking triggers an automation.\n- Apollo API enriches prospect data.\n- Gemini AI drafts custom talking points.\n- Reps get a concise Slack brief 10 minutes before the call.\n\nComment AUTO or DM AUTO to get a free automation audit for your sales team.\n\nPortfolio: https://hitesh-dodiya.netlify.app/\nLinkedIn: https://www.linkedin.com/in/hiteshdodiyaa",
+        "badge": "AI Automation",
+        "title_main": "Smart Demo Prep",
+        "title_span": "for SDRs",
+        "subtitle": "Get AI-generated discovery briefs from Calendly, Apollo, and Slack before every US SaaS demo",
+        "takeaway_num": "12 hrs",
+        "takeaway_text": "saved weekly per SDR on research, +14% demo-to-close rate for US SaaS client",
+        "bars": [
+          {
+            "label": "Weekly SDR research time saved",
+            "value": "12 hrs",
+            "width_pct": "92%",
+            "color": "#5E6AD2"
+          },
+          {
+            "label": "Demo-to-close rate increase (30 days)",
+            "value": "+14%",
+            "width_pct": "78%",
+            "color": "#2563EB"
+          },
+          {
+            "label": "Discovery call prep (before automation)",
+            "value": "15 min",
+            "width_pct": "65%",
+            "color": "#059669"
+          },
+          {
+            "label": "Manual tasks eliminated",
+            "value": "80%",
+            "width_pct": "52%",
+            "color": "#D9785B"
+          }
+        ],
+        "bullets": [
+          "Calendly webhooks for instant triggers",
+          "Apollo API for granular company enrichment",
+          "Gemini AI for targeted talking point generation",
+          "Slack delivery for pre-call rep brief"
+        ]
+      },
+      "carousel": {
+        "caption": "Stop wasting 15 hours/week researching prospects before your US SaaS demos.\n\nManually digging through LinkedIn, HubSpot, and company sites for every discovery call is a time sink. I built a custom AI automation for a B2B SaaS client that instantly delivers pre-call briefs to their SDRs in Slack. They\u2019ve seen a 14% jump in demo-to-close rates.\n\n- Boost your SDR efficiency and close rates.\n- Eliminate tedious pre-call research.\n- Deliver consistent, high-quality discovery.\n\nComment AUTO or DM AUTO to get a free automation audit for your sales team.\n\nPortfolio: https://hitesh-dodiya.netlify.app/\nLinkedIn: https://www.linkedin.com/in/hiteshdodiyaa",
+        "slides": [
+          {
+            "kick": "HOOK",
+            "headline": "SDRs waste <em>15 hours</em> researching before demos?",
+            "body": "Your sales development reps are likely spending a huge chunk of their week on manual prospect research. This often leads to inconsistent discovery calls and missed opportunities for your US SaaS.",
+            "bullets": [
+              "Inconsistent discovery notes",
+              "Low rep efficiency",
+              "Missed pain points"
+            ]
+          },
+          {
+            "kick": "01",
+            "headline": "Calendly Booked? Trigger <em>Instant</em> Research.",
+            "body": "The moment a prospect books a demo via Calendly, a webhook fires off to my custom Node.js backend. This kicks off the entire automation without any manual input, ensuring speed and reliability.",
+            "bullets": [
+              "Calendly webhook listener",
+              "Node.js backend processing",
+              "Immediate trigger, zero delay"
+            ]
+          },
+          {
+            "kick": "02",
+            "headline": "Apollo API + Web Scrape for <em>Deep</em> Insights.",
+            "body": "First, I use the Apollo enrichment API to pull in crucial company data like industry, size, and tech stack. Then, a Puppeteer script scrapes their public website for recent news, product launches, or specific problem statements relevant to your offering.",
+            "bullets": [
+              "Apollo API data enrichment",
+              "Puppeteer for targeted web scraping",
+              "Comprehensive company profile"
+            ]
+          },
+          {
+            "kick": "03",
+            "headline": "Gemini AI Drafts Your <em>Key</em> Talking Points.",
+            "body": "All the gathered data is fed into the Gemini API. My custom agent analyzes this information and drafts 3 hyper-relevant talking points and potential pain points. This gives your SDR a massive head start on discovery.",
+            "bullets": [
+              "Gemini API for analysis",
+              "Custom prompt engineering",
+              "3 tailored talking points"
+            ]
+          },
+          {
+            "kick": "04",
+            "headline": "Slack Briefing: <em>10 Mins</em> Before the Call.",
+            "body": "The final, structured brief - complete with talking points and prospect insights - is posted directly to your SDR's Slack channel exactly 10 minutes before the demo. No more scrambling; they're prepped before their 9 AM ET standup.",
+            "bullets": [
+              "Structured Slack message format",
+              "Timed delivery via Slack API",
+              "Reps always pre-call ready"
+            ]
+          },
+          {
+            "cta": true,
+            "headline": "Want this on <em>your</em> stack?",
+            "body": "Comment AUTO or DM AUTO. I will suggest 3 automations for your CRM + chat + project tools.",
+            "bullets": [
+              "Free 15-min audit",
+              "Fixed-price builds",
+              "Portfolio: hitesh-dodiya.netlify.app"
+            ]
+          }
+        ]
+      },
+      "day": 8,
+      "date": "2026-08-13",
+      "image_archetype": "US_SDR_ANGLE",
+      "carousel_archetype": "CLIENT_JOURNEY",
+      "_image_png": "/Users/hitesh/Development/daily-linkedin-posts-pipeline/us-personal-images/20260806/day-08.png",
+      "_carousel_pdf": "/Users/hitesh/Development/daily-linkedin-posts-pipeline/carousel-routine/output/2026-08-13/us-personal-day-08/carousel-20260813.pdf"
+    },
+    {
+      "topic": "Automated Intercom + Notion Support Triage for US SaaS",
+      "image": {
+        "caption": "My latest custom AI agent cut support ticket triage time by 80% for a Series A US SaaS client.\n\nThis client struggled with manual triage: Intercom tickets were flooding in, and their support team spent hours categorizing, assigning, and creating tasks in Notion. This led to slower first response times and frustrated customers, especially before their 9 AM ET standup. I built a Python FastAPI worker that uses Intercom webhooks. When a new ticket arrives, it triggers a Gemini API call to summarize the issue, identify urgency, and categorize it based on their internal Notion database.\n\n- Reduced manual triage from 10 mins to under 2 mins per ticket\n- Improved first response time by 30% in the first month\n- Streamlined ticket routing to Notion with specific assignments\n- Provided audit trail for SOC 2 compliance on all automated actions\n\nComment AUTO or DM AUTO to streamline your support operations.\n\nPortfolio: https://hitesh-dodiya.netlify.app/\nLinkedIn: https://www.linkedin.com/in/hiteshdodiyaa",
+        "badge": "AI Automation",
+        "title_main": "Faster Support Triage",
+        "title_span": "Intercom to Notion",
+        "subtitle": "Auto-categorize Intercom tickets, create Notion tasks, and cut first response time.",
+        "takeaway_num": "80%",
+        "takeaway_text": "Reduction in Manual Triage Time",
+        "bars": [
+          {
+            "label": "Triage Time/Ticket",
+            "value": "\u2b07\ufe0f 80%",
+            "width_pct": "92%",
+            "color": "#5E6AD2"
+          },
+          {
+            "label": "First Response Time",
+            "value": "\u2b07\ufe0f 30%",
+            "width_pct": "78%",
+            "color": "#2563EB"
+          },
+          {
+            "label": "Ops Cost/Ticket",
+            "value": "\u2b07\ufe0f $1.50",
+            "width_pct": "65%",
+            "color": "#059669"
+          },
+          {
+            "label": "CSAT Score Impact",
+            "value": "\u2b06\ufe0f 12%",
+            "width_pct": "52%",
+            "color": "#D9785B"
+          }
+        ],
+        "bullets": [
+          "Python FastAPI worker for Intercom webhooks",
+          "Gemini API for intelligent ticket summarization",
+          "Notion API for dynamic task creation + assignment",
+          "Next.js admin panel to refine AI prompts"
+        ]
+      },
+      "carousel": {
+        "caption": "Is your US SaaS support team drowning in manual Intercom triage before your 9 AM ET standup?\n\nManual ticket processing from chat tools like Intercom to project management like Notion kills efficiency. I've seen US SaaS companies spend hours daily on basic categorization and routing, slowing down critical first responses and frustrating customers. Automating this doesn't just save time; it elevates your customer experience and frees your team for high-value tasks.\n\n- Eliminate manual ticket categorization and assignment\n- Boost first response times and customer satisfaction\n- Integrate Intercom, Notion, and your internal knowledge base\n- Deploy custom AI agents for accurate, contextual triage\n\nComment AUTO or DM AUTO to explore support automations for your stack.\n\nPortfolio: https://hitesh-dodiya.netlify.app/\nLinkedIn: https://www.linkedin.com/in/hiteshdodiyaa",
+        "slides": [
+          {
+            "kick": "HOOK",
+            "headline": "Stop <em>Drowning</em> in Manual Support Triage",
+            "body": "For US SaaS, every minute counts when a customer needs help. Manual routing of Intercom tickets to Notion or Jira isn't just slow; it's a bottleneck hurting your first response times and customer loyalty.",
+            "bullets": [
+              "Long wait times for critical issues",
+              "Error-prone manual data entry",
+              "Overwhelmed support agents"
+            ]
+          },
+          {
+            "kick": "01",
+            "headline": "Intercom to Notion AI <em>Auto-Triage</em>",
+            "body": "I build agents that listen for new Intercom conversations, use AI to understand the core issue, and then create a detailed, categorized task in Notion. This ensures tickets land with the right team, with context, instantly.",
+            "bullets": [
+              "Intercom webhooks trigger AI",
+              "Gemini API summarizes ticket intent",
+              "Notion API creates categorized tasks"
+            ]
+          },
+          {
+            "kick": "02",
+            "headline": "AI-Powered <em>Knowledge Base</em> Retrieval",
+            "body": "Instead of agents searching endlessly, connect your internal docs (Confluence, Google Drive) to an AI agent. It can instantly pull relevant articles or FAQs based on ticket context, ready for agent review or even auto-response drafting.",
+            "bullets": [
+              "Pinecone vector DB stores docs",
+              "OpenAI/Anthropic for semantic search",
+              "Slack integration for quick answers"
+            ]
+          },
+          {
+            "kick": "03",
+            "headline": "Proactive Issue <em>Escalation</em> & Alerts",
+            "body": "Monitor specific keywords or sentiment in Intercom chats. If an issue is critical or a customer is highly frustrated, the AI can immediately alert a manager in Slack or PagerDuty, even creating a high-priority task in Asana.",
+            "bullets": [
+              "Real-time sentiment analysis",
+              "Triggers based on custom keywords",
+              "Slack/Asana alerts for urgent cases"
+            ]
+          },
+          {
+            "kick": "04",
+            "headline": "Automated <em>Feedback</em> Loops to Product",
+            "body": "Regularly analyze categorized support tickets to identify common pain points or feature requests. An AI can summarize these trends and automatically push actionable insights into a product team's Trello or Jira board.",
+            "bullets": [
+              "Weekly/monthly trend analysis",
+              "AI summarizes recurring issues",
+              "Jira/Trello for product backlog"
+            ]
+          },
+          {
+            "cta": true,
+            "headline": "Want this on <em>your</em> stack?",
+            "body": "Comment AUTO or DM AUTO. I will suggest 3 automations for your CRM + chat + project tools.",
+            "bullets": [
+              "Free 15-min audit",
+              "Fixed-price builds",
+              "Portfolio: hitesh-dodiya.netlify.app"
+            ]
+          }
+        ]
+      },
+      "day": 9,
+      "date": "2026-08-14",
+      "image_archetype": "US_SUPPORT_ANGLE",
+      "carousel_archetype": "FEATURE_LISTICLE",
+      "_image_png": "/Users/hitesh/Development/daily-linkedin-posts-pipeline/us-personal-images/20260806/day-09.png",
+      "_carousel_pdf": "/Users/hitesh/Development/daily-linkedin-posts-pipeline/carousel-routine/output/2026-08-14/us-personal-day-09/carousel-20260814.pdf"
+    },
+    {
+      "topic": "De-risking Custom AI Automation for US SaaS",
+      "image": {
+        "caption": "Wasting engineering time on poorly scoped automation? I see this daily in US SaaS.\n\nCustom AI automation delivers massive ROI, but only if you prepare properly. Skipping key pre-build steps often leads to reworks, delayed launches, and frustration for founders and ops leaders. A little upfront planning saves significant dev hours.\n\nI\u2019ve helped US SaaS clients like a ~40-employee B2B SaaS company avoid these pitfalls, achieving concrete results by preparing their stack and goals before development started.\n\n- HubSpot API keys validated and documented\n- Intercom data schemas mapped for AI summarization\n- PostgreSQL multi-tenant provisioning logic defined\n- Compliance-ready audit trails designed from day one\n\nDM your CRM + chat + project tool. I'll send you 3 custom automation ideas unique to your stack.\n\nPortfolio: https://hitesh-dodiya.netlify.app/\nLinkedIn: https://www.linkedin.com/in/hiteshdodiyaa",
+        "badge": "AI Automation",
+        "title_main": "Smart Prep, Fast ROI",
+        "title_span": "for US SaaS",
+        "subtitle": "Avoid custom automation reworks: Prep your HubSpot, Slack, and PostgreSQL stack right.",
+        "takeaway_num": "12+ hrs/week",
+        "takeaway_text": "Saved per SDR, increasing demo-to-close rate by +14%",
+        "bars": [
+          {
+            "label": "SDR prep time saved (per rep)",
+            "value": "12+ hrs",
+            "width_pct": "92%",
+            "color": "#5E6AD2"
+          },
+          {
+            "label": "Demo-to-close rate lift",
+            "value": "+14%",
+            "width_pct": "78%",
+            "color": "#2563EB"
+          },
+          {
+            "label": "Onboarding time cut (per client)",
+            "value": "45 min",
+            "width_pct": "65%",
+            "color": "#059669"
+          },
+          {
+            "label": "Manual data entry errors reduced",
+            "value": "80% fewer",
+            "width_pct": "52%",
+            "color": "#D9785B"
+          }
+        ],
+        "bullets": [
+          "API keys validated and documented",
+          "Data schemas mapped for key workflows",
+          "Success metrics defined upfront",
+          "Audit trails designed for compliance"
+        ]
+      },
+      "carousel": {
+        "caption": "US SaaS founders, before you hire an automation partner, use this checklist.\n\nI\u2019ve built full-stack AI automations for B2B SaaS companies, from sales prep using HubSpot and Calendly to onboarding with DocuSign and PostgreSQL. The biggest difference between a fast, successful deployment and a costly one is always the pre-build prep.\n\nThis simple checklist will de-risk your project and ensure your custom AI automation delivers the ROI you expect, before your 9 AM ET standup.\n\n- Define clear objectives with dollar outcomes\n- Map all data flows between tools\n- Validate API access and documentation\n- Plan for audit trails and error handling\n\nComment AUTO or DM AUTO to explore 3 custom automation ideas for your specific CRM + chat + project tool stack.\n\nPortfolio: https://hitesh-dodiya.netlify.app/\nLinkedIn: https://www.linkedin.com/in/hiteshdodiyaa",
+        "slides": [
+          {
+            "kick": "HOOK",
+            "headline": "Avoid Costly Reworks in <em>US SaaS Automation</em>",
+            "body": "Many US SaaS founders rush into custom AI automation without proper groundwork, leading to project delays and overspending. A structured pre-build checklist ensures your solution aligns perfectly with business goals and goes live faster.",
+            "bullets": [
+              "Reduced project costs",
+              "Faster deployment",
+              "Clearer ROI outcomes"
+            ]
+          },
+          {
+            "kick": "01",
+            "headline": "Validate <em>API Access & Docs</em> First",
+            "body": "Before any code is written, confirm robust API access for your critical tools like HubSpot, Salesforce, Stripe, or Intercom. Ensure current documentation exists for all webhooks and authentication methods.",
+            "bullets": [
+              "HubSpot API keys verified",
+              "Stripe webhook endpoints tested",
+              "Slack app tokens secured"
+            ]
+          },
+          {
+            "kick": "02",
+            "headline": "Map Out <em>Data Flows & Logic</em>",
+            "body": "Clearly define every piece of data that moves between systems (e.g., from DocuSign to PostgreSQL). Detail the exact business logic for processing and decision-making, including all edge cases.",
+            "bullets": [
+              "Input/output data fields specified",
+              "Conditional logic for scenarios",
+              "Error handling and retry mechanisms"
+            ]
+          },
+          {
+            "kick": "03",
+            "headline": "Define <em>Clear Success Metrics</em>",
+            "body": "Quantify your automation's success. Is it saving 15 hours per SDR per week, or boosting demo-to-close rates by 10%? Lock in measurable outcomes to track ROI from day one.",
+            "bullets": [
+              "Target time savings (e.g., hours/week)",
+              "Percentage lift in key metrics (e.g., conversion)",
+              "Cost reduction estimates"
+            ]
+          },
+          {
+            "kick": "04",
+            "headline": "Plan for <em>Audit Trails & Security</em>",
+            "body": "For US SaaS, SOC 2 compliance demands transparent logging. Design how every automated action, from Slack channel creation to tenant provisioning, will be recorded for security and audit purposes.",
+            "bullets": [
+              "Action logging requirements",
+              "Data encryption standards defined",
+              "User permission segregation"
+            ]
+          },
+          {
+            "cta": true,
+            "headline": "Want this on <em>your</em> stack?",
+            "body": "Comment AUTO or DM AUTO. I will suggest 3 automations for your CRM + chat + project tools.",
+            "bullets": [
+              "Free 15-min audit",
+              "Fixed-price builds",
+              "Portfolio: hitesh-dodiya.netlify.app"
+            ]
+          }
+        ]
+      },
+      "day": 10,
+      "date": "2026-08-15",
+      "image_archetype": "US_SOFT_CTA",
+      "carousel_archetype": "LAUNCH_CHECKLIST",
+      "_image_png": "/Users/hitesh/Development/daily-linkedin-posts-pipeline/us-personal-images/20260806/day-10.png",
+      "_carousel_pdf": "/Users/hitesh/Development/daily-linkedin-posts-pipeline/carousel-routine/output/2026-08-15/us-personal-day-10/carousel-20260815.pdf"
+    }
+  ],
+  "assetDir": "/Users/hitesh/Development/daily-linkedin-posts-pipeline/us-personal-images/20260806"
+}

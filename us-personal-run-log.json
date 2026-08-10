@@ -15,5 +15,55 @@
       "custom-ai-support-triage-workflows",
       "HubSpot to PostgreSQL database syncing"
     ]
+  },
+  {
+    "date": "2026-08-06",
+    "mode": "10-day-image-carousel-us",
+    "file": "us_personal_batch_20260806.json",
+    "topics": [
+      "SaaS Sales & Onboarding AI Automation",
+      "AI-powered sales brief & client onboarding for US SaaS",
+      "AI automation for B2B SaaS sales prep and client onboarding",
+      "AI-powered sales prep and client onboarding for US SaaS",
+      "SDR Demo Research Automation",
+      "Custom AI automation beyond no-code limits for US SaaS",
+      "US SaaS Sales & Onboarding AI Automation",
+      "US SaaS Sales Call Prep Automation",
+      "US SaaS Support Triage Automation",
+      "AI Sales Prep & Onboarding Automation for US SaaS"
+    ]
+  },
+  {
+    "date": "2026-08-06",
+    "mode": "seed-ban-repetitive",
+    "topics": [
+      "SaaS Sales & Onboarding AI Automation",
+      "AI-powered sales brief & client onboarding for US SaaS",
+      "AI automation for B2B SaaS sales prep and client onboarding",
+      "AI-powered sales prep and client onboarding for US SaaS",
+      "SDR Demo Research Automation",
+      "US SaaS Sales & Onboarding AI Automation",
+      "US SaaS Sales Call Prep Automation",
+      "AI Sales Prep & Onboarding Automation for US SaaS",
+      "sales prep",
+      "client onboarding automation HubSpot DocuSign"
+    ]
+  },
+  {
+    "date": "2026-08-06",
+    "mode": "10-day-image-carousel-us",
+    "file": "us_personal_batch_20260806.json",
+    "topics": [
+      "Browser Automation for Legacy US SaaS Portals",
+      "AI Prospect Intelligence for US SaaS Discovery Calls",
+      "Automating US SaaS Ops Handoffs Before 9 AM ET Standup",
+      "Automating High-Priority HubSpot Tasks to Slack",
+      "Automating Failed Stripe Payment Recovery",
+      "Why Series A US SaaS Outgrows Zapier for Compliance",
+      "Automating Cross-Platform Ops Handoffs for US SaaS",
+      "Streamlined Discovery Calls with Pre-Populated Briefs",
+      "Automated Intercom + Notion Support Triage for US SaaS",
+      "De-risking Custom AI Automation for US SaaS"
+    ]
   }
 ]

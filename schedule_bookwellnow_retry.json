@@ -1,0 +1,37 @@
+{
+  "generated": "2026-08-06",
+  "stream": "bookwellnow-company",
+  "scheduleNote": "10 days \u00d7 4 posts/day (2 images + 2 carousels). Company page BookWellNow. IST peaks. Site URL on every caption. New features: Google Calendar, Meet, Custom Fields, Buffer, Reschedule, Notifications.",
+  "companyPage": "https://www.linkedin.com/company/130384348/",
+  "startUrl": "https://www.linkedin.com/company/130384348/admin/dashboard/",
+  "postAs": "BookWellNow",
+  "sourceFile": "bookwellnow_batch_20260806.json",
+  "posts": [
+    {
+      "id": 32,
+      "type": "carousel",
+      "date": "08/14/2026",
+      "time": "6:00 PM",
+      "caption": "Thinking a booking system setup is too complex for your barbershop?\n\nOur NEW Booking Setup Wizard makes getting BookWellNow live on your WordPress site incredibly simple. In just a few minutes, you can configure your first service and staff, ready to take bookings.\n\nStop delaying and start optimizing your barbershop's schedule today.\n\n- Fast plugin installation\n- Guided wizard for first setup\n- No coding skills required\n- Go live in under 10 minutes\n\nComment BOOK to download the plugin, or DM us 'barbershop agency' for partnership opportunities and expert install options.\n\nStart free: https://bookwellnow.com/",
+      "assetPath": "/Users/hitesh/Development/daily-linkedin-posts-pipeline/carousel-routine/output/2026-08-13/bookwellnow-day-08-pm/carousel-20260813.pdf",
+      "title": "Barbershop Booking Automation \u00b7 New",
+      "stream": "bookwellnow",
+      "label": "DAY 8 CAROUSEL PM \u2014 SETUP_STEPS",
+      "topic": "Barbershop Booking Automation",
+      "industry": "barbershops"
+    },
+    {
+      "id": 38,
+      "type": "carousel",
+      "date": "08/16/2026",
+      "time": "12:00 PM",
+      "caption": "Launching a new booking system for your yoga studio? Get it right from day one.\n\nOur quick checklist guides you through the essential steps, ensuring your BookWellNow plugin is perfectly configured for seamless operation. From defining your class offerings to setting staff availability and payment options, we make setup simple.\n\nFollow these steps for a smooth launch and watch your studio thrive with efficient online bookings.\n\nStart free: https://bookwellnow.com/",
+      "assetPath": "/Users/hitesh/Development/daily-linkedin-posts-pipeline/carousel-routine/output/2026-08-15/bookwellnow-day-10/carousel-20260815.pdf",
+      "title": "yoga studio booking efficiency",
+      "stream": "bookwellnow",
+      "label": "DAY 10 CAROUSEL AM \u2014 LAUNCH_CHECKLIST",
+      "topic": "yoga studio booking efficiency",
+      "industry": "yoga studios"
+    }
+  ]
+}

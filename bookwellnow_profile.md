@@ -27,6 +27,17 @@ Flexible booking for every business. Manage services, schedules, and appointment
 11. **Booking calendar management** — real-time availability, buffer times, conflict prevention
 12. **Mobile-friendly booking experience** — works on phones without a separate app
 
+## NEW features to highlight (prioritize these in this batch)
+1. **Google Calendar sync (NEW)** — sync appointments to Google Calendar to prevent double-bookings
+2. **Google Meet links (NEW)** — auto-generate and send Google Meet links for online services
+3. **Custom Fields (NEW)** — customize booking intake forms from the admin dashboard
+4. **Buffer Time (NEW)** — auto-block padding between appointments for prep and rest
+5. **Client Reschedule (NEW)** — clients reschedule without calling or DMing the business
+6. **Notifications / reminders (NEW)** — automated reminders for scheduled appointments
+7. **Booking Setup Wizard** — on activation: Basic Info → Service → Staff → Finish; relaunch via Quick Setup Wizard
+8. **Universal Booking Button** — shortcode popup with optional `service_id` / `staff_id` preselect
+9. **Free Zoom integration** — still lead feature for online coaches and clinics
+
 ## Paid / PRO additions
 - Service extras, add-ons, and advanced selection rules (raise revenue per appointment)
 - WooCommerce and Stripe / credit card checkout
@@ -34,14 +45,23 @@ Flexible booking for every business. Manage services, schedules, and appointment
 - Professional setup service for custom shifts or complex checkout flows
 
 ## Setup facts (use for concrete posts)
-- Install: download ZIP, Plugins → Add New → Upload → Install → Activate
+- Install: download ZIP from WordPress.org or account → Plugins → Add New → Upload → Install → Activate ([docs](https://bookwellnow.com/docs/getting-started/installing/))
+- Requirements: PHP 8.1+ recommended (7.4 min), WordPress 6.2+ recommended (5.3 min), MySQL 5.7+ / MariaDB 10.3+, 256M memory recommended
+- After activate: Booking Setup Wizard creates company, first service, and first staff in minutes
 - Booking form shortcode: `[bookwell_booking]`; universal popup booking button supports `service_id` and `staff_id`
 - Works with Elementor, Gutenberg, and most modern themes; no coding needed
-- Requirements: PHP 8.1+ recommended (7.4 min), WordPress 6.2+ recommended (5.3 min), MySQL 5.7+ / MariaDB 10.3+, 256M memory recommended
 - Live in about 5 to 10 minutes
-- Free expert install and configuration on your site
+- Free expert install and configuration on your site (Claim Slot / Expert Config)
 - 14 day money-back guarantee on paid plans
 - 24/7 ticketing helpdesk, average first response under 2 hours
+- Always include site URL in captions: https://bookwellnow.com/
+
+## Analytics lessons (use to win impressions)
+- Industry-specific pain hooks beat generic "new feature" announcements
+- Beauty/salon + WordPress agency angles and dental/vet/fitness pain posts outperform vague consulting copy
+- Open with a sharp question or concrete owner pain (missed calls, slow site, WhatsApp chaos)
+- Pair one NEW feature with one industry outcome every day
+- Avoid hiring-style posts in this product batch; keep focus on installs and setup
 
 ## Customer booking flow (reuse in carousels)
 1. Choose a service (clear pricing and duration)

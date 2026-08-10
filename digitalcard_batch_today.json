@@ -75,9 +75,11 @@
           }
         ]
       },
-      "_image_png": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/digitalcard-images/20260725-today/day-01.png",
-      "_carousel_pdf": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/carousel-routine/output/2026-07-25/digitalcard-today-01/carousel-20260725.pdf"
+      "_image_png": "/Users/hitesh/Development/daily-linkedin-posts-pipeline/digitalcard-images/20260806/day-01.png",
+      "_carousel_pdf": "/Users/hitesh/Development/daily-linkedin-posts-pipeline/carousel-routine/output/2026-07-25/digitalcard-day-01/carousel-20260725.pdf",
+      "_image_png_am": "/Users/hitesh/Development/daily-linkedin-posts-pipeline/digitalcard-images/20260806/day-01-am.png",
+      "_carousel_pdf_am": "/Users/hitesh/Development/daily-linkedin-posts-pipeline/carousel-routine/output/2026-07-25/digitalcard-day-01/carousel-20260725.pdf"
     }
   ],
-  "assetDir": "/Users/hitesh/Downloads/daily-linkedin-posts-pipeline/digitalcard-images/20260725-today"
+  "assetDir": "/Users/hitesh/Development/daily-linkedin-posts-pipeline/digitalcard-images/20260806"
 }

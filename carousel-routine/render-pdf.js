@@ -117,8 +117,15 @@ async function tryPuppeteer(pngs, outPdf) {
 </style></head>
 <body>${slides.join('\n')}</body></html>`;
 
+    const chromePath =
+      process.env.PUPPETEER_EXECUTABLE_PATH ||
+      (fs.existsSync('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome')
+        ? '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+        : undefined);
+
     const browser = await puppeteer.launch({
       headless: 'shell',
+      executablePath: chromePath,
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
     });
 

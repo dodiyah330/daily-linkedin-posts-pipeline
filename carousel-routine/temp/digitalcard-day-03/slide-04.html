@@ -1,30 +1,33 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/>
 <meta name="viewport" content="width=1080"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{width:1080px;height:1080px;overflow:hidden;background:#F5F7FF;color:#111;font-family:'Plus Jakarta Sans',sans-serif;position:relative}
-.header{position:absolute;top:60px;left:70px;right:70px;display:flex;justify-content:space-between;align-items:center;z-index:10}
+.header{position:absolute;top:40px;left:56px;right:56px;display:flex;justify-content:space-between;align-items:center;z-index:10}
 .hleft{display:flex;align-items:center;gap:12px;font-size:14px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#111}
 .dot{width:14px;height:14px;border-radius:50%;background:#536EFD}
 .hright{display:flex;align-items:center;gap:15px}
-.fw{font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;color:#999}
+.meta{font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;color:#999}
 .badge{width:46px;height:46px;background:#536EFD;border-radius:50%;display:flex;justify-content:center;align-items:center;color:#fff;font-weight:800;font-size:17px}
-.content{position:absolute;top:240px;left:70px;right:70px;bottom:150px;z-index:5}
-.kick{font-size:18px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#536EFD;margin-bottom:22px}
-.headline{font-size:56px;font-weight:900;letter-spacing:-2.5px;line-height:1.08;max-width:920px}
+.content{position:absolute;top:120px;left:56px;right:56px;bottom:100px;z-index:5;display:flex;flex-direction:column;gap:0}
+.kick{font-size:16px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#536EFD;margin-bottom:10px}
+.headline{font-size:44px;font-weight:900;letter-spacing:-2px;line-height:1.06;max-width:960px;flex-shrink:0}
 .headline em{font-family:'Instrument Serif',serif;font-style:italic;color:#536EFD;font-weight:400;letter-spacing:0;padding-left:4px}
-.body{font-size:28px;font-weight:500;color:#333;line-height:1.42;margin-top:28px;max-width:860px}
-.line{width:64px;height:5px;background:#536EFD;margin-top:32px}
-.bottom{position:absolute;bottom:62px;left:70px;right:70px;display:flex;justify-content:space-between;align-items:center;z-index:5}
+.body{font-size:24px;font-weight:500;color:#333;line-height:1.35;margin-top:14px;max-width:940px;flex-shrink:0}
+.bullets{margin-top:16px;display:flex;flex-direction:column;gap:12px;flex:1 1 auto;justify-content:stretch}
+.bullet{display:flex;gap:14px;align-items:center;background:#fff;border:1px solid #DCE3FF;border-radius:14px;padding:18px 20px;flex:1 1 0;min-height:78px}
+.bnum{width:34px;height:34px;border-radius:9px;background:#536EFD;color:#fff;font-size:16px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.btext{font-size:26px;font-weight:600;color:#1a1a1a;line-height:1.25}
+.line{width:64px;height:5px;background:#536EFD;margin-top:18px}
+.bottom{position:absolute;bottom:40px;left:56px;right:56px;display:flex;justify-content:space-between;align-items:center;z-index:5}
 .swipe{font-size:14px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#111}
-.pill{background:#111;color:#fff;padding:20px 40px;border-radius:50px;font-size:22px;font-weight:800}
+.site{font-size:14px;font-weight:700;color:#666}
+.pill{background:#111;color:#fff;padding:18px 36px;border-radius:50px;font-size:20px;font-weight:800}
 .pill em{font-family:'Instrument Serif',serif;font-style:italic;color:#536EFD;font-weight:400;margin-left:6px}
 </style></head><body>
 <div class="header"><div class="hleft"><span class="dot"></span>Digital Card Creator</div>
-<div class="hright"><div class="fw">my.digitalcardcreator.com</div><div class="badge">04</div></div></div>
-<div class="content"><div class="kick">03 / WHATSAPP CLICKS</div><div class="headline" style="font-size:56px">See who wants a <em>showing</em></div><div class="body">Monitor how many prospects tap your WhatsApp Connect button to start a conversation about your active listings.</div></div>
-<div class="bottom"><div></div><div class="swipe">SWIPE &rarr;</div></div>
+<div class="hright"><div class="meta">my.digitalcardcreator.com</div><div class="badge">04</div></div></div>
+<div class="content"><div class="kick">03</div><div class="headline" style="font-size:44px">One-Tap Save to Contacts</div><div class="body">With a single tap, they can save all your details directly into their phone&#x27;s contact book. No manual typing, no errors, just a reliable connection.</div><div class="bullets"><div class="bullet"><div class="bnum">1</div><div class="btext">Instant Save for business</div></div><div class="bullet"><div class="bnum">2</div><div class="btext">Accurate Data for business</div></div><div class="bullet"><div class="bnum">3</div><div class="btext">Zero Friction for business</div></div><div class="bullet"><div class="bnum">4</div><div class="btext">Track views, scans, and clicks</div></div></div></div>
+<div class="bottom"><div class="site">my.digitalcardcreator.com</div><div class="swipe">SWIPE &rarr;</div></div>
 </body></html>

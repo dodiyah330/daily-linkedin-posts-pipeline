@@ -277,31 +277,34 @@ Logs: `connections-run-log.json`, `searched-prospects-cache.json`. Slack report:
 
 Messages 1st-degree connections in major markets **outside India**. Role-personalized templates: `connection_dm_templates.json` (`auto` picks founder/ops/sales/…).
 
-**Anti-restriction (mandatory):** LinkedIn previously restricted this account for high profile-data volume after ~77–145 DMs/day. Caps below are hard-coded and **cannot be bypassed** with env vars.
+**Humanized sessions (default):** profile read + scroll, mouse wander, slow typing with pauses, pre-send re-read, occasional feed/messaging browse between DMs, 3–5+ min gaps. LinkedIn previously restricted this account for high profile-data volume after ~77–145 DMs/day — caps below are hard-coded and **cannot be bypassed** with env vars.
 
 | Limit | Safe default | Absolute max in code |
 |-------|--------------|----------------------|
-| Per run | 5 | 5 |
-| Per day | **12** (recovery: **8**) | **15** |
-| Per hour | 3 | 3 |
+| Per run | **3** (prefer tiny sessions) | 5 |
+| Per day | **15** (strict recovery: **8**, easing: **12**) | **15** |
+| Per hour | **2** | 3 |
 | Per week | 60 | 70 |
-| Delay | 90s + up to 45s jitter | min 75s |
+| Delay | **180s** + up to **120s** jitter (+ occasional longer break) | min **120s** |
 
-Recommended operating range: **10–15 DMs/day**, split into 2–3 small runs. Do **not** ask for 50–200/day.
+Recommended: **10–15 DMs/day** across **4–6 short runs**, not one burst. Do **not** ask for 50–200/day.
 
 ```bash
 agent-browser --session linkedin_bot open https://www.linkedin.com/feed/
 ./run_connection_dms_guarded.sh
 DRY_RUN=1 ./run_connection_dms.sh
+DM_HUMANIZE=0 ./run_connection_dms.sh   # disable humanize (not recommended)
 ```
 
 | Env | Default | Purpose |
 |-----|---------|---------|
-| `MAX_DMS_PER_RUN` | `5` | Cap per run |
-| `MAX_DMS_PER_DAY` | `12` | Cap per calendar day |
-| `MAX_DMS_PER_HOUR` | `3` | Cap per rolling hour |
+| `MAX_DMS_PER_RUN` | `3` | Cap per run |
+| `MAX_DMS_PER_DAY` | `15` | Cap per calendar day |
+| `MAX_DMS_PER_HOUR` | `2` | Cap per rolling hour |
 | `MAX_DMS_PER_WEEK` | `60` | Cap per 7 days |
-| `DM_DELAY_MS` | `90000` | Base pause between sends |
+| `DM_DELAY_MS` | `180000` | Base pause between sends |
+| `DM_DELAY_JITTER_MS` | `120000` | Extra random wait |
+| `DM_HUMANIZE` | `1` | Browse/type/mouse like a person |
 | `DM_VARIANT` | `auto` | Role-matched template |
 | `DM_USE_CACHE` | `1` | Prefer cache (less search scraping) |
 | `DM_MAX_GEO_SEARCHES` | `3` | Max countries searched per run |
@@ -444,7 +447,7 @@ Profiles: `openxcode_profile.md`, `automation_profile.md`.
 ## Compliance notes
 
 - LinkedIn restricts accounts for bulk invites, messaging, **and high profile-data access** (search + profile visits). This account was restricted after ~77–145 DMs/day.
-- Connection DMs: keep **≤15/day** (prefer **10–12**). Absolute code ceilings cannot be raised via `ALLOW_UNSAFE_DM_LIMITS`.
+- Connection DMs: keep **≤15/day** via short humanized sessions (~2/hour). Absolute code ceilings cannot be raised via `ALLOW_UNSAFE_DM_LIMITS`.
 - Prefer low caps when testing (`MAX_CONNECTIONS_PER_RUN=5`, `MAX_COMMENTS_PER_RUN=5`); use `DRY_RUN=1` first.
 - Freelancer bids: keep `dry_run` / `--dry-run` until proposal quality looks right, then `--live`.
 - Do not commit secrets, OAuth tokens, or live bid/session state.

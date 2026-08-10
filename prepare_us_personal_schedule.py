@@ -90,6 +90,20 @@ for day in posts_days:
 
     img_caption = (day.get("image") or {}).get("caption", "").strip()
     car_caption = (day.get("carousel") or {}).get("caption", "").strip()
+
+    def ensure_caption_links(text):
+        t = (text or "").strip()
+        lines = []
+        if "hitesh-dodiya.netlify.app" not in t.lower():
+            lines.append("Portfolio: https://hitesh-dodiya.netlify.app/")
+        if "linkedin.com/in/hiteshdodiyaa" not in t.lower():
+            lines.append("LinkedIn: https://www.linkedin.com/in/hiteshdodiyaa")
+        if lines:
+            t = (t + "\n\n" + "\n".join(lines)).strip()
+        return t
+
+    img_caption = ensure_caption_links(img_caption)
+    car_caption = ensure_caption_links(car_caption)
     img_time = IMAGE_TIME or IMAGE_BY_WD[d.weekday()]
     car_time = CAROUSEL_TIME or CAROUSEL_BY_WD[d.weekday()]
 

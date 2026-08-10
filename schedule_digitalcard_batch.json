@@ -1,0 +1,23 @@
+{
+  "generated": "2026-08-07",
+  "stream": "digitalcard-company",
+  "scheduleNote": "10 days \u00d7 4 posts/day (2 images + 2 carousels). Niche: digital visiting cards / QR / WhatsApp. Play Store + web URL on every caption. IST peaks.",
+  "companyPage": "https://www.linkedin.com/company/135187143/",
+  "startUrl": "https://www.linkedin.com/company/135187143/admin/dashboard/",
+  "postAs": "Digital Card Creator",
+  "sourceFile": "digitalcard_batch_20260806.json",
+  "posts": [
+    {
+      "id": 39,
+      "type": "infographic",
+      "date": "08/16/2026",
+      "time": "3:00 PM",
+      "caption": "How many potential sales leads slip away because follow-up takes too long?\n\nFor sales professionals, the moment after a successful pitch or a productive coffee meeting is critical. You need to ensure your new contact has all your details saved instantly and can reach you immediately.\n\nWith Digital Card Creator, a simple QR scan during a conversation replaces manual typing and ensures your contact information is always accessible and up-to-date.\n\n- Share your card in seconds with a smart QR code\n- Your contact's phone saves your details automatically\n- Built-in WhatsApp button for instant communication\n- Update your card anytime, and it refreshes everywhere\n\nDM us your role (e.g., Sales Manager, Account Executive) and we will suggest a template for immediate impact!\n\nCreate free: https://my.digitalcardcreator.com/\nAndroid app: https://play.google.com/store/apps/details?id=com.digital_card_creator_app",
+      "assetPath": "./digitalcard-images/20260806/day-10-pm.png",
+      "stream": "digitalcard",
+      "label": "DAY 10 IMAGE PM \u2014 NETWORKING_MOMENT",
+      "topic": "Sales Networking: From Paper to Digital Leads",
+      "audience": "sales professionals"
+    }
+  ]
+}
