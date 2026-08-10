@@ -36,8 +36,7 @@ export DM_SEARCH_BATCH="${DM_SEARCH_BATCH:-25}"
 export DM_MAX_GEO_SEARCHES="${DM_MAX_GEO_SEARCHES:-3}"
 
 echo "== Guarded connection DMs (humanized) =="
-echo "    watchdog_pid=$WATCHDOG_PID variant=$DM_VARIANT humanize=$DM_HUMANIZE"
+echo "    watchdog_pid=$WATCHDOG_PID variant=$DM_VARIANT humanize=$DM_HUMANIZE continuous=${DM_CONTINUOUS:-0}"
 echo "    run=$MAX_DMS_PER_RUN/day=$MAX_DMS_PER_DAY/hour=$MAX_DMS_PER_HOUR/week=$MAX_DMS_PER_WEEK"
 echo "    delay=${DM_DELAY_MS}ms + jitter 0..${DM_DELAY_JITTER_MS}ms"
-echo "    Absolute max in code: 5/run, 15/day, 3/hour, 70/week"
 node send_connection_dms.cjs

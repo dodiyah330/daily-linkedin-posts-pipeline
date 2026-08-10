@@ -16,7 +16,11 @@
  *   DM_DELAY_MS=180000         Base pause between sends (min 120s)
  *   DM_DELAY_JITTER_MS=120000  Random extra wait 0..N ms
  *   DM_HUMANIZE=1              Human-like browse/type/mouse (default on)
- *   DM_VARIANT=auto           auto|founder|ops|sales|...
+ *   DM_CONTINUOUS=1            Fill remaining daily budget in one pass (no hourly waits)
+ *   DM_VARIANT=auto           auto|founder|ops|sales|bookwellnow|...
+ *   DM_KEYWORDS=...           LinkedIn people search keywords (pipe-separated queries)
+ *   DM_MATCH=...              Comma list; title/headline must match one (audience filter)
+ *   DM_CACHE_FILE=...         Optional cache filename under this folder
  *   DM_SCROLLS=4              Scrolls while collecting search results
  *   DM_SEARCH_BATCH=25        Max prospects to collect before filtering
  *   DM_MAX_GEO_SEARCHES=3     Max countries to search per run (cache preferred)
@@ -28,15 +32,31 @@ const path = require('path');
 const os = require('os');
 
 const LOG_FILE = path.join(__dirname, 'connection-dms-run-log.json');
-const CACHE_FILE = path.join(__dirname, 'connection-dms-targets-cache.json');
+const CACHE_FILE = path.join(
+  __dirname,
+  process.env.DM_CACHE_FILE || 'connection-dms-targets-cache.json'
+);
 const TEMPLATES_FILE = path.join(__dirname, 'connection_dm_templates.json');
 
 const DRY_RUN = process.env.DRY_RUN === '1';
-const DELAY_MS = parseInt(process.env.DM_DELAY_MS || '180000', 10);
-const DELAY_JITTER_MS = parseInt(process.env.DM_DELAY_JITTER_MS || '120000', 10);
-const MAX_PER_RUN = parseInt(process.env.MAX_DMS_PER_RUN || '3', 10);
+const CONTINUOUS = process.env.DM_CONTINUOUS === '1';
+const DELAY_MS = parseInt(
+  process.env.DM_DELAY_MS || (CONTINUOUS ? '8000' : '180000'),
+  10
+);
+const DELAY_JITTER_MS = parseInt(
+  process.env.DM_DELAY_JITTER_MS || (CONTINUOUS ? '7000' : '120000'),
+  10
+);
+const MAX_PER_RUN = parseInt(
+  process.env.MAX_DMS_PER_RUN || (CONTINUOUS ? '15' : '3'),
+  10
+);
 const MAX_PER_DAY = parseInt(process.env.MAX_DMS_PER_DAY || '15', 10);
-const MAX_PER_HOUR = parseInt(process.env.MAX_DMS_PER_HOUR || '2', 10);
+const MAX_PER_HOUR = parseInt(
+  process.env.MAX_DMS_PER_HOUR || (CONTINUOUS ? '15' : '2'),
+  10
+);
 const MAX_PER_WEEK = parseInt(process.env.MAX_DMS_PER_WEEK || '60', 10);
 const VARIANT = process.env.DM_VARIANT || 'auto';
 const SEARCH_SCROLLS = parseInt(process.env.DM_SCROLLS || '4', 10);
@@ -44,15 +64,23 @@ const SEARCH_BATCH = parseInt(process.env.DM_SEARCH_BATCH || '25', 10);
 const MAX_GEO_SEARCHES = parseInt(process.env.DM_MAX_GEO_SEARCHES || '3', 10);
 const USE_CACHE = process.env.DM_USE_CACHE !== '0';
 const HUMANIZE = process.env.DM_HUMANIZE !== '0';
+const KEYWORD_QUERIES = String(process.env.DM_KEYWORDS || '')
+  .split('|')
+  .map((s) => s.trim())
+  .filter(Boolean);
+const MATCH_TERMS = String(process.env.DM_MATCH || '')
+  .split(',')
+  .map((s) => s.trim().toLowerCase())
+  .filter(Boolean);
 
 // Absolute ceilings — cannot be raised via env (past ALLOW_UNSAFE caused restrictions).
 // LinkedIn cited "unusually high volume of LinkedIn profile data" at ~77+/day.
-// Sustain by looking human + spreading volume, not by blasting.
-const ABSOLUTE_MAX_RUN = 5;
+// Day max stays 15. Continuous mode only removes hourly session splitting within that day.
+const ABSOLUTE_MAX_RUN = CONTINUOUS ? 15 : 5;
 const ABSOLUTE_MAX_DAY = 15;
-const ABSOLUTE_MAX_HOUR = 3;
+const ABSOLUTE_MAX_HOUR = CONTINUOUS ? 15 : 3;
 const ABSOLUTE_MAX_WEEK = 70;
-const HARD_MIN_DELAY_MS = 120000;
+const HARD_MIN_DELAY_MS = CONTINUOUS ? 5000 : 120000;
 const RECOVERY_STRICT_DAY = 8;
 const RECOVERY_STRICT_RUN = 2;
 const RECOVERY_STRICT_HOUR = 2;
@@ -141,8 +169,9 @@ function chance(p) {
 function nextDelayMs(baseDelayMs) {
   const base = Math.max(baseDelayMs || DELAY_MS, HARD_MIN_DELAY_MS);
   const jitter = DELAY_JITTER_MS > 0 ? Math.floor(Math.random() * (DELAY_JITTER_MS + 1)) : 0;
-  // Occasional "got distracted" pause: longer gap like a real session break
-  const longBreak = HUMANIZE && chance(0.18) ? randInt(45000, 120000) : 0;
+  // Occasional longer pause only in paced mode (skip in continuous fill)
+  const longBreak =
+    !CONTINUOUS && HUMANIZE && chance(0.18) ? randInt(45000, 120000) : 0;
   return base + jitter + longBreak;
 }
 
@@ -211,7 +240,7 @@ async function humanClickElement(page, el) {
 }
 
 async function betweenDmBrowse(page) {
-  if (!HUMANIZE || !chance(0.55)) return;
+  if (CONTINUOUS || !HUMANIZE || !chance(0.55)) return;
   const mode = chance(0.55) ? 'feed' : 'messaging';
   console.log(`  human browse: ${mode} (looks like a real session)...`);
   try {
@@ -267,7 +296,8 @@ function recoveryStage(log) {
   const ts = lastRestrictionTs(log);
   if (!ts) return null;
   const daysAgo = (Date.now() - ts) / (24 * 60 * 60 * 1000);
-  if (daysAgo > RECOVERY_DAYS) return null;
+  // Graduate after RECOVERY_DAYS full days clear (inclusive) — unlocks ~15/day.
+  if (daysAgo >= RECOVERY_DAYS) return null;
   if (daysAgo <= RECOVERY_STRICT_DAYS) return 'strict';
   return 'easing';
 }
@@ -314,7 +344,13 @@ function enforceSafeLimits(log) {
   let dayCap = ABSOLUTE_MAX_DAY;
   let runCap = ABSOLUTE_MAX_RUN;
   let hourCap = ABSOLUTE_MAX_HOUR;
-  if (stage === 'strict') {
+  if (CONTINUOUS) {
+    // One continuous pass up to remaining day budget (still capped at ABSOLUTE_MAX_DAY).
+    console.log('Continuous mode ON: fill remaining daily budget one-by-one (no hourly session splits)');
+    dayCap = ABSOLUTE_MAX_DAY;
+    runCap = ABSOLUTE_MAX_DAY;
+    hourCap = ABSOLUTE_MAX_DAY;
+  } else if (stage === 'strict') {
     dayCap = RECOVERY_STRICT_DAY;
     runCap = RECOVERY_STRICT_RUN;
     hourCap = RECOVERY_STRICT_HOUR;
@@ -335,7 +371,7 @@ function enforceSafeLimits(log) {
     maxWeek: Math.min(MAX_PER_WEEK, ABSOLUTE_MAX_WEEK),
     delayMs: Math.max(DELAY_MS, HARD_MIN_DELAY_MS),
     recovery: Boolean(stage),
-    stage: stage || 'healthy',
+    stage: CONTINUOUS ? 'continuous' : stage || 'healthy',
   };
 
   if (
@@ -350,7 +386,10 @@ function enforceSafeLimits(log) {
     );
   }
   console.log(
-    `Humanize: ${HUMANIZE ? 'ON' : 'OFF'} | stage=${clamped.stage} | tip: 4–6 tiny sessions/day beats one burst`
+    `Humanize: ${HUMANIZE ? 'ON' : 'OFF'} | stage=${clamped.stage}` +
+      (CONTINUOUS
+        ? ' | continuous fill to day cap'
+        : ' | tip: 4–6 tiny sessions/day beats one burst')
   );
   return clamped;
 }
@@ -411,10 +450,64 @@ function firstName(fullName) {
   return part.replace(/[^A-Za-z\-']/g, '') || 'there';
 }
 
+function nameTokens(fullName) {
+  return String(fullName || '')
+    .replace(/[•|].*$/, '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9\s\-']/g, ' ')
+    .split(/[\s\-]+/)
+    .map((t) => t.trim())
+    .filter((t) => t.length >= 2 && !/^(the|and|for|with)$/.test(t));
+}
+
+/** True if compose UI / profile label is clearly the same person as prospect. */
+function namesLikelyMatch(expectedName, actualLabel) {
+  const want = nameTokens(expectedName);
+  const got = nameTokens(actualLabel);
+  if (!want.length || !got.length) return false;
+  // First token must match (Hi {{FirstName}} guard)
+  if (want[0] !== got[0]) return false;
+  // Prefer at least one more overlapping token when both have surnames
+  if (want.length >= 2 && got.length >= 2) {
+    const gotSet = new Set(got);
+    const overlap = want.slice(1).filter((t) => gotSet.has(t));
+    if (overlap.length === 0 && want[1] !== got[1]) {
+      // Allow first-name-only headers like "Carl-Johan" vs "Carl-Johan Hedström"
+      if (got.length === 1 && got[0] === want[0]) return true;
+      if (want.length === 1) return true;
+      return false;
+    }
+  }
+  return true;
+}
+
 function isIndiaLocation(text) {
   const t = (text || '').toLowerCase();
   if (!t) return false;
   return INDIA_MARKERS.some((m) => t.includes(m));
+}
+
+function audienceBlob(prospect) {
+  return `${prospect.title || ''} ${prospect.headline || ''} ${prospect.name || ''} ${prospect.location || ''}`.toLowerCase();
+}
+
+function matchesAudience(prospect) {
+  if (!MATCH_TERMS.length) return true;
+  // LinkedIn keyword search already scoped results — only soft-check when we have text.
+  const blob = audienceBlob(prospect);
+  if (!blob.trim()) return true;
+  if (MATCH_TERMS.some((t) => blob.includes(t))) return true;
+  // Still accept builder-ish roles from a keyword search (headline often omits "WordPress")
+  if (KEYWORD_QUERIES.length && /(develop|engineer|freelance|agency|plugin|wordpress|woocommerce|\bwp\b)/i.test(blob)) {
+    return true;
+  }
+  // Keyword-sourced prospect: trust search unless clearly unrelated
+  if (prospect.keywords || KEYWORD_QUERIES.length) {
+    return !/(recruiter|talent acquisition|student only|high school)/i.test(blob);
+  }
+  return false;
 }
 
 function loadTemplates() {
@@ -610,6 +703,125 @@ async function openCompose(page) {
   });
 }
 
+async function closeAllMessageOverlays(page) {
+  // Close leftover conversation overlays so we never type into the wrong thread.
+  for (let i = 0; i < 4; i++) {
+    try {
+      await page.evaluate(() => {
+        const labels = [
+          'close your conversation',
+          'close conversation',
+          'dismiss',
+          'close the dialog',
+          'close',
+        ];
+        [...document.querySelectorAll('button, [role="button"]')].forEach((b) => {
+          const t = ((b.getAttribute('aria-label') || '') + ' ' + (b.innerText || ''))
+            .replace(/\s+/g, ' ')
+            .trim()
+            .toLowerCase();
+          if (!t) return;
+          if (labels.some((l) => t === l || t.includes(l))) {
+            try {
+              b.click();
+            } catch (_) {}
+          }
+        });
+      });
+    } catch (_) {}
+    try {
+      await page.keyboard.press('Escape');
+    } catch (_) {}
+    await sleep(350);
+  }
+}
+
+async function readComposeRecipient(page) {
+  return page
+    .evaluate(() => {
+      const clean = (s) => (s || '').replace(/\s+/g, ' ').trim();
+      const bad = (t) =>
+        !t ||
+        t.length > 90 ||
+        /^(status is|messaging|new message|linkedin|online|offline|away|active now|reachable)/i.test(
+          t
+        ) ||
+        /status is (reachable|offline|away|online)/i.test(t);
+
+      // Best signal: profile link inside the open conversation bubble
+      const editor =
+        document.querySelector('.msg-form__contenteditable') ||
+        document.querySelector('.msg-form [contenteditable="true"]');
+      const root =
+        editor?.closest('.msg-overlay-conversation-bubble') ||
+        editor?.closest('.msg-overlay-conversation-bubble--theme') ||
+        editor?.closest('[class*="msg-overlay"]') ||
+        document.body;
+
+      const profileLinks = [
+        ...root.querySelectorAll('a[href*="/in/"]'),
+      ];
+      for (const a of profileLinks) {
+        const r = a.getBoundingClientRect();
+        if (r.width <= 0 || r.height <= 0) continue;
+        const t = clean(
+          (a.querySelector('span[aria-hidden="true"]') || a).innerText || a.textContent || ''
+        ).split('\n')[0];
+        if (!bad(t) && t.length >= 2) {
+          const m = (a.href || '').match(/linkedin\.com\/in\/([^/?#]+)/i);
+          return { name: t, slug: m ? m[1].toLowerCase() : '' };
+        }
+      }
+
+      const selectors = [
+        '.msg-overlay-bubble-header__title',
+        '.msg-overlay-conversation-bubble-header h2',
+        '.msg-entity-lockup__entity-title',
+        '.msg-overlay-bubble-header h2',
+        'h2.msg-overlay-bubble-header__title',
+        '.msg-title-bar h2',
+      ];
+      for (const sel of selectors) {
+        for (const el of root.querySelectorAll(sel)) {
+          const t = clean(el.innerText || el.textContent || '').split('\n')[0];
+          if (!bad(t)) return { name: t, slug: '' };
+        }
+      }
+      return { name: '', slug: '' };
+    })
+    .catch(() => ({ name: '', slug: '' }));
+}
+
+async function readEditorText(page) {
+  return page
+    .evaluate(() => {
+      const el =
+        document.querySelector('.msg-form__contenteditable') ||
+        document.querySelector('.msg-form [contenteditable="true"]') ||
+        document.querySelector('div[role="textbox"][contenteditable="true"]');
+      return (el?.innerText || '').replace(/\s+/g, ' ').trim();
+    })
+    .catch(() => '');
+}
+
+async function assertComposeMatchesProspect(page, prospect) {
+  const info = await readComposeRecipient(page);
+  const recipient = info?.name || '';
+  const composeSlug = info?.slug || '';
+  const expected = prospect.name || '';
+  const expectedSlug = String(prospect.slug || '').toLowerCase();
+  const nameOk = Boolean(recipient) && namesLikelyMatch(expected, recipient);
+  const slugOk = Boolean(composeSlug) && Boolean(expectedSlug) && composeSlug === expectedSlug;
+  // Either compose profile slug or visible name must match — never send on ambiguous UI.
+  const ok = slugOk || nameOk;
+  return {
+    ok,
+    recipient: recipient || (composeSlug ? `slug:${composeSlug}` : ''),
+    expected,
+    composeSlug,
+  };
+}
+
 async function dismissOverlays(page) {
   try {
     await page.evaluate(() => {
@@ -629,11 +841,12 @@ async function dismissOverlays(page) {
   await new Promise((r) => setTimeout(r, 400));
 }
 
-function buildSearchUrl(geoUrn) {
+function buildSearchUrl(geoUrn, keywords) {
   const params = new URLSearchParams();
   params.set('network', '["F"]');
   params.set('origin', 'FACETED_SEARCH');
   params.set('geoUrn', `["${geoUrn}"]`);
+  if (keywords) params.set('keywords', keywords);
   return `https://www.linkedin.com/search/results/people/?${params.toString()}`;
 }
 
@@ -704,6 +917,10 @@ async function collectTargets(page, needed, already, opts = {}) {
   const found = [];
   const cache = loadJson(CACHE_FILE, { profiles: [] });
   const useCache = opts.forceSearch ? false : USE_CACHE;
+  const keywordLabel = KEYWORD_QUERIES.length
+    ? ` keywords=[${KEYWORD_QUERIES.join(' | ')}]`
+    : '';
+  const matchLabel = MATCH_TERMS.length ? ` match=[${MATCH_TERMS.join(', ')}]` : '';
 
   // Prefer cache (remaining targets) to avoid aggressive search scraping.
   if (useCache && (cache.profiles || []).length) {
@@ -711,24 +928,39 @@ async function collectTargets(page, needed, already, opts = {}) {
       if (found.length >= needed) break;
       if (already.has(p.slug)) continue;
       if (isIndiaLocation(p.location) || isIndiaLocation(p.title)) continue;
+      // Keyword search already scopes LinkedIn results; MATCH is enforced on profile.
+      if (!KEYWORD_QUERIES.length && !matchesAudience(p)) continue;
       found.push(p);
     }
     if (found.length) {
-      console.log(`Using cache: ${found.length} remaining targets (set DM_USE_CACHE=0 to re-search)`);
+      console.log(
+        `Using cache: ${found.length} remaining targets${matchLabel} (set DM_USE_CACHE=0 to re-search)`
+      );
       return found;
     }
-    console.log('Cache has no unused targets — searching LinkedIn...');
+    console.log(`Cache has no unused audience targets${matchLabel} — searching LinkedIn...`);
   }
 
   // Limit country searches — sweeping all geos looks like bulk profile-data scraping.
   const geoLimit = Math.max(1, Math.min(MAX_GEO_SEARCHES, GEO_TARGETS.length));
   const geos = GEO_TARGETS.slice(0, geoLimit);
-  console.log(`Live search limited to ${geos.length} geo(s) this run (DM_MAX_GEO_SEARCHES)`);
+  const queries = KEYWORD_QUERIES.length ? KEYWORD_QUERIES : [''];
+  console.log(
+    `Live search limited to ${geos.length} geo(s) × ${queries.length} query(ies)${keywordLabel}${matchLabel}`
+  );
 
-  for (const geo of geos) {
+  let searchCount = 0;
+  const maxSearches = Math.max(geoLimit, geoLimit * Math.min(queries.length, 2));
+
+  for (let gi = 0; gi < geos.length; gi++) {
     if (found.length >= needed) break;
-    const url = buildSearchUrl(geo.urn);
-    console.log(`\nSearching 1st-degree in ${geo.name}`);
+    const geo = geos[gi];
+    // Rotate keywords across geos to keep search count low
+    const kw = queries[gi % queries.length];
+    if (searchCount >= maxSearches) break;
+    searchCount += 1;
+    const url = buildSearchUrl(geo.urn, kw || undefined);
+    console.log(`\nSearching 1st-degree in ${geo.name}${kw ? ` · "${kw}"` : ''}`);
     console.log(url);
 
     try {
@@ -758,7 +990,8 @@ async function collectTargets(page, needed, already, opts = {}) {
         if (already.has(p.slug)) continue;
         if (found.some((x) => x.slug === p.slug)) continue;
         if (isIndiaLocation(p.location) || isIndiaLocation(p.title)) continue;
-        found.push({ ...p, geo: geo.name });
+        if (!KEYWORD_QUERIES.length && !matchesAudience(p)) continue;
+        found.push({ ...p, geo: geo.name, keywords: kw || '' });
       }
       try {
         await page.evaluate(() => window.scrollBy(0, window.innerHeight * 0.9));
@@ -776,9 +1009,11 @@ async function collectTargets(page, needed, already, opts = {}) {
     }, [])
     .slice(-2000);
   cache.last_search = todayStr();
+  cache.keywords = KEYWORD_QUERIES;
+  cache.match = MATCH_TERMS;
   saveJson(CACHE_FILE, cache);
 
-  console.log(`Collected ${found.length} non-India 1st-degree targets`);
+  console.log(`Collected ${found.length} non-India 1st-degree targets${matchLabel}`);
   return found;
 }
 
@@ -849,7 +1084,7 @@ async function readProfileContext(page) {
       if (t && t.length < 120 && !junkLine.test(t)) location = t;
     }
 
-    return { location, headline };
+    return { location, headline, name: clean(lines[nameIdx] || '') };
   });
 }
 
@@ -950,6 +1185,8 @@ async function withTimeout(promise, ms, label) {
 }
 
 async function sendMessageOnProfile(page, prospect, templates) {
+  // Never reuse a previous conversation overlay — that's how wrong-name DMs happen.
+  await closeAllMessageOverlays(page);
   await dismissOverlays(page);
   try {
     await withTimeout(
@@ -965,27 +1202,57 @@ async function sendMessageOnProfile(page, prospect, templates) {
       }
     }
   }
+
+  // Hard check: browser URL must be this prospect's profile before we personalize.
+  const urlSlug = profileSlug(page.url());
+  if (urlSlug && urlSlug !== String(prospect.slug || '').toLowerCase()) {
+    return {
+      status: 'failed',
+      error: `profile URL mismatch: on ${urlSlug}, expected ${prospect.slug}`,
+    };
+  }
+
   await sleep(HUMANIZE ? randInt(2200, 4800) : 2800);
   await dismissOverlays(page);
   await humanScrollRead(page);
 
   let location = '';
   let headline = prospect.headline || prospect.title || '';
+  let liveName = prospect.name || '';
   try {
     const ctx = await withTimeout(readProfileContext(page), 10000, 'profile context');
     location = ctx.location || '';
     if (ctx.headline) headline = ctx.headline;
+    if (ctx.name && ctx.name.length > 1) liveName = ctx.name;
   } catch (_) {}
   if (isIndiaLocation(location) || isIndiaLocation(headline)) {
     return { status: 'skipped_india', location, headline };
   }
 
-  const personalized = renderMessage(templates, {
+  const enriched = {
     ...prospect,
+    name: liveName || prospect.name,
     title: prospect.title || headline,
     headline,
-  });
+    location: location || prospect.location || '',
+  };
+  if (!matchesAudience(enriched)) {
+    return { status: 'skipped_audience', location, headline };
+  }
+
+  // Prefer live profile name for greeting so FirstName always matches the person on-screen.
+  const personalized = renderMessage(templates, enriched);
+  const expectedFirst = firstName(enriched.name);
   const message = personalized.message;
+  if (!new RegExp(`^Hi\\s+${expectedFirst.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i').test(message)) {
+    return {
+      status: 'failed',
+      error: `template greeting mismatch for ${expectedFirst}`,
+      location,
+      headline,
+      variant: personalized.variant,
+    };
+  }
 
   let opened = false;
   try {
@@ -1000,12 +1267,47 @@ async function sendMessageOnProfile(page, prospect, templates) {
   await sleep(HUMANIZE ? randInt(900, 2200) : 1200);
   const editorReady = await waitForEditor(page, 10000);
   if (!editorReady) {
+    await closeAllMessageOverlays(page);
     return { status: 'failed', error: 'Message editor not ready', location, headline, variant: personalized.variant };
+  }
+
+  // CRITICAL: confirm LinkedIn compose header is this prospect before typing.
+  const matchBefore = await assertComposeMatchesProspect(page, enriched);
+  if (!matchBefore.ok) {
+    await closeAllMessageOverlays(page);
+    return {
+      status: 'failed',
+      error: `recipient mismatch before type: compose="${matchBefore.recipient}" expected="${matchBefore.expected}"`,
+      location,
+      headline,
+      variant: personalized.variant,
+    };
   }
 
   const filled = await fillMessage(page, message);
   if (!filled) {
+    await closeAllMessageOverlays(page);
     return { status: 'failed', error: 'Could not fill message editor', location, headline, variant: personalized.variant };
+  }
+
+  // Re-verify recipient + draft greeting right before Send.
+  const matchAfter = await assertComposeMatchesProspect(page, enriched);
+  const draft = await readEditorText(page);
+  const greetingOk = new RegExp(
+    `^Hi\\s+${expectedFirst.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`,
+    'i'
+  ).test(draft);
+  if (!matchAfter.ok || !greetingOk) {
+    await closeAllMessageOverlays(page);
+    return {
+      status: 'failed',
+      error: !matchAfter.ok
+        ? `recipient mismatch before send: compose="${matchAfter.recipient}" expected="${matchAfter.expected}"`
+        : `draft greeting mismatch before send (got: ${draft.slice(0, 60)})`,
+      location,
+      headline,
+      variant: personalized.variant,
+    };
   }
 
   // Re-read draft before send (humans pause here)
@@ -1013,12 +1315,14 @@ async function sendMessageOnProfile(page, prospect, templates) {
   await humanMouseWander(page);
 
   if (DRY_RUN) {
+    await closeAllMessageOverlays(page);
     return {
       status: 'dry_run',
       location,
       headline,
       variant: personalized.variant,
       preview: message.slice(0, 160),
+      recipient: matchAfter.recipient,
     };
   }
 
@@ -1043,13 +1347,19 @@ async function sendMessageOnProfile(page, prospect, templates) {
   }
 
   if (!sent) {
-    const mod = process.platform === 'darwin' ? 'Meta' : 'Control';
-    await page.keyboard.down(mod);
-    await page.keyboard.press('Enter');
-    await page.keyboard.up(mod);
+    // Do NOT Ctrl/Cmd+Enter fallback — too easy to send into a wrong focused thread.
+    await closeAllMessageOverlays(page);
+    return {
+      status: 'failed',
+      error: 'Send button not found (refused keyboard fallback for safety)',
+      location,
+      headline,
+      variant: personalized.variant,
+    };
   }
 
   await sleep(HUMANIZE ? randInt(1500, 3200) : 1800);
+  await closeAllMessageOverlays(page);
 
   const blocked = await detectRestriction(page);
   if (blocked) {
@@ -1059,7 +1369,14 @@ async function sendMessageOnProfile(page, prospect, templates) {
     return { status: 'restricted', location, headline, error: blocked, variant: personalized.variant };
   }
 
-  return { status: 'sent', location, headline, variant: personalized.variant, label: personalized.label };
+  return {
+    status: 'sent',
+    location,
+    headline,
+    variant: personalized.variant,
+    label: personalized.label,
+    recipient: matchAfter.recipient,
+  };
 }
 
 async function main() {
@@ -1073,7 +1390,7 @@ async function main() {
   const sentLastWeek = countSentInLastDays(log, 7, { excludeBurstDays: true });
   const already = new Set(
     log
-      .filter((e) => ['sent', 'skipped_india'].includes(e.status) && !e.dry_run)
+      .filter((e) => ['sent', 'skipped_india', 'skipped_audience'].includes(e.status) && !e.dry_run)
       .map((e) => profileSlug(e.linkedin_url || e.slug) || String(e.slug || '').toLowerCase())
       .filter(Boolean)
   );
@@ -1086,6 +1403,9 @@ async function main() {
   console.log('== LinkedIn DMs → non-India 1st-degree connections ==');
   console.log(`Mode: ${DRY_RUN ? 'DRY RUN' : 'LIVE SEND'}`);
   console.log(`Variant mode: ${VARIANT} (role-personalized when auto)`);
+  if (KEYWORD_QUERIES.length) console.log(`Search keywords: ${KEYWORD_QUERIES.join(' | ')}`);
+  if (MATCH_TERMS.length) console.log(`Audience match: ${MATCH_TERMS.join(', ')}`);
+  console.log(`Cache file: ${path.basename(CACHE_FILE)}`);
   console.log(
     `Caps: run=${limits.maxRun} day=${limits.maxDay} hour=${limits.maxHour} week=${limits.maxWeek} | delay≈${limits.delayMs}+0..${DELAY_JITTER_MS}ms`
   );
@@ -1226,6 +1546,7 @@ async function main() {
       variant: usedVariant,
       status: result.status,
       location: result.location || '',
+      recipient: result.recipient || '',
       error: result.error || '',
       dry_run: DRY_RUN,
     };
@@ -1235,12 +1556,13 @@ async function main() {
     console.log(
       `Result: ${result.status}${result.error ? ` (${result.error})` : ''}` +
         (usedVariant ? ` [${usedVariant}]` : '') +
+        (result.recipient ? ` → compose:${result.recipient}` : '') +
         (result.headline ? ` | ${String(result.headline).slice(0, 70)}` : '')
     );
     if (result.status === 'sent' || result.status === 'dry_run') {
       sent += 1;
       consecutiveFails = 0;
-    } else if (result.status === 'skipped_india') {
+    } else if (result.status === 'skipped_india' || result.status === 'skipped_audience') {
       skipped += 1;
       consecutiveFails = 0;
     } else {
@@ -1271,7 +1593,7 @@ async function main() {
 
   console.log('\n== Summary ==');
   console.log(`Sent/previewed: ${sent}`);
-  console.log(`Skipped (India): ${skipped}`);
+  console.log(`Skipped (India/audience): ${skipped}`);
   console.log(`Failed: ${failed}`);
   console.log(`Variants used: ${JSON.stringify(variantCounts)}`);
   console.log(`Log: ${LOG_FILE}`);
@@ -1279,7 +1601,9 @@ async function main() {
   await browser.disconnect();
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+if (require.main === module) {
+  main().catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+}

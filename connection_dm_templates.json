@@ -9,9 +9,16 @@
     "marketing": "Hi {{FirstName}}, quick thought for {{RoleLabel}}.\n\nMarketing teams often get stuck in reporting pulls, lead handoffs, and campaign follow-ups that eat half the week.\n\nI build AI automations that clean that up: lead routing, content ops, and reporting syncs.\n\nWhich of those is the biggest time sink for you right now?",
     "support": "Hi {{FirstName}}, saw you're in {{RoleLabel}}.\n\nSupport teams usually drown in triage, ticket tagging, and the same Tier-1 replies every day.\n\nI build AI workflows that auto-triage, draft replies, and escalate only the real issues.\n\nWhat's the most repetitive ticket type your team still handles manually?",
     "agency": "Hi {{FirstName}}, quick one.\n\nAgency / consulting teams I talk to usually lose hours to client updates, reporting, and lead follow-ups between projects.\n\nI build AI automations that keep that running in the background so delivery stays the focus.\n\nWhat's one client-ops task you'd love to stop doing manually?",
-    "generic": "Hi {{FirstName}}, saw we're connected and wanted to reach out properly{{HeadlineBit}}.\n\nI help companies cut repetitive busywork with AI automation: lead handling, internal workflows, and chatbots.\n\nCurious: what's one task on your team that still feels too manual?"
+    "generic": "Hi {{FirstName}}, saw we're connected and wanted to reach out properly{{HeadlineBit}}.\n\nI help companies cut repetitive busywork with AI automation: lead handling, internal workflows, and chatbots.\n\nCurious: what's one task on your team that still feels too manual?",
+    "bookwellnow": "Hi {{FirstName}}, quick one for a WordPress builder{{HeadlineBit}}.\n\nI made BookWellNow, a free appointment booking plugin: unlimited staff and services, Zoom + Google Meet, Google Calendar sync, and a tiny footprint (under 15KB).\n\nIf you build sites for salons, clinics, coaches, or agencies that still book by WhatsApp or phone, it can be a clean client-ready booking layer.\n\nFree on WordPress.org: https://wordpress.org/plugins/bookwellnow-appointment-booking/\n\nWould a free install/setup on a client site help, or is booking already covered in your stack?",
+    "wordpress": "Hi {{FirstName}}, quick one for a WordPress builder{{HeadlineBit}}.\n\nI made BookWellNow, a free appointment booking plugin: unlimited staff and services, Zoom + Google Meet, Google Calendar sync, and a tiny footprint (under 15KB).\n\nIf you build sites for salons, clinics, coaches, or agencies that still book by WhatsApp or phone, it can be a clean client-ready booking layer.\n\nFree on WordPress.org: https://wordpress.org/plugins/bookwellnow-appointment-booking/\n\nWould a free install/setup on a client site help, or is booking already covered in your stack?"
   },
   "role_rules": [
+    {
+      "variant": "bookwellnow",
+      "label": "WordPress",
+      "keywords": ["wordpress", "woocommerce", "elementor", "wp developer", "wp engineer", "wp freelancer", "wordpress developer", "wordpress engineer", "wordpress freelancer", "wordpress agency", "buddyboss", "divi"]
+    },
     {
       "variant": "founder",
       "label": "founders / owners",
