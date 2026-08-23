@@ -1,0 +1,346 @@
+{
+  "generated": "2026-08-23",
+  "days": 7,
+  "start": "2026-08-23",
+  "end": "2026-08-29",
+  "mode": "carousel-only",
+  "slidesPerCarousel": "3-4",
+  "audience": "US SaaS founders and ops leaders",
+  "posts": [
+    {
+      "day": 1,
+      "date": "2026-08-23",
+      "topic": "Morning CRM-to-Slack handoff before 9 AM ET standup",
+      "carousel_archetype": "BEFORE_AFTER",
+      "carousel": {
+        "caption": "US SaaS ops teams lose 90+ minutes every morning copying CRM updates into Slack.\n\nI've wired HubSpot deal stage changes into structured Slack briefs for Series A teams. Reps walk into standup with context instead of hunting tabs.\n\n- HubSpot webhook fires on stage change\n- Enrich with owner, amount, next step\n- Post formatted brief to #sales-standup\n\nComment AUTO or DM AUTO and I'll map this to your stack.\n\nPortfolio: https://hitesh-dodiya.netlify.app/\nLinkedIn: https://www.linkedin.com/in/hiteshdodiyaa",
+        "slides": [
+          {
+            "kick": "HOOK",
+            "headline": "Your 9 AM ET standup should not start with <em>tab hunting</em>",
+            "body": "US SaaS teams still copy HubSpot updates into Slack by hand every morning. That is 90+ minutes of ops time burned before the first call.",
+            "bullets": [
+              "Deal stage changes live in CRM only",
+              "Slack channel has yesterday's context",
+              "Reps join standup unprepared"
+            ]
+          },
+          {
+            "kick": "01",
+            "headline": "Wire HubSpot stage changes to <em>Slack briefs</em>",
+            "body": "A HubSpot webhook on deal stage change triggers a Node worker. It pulls owner, amount, close date, and next step, then formats a one-screen brief.",
+            "bullets": [
+              "HubSpot webhook on pipeline move",
+              "Node worker formats Block Kit message",
+              "Posts to #sales-standup at 8:45 AM ET"
+            ]
+          },
+          {
+            "kick": "02",
+            "headline": "After automation: standup starts with <em>context</em>",
+            "body": "One US Series A client cut morning prep from 90 minutes to zero. Reps read one Slack thread instead of three browser tabs.",
+            "bullets": [
+              "90 min/week saved per rep",
+              "Zero missed stage-change alerts",
+              "Audit log in Postgres for SOC 2"
+            ]
+          },
+          {
+            "cta": true,
+            "headline": "Want this on <em>your</em> stack?",
+            "body": "Comment AUTO or DM AUTO. I will suggest 3 automations for your CRM + chat + project tools.",
+            "bullets": [
+              "Free 15-min audit",
+              "Fixed-price builds",
+              "Portfolio: hitesh-dodiya.netlify.app"
+            ]
+          }
+        ]
+      },
+      "_carousel_pdf": "/workspace/carousel-routine/output/2026-08-23/us-personal-day-01/carousel-20260823.pdf"
+    },
+    {
+      "day": 2,
+      "date": "2026-08-24",
+      "topic": "Calendly to Apollo Slack dossier before demos",
+      "carousel_archetype": "CLIENT_JOURNEY",
+      "carousel": {
+        "caption": "SDRs still research prospects manually 10 minutes before every demo.\n\nI built a Calendly webhook flow that enriches the account and drops a Slack dossier before the rep joins the call.\n\n- Calendly book triggers Apollo enrich\n- AI summarizes 3 talking points\n- Slack brief lands 10 min pre-call\n\nComment AUTO if you want this wired for your US SaaS team.\n\nPortfolio: https://hitesh-dodiya.netlify.app/\nLinkedIn: https://www.linkedin.com/in/hiteshdodiyaa",
+        "slides": [
+          {
+            "kick": "HOOK",
+            "headline": "Demo prep should not live in <em>15 open tabs</em>",
+            "body": "US SDRs lose selling time researching LinkedIn, CRM, and company sites before every Calendly booking. Weak discovery kills close rate.",
+            "bullets": [
+              "Calendly books while rep is in another call",
+              "Research scattered across 3 tools",
+              "No structured brief before join"
+            ]
+          },
+          {
+            "kick": "01",
+            "headline": "Calendly book to Slack dossier in <em>under 2 min</em>",
+            "body": "Webhook on new booking pulls domain from invitee email. Apollo enriches firmographics. Gemini drafts 3 pain-point hypotheses and posts to rep Slack 10 minutes before start.",
+            "bullets": [
+              "Calendly webhook on new event",
+              "Apollo + public site scrape",
+              "Gemini summary to Slack 10 min pre-call"
+            ]
+          },
+          {
+            "cta": true,
+            "headline": "Want this on <em>your</em> stack?",
+            "body": "Comment AUTO or DM AUTO. I will suggest 3 automations for your CRM + chat + project tools.",
+            "bullets": [
+              "12 hrs/week saved per rep",
+              "Demo-to-close up 14% in 30 days",
+              "Portfolio: hitesh-dodiya.netlify.app"
+            ]
+          }
+        ]
+      },
+      "_carousel_pdf": "/workspace/carousel-routine/output/2026-08-24/us-personal-day-02/carousel-20260824.pdf"
+    },
+    {
+      "day": 3,
+      "date": "2026-08-25",
+      "topic": "Stripe failed payment Slack alerts for finance ops",
+      "carousel_archetype": "MISTAKE_FIX",
+      "carousel": {
+        "caption": "Failed Stripe payments still get discovered in a weekly spreadsheet review.\n\nUS SaaS finance teams need real-time alerts when MRR is at risk, not a Monday morning surprise.\n\n- Stripe webhook on payment_failed\n- Draft recovery email for CS review\n- Slack alert to AE + finance channel\n\nDM AUTO with your billing stack and I'll sketch the flow.\n\nPortfolio: https://hitesh-dodiya.netlify.app/\nLinkedIn: https://www.linkedin.com/in/hiteshdodiyaa",
+        "slides": [
+          {
+            "kick": "HOOK",
+            "headline": "MRR leaks when failed payments sit <em>invisible</em>",
+            "body": "Series A US SaaS teams often find churn signals in Stripe only during weekly reviews. By then the customer has already moved on.",
+            "bullets": [
+              "payment_failed events unmonitored",
+              "CS learns days after failure",
+              "No owner assigned in CRM"
+            ]
+          },
+          {
+            "kick": "01",
+            "headline": "Stripe webhook to Slack in <em>real time</em>",
+            "body": "Stripe payment_failed fires a Node worker. It updates HubSpot deal health, drafts a recovery email for CS approval, and pings #finance-alerts with MRR at risk.",
+            "bullets": [
+              "Stripe webhook on payment_failed",
+              "HubSpot health field updated",
+              "Slack alert with customer + ARR impact"
+            ]
+          },
+          {
+            "kick": "02",
+            "headline": "Finance ops sees risk the <em>same hour</em>",
+            "body": "One client recovered 18% of at-risk MRR in the first month because AEs got alerted before the renewal conversation turned into churn.",
+            "bullets": [
+              "Same-hour visibility vs weekly review",
+              "Recovery draft ready for one-click send",
+              "Full audit trail for finance compliance"
+            ]
+          },
+          {
+            "cta": true,
+            "headline": "Want this on <em>your</em> stack?",
+            "body": "Comment AUTO or DM AUTO. I will suggest 3 automations for your CRM + chat + project tools.",
+            "bullets": [
+              "Free 15-min audit",
+              "Fixed-price builds",
+              "Portfolio: hitesh-dodiya.netlify.app"
+            ]
+          }
+        ]
+      },
+      "_carousel_pdf": "/workspace/carousel-routine/output/2026-08-25/us-personal-day-03/carousel-20260825.pdf"
+    },
+    {
+      "day": 4,
+      "date": "2026-08-26",
+      "topic": "DocuSign signed contract to tenant provisioning",
+      "carousel_archetype": "HOW_I_BUILD",
+      "carousel": {
+        "caption": "Client onboarding after DocuSign still takes 45 minutes of manual copy-paste.\n\nI've shipped flows that go from signed contract to provisioned tenant in under 3 minutes for US B2B SaaS teams.\n\n- DocuSign Connect on completion\n- AI extracts seats + SLA from PDF\n- Auto-provision Postgres tenant + Slack channel\n\nComment AUTO to see how this maps to your onboarding stack.\n\nPortfolio: https://hitesh-dodiya.netlify.app/\nLinkedIn: https://www.linkedin.com/in/hiteshdodiyaa",
+        "slides": [
+          {
+            "kick": "HOOK",
+            "headline": "Signed contract should not mean <em>45 min</em> of handoffs",
+            "body": "US SaaS CS teams manually create Slack channels, provision tenants, and copy deal terms into HubSpot after every DocuSign completion.",
+            "bullets": [
+              "DocuSign signed but ops not notified",
+              "Manual Postgres tenant creation",
+              "Welcome email drafted from scratch"
+            ]
+          },
+          {
+            "kick": "01",
+            "headline": "DocuSign to live tenant in <em>3 minutes</em>",
+            "body": "DocuSign Connect webhook triggers a FastAPI worker. Gemini extracts seat count and SLA tier from the PDF. System provisions tenant, creates #client channel, and queues HubSpot welcome sequence.",
+            "bullets": [
+              "DocuSign Connect on envelope completed",
+              "AI extracts contract terms from PDF",
+              "Idempotent provisioning with Redis retry queue"
+            ]
+          },
+          {
+            "cta": true,
+            "headline": "Want this on <em>your</em> stack?",
+            "body": "Comment AUTO or DM AUTO. I will suggest 3 automations for your CRM + chat + project tools.",
+            "bullets": [
+              "45 min to under 3 min onboarding",
+              "Zero wrong-tier provisioning in 8 weeks",
+              "Portfolio: hitesh-dodiya.netlify.app"
+            ]
+          }
+        ]
+      },
+      "_carousel_pdf": "/workspace/carousel-routine/output/2026-08-26/us-personal-day-04/carousel-20260826.pdf"
+    },
+    {
+      "day": 5,
+      "date": "2026-08-27",
+      "topic": "Intercom ticket triage with Notion-backed AI drafts",
+      "carousel_archetype": "FEATURE_LISTICLE",
+      "carousel": {
+        "caption": "US SaaS support teams still copy answers from Notion into Intercom one ticket at a time.\n\nCustom triage agents classify intent, pull the right doc, and draft a reply for human approval.\n\n- Intercom webhook on new conversation\n- Vector search over Notion help docs\n- Slack approve-before-send for L1 tickets\n\nDM AUTO with your support stack for a triage sketch.\n\nPortfolio: https://hitesh-dodiya.netlify.app/\nLinkedIn: https://www.linkedin.com/in/hiteshdodiyaa",
+        "slides": [
+          {
+            "kick": "HOOK",
+            "headline": "11-hour first response is a <em>product</em> problem",
+            "body": "Subscription SaaS teams with 200+ tickets/week burn agents on copy-paste from Notion. Customers feel the delay before anyone reads the ticket.",
+            "bullets": [
+              "Agents search 3 Notion spaces per ticket",
+              "No intent routing on arrival",
+              "First response averages 11 hours"
+            ]
+          },
+          {
+            "kick": "01",
+            "headline": "Intercom in, classified draft <em>out</em>",
+            "body": "New Intercom conversation triggers classification via Gemini. Vector search pulls top 3 Notion articles. AI drafts reply with doc links for agent approval in Slack.",
+            "bullets": [
+              "Intercom webhook on new message",
+              "Notion vector search for context",
+              "Slack one-click approve before send"
+            ]
+          },
+          {
+            "kick": "02",
+            "headline": "Median first response: <em>47 minutes</em>",
+            "body": "One agency SaaS client handled 60% of L1 tickets with AI draft plus one-click approve. Agents focused on escalations instead of doc hunting.",
+            "bullets": [
+              "11 hrs down to 47 min median response",
+              "60% L1 handled with AI + approve",
+              "Full ticket audit log in Postgres"
+            ]
+          },
+          {
+            "cta": true,
+            "headline": "Want this on <em>your</em> stack?",
+            "body": "Comment AUTO or DM AUTO. I will suggest 3 automations for your CRM + chat + project tools.",
+            "bullets": [
+              "Free 15-min audit",
+              "Fixed-price builds",
+              "Portfolio: hitesh-dodiya.netlify.app"
+            ]
+          }
+        ]
+      },
+      "_carousel_pdf": "/workspace/carousel-routine/output/2026-08-27/us-personal-day-05/carousel-20260827.pdf"
+    },
+    {
+      "day": 6,
+      "date": "2026-08-28",
+      "topic": "Why Zapier breaks at Series A SaaS scale",
+      "carousel_archetype": "MYTH_BUST",
+      "carousel": {
+        "caption": "Zapier gets you to MVP ops. It rarely survives Series A audit and API limits.\n\nUS SaaS teams hit the wall when workflows need branching, retries, and SOC 2 logs that no-code cannot ship.\n\n- Multi-step branching beyond 2 paths\n- Idempotent webhooks with retry queues\n- Audit trail Postgres logs for compliance\n\nComment AUTO if your ops stack is outgrowing no-code.\n\nPortfolio: https://hitesh-dodiya.netlify.app/\nLinkedIn: https://www.linkedin.com/in/hiteshdodiyaa",
+        "slides": [
+          {
+            "kick": "HOOK",
+            "headline": "Zapier is a bridge, not your <em>ops backbone</em>",
+            "body": "Series A US SaaS teams outgrow no-code when workflows need custom branching, error recovery, and audit logs SOC 2 auditors actually read.",
+            "bullets": [
+              "Zap task limits hit at 50+ workflows",
+              "No idempotent retry on webhook failure",
+              "Zero centralized audit trail"
+            ]
+          },
+          {
+            "kick": "01",
+            "headline": "Custom code wins on <em>3 things</em> no-code cannot",
+            "body": "Production automations need Redis retry queues, Postgres audit logs, and API rate-limit handling. These are table stakes for US SaaS compliance, not nice-to-haves.",
+            "bullets": [
+              "Idempotent webhook handlers with retry",
+              "Centralized audit log for SOC 2",
+              "Rate-limit aware API orchestration"
+            ]
+          },
+          {
+            "cta": true,
+            "headline": "Outgrowing no-code?",
+            "body": "Comment AUTO or DM AUTO. I ship fixed-price custom automations that replace your brittle Zaps.",
+            "bullets": [
+              "Free 15-min audit of your top 3 Zaps",
+              "Fixed-price migration builds",
+              "Portfolio: hitesh-dodiya.netlify.app"
+            ]
+          }
+        ]
+      },
+      "_carousel_pdf": "/workspace/carousel-routine/output/2026-08-28/us-personal-day-06/carousel-20260828.pdf"
+    },
+    {
+      "day": 7,
+      "date": "2026-08-29",
+      "topic": "Two fixed-price automation build slots this month",
+      "carousel_archetype": "LAUNCH_CHECKLIST",
+      "carousel": {
+        "caption": "Most US SaaS founders know what to automate. Few have bandwidth to wire it before Q4 planning.\n\nI'm opening 2 fixed-price build slots this month for teams ready to ship production automations, not another Zap experiment.\n\n- Free 15-min stack audit call\n- Fixed scope, fixed price, 2-week delivery\n- HubSpot, Slack, Stripe, DocuSign, Intercom\n\nComment AUTO or DM your CRM + chat + billing stack.\n\nPortfolio: https://hitesh-dodiya.netlify.app/\nLinkedIn: https://www.linkedin.com/in/hiteshdodiyaa",
+        "slides": [
+          {
+            "kick": "HOOK",
+            "headline": "2 build slots open for <em>US SaaS</em> this month",
+            "body": "Founders keep a list of automations to build someday. These two slots are for teams ready to ship one production workflow in the next two weeks.",
+            "bullets": [
+              "Sales prep, onboarding, or support triage",
+              "Fixed scope and fixed price",
+              "Production-ready with audit logs"
+            ]
+          },
+          {
+            "kick": "01",
+            "headline": "What you get in a <em>fixed-price</em> build",
+            "body": "Week 1: audit your stack and wire the trigger. Week 2: ship the worker, Slack/CRM integration, error handling, and a handoff doc your team can maintain.",
+            "bullets": [
+              "15-min audit call on your stack",
+              "Webhook + worker + CRM/chat integration",
+              "Retry queue + Postgres audit log"
+            ]
+          },
+          {
+            "kick": "02",
+            "headline": "Stacks I wire most often for <em>US teams</em>",
+            "body": "HubSpot or Salesforce plus Slack plus one billing or support tool covers 80% of high-ROI automations for Series A SaaS.",
+            "bullets": [
+              "HubSpot / Salesforce + Slack",
+              "Stripe / DocuSign / Calendly triggers",
+              "Intercom / Notion support flows"
+            ]
+          },
+          {
+            "cta": true,
+            "headline": "Claim a <em>build slot</em>",
+            "body": "Comment AUTO or DM AUTO with your CRM + chat + billing stack. I will reply with 3 automation ideas you can ship this month.",
+            "bullets": [
+              "2 slots remaining this month",
+              "Free 15-min audit included",
+              "Portfolio: hitesh-dodiya.netlify.app"
+            ]
+          }
+        ]
+      },
+      "_carousel_pdf": "/workspace/carousel-routine/output/2026-08-29/us-personal-day-07/carousel-20260829.pdf"
+    }
+  ],
+  "assetBatch": "20260823"
+}
