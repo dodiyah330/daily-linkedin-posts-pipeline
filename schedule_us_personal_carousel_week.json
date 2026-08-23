@@ -1,0 +1,102 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "type": "carousel",
+      "date": "08/23/2026",
+      "time": "10:00 PM",
+      "caption": "US SaaS ops teams lose 90+ minutes every morning copying CRM updates into Slack.\n\nI've wired HubSpot deal stage changes into structured Slack briefs for Series A teams. Reps walk into standup with context instead of hunting tabs.\n\n- HubSpot webhook fires on stage change\n- Enrich with owner, amount, next step\n- Post formatted brief to #sales-standup\n\nComment AUTO or DM AUTO and I'll map this to your stack.\n\nPortfolio: https://hitesh-dodiya.netlify.app/\nLinkedIn: https://www.linkedin.com/in/hiteshdodiyaa",
+      "assetPath": "/workspace/carousel-routine/output/2026-08-23/us-personal-day-01/carousel-20260823.pdf",
+      "title": "Morning CRM-to-Slack handoff before 9 AM ET standup",
+      "stream": "us-personal-carousel",
+      "label": "DAY 1 CAROUSEL \u2014 BEFORE_AFTER",
+      "topic": "Morning CRM-to-Slack handoff before 9 AM ET standup",
+      "slideCount": 4
+    },
+    {
+      "id": 2,
+      "type": "carousel",
+      "date": "08/24/2026",
+      "time": "9:30 PM",
+      "caption": "SDRs still research prospects manually 10 minutes before every demo.\n\nI built a Calendly webhook flow that enriches the account and drops a Slack dossier before the rep joins the call.\n\n- Calendly book triggers Apollo enrich\n- AI summarizes 3 talking points\n- Slack brief lands 10 min pre-call\n\nComment AUTO if you want this wired for your US SaaS team.\n\nPortfolio: https://hitesh-dodiya.netlify.app/\nLinkedIn: https://www.linkedin.com/in/hiteshdodiyaa",
+      "assetPath": "/workspace/carousel-routine/output/2026-08-24/us-personal-day-02/carousel-20260824.pdf",
+      "title": "Calendly to Apollo Slack dossier before demos",
+      "stream": "us-personal-carousel",
+      "label": "DAY 2 CAROUSEL \u2014 CLIENT_JOURNEY",
+      "topic": "Calendly to Apollo Slack dossier before demos",
+      "slideCount": 3
+    },
+    {
+      "id": 3,
+      "type": "carousel",
+      "date": "08/25/2026",
+      "time": "9:30 PM",
+      "caption": "Failed Stripe payments still get discovered in a weekly spreadsheet review.\n\nUS SaaS finance teams need real-time alerts when MRR is at risk, not a Monday morning surprise.\n\n- Stripe webhook on payment_failed\n- Draft recovery email for CS review\n- Slack alert to AE + finance channel\n\nDM AUTO with your billing stack and I'll sketch the flow.\n\nPortfolio: https://hitesh-dodiya.netlify.app/\nLinkedIn: https://www.linkedin.com/in/hiteshdodiyaa",
+      "assetPath": "/workspace/carousel-routine/output/2026-08-25/us-personal-day-03/carousel-20260825.pdf",
+      "title": "Stripe failed payment Slack alerts for finance ops",
+      "stream": "us-personal-carousel",
+      "label": "DAY 3 CAROUSEL \u2014 MISTAKE_FIX",
+      "topic": "Stripe failed payment Slack alerts for finance ops",
+      "slideCount": 4
+    },
+    {
+      "id": 4,
+      "type": "carousel",
+      "date": "08/26/2026",
+      "time": "9:30 PM",
+      "caption": "Client onboarding after DocuSign still takes 45 minutes of manual copy-paste.\n\nI've shipped flows that go from signed contract to provisioned tenant in under 3 minutes for US B2B SaaS teams.\n\n- DocuSign Connect on completion\n- AI extracts seats + SLA from PDF\n- Auto-provision Postgres tenant + Slack channel\n\nComment AUTO to see how this maps to your onboarding stack.\n\nPortfolio: https://hitesh-dodiya.netlify.app/\nLinkedIn: https://www.linkedin.com/in/hiteshdodiyaa",
+      "assetPath": "/workspace/carousel-routine/output/2026-08-26/us-personal-day-04/carousel-20260826.pdf",
+      "title": "DocuSign signed contract to tenant provisioning",
+      "stream": "us-personal-carousel",
+      "label": "DAY 4 CAROUSEL \u2014 HOW_I_BUILD",
+      "topic": "DocuSign signed contract to tenant provisioning",
+      "slideCount": 3
+    },
+    {
+      "id": 5,
+      "type": "carousel",
+      "date": "08/27/2026",
+      "time": "9:30 PM",
+      "caption": "US SaaS support teams still copy answers from Notion into Intercom one ticket at a time.\n\nCustom triage agents classify intent, pull the right doc, and draft a reply for human approval.\n\n- Intercom webhook on new conversation\n- Vector search over Notion help docs\n- Slack approve-before-send for L1 tickets\n\nDM AUTO with your support stack for a triage sketch.\n\nPortfolio: https://hitesh-dodiya.netlify.app/\nLinkedIn: https://www.linkedin.com/in/hiteshdodiyaa",
+      "assetPath": "/workspace/carousel-routine/output/2026-08-27/us-personal-day-05/carousel-20260827.pdf",
+      "title": "Intercom ticket triage with Notion-backed AI drafts",
+      "stream": "us-personal-carousel",
+      "label": "DAY 5 CAROUSEL \u2014 FEATURE_LISTICLE",
+      "topic": "Intercom ticket triage with Notion-backed AI drafts",
+      "slideCount": 4
+    },
+    {
+      "id": 6,
+      "type": "carousel",
+      "date": "08/28/2026",
+      "time": "9:00 PM",
+      "caption": "Zapier gets you to MVP ops. It rarely survives Series A audit and API limits.\n\nUS SaaS teams hit the wall when workflows need branching, retries, and SOC 2 logs that no-code cannot ship.\n\n- Multi-step branching beyond 2 paths\n- Idempotent webhooks with retry queues\n- Audit trail Postgres logs for compliance\n\nComment AUTO if your ops stack is outgrowing no-code.\n\nPortfolio: https://hitesh-dodiya.netlify.app/\nLinkedIn: https://www.linkedin.com/in/hiteshdodiyaa",
+      "assetPath": "/workspace/carousel-routine/output/2026-08-28/us-personal-day-06/carousel-20260828.pdf",
+      "title": "Why Zapier breaks at Series A SaaS scale",
+      "stream": "us-personal-carousel",
+      "label": "DAY 6 CAROUSEL \u2014 MYTH_BUST",
+      "topic": "Why Zapier breaks at Series A SaaS scale",
+      "slideCount": 3
+    },
+    {
+      "id": 7,
+      "type": "carousel",
+      "date": "08/29/2026",
+      "time": "10:00 PM",
+      "caption": "Most US SaaS founders know what to automate. Few have bandwidth to wire it before Q4 planning.\n\nI'm opening 2 fixed-price build slots this month for teams ready to ship production automations, not another Zap experiment.\n\n- Free 15-min stack audit call\n- Fixed scope, fixed price, 2-week delivery\n- HubSpot, Slack, Stripe, DocuSign, Intercom\n\nComment AUTO or DM your CRM + chat + billing stack.\n\nPortfolio: https://hitesh-dodiya.netlify.app/\nLinkedIn: https://www.linkedin.com/in/hiteshdodiyaa",
+      "assetPath": "/workspace/carousel-routine/output/2026-08-29/us-personal-day-07/carousel-20260829.pdf",
+      "title": "Two fixed-price automation build slots this month",
+      "stream": "us-personal-carousel",
+      "label": "DAY 7 CAROUSEL \u2014 LAUNCH_CHECKLIST",
+      "topic": "Two fixed-price automation build slots this month",
+      "slideCount": 4
+    }
+  ],
+  "generated": "2026-08-23",
+  "stream": "us-personal-carousel",
+  "scheduleNote": "7 days \u00d7 1 carousel/day on PERSONAL feed. Each carousel has 3-4 slides. Times are IST mapped to US Eastern midday peaks.",
+  "startUrl": "https://www.linkedin.com/feed/",
+  "audience": "US SaaS founders and ops leaders",
+  "timezoneNote": "LinkedIn account TZ = IST. Carousel \u2248 12:00 PM ET.",
+  "sourceFile": "us_personal_carousel_week_20260823.json"
+}
