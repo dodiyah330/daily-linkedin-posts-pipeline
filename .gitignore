@@ -1,6 +1,4 @@
 # Secrets
-.env
-.env.*
 
 # Dependencies
 node_modules/
@@ -43,3 +41,4 @@ freelancer-bid-bot/ramiz-config.json
 Untitled
 error_x_screenshot.png
 connection-dms-bookwellnow-cache.json
+config.bat
