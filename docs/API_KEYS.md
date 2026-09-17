@@ -26,6 +26,14 @@ FLN_OAUTH_TOKEN=
 # LinkedIn (optional — prefer agent-browser logged-in session)
 LINKEDIN_EMAIL=
 LINKEDIN_PASSWORD=
+
+# Facebook Page (BookWellNow)
+FACEBOOK_PAGE_ID=
+FACEBOOK_PAGE_ACCESS_TOKEN=
+# Optional (only for python3 facebook_page_auth.py exchange)
+# FACEBOOK_APP_ID=
+# FACEBOOK_APP_SECRET=
+# FACEBOOK_USER_ACCESS_TOKEN=
 ```
 
 | Variable | Required for | Optional / fallback |
@@ -38,6 +46,9 @@ LINKEDIN_PASSWORD=
 | `SCRAPINGDOG_API_KEY` | Optional X/Twitter research | Skip if unused |
 | `FLN_OAUTH_TOKEN` | Freelancer bid bot | Skip if not running bid bot |
 | `LINKEDIN_EMAIL` / `LINKEDIN_PASSWORD` | Rare login helpers | Prefer `agent-browser` session |
+| `FACEBOOK_PAGE_ACCESS_TOKEN` | BookWellNow Facebook Page scheduler | Page ID auto-detected from token |
+| `FACEBOOK_PAGE_ID` | Optional override | Taken from `/me` on the Page token |
+| `FACEBOOK_APP_ID` / `FACEBOOK_APP_SECRET` | Token exchange helper only | Skip if you paste a long-lived Page token |
 
 ### X (Twitter) posting — no API keys
 
@@ -274,6 +285,68 @@ agent-browser --session linkedin_bot --profile Default open https://www.linkedin
 
 ---
 
+## 9. Facebook Page — `FACEBOOK_PAGE_ACCESS_TOKEN`
+
+**Used by:** BookWellNow Facebook scheduler (`schedule_all_facebook_posts.py`). Posts as the [BookWellNow Page](https://www.facebook.com/BookWellNow) via Graph API (not browser automation).
+
+Keep the Facebook app in **Development** mode. You can post to Pages you admin without App Review. Live-mode `pages_manage_posts` requires Meta App Review.
+
+### A. Create an app + Page token (Graph API Explorer)
+
+1. Open [Meta for Developers](https://developers.facebook.com/apps/) → **Create app** (type: Business / Other is fine).
+2. Open [Graph API Explorer](https://developers.facebook.com/tools/explorer/).
+3. Select your app. User or Page: pick **Get Page Access Token**.
+4. Add permissions:
+   - `pages_show_list`
+   - `pages_manage_posts`
+   - `pages_read_engagement`
+5. **Generate Access Token** and grant the BookWellNow Page.
+6. Confirm with:
+   ```bash
+   GET /me?fields=id,name,link
+   ```
+   The name should be the Page (Bookwellnow), not your personal profile.
+7. Paste into `.env`:
+   ```bash
+   FACEBOOK_PAGE_ACCESS_TOKEN=EAAB...
+   FACEBOOK_PAGE_ID=           # optional; auto-detected
+   ```
+
+### B. Long-lived token (recommended)
+
+Explorer tokens expire in a few hours. Exchange a **user** token, then read the Page token (Page tokens from a long-lived user token typically do not expire):
+
+```bash
+# Short-lived USER token from Explorer (not the Page token) + app credentials:
+FACEBOOK_APP_ID=...
+FACEBOOK_APP_SECRET=...
+FACEBOOK_USER_ACCESS_TOKEN=...
+
+python3 facebook_page_auth.py exchange
+```
+
+Paste the printed `FACEBOOK_PAGE_ID` and `FACEBOOK_PAGE_ACCESS_TOKEN` into `.env`.
+
+### C. Verify
+
+```bash
+python3 facebook_page_auth.py
+```
+
+Should print the BookWellNow Page name. Then dry-run the scheduler:
+
+```bash
+DRY_RUN=1 python3 schedule_all_facebook_posts.py
+```
+
+### Notes
+
+- You must be a Page admin with **CREATE_CONTENT**.
+- Do not commit Page tokens. Rotate if a token leaks.
+- Graph version defaults to `v26.0` (`FACEBOOK_GRAPH_VERSION` to override).
+
+---
+
 ## Setup checklist
 
 1. Create `.env` at the repo root from the template above.
@@ -282,8 +355,9 @@ agent-browser --session linkedin_bot --profile Default open https://www.linkedin
    - `SLACK_BOT_TOKEN` + `SLACK_CHANNEL_ID` (if using Slack delivery)
 3. Add `APIFY_API_KEY` if you want Apify Reddit (else use RSS fallbacks).
 4. Add `FLN_OAUTH_TOKEN` only if running the Freelancer bid bot.
-5. Confirm `.env` is listed in `.gitignore` (it already is).
-6. Run a smoke check per section above before a full pipeline.
+5. Add `FACEBOOK_PAGE_ACCESS_TOKEN` only if scheduling BookWellNow Facebook posts.
+6. Confirm `.env` is listed in `.gitignore` (it already is).
+7. Run a smoke check per section above before a full pipeline.
 
 ### Minimum sets by pipeline
 
@@ -294,6 +368,8 @@ agent-browser --session linkedin_bot --profile Default open https://www.linkedin
 | Daily LinkedIn | LLM key + Slack; Apify recommended |
 | US connections / DMs | None in `.env` — need `agent-browser` LinkedIn session |
 | Freelancer bid bot | `FLN_OAUTH_TOKEN` + `GEMINI_API_KEY` (or OpenRouter) |
+| BookWellNow LinkedIn | LLM key (+ Slack optional); `agent-browser` session |
+| BookWellNow Facebook | LLM key for generate + `FACEBOOK_PAGE_ACCESS_TOKEN` |
 
 ---
 

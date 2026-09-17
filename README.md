@@ -1,12 +1,14 @@
 # Daily LinkedIn Posts Pipeline
 
-Multi-stream automation for LinkedIn content, X (Twitter) scheduling, outreach, and Freelancer.com bidding. One repo drives several independent pipelines that share data fetchers, LLM keys, Slack delivery, and Puppeteer-based native schedulers.
+Multi-stream automation for LinkedIn content, X (Twitter) scheduling, Facebook Page posting, outreach, and Freelancer.com bidding. One repo drives several independent pipelines that share data fetchers, LLM keys, Slack delivery, and native schedulers (Puppeteer for LinkedIn/X, Graph API for Facebook Pages).
 
 | Stream | Audience / page | Cadence | Entry script |
 |--------|-----------------|---------|--------------|
 | **Daily LinkedIn** | Personal profile | Reddit + AI news + performance posts → Slack → schedule | Agent skill: `daily-linkedin-posts/SKILL.md` |
 | **X (Twitter) posts** | Personal X account | Text + image → Slack → native Schedule UI | Agent skill: `skills/daily-x-posts/SKILL.md` |
 | **OpenXcode batch** | Company page ([OpenXcode](https://www.linkedin.com/company/open-xcode)) | Default **10 days × 2 posts/day** (image + carousel) | `./run_openxcode_batch.sh` |
+| **BookWellNow LinkedIn** | Company page ([BookWellNow](https://www.linkedin.com/company/bookwellnow)) | **10 days × 2 carousels/day** | `./run_bookwellnow_batch.sh` |
+| **BookWellNow Facebook** | Facebook Page ([BookWellNow](https://www.facebook.com/BookWellNow)) | Same batch → 4-image albums via Graph API | `./run_bookwellnow_facebook.sh` |
 | **Automation leads** | Personal profile (AI automation ICP) | **14 posts/week** (image + text each day) | `./run_automation_leads.sh` |
 | **US image posts** | Personal profile, US Eastern peak | Daily US-angled infographic | `./run_us_image_posts.sh` |
 | **US connections** | LinkedIn search → invites (no notes) | Until weekly limit | `./run_us_connections.sh` |
@@ -57,6 +59,10 @@ FLN_OAUTH_TOKEN=...
 # Optional LinkedIn login helpers (prefer agent-browser session)
 LINKEDIN_EMAIL=...
 LINKEDIN_PASSWORD=...
+
+# Facebook Page (BookWellNow)
+FACEBOOK_PAGE_ID=
+FACEBOOK_PAGE_ACCESS_TOKEN=
 ```
 
 **How to get every key (step by step):** see [`docs/API_KEYS.md`](docs/API_KEYS.md).
@@ -77,11 +83,8 @@ Generate (Gemini / OpenRouter / agent skills)
         ├── Slack review upload
         └── schedule_*.json
                 │
-                ▼
-agent-browser (logged-in Chrome)
-                │
-                ▼
-SCHEDULE_FILE=... [POST_AS=OpenXCode] node schedule_all_posts.cjs
+                ├── LinkedIn / X: agent-browser → schedule_all_posts.cjs / schedule_all_x_posts.cjs
+                └── Facebook Page: Graph API → schedule_all_facebook_posts.py
 ```
 
 **LinkedIn session (required before any schedule / invite / DM script):**
@@ -101,7 +104,9 @@ agent-browser --session linkedin_bot --profile Default open \
 | `LINKEDIN_START_URL` | Override start URL (personal feed vs company admin) |
 | `START_POST_ID` | Resume from a given post id |
 | `FORCE_GENERAL_BATCH=1` | Override general-batch pause guard |
-| `POST_NOW=1` | Publish immediately (LinkedIn or X) instead of scheduling |
+| `POST_NOW=1` | Publish immediately (LinkedIn, X, or Facebook) instead of scheduling |
+| `FACEBOOK_PAGE_ACCESS_TOKEN` | BookWellNow Facebook Graph API (see `docs/API_KEYS.md`) |
+| `DRY_RUN=1` | Facebook scheduler: print slots, no Graph writes |
 
 ---
 
@@ -223,6 +228,35 @@ OPENXCODE_IMAGE_TIME='11:00 AM' OPENXCODE_CAROUSEL_TIME='4:00 PM' \
 
 ---
 
+## 2b. BookWellNow (LinkedIn + Facebook)
+
+Same 10-day generator for the WordPress booking plugin: **2 carousel posts/day**, company `we/our` voice. Profile: `bookwellnow_profile.md`.
+
+**LinkedIn company page** (PDF carousels):
+
+```bash
+BOOKWELLNOW_START=YYYY-MM-DD ./run_bookwellnow_batch.sh
+agent-browser --session linkedin_bot --profile Default open \
+  "https://www.linkedin.com/company/130384348/admin/dashboard/"
+SCHEDULE_FILE=schedule_bookwellnow.json POST_AS=BookWellNow FORCE_GENERAL_BATCH=1 \
+  node schedule_all_posts.cjs
+```
+
+Skill: `skills/bookwellnow-linkedin/SKILL.md`.
+
+**Facebook Page** ([facebook.com/BookWellNow](https://www.facebook.com/BookWellNow)): Facebook cannot take LinkedIn PDFs, so each post is the **4 slide PNGs as a photo album**, scheduled with the Graph API.
+
+```bash
+./run_bookwellnow_facebook.sh          # reuse latest batch; GENERATE=1 for a new one
+python3 facebook_page_auth.py
+DRY_RUN=1 python3 schedule_all_facebook_posts.py
+python3 schedule_all_facebook_posts.py
+```
+
+Needs `FACEBOOK_PAGE_ACCESS_TOKEN` (see `docs/API_KEYS.md` §9). Skill: `skills/bookwellnow-facebook/SKILL.md`.
+
+---
+
 ## 3. Automation leads (personal)
 
 14 posts for the next Mon–Sun: **1 image + 1 text per day**, first-person voice, lead CTAs (`AUTO` / DM / audit). Profile: `automation_profile.md`. Skill: `skills/automation-leads-engine/SKILL.md`.
@@ -292,12 +326,28 @@ Recommended: **10–15 DMs/day** across **4–6 short runs**, not one burst. Do 
 ```bash
 agent-browser --session linkedin_bot open https://www.linkedin.com/feed/
 ./run_connection_dms_guarded.sh
+./run_connection_dms_eco.sh          # laptop low CPU/RAM (recommended for 20+15/day)
 DRY_RUN=1 ./run_connection_dms.sh
 DM_HUMANIZE=0 ./run_connection_dms.sh   # disable humanize (not recommended)
 ```
 
+**Laptop / low power:** set `DM_LOW_POWER=1` or use `./run_connection_dms_eco.sh`. This turns off humanize mouse/typing, blocks images/video/fonts in the browser tab, keeps fewer tabs open, and uses shorter search scrolls. The LinkedIn window still needs to stay open (biggest CPU cost).
+
+Example daily batch (20 new + 15 follow-ups):
+
+```bash
+# Phase 1 — new DMs
+DM_ABSOLUTE_MAX_DAY=35 MAX_DMS_PER_DAY=20 MAX_DMS_PER_RUN=20 MAX_DMS_PER_HOUR=20 \
+  ./run_connection_dms_eco.sh
+
+# Phase 2 — follow-ups (after phase 1 finishes)
+DM_FOLLOWUP=1 MAX_DMS_PER_DAY=35 MAX_DMS_PER_RUN=15 MAX_DMS_PER_HOUR=35 \
+  ./run_connection_dms_eco.sh
+```
+
 | Env | Default | Purpose |
 |-----|---------|---------|
+| `DM_LOW_POWER` | `0` | Eco mode: block media, prune tabs, shorter waits |
 | `MAX_DMS_PER_RUN` | `3` | Cap per run |
 | `MAX_DMS_PER_DAY` | `15` | Cap per calendar day |
 | `MAX_DMS_PER_HOUR` | `2` | Cap per rolling hour |
@@ -364,11 +414,13 @@ Requires `FLN_OAUTH_TOKEN` plus `GEMINI_API_KEY` or `OPENROUTER_API_KEY` in repo
 | `skills/branded-carousel/FORMATS.md` | Carousel format templates |
 | `skills/illustration-formats/SKILL.md` | Infographic formats |
 | `skills/openxcode-linkedin/SKILL.md` | OpenXcode company posts |
+| `skills/bookwellnow-linkedin/SKILL.md` | BookWellNow LinkedIn carousels |
+| `skills/bookwellnow-facebook/SKILL.md` | BookWellNow Facebook Page albums |
 | `skills/automation-leads-engine/SKILL.md` | Automation lead-gen week |
 | `skills/us-connections/SKILL.md` | US connection outreach |
 | `skills/linkedin-comments/SKILL.md` | Skill / hiring post comments |
 
-Profiles: `openxcode_profile.md`, `automation_profile.md`.
+Profiles: `openxcode_profile.md`, `automation_profile.md`, `bookwellnow_profile.md`.
 
 ---
 
@@ -387,6 +439,7 @@ Profiles: `openxcode_profile.md`, `automation_profile.md`.
 | `generate_posts_via_openrouter.py` / `generate_posts_via_anthropic.py` | Reddit-based posts |
 | `generate_ai_news.py` | AI news posts |
 | `generate_openxcode_batch.py` / `build_openxcode_assets.py` | OpenXcode 10-day visuals |
+| `generate_bookwellnow_batch.py` / `build_bookwellnow_assets.py` | BookWellNow 10-day carousels |
 | `generate_openxcode_posts.py` / `generate_openxcode_week.py` | OpenXcode text (legacy / week) |
 | `generate_automation_leads.py` / `build_automation_images.py` | Automation week |
 | `generate_us_image_posts.py` / `build_us_image_posts.py` | US image stream |
@@ -398,6 +451,8 @@ Profiles: `openxcode_profile.md`, `automation_profile.md`.
 |--------|---------|
 | `send_to_slack.py` / `send_*_to_slack.py` / `send_x_to_slack.py` | Slack review delivery (incl. X) |
 | `schedule_all_posts.cjs` | Universal LinkedIn scheduler |
+| `schedule_all_facebook_posts.py` | BookWellNow Facebook Page Graph API scheduler |
+| `facebook_page_auth.py` | Validate / exchange Facebook Page tokens |
 | `schedule_all_x_posts.cjs` | X (Twitter) native scheduler (text + image) |
 | `clear_x_scheduled.cjs` | Delete all X scheduled posts (Drafts → Scheduled) |
 | `skills/daily-x-posts/SKILL.md` | Daily X generate → Slack → schedule |
@@ -409,6 +464,8 @@ Profiles: `openxcode_profile.md`, `automation_profile.md`.
 | Script | Pipeline |
 |--------|----------|
 | `run_openxcode_batch.sh` | OpenXcode multi-day image + carousel |
+| `run_bookwellnow_batch.sh` | BookWellNow LinkedIn 10-day carousels |
+| `run_bookwellnow_facebook.sh` | BookWellNow Facebook Page albums |
 | `run_openxcode_posts.sh` | OpenXcode single text post |
 | `run_automation_leads.sh` | Automation leads week |
 | `run_us_image_posts.sh` | US image posts |
@@ -427,6 +484,10 @@ Profiles: `openxcode_profile.md`, `automation_profile.md`.
 | `schedule_today.json` | Daily LinkedIn schedule payload |
 | `schedule_x.json` | X (Twitter) schedule payload |
 | `schedule_openxcode.json` | OpenXcode schedule |
+| `schedule_bookwellnow.json` | BookWellNow LinkedIn schedule |
+| `schedule_bookwellnow_facebook.json` | BookWellNow Facebook schedule |
+| `bookwellnow_batch_*.json` | Generated BookWellNow multi-day content |
+| `bookwellnow-run-log.json` / `bookwellnow-facebook-run-log.json` | BookWellNow dedup / Graph ids |
 | `schedule_automation_leads.json` | Automation leads schedule |
 | `schedule_us_image_posts.json` | US image schedule |
 | `openxcode_batch_*.json` | Generated OpenXcode multi-day content |
@@ -450,7 +511,7 @@ Profiles: `openxcode_profile.md`, `automation_profile.md`.
 - Connection DMs: keep **≤15/day** via short humanized sessions (~2/hour). Absolute code ceilings cannot be raised via `ALLOW_UNSAFE_DM_LIMITS`.
 - Prefer low caps when testing (`MAX_CONNECTIONS_PER_RUN=5`, `MAX_COMMENTS_PER_RUN=5`); use `DRY_RUN=1` first.
 - Freelancer bids: keep `dry_run` / `--dry-run` until proposal quality looks right, then `--live`.
-- Do not commit secrets, OAuth tokens, or live bid/session state.
+- Do not commit secrets, OAuth tokens, Facebook Page tokens, or live bid/session state.
 
 ---
 

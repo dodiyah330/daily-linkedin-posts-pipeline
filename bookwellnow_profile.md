@@ -5,6 +5,7 @@ Used by `generate_bookwellnow_batch.py` for company-page posts (we/our voice).
 ## Product
 - **Name:** BookWellNow — Appointment Booking plugin for WordPress
 - **Website:** https://bookwellnow.com
+- **Facebook:** https://www.facebook.com/BookWellNow
 - **Docs:** https://bookwellnow.com/docs/getting-started/installing/
 - **WordPress.org:** https://wordpress.org/plugins/bookwellnow-appointment-booking/
 - **Positioning:** Simple booking system for WordPress businesses. Unlimited services, staff, and bookings in the free core plugin, with no seat limits or hidden caps.
@@ -54,14 +55,16 @@ Flexible booking for every business. Manage services, schedules, and appointment
 - Free expert install and configuration on your site (Claim Slot / Expert Config)
 - 14 day money-back guarantee on paid plans
 - 24/7 ticketing helpdesk, average first response under 2 hours
-- Always include site URL in captions: https://bookwellnow.com/
+- Always include site URL in captions with UTM:
+  - LinkedIn: `https://bookwellnow.com/?utm_source=linkedin+post`
+  - Facebook: `https://bookwellnow.com/?utm_source=facebook+post`
 
 ## Analytics lessons (use to win impressions)
-- Industry-specific pain hooks beat generic "new feature" announcements
-- Beauty/salon + WordPress agency angles and dental/vet/fitness pain posts outperform vague consulting copy
-- Open with a sharp question or concrete owner pain (missed calls, slow site, WhatsApp chaos)
-- Pair one NEW feature with one industry outcome every day
-- Avoid hiring-style posts in this product batch; keep focus on installs and setup
+- Page export Aug 1-30 2026: hiring still wins (4 posts, 1,373 imp, 7 comments, 329 clicks). Product posts averaged 17 imp; the Aug 19 four-a-day carousels averaged 12. Post twice a day. Include 2 hiring carousels per 10-day batch (WordPress Developer + SEO Executive, remote, apply hr@bookwellnow.com).
+- Best product: dental mistake-fix/speed (only product comments), pet grooming agencies, physio reschedule (52-76% CTR), veterinary, WordPress agency checklists, beauty "If you are building a website for…".
+- Operational statements averaged 30 impressions; question-hooks averaged 13. Write named industry + empty chair / 3-second bounce / per-seat fee.
+- Dual CTA on product posts: Comment BOOK + a one-line debate question + "Repost if you know a [industry] still on WhatsApp".
+- Skip yoga filler, generic tutoring setup, and two posts about the same industry in one day.
 
 ## Customer booking flow (reuse in carousels)
 1. Choose a service (clear pricing and duration)
