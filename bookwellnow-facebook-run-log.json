@@ -1,0 +1,1669 @@
+[
+  {
+    "run": {
+      "started": "2026-09-17T13:02:44.163765+05:30",
+      "mode": "scheduled",
+      "dryRun": true,
+      "file": "schedule_bookwellnow_facebook.json",
+      "pageId": "1270739416117456",
+      "pageName": "Bookwellnow",
+      "results": [
+        {
+          "id": 1,
+          "label": "DAY 1 PHOTOS A \u2014 HIRING_WP",
+          "dryRun": true,
+          "when": "2026-09-18 10:30 AM IST"
+        },
+        {
+          "id": 2,
+          "label": "DAY 1 PHOTOS B \u2014 MISTAKE_FIX",
+          "dryRun": true,
+          "when": "2026-09-18 03:30 PM IST"
+        },
+        {
+          "id": 3,
+          "label": "DAY 2 PHOTOS A \u2014 AGENCY_BUILD",
+          "dryRun": true,
+          "when": "2026-09-19 10:00 AM IST"
+        },
+        {
+          "id": 4,
+          "label": "DAY 2 PHOTOS B \u2014 LAUNCH_CHECKLIST",
+          "dryRun": true,
+          "when": "2026-09-19 03:00 PM IST"
+        },
+        {
+          "id": 5,
+          "label": "DAY 3 PHOTOS A \u2014 RESCHEDULE_FLOW",
+          "dryRun": true,
+          "when": "2026-09-20 10:00 AM IST"
+        },
+        {
+          "id": 6,
+          "label": "DAY 3 PHOTOS B \u2014 SPEED_SEO",
+          "dryRun": true,
+          "when": "2026-09-20 03:00 PM IST"
+        },
+        {
+          "id": 7,
+          "label": "DAY 4 PHOTOS A \u2014 INDUSTRY_SPOT",
+          "dryRun": true,
+          "when": "2026-09-21 10:30 AM IST"
+        },
+        {
+          "id": 8,
+          "label": "DAY 4 PHOTOS B \u2014 AGENCY_BUILD",
+          "dryRun": true,
+          "when": "2026-09-21 03:30 PM IST"
+        },
+        {
+          "id": 9,
+          "label": "DAY 5 PHOTOS A \u2014 HIRING_SEO",
+          "dryRun": true,
+          "when": "2026-09-22 10:00 AM IST"
+        },
+        {
+          "id": 10,
+          "label": "DAY 5 PHOTOS B \u2014 STAFF_SHIFTS",
+          "dryRun": true,
+          "when": "2026-09-22 03:00 PM IST"
+        },
+        {
+          "id": 11,
+          "label": "DAY 6 PHOTOS A \u2014 SETUP_STEPS",
+          "dryRun": true,
+          "when": "2026-09-23 10:30 AM IST"
+        },
+        {
+          "id": 12,
+          "label": "DAY 6 PHOTOS B \u2014 SHORTCODE_CTA",
+          "dryRun": true,
+          "when": "2026-09-23 03:30 PM IST"
+        },
+        {
+          "id": 13,
+          "label": "DAY 7 PHOTOS A \u2014 PAIN_NO_SHOW",
+          "dryRun": true,
+          "when": "2026-09-24 10:00 AM IST"
+        },
+        {
+          "id": 14,
+          "label": "DAY 7 PHOTOS B \u2014 STAFF_SHIFTS",
+          "dryRun": true,
+          "when": "2026-09-24 03:00 PM IST"
+        },
+        {
+          "id": 15,
+          "label": "DAY 8 PHOTOS A \u2014 RESCHEDULE_FLOW",
+          "dryRun": true,
+          "when": "2026-09-25 10:30 AM IST"
+        },
+        {
+          "id": 16,
+          "label": "DAY 8 PHOTOS B \u2014 NOTIFICATIONS",
+          "dryRun": true,
+          "when": "2026-09-25 03:30 PM IST"
+        },
+        {
+          "id": 17,
+          "label": "DAY 9 PHOTOS A \u2014 AGENCY_ANGLE",
+          "dryRun": true,
+          "when": "2026-09-26 10:00 AM IST"
+        },
+        {
+          "id": 18,
+          "label": "DAY 9 PHOTOS B \u2014 TIRED_OF",
+          "dryRun": true,
+          "when": "2026-09-26 03:00 PM IST"
+        },
+        {
+          "id": 19,
+          "label": "DAY 10 PHOTOS A \u2014 UNLIMITED_STAFF",
+          "dryRun": true,
+          "when": "2026-09-27 10:00 AM IST"
+        },
+        {
+          "id": 20,
+          "label": "DAY 10 PHOTOS B \u2014 CLIENT_JOURNEY",
+          "dryRun": true,
+          "when": "2026-09-27 03:00 PM IST"
+        }
+      ],
+      "finished": "2026-09-17T13:02:44.165570+05:30",
+      "ok": 20,
+      "fail": 0,
+      "skip": 0
+    }
+  },
+  {
+    "ok": true,
+    "id": 1,
+    "label": "DAY 1 PHOTOS A \u2014 HIRING_WP",
+    "graphId": "1270739416117456_122119594089420978",
+    "when": "2026-09-18 10:30 AM IST",
+    "key": "09/18/2026|10:30 AM|DAY 1 PHOTOS A \u2014 HIRING_WP",
+    "photoIds": [
+      "122119593861420978",
+      "122119593909420978",
+      "122119593945420978",
+      "122119593975420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 2,
+    "label": "DAY 1 PHOTOS B \u2014 MISTAKE_FIX",
+    "graphId": "1270739416117456_122119594263420978",
+    "when": "2026-09-18 03:30 PM IST",
+    "key": "09/18/2026|3:30 PM|DAY 1 PHOTOS B \u2014 MISTAKE_FIX",
+    "photoIds": [
+      "122119594113420978",
+      "122119594161420978",
+      "122119594203420978",
+      "122119594233420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 3,
+    "label": "DAY 2 PHOTOS A \u2014 AGENCY_BUILD",
+    "graphId": "1270739416117456_122119594449420978",
+    "when": "2026-09-19 10:00 AM IST",
+    "key": "09/19/2026|10:00 AM|DAY 2 PHOTOS A \u2014 AGENCY_BUILD",
+    "photoIds": [
+      "122119594293420978",
+      "122119594335420978",
+      "122119594371420978",
+      "122119594407420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 4,
+    "label": "DAY 2 PHOTOS B \u2014 LAUNCH_CHECKLIST",
+    "graphId": "1270739416117456_122119594713420978",
+    "when": "2026-09-19 03:00 PM IST",
+    "key": "09/19/2026|3:00 PM|DAY 2 PHOTOS B \u2014 LAUNCH_CHECKLIST",
+    "photoIds": [
+      "122119594569420978",
+      "122119594611420978",
+      "122119594647420978",
+      "122119594689420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 5,
+    "label": "DAY 3 PHOTOS A \u2014 RESCHEDULE_FLOW",
+    "graphId": "1270739416117456_122119595187420978",
+    "when": "2026-09-20 10:00 AM IST",
+    "key": "09/20/2026|10:00 AM|DAY 3 PHOTOS A \u2014 RESCHEDULE_FLOW",
+    "photoIds": [
+      "122119594917420978",
+      "122119594965420978",
+      "122119595001420978",
+      "122119595037420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 6,
+    "label": "DAY 3 PHOTOS B \u2014 SPEED_SEO",
+    "graphId": "1270739416117456_122119595469420978",
+    "when": "2026-09-20 03:00 PM IST",
+    "key": "09/20/2026|3:00 PM|DAY 3 PHOTOS B \u2014 SPEED_SEO",
+    "photoIds": [
+      "122119595235420978",
+      "122119595361420978",
+      "122119595403420978",
+      "122119595445420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 7,
+    "label": "DAY 4 PHOTOS A \u2014 INDUSTRY_SPOT",
+    "graphId": "1270739416117456_122119595703420978",
+    "when": "2026-09-21 10:30 AM IST",
+    "key": "09/21/2026|10:30 AM|DAY 4 PHOTOS A \u2014 INDUSTRY_SPOT",
+    "photoIds": [
+      "122119595541420978",
+      "122119595595420978",
+      "122119595637420978",
+      "122119595679420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 8,
+    "label": "DAY 4 PHOTOS B \u2014 AGENCY_BUILD",
+    "graphId": "1270739416117456_122119596147420978",
+    "when": "2026-09-21 03:30 PM IST",
+    "key": "09/21/2026|3:30 PM|DAY 4 PHOTOS B \u2014 AGENCY_BUILD",
+    "photoIds": [
+      "122119595955420978",
+      "122119596015420978",
+      "122119596063420978",
+      "122119596105420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 9,
+    "label": "DAY 5 PHOTOS A \u2014 HIRING_SEO",
+    "graphId": "1270739416117456_122119596369420978",
+    "when": "2026-09-22 10:00 AM IST",
+    "key": "09/22/2026|10:00 AM|DAY 5 PHOTOS A \u2014 HIRING_SEO",
+    "photoIds": [
+      "122119596195420978",
+      "122119596255420978",
+      "122119596285420978",
+      "122119596339420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 10,
+    "label": "DAY 5 PHOTOS B \u2014 STAFF_SHIFTS",
+    "graphId": "1270739416117456_122119596789420978",
+    "when": "2026-09-22 03:00 PM IST",
+    "key": "09/22/2026|3:00 PM|DAY 5 PHOTOS B \u2014 STAFF_SHIFTS",
+    "photoIds": [
+      "122119596633420978",
+      "122119596669420978",
+      "122119596711420978",
+      "122119596753420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 11,
+    "label": "DAY 6 PHOTOS A \u2014 SETUP_STEPS",
+    "graphId": "1270739416117456_122119597017420978",
+    "when": "2026-09-23 10:30 AM IST",
+    "key": "09/23/2026|10:30 AM|DAY 6 PHOTOS A \u2014 SETUP_STEPS",
+    "photoIds": [
+      "122119596837420978",
+      "122119596897420978",
+      "122119596933420978",
+      "122119596963420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 12,
+    "label": "DAY 6 PHOTOS B \u2014 SHORTCODE_CTA",
+    "graphId": "1270739416117456_122119597701420978",
+    "when": "2026-09-23 03:30 PM IST",
+    "key": "09/23/2026|3:30 PM|DAY 6 PHOTOS B \u2014 SHORTCODE_CTA",
+    "photoIds": [
+      "122119597389420978",
+      "122119597425420978",
+      "122119597467420978",
+      "122119597659420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 13,
+    "label": "DAY 7 PHOTOS A \u2014 PAIN_NO_SHOW",
+    "graphId": "1270739416117456_122119598157420978",
+    "when": "2026-09-24 10:00 AM IST",
+    "key": "09/24/2026|10:00 AM|DAY 7 PHOTOS A \u2014 PAIN_NO_SHOW",
+    "photoIds": [
+      "122119597761420978",
+      "122119597803420978",
+      "122119598031420978",
+      "122119598115420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 14,
+    "label": "DAY 7 PHOTOS B \u2014 STAFF_SHIFTS",
+    "graphId": "1270739416117456_122119598421420978",
+    "when": "2026-09-24 03:00 PM IST",
+    "key": "09/24/2026|3:00 PM|DAY 7 PHOTOS B \u2014 STAFF_SHIFTS",
+    "photoIds": [
+      "122119598229420978",
+      "122119598277420978",
+      "122119598319420978",
+      "122119598379420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 15,
+    "label": "DAY 8 PHOTOS A \u2014 RESCHEDULE_FLOW",
+    "graphId": "1270739416117456_122119598781420978",
+    "when": "2026-09-25 10:30 AM IST",
+    "key": "09/25/2026|10:30 AM|DAY 8 PHOTOS A \u2014 RESCHEDULE_FLOW",
+    "photoIds": [
+      "122119598595420978",
+      "122119598655420978",
+      "122119598697420978",
+      "122119598745420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 16,
+    "label": "DAY 8 PHOTOS B \u2014 NOTIFICATIONS",
+    "graphId": "1270739416117456_122119599225420978",
+    "when": "2026-09-25 03:30 PM IST",
+    "key": "09/25/2026|3:30 PM|DAY 8 PHOTOS B \u2014 NOTIFICATIONS",
+    "photoIds": [
+      "122119598835420978",
+      "122119598895420978",
+      "122119599147420978",
+      "122119599195420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 17,
+    "label": "DAY 9 PHOTOS A \u2014 AGENCY_ANGLE",
+    "graphId": "1270739416117456_122119599495420978",
+    "when": "2026-09-26 10:00 AM IST",
+    "key": "09/26/2026|10:00 AM|DAY 9 PHOTOS A \u2014 AGENCY_ANGLE",
+    "photoIds": [
+      "122119599261420978",
+      "122119599309420978",
+      "122119599369420978",
+      "122119599471420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 18,
+    "label": "DAY 9 PHOTOS B \u2014 TIRED_OF",
+    "graphId": "1270739416117456_122119599825420978",
+    "when": "2026-09-26 03:00 PM IST",
+    "key": "09/26/2026|3:00 PM|DAY 9 PHOTOS B \u2014 TIRED_OF",
+    "photoIds": [
+      "122119599633420978",
+      "122119599693420978",
+      "122119599753420978",
+      "122119599795420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 19,
+    "label": "DAY 10 PHOTOS A \u2014 UNLIMITED_STAFF",
+    "graphId": "1270739416117456_122119600251420978",
+    "when": "2026-09-27 10:00 AM IST",
+    "key": "09/27/2026|10:00 AM|DAY 10 PHOTOS A \u2014 UNLIMITED_STAFF",
+    "photoIds": [
+      "122119599987420978",
+      "122119600125420978",
+      "122119600185420978",
+      "122119600227420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 20,
+    "label": "DAY 10 PHOTOS B \u2014 CLIENT_JOURNEY",
+    "graphId": "1270739416117456_122119600479420978",
+    "when": "2026-09-27 03:00 PM IST",
+    "key": "09/27/2026|3:00 PM|DAY 10 PHOTOS B \u2014 CLIENT_JOURNEY",
+    "photoIds": [
+      "122119600323420978",
+      "122119600359420978",
+      "122119600419420978",
+      "122119600455420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "run": {
+      "started": "2026-09-17T13:03:01.728009+05:30",
+      "mode": "scheduled",
+      "dryRun": false,
+      "file": "schedule_bookwellnow_facebook.json",
+      "pageId": "1270739416117456",
+      "pageName": "Bookwellnow",
+      "results": [
+        {
+          "ok": true,
+          "id": 1,
+          "label": "DAY 1 PHOTOS A \u2014 HIRING_WP",
+          "graphId": "1270739416117456_122119594089420978",
+          "when": "2026-09-18 10:30 AM IST",
+          "key": "09/18/2026|10:30 AM|DAY 1 PHOTOS A \u2014 HIRING_WP",
+          "photoIds": [
+            "122119593861420978",
+            "122119593909420978",
+            "122119593945420978",
+            "122119593975420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 2,
+          "label": "DAY 1 PHOTOS B \u2014 MISTAKE_FIX",
+          "graphId": "1270739416117456_122119594263420978",
+          "when": "2026-09-18 03:30 PM IST",
+          "key": "09/18/2026|3:30 PM|DAY 1 PHOTOS B \u2014 MISTAKE_FIX",
+          "photoIds": [
+            "122119594113420978",
+            "122119594161420978",
+            "122119594203420978",
+            "122119594233420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 3,
+          "label": "DAY 2 PHOTOS A \u2014 AGENCY_BUILD",
+          "graphId": "1270739416117456_122119594449420978",
+          "when": "2026-09-19 10:00 AM IST",
+          "key": "09/19/2026|10:00 AM|DAY 2 PHOTOS A \u2014 AGENCY_BUILD",
+          "photoIds": [
+            "122119594293420978",
+            "122119594335420978",
+            "122119594371420978",
+            "122119594407420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 4,
+          "label": "DAY 2 PHOTOS B \u2014 LAUNCH_CHECKLIST",
+          "graphId": "1270739416117456_122119594713420978",
+          "when": "2026-09-19 03:00 PM IST",
+          "key": "09/19/2026|3:00 PM|DAY 2 PHOTOS B \u2014 LAUNCH_CHECKLIST",
+          "photoIds": [
+            "122119594569420978",
+            "122119594611420978",
+            "122119594647420978",
+            "122119594689420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 5,
+          "label": "DAY 3 PHOTOS A \u2014 RESCHEDULE_FLOW",
+          "graphId": "1270739416117456_122119595187420978",
+          "when": "2026-09-20 10:00 AM IST",
+          "key": "09/20/2026|10:00 AM|DAY 3 PHOTOS A \u2014 RESCHEDULE_FLOW",
+          "photoIds": [
+            "122119594917420978",
+            "122119594965420978",
+            "122119595001420978",
+            "122119595037420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 6,
+          "label": "DAY 3 PHOTOS B \u2014 SPEED_SEO",
+          "graphId": "1270739416117456_122119595469420978",
+          "when": "2026-09-20 03:00 PM IST",
+          "key": "09/20/2026|3:00 PM|DAY 3 PHOTOS B \u2014 SPEED_SEO",
+          "photoIds": [
+            "122119595235420978",
+            "122119595361420978",
+            "122119595403420978",
+            "122119595445420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 7,
+          "label": "DAY 4 PHOTOS A \u2014 INDUSTRY_SPOT",
+          "graphId": "1270739416117456_122119595703420978",
+          "when": "2026-09-21 10:30 AM IST",
+          "key": "09/21/2026|10:30 AM|DAY 4 PHOTOS A \u2014 INDUSTRY_SPOT",
+          "photoIds": [
+            "122119595541420978",
+            "122119595595420978",
+            "122119595637420978",
+            "122119595679420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 8,
+          "label": "DAY 4 PHOTOS B \u2014 AGENCY_BUILD",
+          "graphId": "1270739416117456_122119596147420978",
+          "when": "2026-09-21 03:30 PM IST",
+          "key": "09/21/2026|3:30 PM|DAY 4 PHOTOS B \u2014 AGENCY_BUILD",
+          "photoIds": [
+            "122119595955420978",
+            "122119596015420978",
+            "122119596063420978",
+            "122119596105420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 9,
+          "label": "DAY 5 PHOTOS A \u2014 HIRING_SEO",
+          "graphId": "1270739416117456_122119596369420978",
+          "when": "2026-09-22 10:00 AM IST",
+          "key": "09/22/2026|10:00 AM|DAY 5 PHOTOS A \u2014 HIRING_SEO",
+          "photoIds": [
+            "122119596195420978",
+            "122119596255420978",
+            "122119596285420978",
+            "122119596339420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 10,
+          "label": "DAY 5 PHOTOS B \u2014 STAFF_SHIFTS",
+          "graphId": "1270739416117456_122119596789420978",
+          "when": "2026-09-22 03:00 PM IST",
+          "key": "09/22/2026|3:00 PM|DAY 5 PHOTOS B \u2014 STAFF_SHIFTS",
+          "photoIds": [
+            "122119596633420978",
+            "122119596669420978",
+            "122119596711420978",
+            "122119596753420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 11,
+          "label": "DAY 6 PHOTOS A \u2014 SETUP_STEPS",
+          "graphId": "1270739416117456_122119597017420978",
+          "when": "2026-09-23 10:30 AM IST",
+          "key": "09/23/2026|10:30 AM|DAY 6 PHOTOS A \u2014 SETUP_STEPS",
+          "photoIds": [
+            "122119596837420978",
+            "122119596897420978",
+            "122119596933420978",
+            "122119596963420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 12,
+          "label": "DAY 6 PHOTOS B \u2014 SHORTCODE_CTA",
+          "graphId": "1270739416117456_122119597701420978",
+          "when": "2026-09-23 03:30 PM IST",
+          "key": "09/23/2026|3:30 PM|DAY 6 PHOTOS B \u2014 SHORTCODE_CTA",
+          "photoIds": [
+            "122119597389420978",
+            "122119597425420978",
+            "122119597467420978",
+            "122119597659420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 13,
+          "label": "DAY 7 PHOTOS A \u2014 PAIN_NO_SHOW",
+          "graphId": "1270739416117456_122119598157420978",
+          "when": "2026-09-24 10:00 AM IST",
+          "key": "09/24/2026|10:00 AM|DAY 7 PHOTOS A \u2014 PAIN_NO_SHOW",
+          "photoIds": [
+            "122119597761420978",
+            "122119597803420978",
+            "122119598031420978",
+            "122119598115420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 14,
+          "label": "DAY 7 PHOTOS B \u2014 STAFF_SHIFTS",
+          "graphId": "1270739416117456_122119598421420978",
+          "when": "2026-09-24 03:00 PM IST",
+          "key": "09/24/2026|3:00 PM|DAY 7 PHOTOS B \u2014 STAFF_SHIFTS",
+          "photoIds": [
+            "122119598229420978",
+            "122119598277420978",
+            "122119598319420978",
+            "122119598379420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 15,
+          "label": "DAY 8 PHOTOS A \u2014 RESCHEDULE_FLOW",
+          "graphId": "1270739416117456_122119598781420978",
+          "when": "2026-09-25 10:30 AM IST",
+          "key": "09/25/2026|10:30 AM|DAY 8 PHOTOS A \u2014 RESCHEDULE_FLOW",
+          "photoIds": [
+            "122119598595420978",
+            "122119598655420978",
+            "122119598697420978",
+            "122119598745420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 16,
+          "label": "DAY 8 PHOTOS B \u2014 NOTIFICATIONS",
+          "graphId": "1270739416117456_122119599225420978",
+          "when": "2026-09-25 03:30 PM IST",
+          "key": "09/25/2026|3:30 PM|DAY 8 PHOTOS B \u2014 NOTIFICATIONS",
+          "photoIds": [
+            "122119598835420978",
+            "122119598895420978",
+            "122119599147420978",
+            "122119599195420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 17,
+          "label": "DAY 9 PHOTOS A \u2014 AGENCY_ANGLE",
+          "graphId": "1270739416117456_122119599495420978",
+          "when": "2026-09-26 10:00 AM IST",
+          "key": "09/26/2026|10:00 AM|DAY 9 PHOTOS A \u2014 AGENCY_ANGLE",
+          "photoIds": [
+            "122119599261420978",
+            "122119599309420978",
+            "122119599369420978",
+            "122119599471420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 18,
+          "label": "DAY 9 PHOTOS B \u2014 TIRED_OF",
+          "graphId": "1270739416117456_122119599825420978",
+          "when": "2026-09-26 03:00 PM IST",
+          "key": "09/26/2026|3:00 PM|DAY 9 PHOTOS B \u2014 TIRED_OF",
+          "photoIds": [
+            "122119599633420978",
+            "122119599693420978",
+            "122119599753420978",
+            "122119599795420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 19,
+          "label": "DAY 10 PHOTOS A \u2014 UNLIMITED_STAFF",
+          "graphId": "1270739416117456_122119600251420978",
+          "when": "2026-09-27 10:00 AM IST",
+          "key": "09/27/2026|10:00 AM|DAY 10 PHOTOS A \u2014 UNLIMITED_STAFF",
+          "photoIds": [
+            "122119599987420978",
+            "122119600125420978",
+            "122119600185420978",
+            "122119600227420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 20,
+          "label": "DAY 10 PHOTOS B \u2014 CLIENT_JOURNEY",
+          "graphId": "1270739416117456_122119600479420978",
+          "when": "2026-09-27 03:00 PM IST",
+          "key": "09/27/2026|3:00 PM|DAY 10 PHOTOS B \u2014 CLIENT_JOURNEY",
+          "photoIds": [
+            "122119600323420978",
+            "122119600359420978",
+            "122119600419420978",
+            "122119600455420978"
+          ]
+        }
+      ],
+      "finished": "2026-09-17T13:06:40.887496+05:30",
+      "ok": 20,
+      "fail": 0,
+      "skip": 0
+    }
+  },
+  {
+    "date": "2026-09-17",
+    "mode": "10-day-3posts-facebook-features",
+    "file": "bookwellnow_facebook_batch_20260917.json",
+    "topics": [
+      "Seamless Booking with BookWellNow",
+      "Getting Started with BookWellNow: Install, Staff, and Services",
+      "Effortless WordPress Booking: Shortcodes, Client Panels, and Payments",
+      "Automated Booking for Online Services, Calendar Management, and Client Intake",
+      "Tailor Your WordPress Booking with BookWellNow",
+      "Advanced Booking Management for WordPress Businesses",
+      "Streamlining operations with advanced Pro booking features",
+      "BookWellNow Pro: Advanced Payments, Extras, and Group Bookings",
+      "BookWellNow support, easy installation, and industry versatility",
+      "BookWellNow basics: new page, free features, and agency solutions"
+    ],
+    "industries": [
+      "WordPress service businesses",
+      "salons and barbershops",
+      "any appointment business",
+      "WordPress site owners",
+      "multi-staff clinics and salons",
+      "service catalogs",
+      "WordPress agencies",
+      "repeat clients",
+      "paid appointments",
+      "coaches, tutors, and online clinics",
+      "front-desk calendars",
+      "intake forms",
+      "branded booking pages",
+      "late-night and overnight shops",
+      "phone-first customers",
+      "teams juggling Google Calendar",
+      "online sessions",
+      "custom intake questions",
+      "prep time between clients",
+      "no-show heavy clinics",
+      "reminder follow-up",
+      "WooCommerce shops",
+      "add-on upsells",
+      "classes and group slots",
+      "owners who need a human",
+      "first-time installers",
+      "spas, gyms, clinics, tutors, pet care",
+      "This Facebook Community",
+      "WordPress.org Downloaders",
+      "Agencies Building Client Sites"
+    ]
+  },
+  {
+    "ok": true,
+    "id": 1,
+    "label": "DAY 1 PHOTOS A \u2014 PAGE_INTRO",
+    "graphId": "1270739416117456_122119604673420978",
+    "when": "2026-09-18 11:00 AM IST",
+    "key": "09/18/2026|11:00 AM|DAY 1 PHOTOS A \u2014 PAGE_INTRO",
+    "photoIds": [
+      "122119604541420978",
+      "122119604577420978",
+      "122119604613420978",
+      "122119604649420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 2,
+    "label": "DAY 1 PHOTOS B \u2014 UNLIMITED_CORE",
+    "graphId": "1270739416117456_122119604847420978",
+    "when": "2026-09-18 03:30 PM IST",
+    "key": "09/18/2026|3:30 PM|DAY 1 PHOTOS B \u2014 UNLIMITED_CORE",
+    "photoIds": [
+      "122119604703420978",
+      "122119604751420978",
+      "122119604787420978",
+      "122119604823420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 3,
+    "label": "DAY 1 PHOTOS C \u2014 CLIENT_JOURNEY",
+    "graphId": "1270739416117456_122119605027420978",
+    "when": "2026-09-18 08:00 PM IST",
+    "key": "09/18/2026|8:00 PM|DAY 1 PHOTOS C \u2014 CLIENT_JOURNEY",
+    "photoIds": [
+      "122119604877420978",
+      "122119604919420978",
+      "122119604961420978",
+      "122119604997420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 4,
+    "label": "DAY 2 PHOTOS A \u2014 SETUP_WIZARD",
+    "graphId": "1270739416117456_122119605357420978",
+    "when": "2026-09-19 11:00 AM IST",
+    "key": "09/19/2026|11:00 AM|DAY 2 PHOTOS A \u2014 SETUP_WIZARD",
+    "photoIds": [
+      "122119605081420978",
+      "122119605129420978",
+      "122119605171420978",
+      "122119605207420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 5,
+    "label": "DAY 2 PHOTOS B \u2014 STAFF_SHIFTS",
+    "graphId": "1270739416117456_122119605549420978",
+    "when": "2026-09-19 04:00 PM IST",
+    "key": "09/19/2026|4:00 PM|DAY 2 PHOTOS B \u2014 STAFF_SHIFTS",
+    "photoIds": [
+      "122119605405420978",
+      "122119605453420978",
+      "122119605489420978",
+      "122119605525420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 6,
+    "label": "DAY 2 PHOTOS C \u2014 SERVICES_DUP",
+    "graphId": "1270739416117456_122119605777420978",
+    "when": "2026-09-19 07:00 PM IST",
+    "key": "09/19/2026|7:00 PM|DAY 2 PHOTOS C \u2014 SERVICES_DUP",
+    "photoIds": [
+      "122119605633420978",
+      "122119605675420978",
+      "122119605711420978",
+      "122119605753420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 7,
+    "label": "DAY 3 PHOTOS A \u2014 SHORTCODES",
+    "graphId": "1270739416117456_122119606143420978",
+    "when": "2026-09-20 11:00 AM IST",
+    "key": "09/20/2026|11:00 AM|DAY 3 PHOTOS A \u2014 SHORTCODES",
+    "photoIds": [
+      "122119605849420978",
+      "122119605891420978",
+      "122119606047420978",
+      "122119606101420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 8,
+    "label": "DAY 3 PHOTOS B \u2014 CUSTOMER_PANEL",
+    "graphId": "1270739416117456_122119606473420978",
+    "when": "2026-09-20 04:00 PM IST",
+    "key": "09/20/2026|4:00 PM|DAY 3 PHOTOS B \u2014 CUSTOMER_PANEL",
+    "photoIds": [
+      "122119606191420978",
+      "122119606257420978",
+      "122119606395420978",
+      "122119606431420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 9,
+    "label": "DAY 3 PHOTOS C \u2014 PAYMENTS_FREE",
+    "graphId": "1270739416117456_122119606701420978",
+    "when": "2026-09-20 07:00 PM IST",
+    "key": "09/20/2026|7:00 PM|DAY 3 PHOTOS C \u2014 PAYMENTS_FREE",
+    "photoIds": [
+      "122119606527420978",
+      "122119606587420978",
+      "122119606629420978",
+      "122119606665420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 10,
+    "label": "DAY 4 PHOTOS A \u2014 ZOOM_FREE",
+    "graphId": "1270739416117456_122119606929420978",
+    "when": "2026-09-21 11:00 AM IST",
+    "key": "09/21/2026|11:00 AM|DAY 4 PHOTOS A \u2014 ZOOM_FREE",
+    "photoIds": [
+      "122119606755420978",
+      "122119606821420978",
+      "122119606863420978",
+      "122119606905420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 11,
+    "label": "DAY 4 PHOTOS B \u2014 CALENDAR_AVAIL",
+    "graphId": "1270739416117456_122119607421420978",
+    "when": "2026-09-21 03:30 PM IST",
+    "key": "09/21/2026|3:30 PM|DAY 4 PHOTOS B \u2014 CALENDAR_AVAIL",
+    "photoIds": [
+      "122119607157420978",
+      "122119607301420978",
+      "122119607349420978",
+      "122119607391420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 12,
+    "label": "DAY 4 PHOTOS C \u2014 FORM_FIELDS",
+    "graphId": "1270739416117456_122119607667420978",
+    "when": "2026-09-21 08:00 PM IST",
+    "key": "09/21/2026|8:00 PM|DAY 4 PHOTOS C \u2014 FORM_FIELDS",
+    "photoIds": [
+      "122119607481420978",
+      "122119607541420978",
+      "122119607589420978",
+      "122119607637420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 13,
+    "label": "DAY 5 PHOTOS A \u2014 APPEARANCE",
+    "graphId": "1270739416117456_122119607949420978",
+    "when": "2026-09-22 11:00 AM IST",
+    "key": "09/22/2026|11:00 AM|DAY 5 PHOTOS A \u2014 APPEARANCE",
+    "photoIds": [
+      "122119607715420978",
+      "122119607763420978",
+      "122119607811420978",
+      "122119607853420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 14,
+    "label": "DAY 5 PHOTOS B \u2014 OVERNIGHT",
+    "graphId": "1270739416117456_122119608297420978",
+    "when": "2026-09-22 03:30 PM IST",
+    "key": "09/22/2026|3:30 PM|DAY 5 PHOTOS B \u2014 OVERNIGHT",
+    "photoIds": [
+      "122119608063420978",
+      "122119608183420978",
+      "122119608225420978",
+      "122119608267420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 15,
+    "label": "DAY 5 PHOTOS C \u2014 SPEED_MOBILE",
+    "graphId": "1270739416117456_122119608681420978",
+    "when": "2026-09-22 08:00 PM IST",
+    "key": "09/22/2026|8:00 PM|DAY 5 PHOTOS C \u2014 SPEED_MOBILE",
+    "photoIds": [
+      "122119608369420978",
+      "122119608411420978",
+      "122119608603420978",
+      "122119608651420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 16,
+    "label": "DAY 6 PHOTOS A \u2014 PRO_GCAL",
+    "graphId": "1270739416117456_122119609023420978",
+    "when": "2026-09-23 11:00 AM IST",
+    "key": "09/23/2026|11:00 AM|DAY 6 PHOTOS A \u2014 PRO_GCAL",
+    "photoIds": [
+      "122119608801420978",
+      "122119608903420978",
+      "122119608939420978",
+      "122119608987420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 17,
+    "label": "DAY 6 PHOTOS B \u2014 PRO_MEET",
+    "graphId": "1270739416117456_122119609251420978",
+    "when": "2026-09-23 03:30 PM IST",
+    "key": "09/23/2026|3:30 PM|DAY 6 PHOTOS B \u2014 PRO_MEET",
+    "photoIds": [
+      "122119609083420978",
+      "122119609149420978",
+      "122119609185420978",
+      "122119609221420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 18,
+    "label": "DAY 6 PHOTOS C \u2014 PRO_FIELDS",
+    "graphId": "1270739416117456_122119609629420978",
+    "when": "2026-09-23 08:00 PM IST",
+    "key": "09/23/2026|8:00 PM|DAY 6 PHOTOS C \u2014 PRO_FIELDS",
+    "photoIds": [
+      "122119609323420978",
+      "122119609377420978",
+      "122119609569420978",
+      "122119609605420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 19,
+    "label": "DAY 7 PHOTOS A \u2014 PRO_BUFFER",
+    "graphId": "1270739416117456_122119610007420978",
+    "when": "2026-09-24 11:00 AM IST",
+    "key": "09/24/2026|11:00 AM|DAY 7 PHOTOS A \u2014 PRO_BUFFER",
+    "photoIds": [
+      "122119609701420978",
+      "122119609761420978",
+      "122119609947420978",
+      "122119609983420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 20,
+    "label": "DAY 7 PHOTOS B \u2014 PRO_RESCHEDULE",
+    "graphId": "1270739416117456_122119610247420978",
+    "when": "2026-09-24 03:30 PM IST",
+    "key": "09/24/2026|3:30 PM|DAY 7 PHOTOS B \u2014 PRO_RESCHEDULE",
+    "photoIds": [
+      "122119610091420978",
+      "122119610139420978",
+      "122119610175420978",
+      "122119610217420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 21,
+    "label": "DAY 7 PHOTOS C \u2014 PRO_NOTIFY",
+    "graphId": "1270739416117456_122119610463420978",
+    "when": "2026-09-24 08:00 PM IST",
+    "key": "09/24/2026|8:00 PM|DAY 7 PHOTOS C \u2014 PRO_NOTIFY",
+    "photoIds": [
+      "122119610307420978",
+      "122119610355420978",
+      "122119610391420978",
+      "122119610439420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 22,
+    "label": "DAY 8 PHOTOS A \u2014 PRO_WOO",
+    "graphId": "1270739416117456_122119610745420978",
+    "when": "2026-09-25 11:00 AM IST",
+    "key": "09/25/2026|11:00 AM|DAY 8 PHOTOS A \u2014 PRO_WOO",
+    "photoIds": [
+      "122119610553420978",
+      "122119610613420978",
+      "122119610655420978",
+      "122119610709420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 23,
+    "label": "DAY 8 PHOTOS B \u2014 PRO_EXTRAS",
+    "graphId": "1270739416117456_122119610949420978",
+    "when": "2026-09-25 03:30 PM IST",
+    "key": "09/25/2026|3:30 PM|DAY 8 PHOTOS B \u2014 PRO_EXTRAS",
+    "photoIds": [
+      "122119610787420978",
+      "122119610829420978",
+      "122119610883420978",
+      "122119610925420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 24,
+    "label": "DAY 8 PHOTOS C \u2014 PRO_CAPACITY",
+    "graphId": "1270739416117456_122119611183420978",
+    "when": "2026-09-25 08:00 PM IST",
+    "key": "09/25/2026|8:00 PM|DAY 8 PHOTOS C \u2014 PRO_CAPACITY",
+    "photoIds": [
+      "122119611003420978",
+      "122119611063420978",
+      "122119611105420978",
+      "122119611141420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 25,
+    "label": "DAY 9 PHOTOS A \u2014 SUPPORT_DOCS",
+    "graphId": "1270739416117456_122119611579420978",
+    "when": "2026-09-26 11:00 AM IST",
+    "key": "09/26/2026|11:00 AM|DAY 9 PHOTOS A \u2014 SUPPORT_DOCS",
+    "photoIds": [
+      "122119611423420978",
+      "122119611465420978",
+      "122119611507420978",
+      "122119611543420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 26,
+    "label": "DAY 9 PHOTOS B \u2014 EXPERT_INSTALL",
+    "graphId": "1270739416117456_122119611885420978",
+    "when": "2026-09-26 04:00 PM IST",
+    "key": "09/26/2026|4:00 PM|DAY 9 PHOTOS B \u2014 EXPERT_INSTALL",
+    "photoIds": [
+      "122119611711420978",
+      "122119611759420978",
+      "122119611795420978",
+      "122119611843420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 27,
+    "label": "DAY 9 PHOTOS C \u2014 INDUSTRIES",
+    "graphId": "1270739416117456_122119612209420978",
+    "when": "2026-09-26 07:00 PM IST",
+    "key": "09/26/2026|7:00 PM|DAY 9 PHOTOS C \u2014 INDUSTRIES",
+    "photoIds": [
+      "122119612017420978",
+      "122119612059420978",
+      "122119612101420978",
+      "122119612161420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 28,
+    "label": "DAY 10 PHOTOS A \u2014 FOLLOW_GROW",
+    "graphId": "1270739416117456_122119612545420978",
+    "when": "2026-09-27 11:00 AM IST",
+    "key": "09/27/2026|11:00 AM|DAY 10 PHOTOS A \u2014 FOLLOW_GROW",
+    "photoIds": [
+      "122119612257420978",
+      "122119612329420978",
+      "122119612377420978",
+      "122119612509420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 29,
+    "label": "DAY 10 PHOTOS B \u2014 FREE_DOWNLOAD",
+    "graphId": "1270739416117456_122119612815420978",
+    "when": "2026-09-27 04:00 PM IST",
+    "key": "09/27/2026|4:00 PM|DAY 10 PHOTOS B \u2014 FREE_DOWNLOAD",
+    "photoIds": [
+      "122119612611420978",
+      "122119612647420978",
+      "122119612755420978",
+      "122119612791420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "ok": true,
+    "id": 30,
+    "label": "DAY 10 PHOTOS C \u2014 AGENCY_BUILD",
+    "graphId": "1270739416117456_122119613055420978",
+    "when": "2026-09-27 07:00 PM IST",
+    "key": "09/27/2026|7:00 PM|DAY 10 PHOTOS C \u2014 AGENCY_BUILD",
+    "photoIds": [
+      "122119612893420978",
+      "122119612941420978",
+      "122119612983420978",
+      "122119613031420978"
+    ],
+    "date": "2026-09-17"
+  },
+  {
+    "run": {
+      "started": "2026-09-17T13:29:14.093853+05:30",
+      "mode": "scheduled",
+      "dryRun": false,
+      "file": "schedule_bookwellnow_facebook.json",
+      "pageId": "1270739416117456",
+      "pageName": "Bookwellnow",
+      "results": [
+        {
+          "ok": true,
+          "id": 1,
+          "label": "DAY 1 PHOTOS A \u2014 PAGE_INTRO",
+          "graphId": "1270739416117456_122119604673420978",
+          "when": "2026-09-18 11:00 AM IST",
+          "key": "09/18/2026|11:00 AM|DAY 1 PHOTOS A \u2014 PAGE_INTRO",
+          "photoIds": [
+            "122119604541420978",
+            "122119604577420978",
+            "122119604613420978",
+            "122119604649420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 2,
+          "label": "DAY 1 PHOTOS B \u2014 UNLIMITED_CORE",
+          "graphId": "1270739416117456_122119604847420978",
+          "when": "2026-09-18 03:30 PM IST",
+          "key": "09/18/2026|3:30 PM|DAY 1 PHOTOS B \u2014 UNLIMITED_CORE",
+          "photoIds": [
+            "122119604703420978",
+            "122119604751420978",
+            "122119604787420978",
+            "122119604823420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 3,
+          "label": "DAY 1 PHOTOS C \u2014 CLIENT_JOURNEY",
+          "graphId": "1270739416117456_122119605027420978",
+          "when": "2026-09-18 08:00 PM IST",
+          "key": "09/18/2026|8:00 PM|DAY 1 PHOTOS C \u2014 CLIENT_JOURNEY",
+          "photoIds": [
+            "122119604877420978",
+            "122119604919420978",
+            "122119604961420978",
+            "122119604997420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 4,
+          "label": "DAY 2 PHOTOS A \u2014 SETUP_WIZARD",
+          "graphId": "1270739416117456_122119605357420978",
+          "when": "2026-09-19 11:00 AM IST",
+          "key": "09/19/2026|11:00 AM|DAY 2 PHOTOS A \u2014 SETUP_WIZARD",
+          "photoIds": [
+            "122119605081420978",
+            "122119605129420978",
+            "122119605171420978",
+            "122119605207420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 5,
+          "label": "DAY 2 PHOTOS B \u2014 STAFF_SHIFTS",
+          "graphId": "1270739416117456_122119605549420978",
+          "when": "2026-09-19 04:00 PM IST",
+          "key": "09/19/2026|4:00 PM|DAY 2 PHOTOS B \u2014 STAFF_SHIFTS",
+          "photoIds": [
+            "122119605405420978",
+            "122119605453420978",
+            "122119605489420978",
+            "122119605525420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 6,
+          "label": "DAY 2 PHOTOS C \u2014 SERVICES_DUP",
+          "graphId": "1270739416117456_122119605777420978",
+          "when": "2026-09-19 07:00 PM IST",
+          "key": "09/19/2026|7:00 PM|DAY 2 PHOTOS C \u2014 SERVICES_DUP",
+          "photoIds": [
+            "122119605633420978",
+            "122119605675420978",
+            "122119605711420978",
+            "122119605753420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 7,
+          "label": "DAY 3 PHOTOS A \u2014 SHORTCODES",
+          "graphId": "1270739416117456_122119606143420978",
+          "when": "2026-09-20 11:00 AM IST",
+          "key": "09/20/2026|11:00 AM|DAY 3 PHOTOS A \u2014 SHORTCODES",
+          "photoIds": [
+            "122119605849420978",
+            "122119605891420978",
+            "122119606047420978",
+            "122119606101420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 8,
+          "label": "DAY 3 PHOTOS B \u2014 CUSTOMER_PANEL",
+          "graphId": "1270739416117456_122119606473420978",
+          "when": "2026-09-20 04:00 PM IST",
+          "key": "09/20/2026|4:00 PM|DAY 3 PHOTOS B \u2014 CUSTOMER_PANEL",
+          "photoIds": [
+            "122119606191420978",
+            "122119606257420978",
+            "122119606395420978",
+            "122119606431420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 9,
+          "label": "DAY 3 PHOTOS C \u2014 PAYMENTS_FREE",
+          "graphId": "1270739416117456_122119606701420978",
+          "when": "2026-09-20 07:00 PM IST",
+          "key": "09/20/2026|7:00 PM|DAY 3 PHOTOS C \u2014 PAYMENTS_FREE",
+          "photoIds": [
+            "122119606527420978",
+            "122119606587420978",
+            "122119606629420978",
+            "122119606665420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 10,
+          "label": "DAY 4 PHOTOS A \u2014 ZOOM_FREE",
+          "graphId": "1270739416117456_122119606929420978",
+          "when": "2026-09-21 11:00 AM IST",
+          "key": "09/21/2026|11:00 AM|DAY 4 PHOTOS A \u2014 ZOOM_FREE",
+          "photoIds": [
+            "122119606755420978",
+            "122119606821420978",
+            "122119606863420978",
+            "122119606905420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 11,
+          "label": "DAY 4 PHOTOS B \u2014 CALENDAR_AVAIL",
+          "graphId": "1270739416117456_122119607421420978",
+          "when": "2026-09-21 03:30 PM IST",
+          "key": "09/21/2026|3:30 PM|DAY 4 PHOTOS B \u2014 CALENDAR_AVAIL",
+          "photoIds": [
+            "122119607157420978",
+            "122119607301420978",
+            "122119607349420978",
+            "122119607391420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 12,
+          "label": "DAY 4 PHOTOS C \u2014 FORM_FIELDS",
+          "graphId": "1270739416117456_122119607667420978",
+          "when": "2026-09-21 08:00 PM IST",
+          "key": "09/21/2026|8:00 PM|DAY 4 PHOTOS C \u2014 FORM_FIELDS",
+          "photoIds": [
+            "122119607481420978",
+            "122119607541420978",
+            "122119607589420978",
+            "122119607637420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 13,
+          "label": "DAY 5 PHOTOS A \u2014 APPEARANCE",
+          "graphId": "1270739416117456_122119607949420978",
+          "when": "2026-09-22 11:00 AM IST",
+          "key": "09/22/2026|11:00 AM|DAY 5 PHOTOS A \u2014 APPEARANCE",
+          "photoIds": [
+            "122119607715420978",
+            "122119607763420978",
+            "122119607811420978",
+            "122119607853420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 14,
+          "label": "DAY 5 PHOTOS B \u2014 OVERNIGHT",
+          "graphId": "1270739416117456_122119608297420978",
+          "when": "2026-09-22 03:30 PM IST",
+          "key": "09/22/2026|3:30 PM|DAY 5 PHOTOS B \u2014 OVERNIGHT",
+          "photoIds": [
+            "122119608063420978",
+            "122119608183420978",
+            "122119608225420978",
+            "122119608267420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 15,
+          "label": "DAY 5 PHOTOS C \u2014 SPEED_MOBILE",
+          "graphId": "1270739416117456_122119608681420978",
+          "when": "2026-09-22 08:00 PM IST",
+          "key": "09/22/2026|8:00 PM|DAY 5 PHOTOS C \u2014 SPEED_MOBILE",
+          "photoIds": [
+            "122119608369420978",
+            "122119608411420978",
+            "122119608603420978",
+            "122119608651420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 16,
+          "label": "DAY 6 PHOTOS A \u2014 PRO_GCAL",
+          "graphId": "1270739416117456_122119609023420978",
+          "when": "2026-09-23 11:00 AM IST",
+          "key": "09/23/2026|11:00 AM|DAY 6 PHOTOS A \u2014 PRO_GCAL",
+          "photoIds": [
+            "122119608801420978",
+            "122119608903420978",
+            "122119608939420978",
+            "122119608987420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 17,
+          "label": "DAY 6 PHOTOS B \u2014 PRO_MEET",
+          "graphId": "1270739416117456_122119609251420978",
+          "when": "2026-09-23 03:30 PM IST",
+          "key": "09/23/2026|3:30 PM|DAY 6 PHOTOS B \u2014 PRO_MEET",
+          "photoIds": [
+            "122119609083420978",
+            "122119609149420978",
+            "122119609185420978",
+            "122119609221420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 18,
+          "label": "DAY 6 PHOTOS C \u2014 PRO_FIELDS",
+          "graphId": "1270739416117456_122119609629420978",
+          "when": "2026-09-23 08:00 PM IST",
+          "key": "09/23/2026|8:00 PM|DAY 6 PHOTOS C \u2014 PRO_FIELDS",
+          "photoIds": [
+            "122119609323420978",
+            "122119609377420978",
+            "122119609569420978",
+            "122119609605420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 19,
+          "label": "DAY 7 PHOTOS A \u2014 PRO_BUFFER",
+          "graphId": "1270739416117456_122119610007420978",
+          "when": "2026-09-24 11:00 AM IST",
+          "key": "09/24/2026|11:00 AM|DAY 7 PHOTOS A \u2014 PRO_BUFFER",
+          "photoIds": [
+            "122119609701420978",
+            "122119609761420978",
+            "122119609947420978",
+            "122119609983420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 20,
+          "label": "DAY 7 PHOTOS B \u2014 PRO_RESCHEDULE",
+          "graphId": "1270739416117456_122119610247420978",
+          "when": "2026-09-24 03:30 PM IST",
+          "key": "09/24/2026|3:30 PM|DAY 7 PHOTOS B \u2014 PRO_RESCHEDULE",
+          "photoIds": [
+            "122119610091420978",
+            "122119610139420978",
+            "122119610175420978",
+            "122119610217420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 21,
+          "label": "DAY 7 PHOTOS C \u2014 PRO_NOTIFY",
+          "graphId": "1270739416117456_122119610463420978",
+          "when": "2026-09-24 08:00 PM IST",
+          "key": "09/24/2026|8:00 PM|DAY 7 PHOTOS C \u2014 PRO_NOTIFY",
+          "photoIds": [
+            "122119610307420978",
+            "122119610355420978",
+            "122119610391420978",
+            "122119610439420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 22,
+          "label": "DAY 8 PHOTOS A \u2014 PRO_WOO",
+          "graphId": "1270739416117456_122119610745420978",
+          "when": "2026-09-25 11:00 AM IST",
+          "key": "09/25/2026|11:00 AM|DAY 8 PHOTOS A \u2014 PRO_WOO",
+          "photoIds": [
+            "122119610553420978",
+            "122119610613420978",
+            "122119610655420978",
+            "122119610709420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 23,
+          "label": "DAY 8 PHOTOS B \u2014 PRO_EXTRAS",
+          "graphId": "1270739416117456_122119610949420978",
+          "when": "2026-09-25 03:30 PM IST",
+          "key": "09/25/2026|3:30 PM|DAY 8 PHOTOS B \u2014 PRO_EXTRAS",
+          "photoIds": [
+            "122119610787420978",
+            "122119610829420978",
+            "122119610883420978",
+            "122119610925420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 24,
+          "label": "DAY 8 PHOTOS C \u2014 PRO_CAPACITY",
+          "graphId": "1270739416117456_122119611183420978",
+          "when": "2026-09-25 08:00 PM IST",
+          "key": "09/25/2026|8:00 PM|DAY 8 PHOTOS C \u2014 PRO_CAPACITY",
+          "photoIds": [
+            "122119611003420978",
+            "122119611063420978",
+            "122119611105420978",
+            "122119611141420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 25,
+          "label": "DAY 9 PHOTOS A \u2014 SUPPORT_DOCS",
+          "graphId": "1270739416117456_122119611579420978",
+          "when": "2026-09-26 11:00 AM IST",
+          "key": "09/26/2026|11:00 AM|DAY 9 PHOTOS A \u2014 SUPPORT_DOCS",
+          "photoIds": [
+            "122119611423420978",
+            "122119611465420978",
+            "122119611507420978",
+            "122119611543420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 26,
+          "label": "DAY 9 PHOTOS B \u2014 EXPERT_INSTALL",
+          "graphId": "1270739416117456_122119611885420978",
+          "when": "2026-09-26 04:00 PM IST",
+          "key": "09/26/2026|4:00 PM|DAY 9 PHOTOS B \u2014 EXPERT_INSTALL",
+          "photoIds": [
+            "122119611711420978",
+            "122119611759420978",
+            "122119611795420978",
+            "122119611843420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 27,
+          "label": "DAY 9 PHOTOS C \u2014 INDUSTRIES",
+          "graphId": "1270739416117456_122119612209420978",
+          "when": "2026-09-26 07:00 PM IST",
+          "key": "09/26/2026|7:00 PM|DAY 9 PHOTOS C \u2014 INDUSTRIES",
+          "photoIds": [
+            "122119612017420978",
+            "122119612059420978",
+            "122119612101420978",
+            "122119612161420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 28,
+          "label": "DAY 10 PHOTOS A \u2014 FOLLOW_GROW",
+          "graphId": "1270739416117456_122119612545420978",
+          "when": "2026-09-27 11:00 AM IST",
+          "key": "09/27/2026|11:00 AM|DAY 10 PHOTOS A \u2014 FOLLOW_GROW",
+          "photoIds": [
+            "122119612257420978",
+            "122119612329420978",
+            "122119612377420978",
+            "122119612509420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 29,
+          "label": "DAY 10 PHOTOS B \u2014 FREE_DOWNLOAD",
+          "graphId": "1270739416117456_122119612815420978",
+          "when": "2026-09-27 04:00 PM IST",
+          "key": "09/27/2026|4:00 PM|DAY 10 PHOTOS B \u2014 FREE_DOWNLOAD",
+          "photoIds": [
+            "122119612611420978",
+            "122119612647420978",
+            "122119612755420978",
+            "122119612791420978"
+          ]
+        },
+        {
+          "ok": true,
+          "id": 30,
+          "label": "DAY 10 PHOTOS C \u2014 AGENCY_BUILD",
+          "graphId": "1270739416117456_122119613055420978",
+          "when": "2026-09-27 07:00 PM IST",
+          "key": "09/27/2026|7:00 PM|DAY 10 PHOTOS C \u2014 AGENCY_BUILD",
+          "photoIds": [
+            "122119612893420978",
+            "122119612941420978",
+            "122119612983420978",
+            "122119613031420978"
+          ]
+        }
+      ],
+      "finished": "2026-09-17T13:34:52.685043+05:30",
+      "ok": 30,
+      "fail": 0,
+      "skip": 0
+    }
+  }
+]
