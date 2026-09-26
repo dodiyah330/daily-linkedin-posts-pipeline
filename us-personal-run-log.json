@@ -65,5 +65,19 @@
       "Automated Intercom + Notion Support Triage for US SaaS",
       "De-risking Custom AI Automation for US SaaS"
     ]
+  },
+  {
+    "date": "2026-08-23",
+    "mode": "7-day-carousel-only-us",
+    "file": "us_personal_carousel_week_20260823.json",
+    "topics": [
+      "Morning CRM-to-Slack handoff before 9 AM ET standup",
+      "Calendly to Apollo Slack dossier before demos",
+      "Stripe failed payment Slack alerts for finance ops",
+      "DocuSign signed contract to tenant provisioning",
+      "Intercom ticket triage with Notion-backed AI drafts",
+      "Why Zapier breaks at Series A SaaS scale",
+      "Two fixed-price automation build slots this month"
+    ]
   }
 ]
